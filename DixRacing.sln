@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{0FB86595-22BB-499E-8076-B84396B5FE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{0FB86595-22BB-499E-8076-B84396B5FE7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.Core", "DixRacing.Core\DixRacing.Core.csproj", "{3AD35FDE-BE12-4907-9816-610A14E98215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DixRacing.Data", "DixRacing.Data\DixRacing.Data.csproj", "{03741492-3AC2-4B42-812A-2696FB303079}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0FB86595-22BB-499E-8076-B84396B5FE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FB86595-22BB-499E-8076-B84396B5FE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FB86595-22BB-499E-8076-B84396B5FE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD35FDE-BE12-4907-9816-610A14E98215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD35FDE-BE12-4907-9816-610A14E98215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD35FDE-BE12-4907-9816-610A14E98215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD35FDE-BE12-4907-9816-610A14E98215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03741492-3AC2-4B42-812A-2696FB303079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03741492-3AC2-4B42-812A-2696FB303079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03741492-3AC2-4B42-812A-2696FB303079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03741492-3AC2-4B42-812A-2696FB303079}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
