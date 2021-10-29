@@ -23,7 +23,7 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("1")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();

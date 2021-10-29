@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Core.Errors
 {
-    public class ApiExtensions
-    {      
+    public class ApiExceptions
+    {     
+        
         public ApiExceptions(int statusCode, string message = null, string details=null)
         {
             this.statusCode = statusCode;
