@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.Core", "DixRacing.Core\DixRacing.Core.csproj", "{3AD35FDE-BE12-4907-9816-610A14E98215}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DixRacing.Data", "DixRacing.Data\DixRacing.Data.csproj", "{03741492-3AC2-4B42-812A-2696FB303079}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.Data", "DixRacing.Data\DixRacing.Data.csproj", "{03741492-3AC2-4B42-812A-2696FB303079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DixRacing.Services", "DixRacing.Services\DixRacing.Services.csproj", "{AD3A2DBE-02AC-4C8B-B3C3-5C22E30F30F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{03741492-3AC2-4B42-812A-2696FB303079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03741492-3AC2-4B42-812A-2696FB303079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03741492-3AC2-4B42-812A-2696FB303079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD3A2DBE-02AC-4C8B-B3C3-5C22E30F30F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD3A2DBE-02AC-4C8B-B3C3-5C22E30F30F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD3A2DBE-02AC-4C8B-B3C3-5C22E30F30F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD3A2DBE-02AC-4C8B-B3C3-5C22E30F30F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
