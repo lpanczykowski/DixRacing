@@ -12,7 +12,7 @@ using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
 using DixRacing.Services;
 
-namespace API
+namespace API.Extensions
 {
     public static class ApplicationServiceExtensions
     {
