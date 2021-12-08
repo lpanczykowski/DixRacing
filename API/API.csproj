@@ -17,9 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DixRacing.Core\DixRacing.Core.csproj" />
     <ProjectReference Include="..\DixRacing.Data\DixRacing.Data.csproj" />
-	<ProjectReference Include="..\DixRacing.Data\DixRacing.Services.csproj" />
-	
-	  
-  </ItemGroup>
+	<ProjectReference Include="..\DixRacing.Services\DixRacing.Services.csproj" />
+	</ItemGroup>
 
 </Project>

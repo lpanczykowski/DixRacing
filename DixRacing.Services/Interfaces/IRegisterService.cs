@@ -8,6 +8,6 @@ namespace DixRacing.Services.Interfaces
 {
     public interface IRegisterService
     {
-        Task<bool> UserExists(AccountRegisterRequest accountRegisterRequest);
+        Task<bool> CheckIfUserExistsByMail(AccountRegisterRequest accountRegisterRequest);
     }
 }

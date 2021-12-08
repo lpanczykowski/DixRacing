@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DixRacing.Services
 {
-    public class RegisterService: IRegisterService
+    public class RegisterService : IRegisterService
     {
         private readonly DataContext _context;
 
@@ -19,9 +19,10 @@ namespace DixRacing.Services
             _context = context;
         }
 
-        public async Task<bool> UserExists(AccountRegisterRequest accountRegisterRequest)
+        public async Task<bool> CheckIfUserExistsByMail(AccountRegisterRequest accountRegisterRequest)
         {
-            return await _context.Users.AnyAsync();
+            return await _context.Users.AnyAsync(x => x.Email == accountRegisterRequest.Email);
+
         }
     }
 }
