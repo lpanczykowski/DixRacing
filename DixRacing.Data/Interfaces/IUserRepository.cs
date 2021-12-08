@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Data.Interfaces
 {
-    public interface IUserRepository :IRepository<Users>
+    public interface IUserRepository : IRepository<Users>
     {
-        
+        Task<Users> FindUserByEmail(string email);
     }
 }

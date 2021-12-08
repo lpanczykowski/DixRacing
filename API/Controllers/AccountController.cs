@@ -19,19 +19,19 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
-        private readonly IRegisterService _registerService;
+        private readonly IAccountService _accountService;
         private readonly IUserRepository _userRepository;
         private readonly ITokenService _tokenService;
 
         public AccountController(DataContext context,
                                  IMapper mapper,
-                                 IRegisterService registerService,
+                                 IAccountService accountService,
                                  IUserRepository userRepository,
                                  ITokenService tokenService)
         {
             _context = context;
             _mapper = mapper;
-            _registerService = registerService;
+            _accountService = accountService;
             _userRepository = userRepository;
             _tokenService = tokenService;
         }
@@ -39,7 +39,7 @@ namespace API.Controllers
 
         public async Task<ActionResult<AccountRegisterResponse>> AccountRegister(AccountRegisterRequest accountRegisterRequest)
         {
-            if (await _registerService.CheckIfUserExistsByMail(accountRegisterRequest)) return BadRequest("Email is taken");
+            if (await _accountService.CheckIfUserExistsByEmail(accountRegisterRequest.Email)) return BadRequest("Email is taken");
             var user = new Users();
 
             using var hmac = new HMACSHA512();
@@ -50,11 +50,33 @@ namespace API.Controllers
             user.PasswordSalt = hmac.Key;
             user.Email = accountRegisterRequest.Email;
             await _userRepository.AddAsync(user);
-            
+
             return new AccountRegisterResponse
             {
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
+            };
+        }
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginResponse>> Login(LoginRequest loginRequest)
+        {
+            var user = await _userRepository.FindUserByEmail(loginRequest.Email);
+            if (user == null) return Unauthorized("Invalid username");
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginRequest.Password));
+
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
+
+            }
+
+            return new LoginResponse
+            {
+                Email = user.Email,
+                Token = _tokenService.CreateToken(user)
+                                               
             };
         }
 

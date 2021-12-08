@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Services.Interfaces
 {
-    public interface IRegisterService
+    public interface IAccountService
     {
-        Task<bool> CheckIfUserExistsByMail(AccountRegisterRequest accountRegisterRequest);
+        Task<bool> CheckIfUserExistsByEmail(string email);
     }
 }

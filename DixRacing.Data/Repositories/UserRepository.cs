@@ -1,5 +1,6 @@
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,12 @@ namespace DixRacing.Data.Repositories
         {
             _dataContext = dataContext;
         }
+
+        public async Task<Users> FindUserByEmail(string email)
+        {
+           var user = await _dataContext.Users.FirstOrDefaultAsync(x=>x.Email == email);
+           return user;
+        }
+        
     }
 }

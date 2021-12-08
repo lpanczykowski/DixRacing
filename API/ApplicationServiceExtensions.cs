@@ -22,7 +22,7 @@ namespace API
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IRegisterService, RegisterService>();
+            services.AddScoped<IAccountService, AccountService>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
