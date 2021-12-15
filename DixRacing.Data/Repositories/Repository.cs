@@ -64,6 +64,24 @@ namespace DixRacing.Data.Repositories
                 throw new Exception($"{nameof(entity)} could not be updated: {ex.Message}");
             }
         }
+        public async Task<bool> DeleteAsync(TEntity entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
+            }
+
+            try
+            {
+                _dataContext.Remove(entity);
+                return await _dataContext.SaveChangesAsync() > 0;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"{nameof(entity)} could not be deleted: {ex.Message}");
+            }
+        }
         public async Task<bool> SaveAsync()
         {
             return await _dataContext.SaveChangesAsync() > 0;

@@ -23,6 +23,9 @@ namespace API.Extensions
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IEventRepository,EventRepository>();
+            services.AddScoped<ISignForEvent,SignForEvent>();
+            services.AddScoped<IResignFromEvent,ResignFromEvent>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {

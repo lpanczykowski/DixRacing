@@ -1,19 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DixRacing.Data.Entites
+namespace DixRacing.Core.Models.Request
 {
-    public class Events
+    public class AddEventRequest
     {
-        [Key]
-        public int EventId { get; set; }
+        
         public string Name { get; set; }
         public int GameId { get; set; }
-        [ForeignKey("GameId")]
-        public Games Game { get; set; }
+                
     }
 }
