@@ -2,6 +2,7 @@ using DixRacing.Core;
 using DixRacing.Core.Models.Request;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,9 +16,11 @@ namespace API.Controllers
     public class RaceController : BaseApiController
     {
         private readonly IRaceRepository _raceRepository;
+        private readonly IRaceConfirmation _raceConfirmation;
 
-        public RaceController(IRaceRepository raceRepository)
+        public RaceController(IRaceRepository raceRepository, IRaceConfirmation raceConfirmation)
         {
+            _raceConfirmation = raceConfirmation;
             _raceRepository = raceRepository;
         }
         [HttpPut("add")]
@@ -47,9 +50,13 @@ namespace API.Controllers
             return race;
 
         }
-        // [HttpPost("confirm")]        
-        // [HttpPost("withdraw")]
-
+        
+        [HttpPost("raceStatus")]
+        public async Task<bool> RaceStatus(RaceStatusRequest raceConfirmationRequest)
+        {
+            var response= await _raceConfirmation.ChangeRaceStatusAsync (raceConfirmationRequest);
+            return response;
+        }
     }
 
 }

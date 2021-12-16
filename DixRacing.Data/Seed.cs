@@ -23,5 +23,17 @@ namespace DixRacing.Data
         await context.SaveChangesAsync();
         }
         
+        public static async Task SeedTracks(DataContext context)
+        {
+            if (await context.Tracks.AnyAsync()) return;
+
+            var tracksData = await System.IO.File.ReadAllTextAsync("../DixRacing.Data/TracksSeedData.json");
+            var tracks = JsonSerializer.Deserialize<List<Tracks>>(tracksData);
+            foreach (var track in tracks)
+            {
+                context.Tracks.Add(track);
+            }
+        await context.SaveChangesAsync();
+        }
     }
 }

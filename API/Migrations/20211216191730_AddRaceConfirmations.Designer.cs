@@ -3,14 +3,16 @@ using System;
 using DixRacing.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20211216191730_AddRaceConfirmations")]
+    partial class AddRaceConfirmations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,10 +106,6 @@ namespace API.Migrations
 
             modelBuilder.Entity("DixRacing.Data.Entites.RaceConfirmations", b =>
                 {
-                    b.Property<int>("RaceConfirmationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("Confrimed")
                         .HasColumnType("INTEGER");
 
@@ -116,8 +114,6 @@ namespace API.Migrations
 
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
-
-                    b.HasKey("RaceConfirmationId");
 
                     b.ToTable("RaceConfirmations");
                 });

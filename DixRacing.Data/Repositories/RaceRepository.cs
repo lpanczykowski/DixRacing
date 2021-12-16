@@ -18,7 +18,7 @@ namespace DixRacing.Data.Repositories
         }        
         public async Task<Races> FindRaceByIdAsync(int raceId)
         {
-            var raceEvent = await _dataContext.Races.Where(x=>x.EventId == raceId).FirstOrDefaultAsync();
+            var raceEvent = await _dataContext.Races.Where(x=>x.RaceId == raceId).FirstOrDefaultAsync();
             return raceEvent;
         }
         

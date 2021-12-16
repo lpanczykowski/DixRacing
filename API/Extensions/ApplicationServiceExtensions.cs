@@ -26,6 +26,8 @@ namespace API.Extensions
             services.AddScoped<IEventRepository,EventRepository>();
             services.AddScoped<ISignForEvent,SignForEvent>();
             services.AddScoped<IResignFromEvent,ResignFromEvent>();
+            services.AddScoped<IRaceConfirmation,RaceConfirmation>();
+            services.AddScoped<IRaceRepository,RaceRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
