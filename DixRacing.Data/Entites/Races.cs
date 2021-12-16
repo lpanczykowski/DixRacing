@@ -21,8 +21,6 @@ namespace DixRacing.Data.Entites
         [ForeignKey("TrackId")]
         public Tracks Track { get; set; }
         public Weathers Weather {get;set;}
-        
-        
-        
+    
     }
 }

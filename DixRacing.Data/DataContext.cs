@@ -23,6 +23,7 @@ namespace DixRacing.Data
         public DbSet<RaceLaps> RaceLaps { get; set; }
         public DbSet<Tracks> Tracks { get; set; }
         public DbSet<EventParticipants> EventParticipants { get; set; }
-        public DbSet<RaceResults> UsersRaces { get; set; }        
+        public DbSet<RaceResults> RaceResults { get; set; }   
+        public DbSet<Races> Races { get; set; }     
     }
 }

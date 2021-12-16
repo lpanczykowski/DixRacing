@@ -12,7 +12,7 @@ namespace DixRacing.Data.Entites
         [Key]
         public int RaceResultId {get;set;}
         public int UserId { get; set; }
-        public int RoundId { get; set; }
+        public int RaceId { get; set; }
 
         [ForeignKey("UserId")]
         public Users User { get; set; }
