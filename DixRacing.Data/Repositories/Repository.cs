@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DixRacing.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DixRacing.Data.Repositories
 {
@@ -14,11 +15,11 @@ namespace DixRacing.Data.Repositories
         {
             _dataContext = dataContext;
         }
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             try
             {
-                return _dataContext.Set<TEntity>();
+                return await _dataContext.Set<TEntity>().ToListAsync();
             }
             catch (Exception ex)
             {

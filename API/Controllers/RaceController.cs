@@ -38,25 +38,27 @@ namespace API.Controllers
             return response;
         }
         [HttpDelete("delete/{raceId}")]
-        public async Task<bool> DeleteRace(int raceId)
+        public async Task<ActionResult<bool>> DeleteRace(int raceId)
         {
             var race = await _raceRepository.FindRaceByIdAsync(raceId);
-            return await _raceRepository.DeleteAsync(race);
+            var response = await _raceRepository.DeleteAsync(race);
+            return Ok(response);
         }
         [HttpGet("{raceId}")]
-        public async Task<Races> FindRaceById(int raceId)
+        public async Task<ActionResult<Races>> FindRaceById(int raceId)
         {
             var race = await _raceRepository.FindRaceByIdAsync(raceId);
-            return race;
+            return Ok(race);
 
         }
-        
+
         [HttpPost("raceStatus")]
-        public async Task<bool> RaceStatus(RaceStatusRequest raceConfirmationRequest)
+        public async Task<ActionResult<bool>> RaceStatus(RaceStatusRequest raceConfirmationRequest)
         {
-            var response= await _raceConfirmation.ChangeRaceStatusAsync (raceConfirmationRequest);
-            return response;
+            var response = await _raceConfirmation.ChangeRaceStatusAsync(raceConfirmationRequest);
+            return Ok(response);
         }
+
     }
 
 }

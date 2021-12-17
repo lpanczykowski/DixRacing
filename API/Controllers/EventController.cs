@@ -6,6 +6,7 @@ using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -61,8 +62,20 @@ namespace API.Controllers
         public async Task<ActionResult<Events>> FindEventById(int eventId)
         {
             var raceEvent = await _eventRepository.FindEventByIdAsync(eventId);
-            return (raceEvent);
+            return Ok(raceEvent);
 
+        }
+        [HttpGet("races/{eventId}")]
+        public async Task<ActionResult<ICollection<Races>>> GetRacesByEventId(int eventId)
+        {
+            var races = await _eventRepository.FindRacesByEventIdAsync(eventId);
+            return Ok(races);
+        }
+        [HttpGet("all")]
+        public async Task<ActionResult<ICollection<Events>>> GetAllEvents()
+        {
+            var events = await  _eventRepository.GetAllAsync();
+            return Ok(events);
         }
 
     }
