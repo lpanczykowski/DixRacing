@@ -7,7 +7,7 @@ namespace DixRacing.Core.Models.Request
 {
     public class AddRaceRequest
     {
-        public int EventId { get; set; }
+        public int RoundId { get; set; }
         public DateTime StartingTime { get; set; }
         public DateTime SigningTime { get; set; }
         public int MaxPlayers { get; set; }

@@ -9,6 +9,6 @@ namespace DixRacing.Data.Interfaces
     public interface IEventRepository : IRepository<Events>
     {
         Task<Events> FindEventByIdAsync(int eventId);
-        Task<ICollection<Races>> FindRacesByEventIdAsync(int eventId);
+        Task<ICollection<Rounds>> FindRacesByEventIdAsync(int eventId);
     }
 }

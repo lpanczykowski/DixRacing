@@ -21,10 +21,10 @@ namespace DixRacing.Data.Repositories
             var raceEvent = await _dataContext.Events.Where(x=>x.EventId == eventId).FirstOrDefaultAsync();
             return raceEvent;
         }
-        public async Task<ICollection<Races>> FindRacesByEventIdAsync(int eventId)
+        public async Task<ICollection<Rounds>> FindRacesByEventIdAsync(int eventId)
         {
-            var races = await _dataContext.Races.Where(x=>x.EventId == eventId).ToListAsync();
-            return races;
+            var races = await _dataContext.Events.Where(x=>x.EventId == eventId).Include(x=>x.Rounds).FirstOrDefaultAsync();
+            return races.Rounds;
 
         }
     }

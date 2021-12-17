@@ -65,12 +65,6 @@ namespace API.Controllers
             return Ok(raceEvent);
 
         }
-        [HttpGet("races/{eventId}")]
-        public async Task<ActionResult<ICollection<Races>>> GetRacesByEventId(int eventId)
-        {
-            var races = await _eventRepository.FindRacesByEventIdAsync(eventId);
-            return Ok(races);
-        }
         [HttpGet("all")]
         public async Task<ActionResult<ICollection<Events>>> GetAllEvents()
         {

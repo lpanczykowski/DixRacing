@@ -28,11 +28,10 @@ namespace API.Controllers
         {
             var race = new Races()
             {
-                EventId = addRaceRequest.EventId,
+                RoundId = addRaceRequest.RoundId,
                 MaxPlayers = addRaceRequest.MaxPlayers,
                 SigningTime = addRaceRequest.SigningTime,
-                StartingTime = addRaceRequest.StartingTime,
-                TrackId = addRaceRequest.TrackId
+                StartingTime = addRaceRequest.StartingTime,                
             };
             var response = await _raceRepository.AddAsync(race);
             return response;
