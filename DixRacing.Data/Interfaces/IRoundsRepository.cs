@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Data.Interfaces
 {
-    public interface IRoundsRepository
+    public interface IRoundsRepository : IRepository<Rounds>
     {
         Task<Rounds> FindRoundByTrackAndDate(string trackName, DateTime roundDate);
         
