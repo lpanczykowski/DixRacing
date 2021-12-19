@@ -14,7 +14,7 @@ namespace DixRacing.Data.Entites
         public int EventId { get; set; }
         public ICollection<Races> Races { get; set; }
         public string ServerName { get; set; }
-        public string ServerPassword { get; set; }
+        public string ServerPassword{ get; set; }
         public int TrackId { get; set; }
         [ForeignKey("TrackId")]
         public Tracks Track { get; set; }
