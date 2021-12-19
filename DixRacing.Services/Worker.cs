@@ -51,13 +51,13 @@ namespace DixRacing.Services
                             //resultsText.Normalize();
                             var results = JsonConvert.DeserializeObject<Results>(resultsText);
                             var stringDate = file.Name.Split("_").FirstOrDefault();
-                            results.sessionDate = new DateTime(2000 + Convert.ToInt32(stringDate.Substring(0, 2)), Convert.ToInt32(stringDate.Substring(2, 2)), Convert.ToInt32(stringDate.Substring(4, 2)));                        
+                            results.sessionDate = new DateTime(2000 + Convert.ToInt32(stringDate.Substring(0, 2)), Convert.ToInt32(stringDate.Substring(2, 2)), Convert.ToInt32(stringDate.Substring(4, 2)));
                             await scopedProcessingService.ManageResults(results);
                             file.MoveTo(file.DirectoryName + @"\cpy\" + file.Name);
 
                         }
                         catch (ArgumentException e)
-                        
+
                         {
                             _logger.LogInformation("Error: {e}", e.Message);
                         }
@@ -65,8 +65,9 @@ namespace DixRacing.Services
 
 
                     }
+                    await Task.Delay(10000, stoppingToken);
                 }
-                await Task.Delay(2000, stoppingToken);
+
             }
 
 

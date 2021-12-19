@@ -1,3 +1,4 @@
+using AutoMapper;
 using DixRacing.Core;
 using DixRacing.Core.Models.Request;
 using DixRacing.Data.Entites;
@@ -15,21 +16,24 @@ namespace API.Controllers
     public class RoundsController : BaseApiController
     {
         private readonly IRoundsRepository _roundsRepository;
+        private readonly IMapper _mapper;
 
-        public RoundsController(IRoundsRepository roundsRepository)
+        public RoundsController(IRoundsRepository roundsRepository, IMapper mapper)
         {
             _roundsRepository = roundsRepository;
+            _mapper = mapper;
         }
 
         [HttpPut("add")]
         public async Task<Rounds> AddRound(AddRoundRequest addRoundRequest)
         {
-            var Round = new Rounds()
-            {
-                TrackId = addRoundRequest.TrackID,
-                ServerPassword = addRoundRequest.ServerPassword,
-                ServerName = addRoundRequest.ServerName
-            };
+            // var Round = new Rounds()
+            // {
+            //     TrackId = addRoundRequest.TrackId,
+            //     ServerPassword = addRoundRequest.ServerPassword,
+            //     ServerName = addRoundRequest.ServerName
+            // };
+            var Round = _mapper.Map<AddRoundRequest, Rounds>(addRoundRequest);
             var response = await _roundsRepository.AddAsync(Round);
             return response;
         }
