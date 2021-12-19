@@ -12,13 +12,13 @@ namespace DixRacing.Data.Entites
         [Key]
         public int RoundId { get; set; }
         public int EventId { get; set; }
-        [ForeignKey("RaceId")]
         public ICollection<Races> Races { get; set; }
         public string ServerName { get; set; }
         public string ServerPassword { get; set; }
         public int TrackId { get; set; }
         [ForeignKey("TrackId")]
         public Tracks Track { get; set; }
+        public DateTime RoundDay { get; set; }
 
     }
 }

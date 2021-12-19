@@ -28,7 +28,10 @@ namespace API.Extensions
             services.AddScoped<IResignFromEvent,ResignFromEvent>();
             services.AddScoped<IRaceConfirmation,RaceConfirmation>();
             services.AddScoped<IRaceRepository,RaceRepository>();
-            services.AddScoped<IRoundsRepository, RoundsRepository>();
+            services.AddScoped<IResultManager,ResultManager>();
+            services.AddScoped<IRoundsRepository,RoundsRepository>();
+            services.AddHostedService<Worker>();
+            
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {

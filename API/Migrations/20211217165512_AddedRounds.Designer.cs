@@ -3,14 +3,16 @@ using System;
 using DixRacing.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20211217165512_AddedRounds")]
+    partial class AddedRounds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,26 +151,6 @@ namespace API.Migrations
                     b.ToTable("RaceLaps");
                 });
 
-            modelBuilder.Entity("DixRacing.Data.Entites.RacePoints", b =>
-                {
-                    b.Property<int>("RacePointId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("Points")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("Position")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("RaceId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("RacePointId");
-
-                    b.ToTable("RacePoints");
-                });
-
             modelBuilder.Entity("DixRacing.Data.Entites.RaceResults", b =>
                 {
                     b.Property<int>("RaceResultId")
@@ -178,8 +160,8 @@ namespace API.Migrations
                     b.Property<int>("PenaltyPoints")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Points")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Points")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Position")
                         .HasColumnType("INTEGER");
@@ -205,7 +187,6 @@ namespace API.Migrations
             modelBuilder.Entity("DixRacing.Data.Entites.Races", b =>
                 {
                     b.Property<int>("RaceId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("EventId")
@@ -215,9 +196,6 @@ namespace API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("RoundsRoundId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("SigningTime")
@@ -233,8 +211,6 @@ namespace API.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.HasIndex("RoundsRoundId");
-
                     b.HasIndex("WeatherId");
 
                     b.ToTable("Races");
@@ -247,9 +223,6 @@ namespace API.Migrations
 
                     b.Property<int>("EventId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("RoundDay")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("ServerName")
                         .HasColumnType("TEXT");
@@ -304,9 +277,6 @@ namespace API.Migrations
 
                     b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("BLOB");
-
-                    b.Property<string>("SteamId")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("Surname")
                         .HasColumnType("TEXT");
@@ -401,7 +371,9 @@ namespace API.Migrations
 
                     b.HasOne("DixRacing.Data.Entites.Rounds", null)
                         .WithMany("Races")
-                        .HasForeignKey("RoundsRoundId");
+                        .HasForeignKey("RaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DixRacing.Data.Entites.Weathers", "Weather")
                         .WithMany()

@@ -1,5 +1,6 @@
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace DixRacing.Data.Repositories
         public RoundsRepository(DataContext dataContext) : base(dataContext)
         {
             _dataContext = dataContext;
+        }
+        public async Task<Rounds> FindRoundByTrackAndDate(string trackName, DateTime roundDate)
+        {
+            var round = await _dataContext.Rounds.Where(x=>x.Track.Name == trackName && x.RoundDay == roundDate).Include(x=>x.Races).FirstOrDefaultAsync();
+            return round;
         }
     }
 }

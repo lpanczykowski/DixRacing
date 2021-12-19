@@ -26,5 +26,9 @@ namespace DixRacing.Data
         public DbSet<RaceResults> RaceResults { get; set; }   
         public DbSet<Races> Races { get; set; }    
         public DbSet<RaceConfirmations> RaceConfirmations { get; set; } 
+        public DbSet<Rounds> Rounds {get;set;}
+        public DbSet<RacePoints> RacePoints { get; set; }
+
+
     }
 }
