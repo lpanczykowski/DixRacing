@@ -1,0 +1,45 @@
+[
+    {
+        "racePointId": 1,
+        "raceId": 1,
+        "position": 1,
+        "points": 100
+    },
+    {
+        "racePointId": 2,
+        "raceId": 1,
+        "position": 2,
+        "points": 75
+    },
+    {
+        "racePointId": 3,
+        "raceId": 1,
+        "position": 3,
+        "points": 50
+    },
+    {
+        "racePointId": 4,
+        "raceId": 1,
+        "position": 4,
+        "points": 20
+    },
+    {
+        "racePointId": 5,
+        "raceId": 1,
+        "position": 5,
+        "points": 10
+    },
+    {
+        "racePointId": 6,
+        "raceId": 1,
+        "position": 6,
+        "points": 5
+    },
+    {
+        "racePointId": 7,
+        "raceId": 1,
+        "position": 7,
+        "points": 1
+    }
+
+]

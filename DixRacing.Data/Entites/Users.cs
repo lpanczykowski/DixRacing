@@ -16,6 +16,7 @@ namespace DixRacing.Data.Entites
         public string Email {get;set;}
         public string Name {get;set;}
         public string Surname { get; set; }
+        public string SteamId { get; set; }
 
     }
 }

@@ -3,14 +3,16 @@ using System;
 using DixRacing.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20211219181742_AddedRaceResults")]
+    partial class AddedRaceResults
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -205,7 +207,6 @@ namespace API.Migrations
             modelBuilder.Entity("DixRacing.Data.Entites.Races", b =>
                 {
                     b.Property<int>("RaceId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("EventId")
@@ -215,9 +216,6 @@ namespace API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("RoundsRoundId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("SigningTime")
@@ -232,8 +230,6 @@ namespace API.Migrations
                     b.HasKey("RaceId");
 
                     b.HasIndex("EventId");
-
-                    b.HasIndex("RoundsRoundId");
 
                     b.HasIndex("WeatherId");
 
@@ -401,7 +397,9 @@ namespace API.Migrations
 
                     b.HasOne("DixRacing.Data.Entites.Rounds", null)
                         .WithMany("Races")
-                        .HasForeignKey("RoundsRoundId");
+                        .HasForeignKey("RaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DixRacing.Data.Entites.Weathers", "Weather")
                         .WithMany()
