@@ -20,10 +20,11 @@ namespace DixRacing.Services
         }
         public async Task<bool> AddEventAsync(AddEventRequest addEventRequest)
         {
-            var events = new Events {
+            var events = new Events
+            {
                 GameId = addEventRequest.GameId,
                 Name = addEventRequest.Name,
-                
+
             };
             _datacontext.Add(events);
             return await _datacontext.SaveChangesAsync() > 0;
