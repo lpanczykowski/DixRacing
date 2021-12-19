@@ -65,8 +65,9 @@ namespace DixRacing.Services
 
 
                     }
+                     await Task.Delay(2000, stoppingToken);
                 }
-                await Task.Delay(2000, stoppingToken);
+               
             }
 
 

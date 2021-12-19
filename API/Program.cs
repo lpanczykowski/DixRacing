@@ -25,9 +25,9 @@ namespace API
                 await context.Database.MigrateAsync();
                 await Seed.SeedGames(context);
                 await Seed.SeedTracks(context);
-                await Seed.SeedRounds(context);
-                await Seed.SeedRaces(context);
-                await Seed.SeedRacePoints(context);
+                // await Seed.SeedRounds(context);
+                // await Seed.SeedRaces(context);
+                // await Seed.SeedRacePoints(context);
                 
             }
             catch (Exception ex)
