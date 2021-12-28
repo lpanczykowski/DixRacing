@@ -17,15 +17,19 @@ namespace API.Controllers
         private readonly ISignForEvent _signForEvent;
         private readonly IResignFromEvent _resignFromEvent;
         private readonly IEventRepository _eventRepository;
+        private readonly IEventParticipantsRepository _eventParticipantsRepository;
 
         public EventController(ISignForEvent signForEvent,
                                IResignFromEvent resignFromEvent,
-                               IEventRepository eventRepository
+                               IEventRepository eventRepository,
+                               IEventParticipantsRepository eventParticipantsRepository
                             )
         {
             _signForEvent = signForEvent;
             _resignFromEvent = resignFromEvent;
             _eventRepository = eventRepository;
+            _eventParticipantsRepository=eventParticipantsRepository;
+            
         }
 
         [HttpPut("sign")]
@@ -70,6 +74,19 @@ namespace API.Controllers
         {
             var events = await  _eventRepository.GetAllAsync();
             return Ok(events);
+        }
+
+        [HttpPost("changeCar")]
+        public async Task<ActionResult<int>> ChangeCar(CarChangeRequest carChangeRequest)
+        {
+            var newCar= await _eventParticipantsRepository.FindEventByIdAndUserId(carChangeRequest.EventId, carChangeRequest.UserId);
+            if (newCar==null)
+            {
+                return BadRequest("Cannot change car for null Id");
+            }
+            newCar.Car= carChangeRequest.Car;
+            await _eventParticipantsRepository.UpdateAsync(newCar);
+            return newCar.Car;
         }
 
     }
