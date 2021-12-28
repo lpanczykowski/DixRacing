@@ -77,16 +77,16 @@ namespace API.Controllers
         }
 
         [HttpPost("changeCar")]
-        public async Task<ActionResult<int>> ChangeCar(CarChangeRequest carChangeRequest)
+        public async Task<ActionResult<bool>> ChangeCar(CarChangeRequest carChangeRequest)
         {
-            var newCar= await _eventParticipantsRepository.FindEventByIdAndUserId(carChangeRequest.EventId, carChangeRequest.UserId);
-            if (newCar==null)
+            var eventParticipant= await _eventParticipantsRepository.FindEventParticipantsByEventIdAndUserId(carChangeRequest.EventId, carChangeRequest.UserId);
+            if (eventParticipant==null)
             {
                 return BadRequest("Cannot change car for null Id");
             }
-            newCar.Car= carChangeRequest.Car;
-            await _eventParticipantsRepository.UpdateAsync(newCar);
-            return newCar.Car;
+            eventParticipant.Car= carChangeRequest.Car;
+            var response = await _eventParticipantsRepository.UpdateAsync(eventParticipant);
+            return Ok(response);
         }
 
     }

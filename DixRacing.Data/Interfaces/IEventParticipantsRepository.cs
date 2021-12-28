@@ -8,6 +8,6 @@ namespace DixRacing.Data.Interfaces
 {
     public interface IEventParticipantsRepository: IRepository<EventParticipants>
     {
-        Task<EventParticipants> FindEventByIdAndUserId(int eventId, int userId);
+        Task<EventParticipants> FindEventParticipantsByEventIdAndUserId(int eventId, int userId);
     }
 }

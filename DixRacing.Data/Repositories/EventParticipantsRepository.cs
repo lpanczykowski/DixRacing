@@ -16,10 +16,10 @@ namespace DixRacing.Data.Repositories
         {
             _dataContext = dataContext;
         }
-        public async Task<EventParticipants> FindEventByIdAndUserId(int eventId, int userId)
+        public async Task<EventParticipants> FindEventParticipantsByEventIdAndUserId(int eventId, int userId)
         {
-            var newCar = await _dataContext.EventParticipants.Where(x => x.EventId == eventId && x.UserId == userId).FirstOrDefaultAsync();
-            return newCar;
+            var eventParticipant = await _dataContext.EventParticipants.Where(x => x.EventId == eventId && x.UserId == userId).FirstOrDefaultAsync();
+            return eventParticipant;
         }
     }
 }
