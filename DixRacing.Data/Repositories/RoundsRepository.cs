@@ -18,7 +18,7 @@ namespace DixRacing.Data.Repositories
         }
         public async Task<Rounds> FindRoundByTrackAndDate(string trackName, DateTime roundDate)
         {
-            var round = await _dataContext.Rounds.Where(x=>x.Track.Name == trackName && x.RoundDay == roundDate).Include(x=>x.Races).FirstOrDefaultAsync();
+            var round = await _dataContext.Rounds.Where(x=>x.Track.Name == trackName && x.RoundDay.Date == roundDate.Date).Include(x=>x.Races).FirstOrDefaultAsync();
             return round;
         }
     }

@@ -49,6 +49,7 @@ namespace API.Controllers
             user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(accountRegisterRequest.Password));
             user.PasswordSalt = hmac.Key;
             user.Email = accountRegisterRequest.Email;
+            user.SteamId = accountRegisterRequest.SteamId;
             await _userRepository.AddAsync(user);
 
             return new AccountRegisterResponse
