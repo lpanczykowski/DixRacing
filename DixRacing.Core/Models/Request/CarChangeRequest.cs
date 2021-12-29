@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Core.Models.Request
 {
-    public class AddPenaltyPointsRequest
+    public class CarChangeRequest
     {
         public int UserId { get; set; }
-        public int RaceId { get; set; }
-        public int PenaltyPoints { get; set; }
+        public int EventId { get; set; }
+        public int Car { get; set; }
     }
 }

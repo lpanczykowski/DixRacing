@@ -8,6 +8,6 @@ namespace DixRacing.Data.Interfaces
 {
     public interface IRaceResultsRepository : IRepository<RaceResults>
     {
-        
+       Task<RaceResults> FindRaceResultByUserIdAndRaceIdAsync(int userId,int raceId);
     }
 }

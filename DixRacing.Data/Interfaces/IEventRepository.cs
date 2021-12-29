@@ -10,5 +10,6 @@ namespace DixRacing.Data.Interfaces
     {
         Task<Events> FindEventByIdAsync(int eventId);
         Task<ICollection<Rounds>> FindRacesByEventIdAsync(int eventId);
+        
     }
 }
