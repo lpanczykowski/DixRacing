@@ -13,6 +13,7 @@ namespace DixRacing.Data.Entites
         public int RaceId { get; set; }
 
         public int RoundId{get;set;}
+        public Rounds Round { get; set; }
         [ForeignKey("EventId")]
         public Events Event { get; set; }
         public DateTime StartingTime { get; set; }

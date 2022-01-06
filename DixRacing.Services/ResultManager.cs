@@ -55,7 +55,7 @@ namespace DixRacing.Services
                                                                                                 .FirstOrDefault() && x.Position == position)
                                                                .Select(s=>s.Points)
                                                                .FirstOrDefaultAsync(),
-                        
+                        PenaltyPoints = 0
                     };
                     await _dataContext.AddAsync(raceResults);
                 }

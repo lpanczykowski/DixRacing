@@ -15,11 +15,9 @@ namespace DixRacing.Data.Entites
         public int RaceId { get; set; }
 
         [ForeignKey("UserId")]
-        public Users User { get; set; }
-        [ForeignKey("RoundId")]
-        public Races Race { get; set; }
+        public Users User { get; set; }               
         public int Position { get; set; }
         public double Points  { get; set; } = 0;
-        public int PenaltyPoints { get; set; }
+        public int? PenaltyPoints { get; set; }
     }
 }

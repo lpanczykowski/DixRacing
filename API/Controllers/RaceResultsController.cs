@@ -1,7 +1,9 @@
 using DixRacing.Core;
 using DixRacing.Core.Models.Request;
+using DixRacing.Core.Models.Response;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,10 +18,19 @@ namespace API.Controllers
 
     {
         private readonly IRaceResultsRepository _raceResultsRepository;
+        private readonly IRaceResultsService _raceResultService;
 
-        public RaceResultsController(IRaceResultsRepository raceResultsRepository)
+        public RaceResultsController(IRaceResultsService raceResultService,IRaceResultsRepository  raceResultsRepository )
         {
+            
+            _raceResultService = raceResultService;
             _raceResultsRepository = raceResultsRepository;
+        }
+        [HttpGet("{raceId}")]
+        public async Task<ICollection<RaceResultsResponse>> GetRaceResultsByRaceId(int raceId)
+        {
+            var response = await _raceResultService.FindRaceResultsByRaceId(raceId);
+            return response;
         }
         [HttpPost("addPenalty")]
         public async Task<ActionResult<int>> AddPenaltyPoints(AddPenaltyPointsRequest addPenaltyPointsRequest)
