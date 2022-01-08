@@ -9,6 +9,7 @@ import { AccountService } from '_services/account.service';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any={};
+  registerMode=false;
 
   constructor(private accountService: AccountService) { }
 
@@ -27,5 +28,15 @@ export class RegisterComponent implements OnInit {
   cancel()
   {
     this.cancelRegister.emit(false);
+  }
+
+  registerToggle()
+  {
+    this.registerMode=!this.registerMode;
+  }
+
+  cancelRegisterMode(event:boolean)
+  {
+    this.registerMode=event;
   }
 }

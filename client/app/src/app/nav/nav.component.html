@@ -1,43 +1,50 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
   <div class="container">
+    <a class="navbar-brand" routerLink='/'>DixRacing.pl</a>
 
-      <a class="navbar-brand nav-link" href="#">DixRacing.pl</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="colapse" data-bs-target="navmenu"><span
+        class="navbar-toggler-icon"></span></button>
 
-      <ul class="navbar-nav me-auto" *ngIf="accountService.currentUser$ | async">
+    <div class="collapse navbar-collapse justify-content-between" id="navmenu">
+
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Ligi</a>
+          <a href="https://discord.gg/83ubKU3j" class="nav-link">Discord</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Ogłoszenia</a>
+          <a href="https://www.youtube.com/c/DixRacingpl" class="nav-link">Youtube</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Forum</a>
+          <a class="nav-link" routerLink='/info' *ngIf="accountService.currentUser$ | async">Ogłoszenia</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Discord</a>
+          <a class="nav-link" routerLink='/forum' *ngIf="accountService.currentUser$ | async">Forum</a>
         </li>
       </ul>
 
-      <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-        <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
-        <div class="dropdown-menu mt-3" *dropdownMenu>
-          <a class="dropdown-item">Edit Profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">Logout</a>
+      <ul class="navbar-nav" *ngIf="accountService.currentUser$ | async">
+        <div class="dropdown" dropdown>
+          <a class="dropdown-toggle text-light" dropdownToggle>Witaj</a>
+          <div class="dropdown-menu mt-3" *dropdownMenu>
+            <a class="dropdown-item">Edytuj profil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+          </div>
         </div>
-      </div>
-
-
-      <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0"
-        (ngSubmit)="login()" autocomplete="off">
-
-        <input name="email" [(ngModel)]="model.email" class="form-control mr-sm-2" type="text" placeholder="Email">
-
-        <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password"
-          placeholder="Password">
-
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-      </form>
+      </ul>
     </div>
 
+    <ul class="navbar-nav" *ngIf="(accountService.currentUser$ | async) === null">
+      <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+
+        <input name="email" [(ngModel)]="model.email" class="form-control me-1" type="text" placeholder="Email">
+
+        <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="Hasło"
+          placeholder="Password">
+
+        <button class="btn btn-outline-success me-1" type="submit">Zaloguj</button>
+        <a routerLink='/register' class="btn btn-info me-1" role="button">Dołącz</a>
+      </form>
+    </ul>
+  </div>
 </nav>

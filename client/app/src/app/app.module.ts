@@ -9,10 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { MemberListComponent } from './members/member-list/member-list.component';
-import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { EventsComponent } from './events/events.component';
 import { RacesComponent } from './races/races.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +19,9 @@ import { RacesComponent } from './races/races.component';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    MemberListComponent,
-    MemberDetailComponent,
     EventsComponent,
-    RacesComponent
+    RacesComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

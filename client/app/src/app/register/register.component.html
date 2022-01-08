@@ -1,26 +1,54 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
-  <h2 class="text-center text-primary"> Dołącz do DixRacing </h2>
-  <hr>
+<div class="container">
+  <div class="row my-auto">
+    <div class="col-4 pe-0 bg-dark text-white" style="margin-top: 150px;">
+      <br>
+      <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" class="form-group ">
+        <h2 class="text-center text-primary mb-4"> Dołącz do DixRacing </h2>
 
-  <div class="form-group">
-    <input type="text" class="form-control" name="nick" [(ngModel)]="model.nick" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" name="name" [(ngModel)]="model.name" placeholder="Name">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" name="surname" [(ngModel)]="model.surname" placeholder="Surname">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" name="email" [(ngModel)]="model.email" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password">
-  </div>
+        <div class="form-group col-6 mx-auto mb-2">
+          <label for="nickInput">Nick</label>
+          <input type="text" class="form-control" id="nickInput" name="nick" [(ngModel)]="model.nick">
+        </div>
+        <div class="form-group col-6 mx-auto mb-2">
+          <label for="nameInput">Imię</label>
+          <input type="text" class="form-control" id="nameInput" name="name" [(ngModel)]="model.name">
+        </div>
+        <div class="form-group col-6 mx-auto mb-2">
+          <label for="surnameInput">Nazwisko</label>
+          <input type="text" class="form-control" id="surnameInput" name="surname" [(ngModel)]="model.surname">
+        </div>
+        <div class="form-group col-6 mx-auto mb-2">
+          <label for="emailInput">Email</label>
+          <input type="text" class="form-control" id="emailInput" name="email" [(ngModel)]="model.email">
+        </div>
+        <div class="form-group col-6 mx-auto">
+          <label for="passwordInput">Hasło</label>
+          <input type="password" class="form-control" id="passwordInput" name="password" [(ngModel)]="model.password">
+        </div>
 
-  <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Zarejestruj</button>
-    <button class="btn btn-default mr-2" (click)="cancel()" type="button">Anuluj</button>
-  </div>
+        <br>
 
-</form>
+        <div class="form-group text-center mx-auto">
+          <button class="btn btn-success mx-1" type="submit">Zarejestruj</button>
+          <a href='/home' class="btn btn-info mx-1" role="button">Anuluj</a>
+        </div>
+        <br>
+
+        <!--
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
+  </div>-->
+
+      </form>
+    </div>
+    <div class="col-8 ps-0">
+      <div class="car" style="margin-top: 150px;">
+        <img  src="https://www.xtrafondos.com/wallpapers/auto-aston-martin-dbc-299.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
