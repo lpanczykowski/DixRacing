@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from '_services/account.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
   model: any={};
   registerMode=false;
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   register()
   {
     this.accountService.register(this.model).subscribe(response => {
-      console.log(response);
+      this.router.navigateByUrl('/home');
       this.cancel();
     },error=>{error.log(error);}
     )

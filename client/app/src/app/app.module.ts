@@ -9,9 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { EventsComponent } from './events/events.component';
-import { RacesComponent } from './races/races.component';
 import { InfoComponent } from './info/info.component';
+import { RaceComponent } from './race/race.component';
+import { EventComponent } from './event/event.component';
+import { ResultsComponent } from './results/results.component';
+import { RulesComponent } from './rules/rules.component';
+import { DriversComponent } from './drivers/drivers.component';
+import { TeamsComponent } from './teams/teams.component';
+import { PenaltiesComponent } from './penalties/penalties.component';
+import { StandingsComponent } from './standings/standings.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +25,15 @@ import { InfoComponent } from './info/info.component';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    EventsComponent,
-    RacesComponent,
-    InfoComponent
+    InfoComponent,
+    RaceComponent,
+    EventComponent,
+    ResultsComponent,
+    RulesComponent,
+    DriversComponent,
+    TeamsComponent,
+    PenaltiesComponent,
+    StandingsComponent,
   ],
   imports: [
     BrowserModule,
