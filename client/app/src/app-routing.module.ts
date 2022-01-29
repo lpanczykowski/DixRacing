@@ -21,7 +21,7 @@ const routes: Routes=[
   {path: 'register', component: RegisterComponent},
   {path: 'eventId/info', component: InfoComponent},
   {path: 'eventId/rules', component: RulesComponent},
-  {path: 'eventId/drivers', component: DriversComponent},
+  {path: '1/drivers', component: DriversComponent},
   {path: 'eventId/teams', component: TeamsComponent},
   {path: 'eventId/standings', component: StandingsComponent},
   {path: 'eventId/penalties', component: PenaltiesComponent},

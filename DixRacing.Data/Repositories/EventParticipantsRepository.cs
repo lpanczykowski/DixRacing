@@ -21,5 +21,10 @@ namespace DixRacing.Data.Repositories
             var eventParticipant = await _dataContext.EventParticipants.Where(x => x.EventId == eventId && x.UserId == userId).FirstOrDefaultAsync();
             return eventParticipant;
         }
+        public async Task<ICollection<EventParticipants>> GetEventParticipantsByEventIdAsync(int eventId)
+        {
+            var eventParticipants = await _dataContext.EventParticipants.Where(x => x.EventId == eventId).ToListAsync();
+            return eventParticipants;
+        }
     }
 }

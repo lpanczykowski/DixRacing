@@ -69,6 +69,7 @@ namespace API.Controllers
             return Ok(raceEvent);
 
         }
+
         [HttpGet("all")]
         public async Task<ActionResult<ICollection<Events>>> GetAllEvents()
         {
@@ -89,5 +90,13 @@ namespace API.Controllers
             return Ok(response);
         }
 
+        [HttpGet("{eventId}/participants")]
+        public async Task<ICollection<EventParticipants>> GetEventParticipantsByEventId(int eventId)
+        {
+            var eventParticipants = await  _eventParticipantsRepository.GetEventParticipantsByEventIdAsync(eventId);
+            return eventParticipants;
+        }
+        
     }
+    
 }

@@ -9,7 +9,7 @@ namespace DixRacing.Data.Entites
     public class EventParticipants
     {
         [Key]
-        public int EventParticipantsId{get;set;}
+        public int EventParticipantsId{get;set;} 
         public int UserId { get; set; }
         public int EventId { get; set; }
         public int Car { get; set; }
