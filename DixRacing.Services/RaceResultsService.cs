@@ -1,7 +1,6 @@
 using AutoMapper;
 using DixRacing.Core.Models.Response;
 using DixRacing.Data;
-using DixRacing.Data.Dtos;
 using DixRacing.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

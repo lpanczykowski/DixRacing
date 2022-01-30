@@ -9,5 +9,7 @@ namespace DixRacing.Data.Interfaces
     public interface IUserRepository : IRepository<Users>
     {
         Task<Users> FindUserByEmail(string email);
+
+        Task<Users> GetUserDataById(int userId);
     }
 }

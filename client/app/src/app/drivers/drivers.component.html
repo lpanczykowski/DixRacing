@@ -47,7 +47,15 @@
               <th>Auto</th>
             </tr>
           </thead>
-          <tbody id="tableData"></tbody>
+
+            <tr *ngFor="let driver of drivers">
+               <td>{{driver.number}}</td>
+               <td>{{driver.userId}}</td>
+               <td>{{driver.team}}</td>
+               <td>{{driver.car}}</td>
+            </tr>
+
+
         </table>
 
       </div>

@@ -33,6 +33,7 @@ namespace API.Extensions
             services.AddScoped<IRaceResultsService, RaceResultsService>();
             services.AddScoped<IRaceResultsRepository, RaceResultsRepository>();
             services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
+            services.AddScoped<IEventService, EventService>();
             services.AddHostedService<Worker>();
             
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
