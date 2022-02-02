@@ -7,6 +7,7 @@ using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -18,18 +19,20 @@ namespace API.Controllers
         private readonly IResignFromEvent _resignFromEvent;
         private readonly IEventRepository _eventRepository;
         private readonly IEventParticipantsRepository _eventParticipantsRepository;
+        private readonly IEventService _eventService;
 
         public EventController(ISignForEvent signForEvent,
                                IResignFromEvent resignFromEvent,
                                IEventRepository eventRepository,
-                               IEventParticipantsRepository eventParticipantsRepository
+                               IEventParticipantsRepository eventParticipantsRepository,
+                               IEventService eventService
                             )
         {
             _signForEvent = signForEvent;
             _resignFromEvent = resignFromEvent;
             _eventRepository = eventRepository;
-            _eventParticipantsRepository=eventParticipantsRepository;
-            
+            _eventParticipantsRepository = eventParticipantsRepository;
+            _eventService = eventService;
         }
 
         [HttpPut("sign")]
@@ -69,25 +72,34 @@ namespace API.Controllers
             return Ok(raceEvent);
 
         }
+
         [HttpGet("all")]
         public async Task<ActionResult<ICollection<Events>>> GetAllEvents()
         {
-            var events = await  _eventRepository.GetAllAsync();
+            var events = await _eventRepository.GetAllAsync();
             return Ok(events);
         }
 
         [HttpPost("changeCar")]
         public async Task<ActionResult<bool>> ChangeCar(CarChangeRequest carChangeRequest)
         {
-            var eventParticipant= await _eventParticipantsRepository.FindEventParticipantsByEventIdAndUserId(carChangeRequest.EventId, carChangeRequest.UserId);
-            if (eventParticipant==null)
+            var eventParticipant = await _eventParticipantsRepository.FindEventParticipantsByEventIdAndUserId(carChangeRequest.EventId, carChangeRequest.UserId);
+            if (eventParticipant == null)
             {
                 return BadRequest("Cannot change car for null Id");
             }
-            eventParticipant.Car= carChangeRequest.Car;
+            eventParticipant.Car = carChangeRequest.Car;
             var response = await _eventParticipantsRepository.UpdateAsync(eventParticipant);
             return Ok(response);
         }
 
+        [HttpGet("{eventId}/participants")]
+        public async Task<ICollection<GetEventParticipantsResponse>> GetEventParticipantsResponsesByEventId(int eventId)
+        {
+            var response = await _eventService.GetEventParticipantsResponsesByEventId(eventId);
+            return response;
+        }
+
     }
+
 }

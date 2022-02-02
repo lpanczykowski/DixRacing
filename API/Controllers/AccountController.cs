@@ -10,7 +10,6 @@ using DixRacing.Core;
 using DixRacing.Core.Models.Request;
 using DixRacing.Core.Models.Response;
 using DixRacing.Data;
-using DixRacing.Data.Dtos;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;

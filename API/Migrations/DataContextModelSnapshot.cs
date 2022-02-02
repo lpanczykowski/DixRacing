@@ -34,10 +34,15 @@ namespace API.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Team")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("EventParticipantsId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("EventParticipants");
                 });
@@ -203,7 +208,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("EventId")
+                    b.Property<int>("EventId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("MaxPlayers")
@@ -218,16 +223,11 @@ namespace API.Migrations
                     b.Property<DateTime>("StartingTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("WeatherId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("RaceId");
 
                     b.HasIndex("EventId");
 
                     b.HasIndex("RoundId");
-
-                    b.HasIndex("WeatherId");
 
                     b.ToTable("Races");
                 });
@@ -317,15 +317,15 @@ namespace API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DixRacing.Data.Entites.Weathers", b =>
+            modelBuilder.Entity("DixRacing.Data.Entites.EventParticipants", b =>
                 {
-                    b.Property<int>("WeatherId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasOne("DixRacing.Data.Entites.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("WeatherId");
-
-                    b.ToTable("Weathers");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DixRacing.Data.Entites.Events", b =>
@@ -392,7 +392,9 @@ namespace API.Migrations
                 {
                     b.HasOne("DixRacing.Data.Entites.Events", "Event")
                         .WithMany()
-                        .HasForeignKey("EventId");
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DixRacing.Data.Entites.Rounds", "Round")
                         .WithMany("Races")
@@ -400,15 +402,9 @@ namespace API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DixRacing.Data.Entites.Weathers", "Weather")
-                        .WithMany()
-                        .HasForeignKey("WeatherId");
-
                     b.Navigation("Event");
 
                     b.Navigation("Round");
-
-                    b.Navigation("Weather");
                 });
 
             modelBuilder.Entity("DixRacing.Data.Entites.Rounds", b =>

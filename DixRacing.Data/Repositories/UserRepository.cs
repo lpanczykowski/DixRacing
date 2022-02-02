@@ -23,5 +23,10 @@ namespace DixRacing.Data.Repositories
            return user;
         }
         
+        public async Task<Users> GetUserDataById(int userId)
+        {
+           var user = await _dataContext.Users.FirstOrDefaultAsync(x=>x.UserId == userId);
+           return user;
+        }
     }
 }
