@@ -13,17 +13,19 @@ namespace DixRacing.Services
 {
     public class SignForEvent : ISignForEvent
     {
-        private readonly DataContext _datacontext;
+        private readonly DataContext _dataContext;
 
-        public SignForEvent(DataContext datacontext)
+        public SignForEvent(DataContext dataContext)
         {
-            _datacontext = datacontext;
+            _dataContext = dataContext;
         }
 
         public async Task<bool> SignUserForEventAsync(SignForEventRequest signForEventRequest)
         {
-            var check = await _datacontext.EventParticipants.Where(x => x.UserId == signForEventRequest.UserId && x.EventId == x.UserId).AnyAsync();
-            if (check) throw new Exception("User already signed for this event");
+            var number = await _dataContext.EventParticipants.Where(x=>x.Number == signForEventRequest.Number).AnyAsync();
+            if (number) throw new Exception ("Number already taken");
+            var user = await _dataContext.EventParticipants.Where(x => x.UserId == signForEventRequest.UserId && x.EventId == x.UserId).AnyAsync();
+            if (user) throw new Exception("User already signed for this event");            
             var participant = new EventParticipants
             {
                 Car = signForEventRequest.Car,
@@ -32,8 +34,8 @@ namespace DixRacing.Services
                 Livery = signForEventRequest.Livery,
                 Number = signForEventRequest.Number
             };
-            _datacontext.Add(participant);
-            return await _datacontext.SaveChangesAsync() > 0;
+            _dataContext.Add(participant);
+            return await _dataContext.SaveChangesAsync() > 0;
 
         }
     }

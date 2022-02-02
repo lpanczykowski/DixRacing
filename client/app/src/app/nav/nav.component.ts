@@ -13,22 +13,19 @@ export class NavComponent implements OnInit {
 
   constructor(public accountService: AccountService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
   }
 
-  login()
-  {
-    this.accountService.login(this.model).subscribe(response =>
-      {
-        console.log(response);
-      },error => {console.log(error);})
+  login() {
+    this.accountService.login(this.model).subscribe(response => {
+      console.log(response);
+    }, error => { console.log(error); })
   }
 
-  logout()
-  {
+  logout() {
     this.accountService.logout();
   }
-connectSteam(){
+  connectSteam() {
     this.accountService.steam();
   }
 }

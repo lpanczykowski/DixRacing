@@ -23,14 +23,19 @@
       </ul>
 
       <ul class="navbar-nav" *ngIf="accountService.currentUser$ | async">
-        <div class="dropdown" dropdown>
-          <a class="dropdown-toggle text-light" dropdownToggle>Witaj</a>
-          <div class="dropdown-menu mt-3" *dropdownMenu>
-            <a class="dropdown-item">Edytuj profil</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+        <li>
+          <a class="nav-link"  (click)="connectSteam()">Steam</a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown" dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>Witaj</a>
+            <div class="dropdown-menu mt-3" *dropdownMenu>
+              <a class="dropdown-item">Edytuj profil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+            </div>
           </div>
-        </div>
+        </li>
       </ul>
     </div>
 

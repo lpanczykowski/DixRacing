@@ -15,6 +15,7 @@ using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -75,26 +76,14 @@ namespace API.Controllers
                 if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
 
             }
-
-            return Ok(new LoginResponse
+            var response = new LoginResponse
             {
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user)
 
-            });
-        }
-        [HttpGet("attachSteam")]
-        public async Task<ActionResult<Users>> AttachSteamId()
-        {
-
-            if (!await HttpContext.IsProviderSupportedAsync("Steam"))
-            {
-                return BadRequest();
-            }
-            return Challenge(new AuthenticationProperties { RedirectUri = "https://localhost:4200" }, "Steam");
-
-
-        }
+            };
+            return Ok(response);
+        }      
         [HttpPost("attachDiscord")]
         public async Task<ActionResult<Users>> AttachDiscordId(AttachDiscordRequest attachDiscordRequest)
         {
@@ -103,8 +92,8 @@ namespace API.Controllers
             return Ok(await _userRepository.UpdateAsync(user));
 
         }
-        [HttpGet("claims")]
-        public async Task<ActionResult<ClaimsPrincipal>> GetClaims()
+        [HttpGet("connectSteamToUser/{userId}")]
+        public async Task<ActionResult<ClaimsPrincipal>> GetClaims(int userId)
         {
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
@@ -113,11 +102,14 @@ namespace API.Controllers
                 claim.OriginalIssuer,
                 claim.Type,
                 claim.Value
-
             });
+            var steamId = claims.Select(s=>s.Value).FirstOrDefault().Split('/').Last();
+            await _accountService.AttachSteamToAccount(steamId,userId);
+            return Redirect("https://localhost:4200");
             return Ok(claims);
 
         }
+       
 
 
     }

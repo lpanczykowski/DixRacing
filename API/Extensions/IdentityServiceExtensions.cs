@@ -15,26 +15,23 @@ namespace API.Extensions
     {
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
         {
-            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //   
-            services.AddAuthentication(options => options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme )
-             .AddCookie(options =>
+            //services.AddAuthentication(options => options.DefaultScheme = )
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddCookie()
+            .AddSteam(options =>
             {
-            options.LoginPath = "/login";
-            options.LogoutPath = "/signout";
+                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;            
             })
-            .AddJwtBearer(options =>
-               {
-                   options.TokenValidationParameters = new TokenValidationParameters
-                   {
-                       ValidateIssuerSigningKey = true,
-                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"])),
-                       ValidateIssuer = false,
-                       ValidateAudience = false
-                   };
-             })
-            .AddSteam();
-            services.AddControllersWithViews();
+            .AddJwtBearer( options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"])),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });           
             return services;
         }
     }
