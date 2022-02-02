@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using API.Extensions;
 using AutoMapper;
 using DixRacing.Core;
 using DixRacing.Core.Models.Request;
@@ -11,6 +14,9 @@ using DixRacing.Data.Dtos;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -23,13 +29,11 @@ namespace API.Controllers
         private readonly IUserRepository _userRepository;
         private readonly ITokenService _tokenService;
 
-        public AccountController(DataContext context,
-                                 IMapper mapper,
+        public AccountController(IMapper mapper,
                                  IAccountService accountService,
                                  IUserRepository userRepository,
                                  ITokenService tokenService)
         {
-            _context = context;
             _mapper = mapper;
             _accountService = accountService;
             _userRepository = userRepository;
@@ -73,13 +77,50 @@ namespace API.Controllers
 
             }
 
-            return new LoginResponse
+            return Ok(new LoginResponse
             {
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user)
-                                               
-            };
+
+            });
         }
+        [HttpGet("attachSteam")]
+        public async Task<ActionResult<Users>> AttachSteamId()
+        {
+            
+            if (!await HttpContext.IsProviderSupportedAsync("Steam"))
+            {
+                return BadRequest();
+            }
+           return Challenge(new AuthenticationProperties { RedirectUri = "https://localhost:4200" }, "Steam");
+             
+
+        }
+        [HttpPost("attachDiscord")]
+        public async Task<ActionResult<Users>> AttachDiscordId(AttachDiscordRequest attachDiscordRequest)
+        {
+            var user = await _userRepository.FindAsync(attachDiscordRequest.UserId);
+            user.DiscordId = attachDiscordRequest.DiscordId;
+            return Ok(await _userRepository.UpdateAsync(user));
+    
+        }
+        [HttpGet("claims")]
+        public async Task<ActionResult<ClaimsPrincipal>> GetClaims()
+        {
+           var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+           var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new {
+               claim.Issuer,
+               claim.OriginalIssuer,
+               claim.Type,
+               claim.Value
+
+           });
+           return Ok(claims);
+           
+
+           
+        }
+
 
     }
 }

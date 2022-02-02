@@ -28,4 +28,7 @@ export class NavComponent implements OnInit {
   {
     this.accountService.logout();
   }
+  connectSteam(){
+    this.accountService.steam();
+  }
 }

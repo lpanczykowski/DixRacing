@@ -2,3 +2,8 @@
 {
   cursor:pointer;
 }
+.img-nav{
+  width: 10%;
+  height: 10%;
+  background: rgb(255, 255, 255);/*TODO:Global NavbarColor*/
+}

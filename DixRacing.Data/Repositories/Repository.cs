@@ -27,6 +27,19 @@ namespace DixRacing.Data.Repositories
                 throw new Exception($"Couldn't retrieve entities: {ex.Message}");
             }
         }
+        public async Task<TEntity> FindAsync(object key)
+        {
+            try
+            {
+                return await _dataContext.Set<TEntity>().FindAsync(key);
+            }
+             catch (Exception ex)
+            {
+
+                throw new Exception($"Couldn't retrieve entity: {ex.Message}");
+            }
+
+        }
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             if (entity == null)

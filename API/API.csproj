@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNet.Security.OpenId.Steam" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +20,7 @@
     <ProjectReference Include="..\DixRacing.Core\DixRacing.Core.csproj" />
     <ProjectReference Include="..\DixRacing.Data\DixRacing.Data.csproj" />
 	<ProjectReference Include="..\DixRacing.Services\DixRacing.Services.csproj" />
+	<ProjectReference Include="..\DixRacing.Workers\DixRacing.Workers.csproj" />
 	</ItemGroup>
 
 </Project>

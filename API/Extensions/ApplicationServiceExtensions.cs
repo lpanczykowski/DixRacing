@@ -11,6 +11,7 @@ using DixRacing.Data.Repositories;
 using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
 using DixRacing.Services;
+using DixRacing.Workers;
 
 namespace API.Extensions
 {
@@ -33,7 +34,9 @@ namespace API.Extensions
             services.AddScoped<IRaceResultsService, RaceResultsService>();
             services.AddScoped<IRaceResultsRepository, RaceResultsRepository>();
             services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
-            services.AddHostedService<Worker>();
+            services.AddHostedService<ResultWorker>();
+
+            
             
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
@@ -41,6 +44,7 @@ namespace API.Extensions
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"), x=>x.MigrationsAssembly("API"));
 
             });
+          
             return services;
             
         }   

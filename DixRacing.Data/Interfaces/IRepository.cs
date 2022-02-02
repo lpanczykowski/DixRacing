@@ -10,6 +10,7 @@ namespace DixRacing.Data.Interfaces
     {
         Task<TEntity> AddAsync(TEntity entity);
         Task<bool> DeleteAsync(TEntity entity);
+        Task<TEntity> FindAsync(object key);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<bool> SaveAsync();
         Task<TEntity> UpdateAsync(TEntity entity);

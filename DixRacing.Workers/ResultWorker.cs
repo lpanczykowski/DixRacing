@@ -14,16 +14,16 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DixRacing.Services
+namespace DixRacing.Workers
 {
-    public class Worker : BackgroundService
+    public class ResultWorker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<ResultWorker> _logger;
         private readonly IConfiguration _config;
         private readonly IResultManager _resultManager;
         private readonly IServiceProvider _serviceProvider;
 
-        public Worker(ILogger<Worker> logger, IConfiguration config, IServiceProvider serviceProvider)
+        public ResultWorker(ILogger<ResultWorker> logger, IConfiguration config, IServiceProvider serviceProvider)
         {
             _logger = logger;
             _config = config;
@@ -47,8 +47,7 @@ namespace DixRacing.Services
                     {
                         try
                         {
-                            var resultsText = await System.IO.File.ReadAllTextAsync(file.FullName, Encoding.Unicode);
-                            //resultsText.Normalize();
+                            var resultsText = await File.ReadAllTextAsync(file.FullName, Encoding.Unicode);
                             var results = JsonConvert.DeserializeObject<Results>(resultsText);
                             var stringDate = file.Name.Split("_").FirstOrDefault();
                             results.sessionDate = new DateTime(2000 + Convert.ToInt32(stringDate.Substring(0, 2)), Convert.ToInt32(stringDate.Substring(2, 2)), Convert.ToInt32(stringDate.Substring(4, 2)));

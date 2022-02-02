@@ -27,12 +27,6 @@ namespace API.Controllers
         [HttpPut("add")]
         public async Task<Rounds> AddRound(AddRoundRequest addRoundRequest)
         {
-            // var Round = new Rounds()
-            // {
-            //     TrackId = addRoundRequest.TrackId,
-            //     ServerPassword = addRoundRequest.ServerPassword,
-            //     ServerName = addRoundRequest.ServerName
-            // };
             var Round = _mapper.Map<AddRoundRequest, Rounds>(addRoundRequest);
             var response = await _roundsRepository.AddAsync(Round);
             return response;

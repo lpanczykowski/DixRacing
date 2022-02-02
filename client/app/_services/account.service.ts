@@ -50,4 +50,8 @@ export class AccountService {
       })
     )
   }
+  steam()
+  {
+    window.location.href  = this.baseUrl+"account/attachSteam";
+  }
 }
