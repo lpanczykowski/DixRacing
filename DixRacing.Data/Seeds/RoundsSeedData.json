@@ -1,0 +1,34 @@
+[
+  {
+    "RoundId": 1,
+    "EventId": 1,
+    "ServerName": "DIX RACING www.Dix-Racing.pl Liga ACC | DixRacingPL League Server",
+    "SeverPassword": "go-t1-monza",
+    "TrackId": 1,
+    "RoundDay": "2021-10-19T00:00:00+01:00"
+  },
+  {
+    "RoundId": 2,
+    "EventId": 1,
+    "ServerName": "DIX RACING www.Dix-Racing.pl Liga ACC | DixRacingPL League Server",
+    "SeverPassword": "haslo",
+    "TrackId": 2,
+    "RoundDay": "2021-10-30T00:00:00+01:00"
+  },
+  {
+    "RoundId": 3,
+    "EventId": 2,
+    "ServerName": "DIX RACING www.Dix-Racing.pl Liga ACC | DixRacingPL League Server",
+    "SeverPassword": "go-t1-monza",
+    "TrackId": 1,
+    "RoundDay": "2021-10-19T00:00:00+01:00"
+  },
+  {
+    "RoundId": 4,
+    "EventId": 2,
+    "ServerName": "DIX RACING www.Dix-Racing.pl Liga ACC | DixRacingPL League Server",
+    "SeverPassword": "haslo",
+    "TrackId": 2,
+    "RoundDay": "2021-10-30T00:00:00+01:00"
+  }
+]

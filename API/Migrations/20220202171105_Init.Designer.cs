@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211219203605_RoundsColumnFix")]
-    partial class RoundsColumnFix
+    [Migration("20220202171105_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,10 +36,15 @@ namespace API.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Team")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("EventParticipantsId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("EventParticipants");
                 });
@@ -177,7 +182,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PenaltyPoints")
+                    b.Property<int?>("PenaltyPoints")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("Points")
@@ -189,15 +194,10 @@ namespace API.Migrations
                     b.Property<int>("RaceId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("RoundId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("RaceResultId");
-
-                    b.HasIndex("RoundId");
 
                     b.HasIndex("UserId");
 
@@ -210,16 +210,10 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("EventId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("MaxPlayers")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("RoundsRoundId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("SigningTime")
@@ -228,16 +222,9 @@ namespace API.Migrations
                     b.Property<DateTime>("StartingTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("WeatherId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("RaceId");
 
-                    b.HasIndex("EventId");
-
-                    b.HasIndex("RoundsRoundId");
-
-                    b.HasIndex("WeatherId");
+                    b.HasIndex("RoundId");
 
                     b.ToTable("Races");
                 });
@@ -249,9 +236,6 @@ namespace API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("EventId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("EventsEventId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("RoundDay")
@@ -268,7 +252,7 @@ namespace API.Migrations
 
                     b.HasKey("RoundId");
 
-                    b.HasIndex("EventsEventId");
+                    b.HasIndex("EventId");
 
                     b.HasIndex("TrackId");
 
@@ -298,6 +282,9 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("DiscordId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
@@ -324,15 +311,15 @@ namespace API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DixRacing.Data.Entites.Weathers", b =>
+            modelBuilder.Entity("DixRacing.Data.Entites.EventParticipants", b =>
                 {
-                    b.Property<int>("WeatherId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasOne("DixRacing.Data.Entites.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("WeatherId");
-
-                    b.ToTable("Weathers");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DixRacing.Data.Entites.Events", b =>
@@ -386,51 +373,41 @@ namespace API.Migrations
 
             modelBuilder.Entity("DixRacing.Data.Entites.RaceResults", b =>
                 {
-                    b.HasOne("DixRacing.Data.Entites.Races", "Race")
-                        .WithMany()
-                        .HasForeignKey("RoundId");
-
                     b.HasOne("DixRacing.Data.Entites.Users", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Race");
-
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("DixRacing.Data.Entites.Races", b =>
                 {
-                    b.HasOne("DixRacing.Data.Entites.Events", "Event")
-                        .WithMany()
-                        .HasForeignKey("EventId");
-
-                    b.HasOne("DixRacing.Data.Entites.Rounds", null)
+                    b.HasOne("DixRacing.Data.Entites.Rounds", "Round")
                         .WithMany("Races")
-                        .HasForeignKey("RoundsRoundId");
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("DixRacing.Data.Entites.Weathers", "Weather")
-                        .WithMany()
-                        .HasForeignKey("WeatherId");
-
-                    b.Navigation("Event");
-
-                    b.Navigation("Weather");
+                    b.Navigation("Round");
                 });
 
             modelBuilder.Entity("DixRacing.Data.Entites.Rounds", b =>
                 {
-                    b.HasOne("DixRacing.Data.Entites.Events", null)
+                    b.HasOne("DixRacing.Data.Entites.Events", "Event")
                         .WithMany("Rounds")
-                        .HasForeignKey("EventsEventId");
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DixRacing.Data.Entites.Tracks", "Track")
                         .WithMany()
                         .HasForeignKey("TrackId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Event");
 
                     b.Navigation("Track");
                 });

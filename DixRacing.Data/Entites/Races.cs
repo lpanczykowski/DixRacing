@@ -11,16 +11,11 @@ namespace DixRacing.Data.Entites
     {
         [Key]
         public int RaceId { get; set; }
-
-        public int EventId { get; set; }
         public int RoundId{get;set;}
         public Rounds Round { get; set; }
-        [ForeignKey("EventId")]
-        public Events Event { get; set; }
         public DateTime StartingTime { get; set; }
         public DateTime SigningTime { get; set; }
         public int MaxPlayers { get; set; }        
-        //public Weathers Weather {get;set;}
-    
+            
     }
 }

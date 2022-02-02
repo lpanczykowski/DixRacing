@@ -1,0 +1,26 @@
+[
+    {
+        "UserId": 1,
+        "Nick": "LUK",
+        "Name": "Łukasz",
+        "Surname": "Czykowski",
+        "PasswordHash": "",
+        "PasswordSalt": ""
+    },
+    {
+        "UserId": 2,
+        "Nick": "Fewjo",
+        "Name": "Robert",
+        "Surname": "Lewandowski",
+        "PasswordHash": "",
+        "PasswordSalt": ""
+    },
+    {
+        "UserId": 3,
+        "Nick": "Mati",
+        "Name": "Mateusz",
+        "Surname": "Przedręba",
+        "PasswordHash": "",
+        "PasswordSalt": ""
+    }
+]

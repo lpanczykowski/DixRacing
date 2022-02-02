@@ -86,13 +86,13 @@ namespace API.Controllers
         [HttpGet("attachSteam")]
         public async Task<ActionResult<Users>> AttachSteamId()
         {
-            
+
             if (!await HttpContext.IsProviderSupportedAsync("Steam"))
             {
                 return BadRequest();
             }
-           return Challenge(new AuthenticationProperties { RedirectUri = "https://localhost:4200" }, "Steam");
-             
+            return Challenge(new AuthenticationProperties { RedirectUri = "https://localhost:4200" }, "Steam");
+
 
         }
         [HttpPost("attachDiscord")]
@@ -101,23 +101,22 @@ namespace API.Controllers
             var user = await _userRepository.FindAsync(attachDiscordRequest.UserId);
             user.DiscordId = attachDiscordRequest.DiscordId;
             return Ok(await _userRepository.UpdateAsync(user));
-    
+
         }
         [HttpGet("claims")]
         public async Task<ActionResult<ClaimsPrincipal>> GetClaims()
         {
-           var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-           var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new {
-               claim.Issuer,
-               claim.OriginalIssuer,
-               claim.Type,
-               claim.Value
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+            {
+                claim.Issuer,
+                claim.OriginalIssuer,
+                claim.Type,
+                claim.Value
 
-           });
-           return Ok(claims);
-           
+            });
+            return Ok(claims);
 
-           
         }
 
 

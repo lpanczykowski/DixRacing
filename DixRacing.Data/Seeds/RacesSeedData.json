@@ -12,5 +12,19 @@
     "StartingTime": "2021-10-26T20:00:00+01:00",
     "SigningTime": "2021-10-25T20:00:00+01:00",
     "MaxPlayers": 0
+  },
+  {
+    "RaceId": 3,
+    "RoundId": 2,
+    "StartingTime": "2022-02-02T20:00:00+01:00",
+    "SigningTime": "2022-02-02T20:00:00+01:00",
+    "MaxPlayers": 0
+  },
+  {
+    "RaceId": 4,
+    "RoundId": 2,
+    "StartingTime": "2022-04-10T20:00:00+01:00",
+    "SigningTime": "2022-04-10T20:00:00+01:00",
+    "MaxPlayers": 0
   }
 ]

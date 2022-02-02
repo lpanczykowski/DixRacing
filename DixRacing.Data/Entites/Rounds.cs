@@ -19,6 +19,8 @@ namespace DixRacing.Data.Entites
         public int TrackId { get; set; }
         [ForeignKey("TrackId")]
         public Tracks Track { get; set; }
+        [ForeignKey("EventId")]
+        public Events Event {get;set;}
         public DateTime RoundDay { get; set; }
 
     }

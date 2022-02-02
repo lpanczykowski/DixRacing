@@ -208,9 +208,6 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("EventId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("MaxPlayers")
                         .HasColumnType("INTEGER");
 
@@ -225,8 +222,6 @@ namespace API.Migrations
 
                     b.HasKey("RaceId");
 
-                    b.HasIndex("EventId");
-
                     b.HasIndex("RoundId");
 
                     b.ToTable("Races");
@@ -239,9 +234,6 @@ namespace API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("EventId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("EventsEventId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("RoundDay")
@@ -258,7 +250,7 @@ namespace API.Migrations
 
                     b.HasKey("RoundId");
 
-                    b.HasIndex("EventsEventId");
+                    b.HasIndex("EventId");
 
                     b.HasIndex("TrackId");
 
@@ -390,34 +382,30 @@ namespace API.Migrations
 
             modelBuilder.Entity("DixRacing.Data.Entites.Races", b =>
                 {
-                    b.HasOne("DixRacing.Data.Entites.Events", "Event")
-                        .WithMany()
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DixRacing.Data.Entites.Rounds", "Round")
                         .WithMany("Races")
                         .HasForeignKey("RoundId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Event");
-
                     b.Navigation("Round");
                 });
 
             modelBuilder.Entity("DixRacing.Data.Entites.Rounds", b =>
                 {
-                    b.HasOne("DixRacing.Data.Entites.Events", null)
+                    b.HasOne("DixRacing.Data.Entites.Events", "Event")
                         .WithMany("Rounds")
-                        .HasForeignKey("EventsEventId");
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DixRacing.Data.Entites.Tracks", "Track")
                         .WithMany()
                         .HasForeignKey("TrackId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Event");
 
                     b.Navigation("Track");
                 });
