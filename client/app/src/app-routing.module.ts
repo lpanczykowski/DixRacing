@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './app/home/home.component';
-import { EventComponent } from './app/event/event.component';
+import { EventListComponent } from './app/events/event-list/event-list.component';
 import { InfoComponent } from './app/info/info.component';
 import { RegisterComponent } from './app/register/register.component';
 import { RulesComponent } from './app/rules/rules.component';
@@ -15,8 +15,8 @@ import { RaceComponent } from './app/race/race.component';
 const routes: Routes=[
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'event', component: EventComponent},
-  {path: 'event/info', component: EventComponent},
+  {path: 'event', component: EventListComponent},
+ // {path: 'event/info', component: EventComponent},
   {path: 'race', component: RaceComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'eventId/info', component: InfoComponent},
@@ -25,8 +25,8 @@ const routes: Routes=[
   {path: 'eventId/teams', component: TeamsComponent},
   {path: 'eventId/standings', component: StandingsComponent},
   {path: 'eventId/penalties', component: PenaltiesComponent},
-  {path: 'eventId/signup', component: EventComponent},
-  {path: 'raceId/signup', component: EventComponent},
+  //{path: 'eventId/signup', component: EventComponent},
+  //{path: 'raceId/signup', component: EventComponent},
   {path: '**', component: HomeComponent, pathMatch:'full'},
 ];
 

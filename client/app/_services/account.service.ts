@@ -53,6 +53,6 @@ export class AccountService {
   }
   steam()
   {
-    window.location.href  = this.baseUrl+"steam/login/1";
+    window.location.href  = this.baseUrl+"steam/login/";
   }
 }

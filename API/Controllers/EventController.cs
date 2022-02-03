@@ -4,6 +4,7 @@ using DixRacing.Core.Models.Response;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Authorize]
+    [Authorize(AuthenticationSchemes = 
+    JwtBearerDefaults.AuthenticationScheme)]
     public class EventController : BaseApiController
     {
         private readonly ISignForEvent _signForEvent;

@@ -1,63 +1,14 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-8 bg-dark text-white me-auto"  style="margin-top: 150px;">
-      <br>
-
-      <div class="container">
-        <h2>GT3 ACC Sezon (tutaj sezon id)</h2>
-        <h4>Runda (id rundy/ilosc rund)</h4>
-        <h4>PREQ: (stan preq on/off)</h4>
-        <hr>
-        <h6>Następna runda: (data nastepnej rundy)</h6>
+      <div class="col-xl-10">
+        <app-event-list></app-event-list>
       </div>
-      <br>
-      <div class="container">
-        <div class="row justify-content-around">
-          <a class="btn btn-outline-secondary btn col-2" type="button" routerLink='/race'>Strona wyścigu</a>
-          <a class="btn btn-outline-secondary btn col-2" type="button" routerLink='/eventId/info'>Info</a>
-          <a class="btn btn-outline-secondary btn col-2" type="button" routerLink='/signup'>Dołącz</a>
+      <div class="col-lg-2">
+        <div class="col bg-dark text-white" style="margin-top: 150px;">
+          <div class="row">
+            <!-- <ejs-calendar id=calendar [value]="05/16/2017" [min]="05/07/2017" [max]="08/27/2025"></ejs-calendar> -->
+          </div>
         </div>
       </div>
-
-      <br>
-    </div>
-
-    <div class="col-3 bg-dark text-white" style="margin-top: 150px;">
-      <p>Kalendarz</p>
-    </div>
   </div>
 </div>
-
-<br>
-<br>
-
-<div class="container">
-  <div class="row">
-
-    <div class="col-8 align-self-start bg-dark text-white">
-      <br>
-
-      <div class="container">
-        <h2>F1 AC Sezon (tutaj sezon id)</h2>
-        <h4>Runda (id rundy/ilosc rund)</h4>
-        <h4>PREQ: (stan preq on/off)</h4>
-        <hr>
-        <h6>Następna runda: (data nastepnej rundy)</h6>
-      </div>
-      <br>
-      <div class="container">
-        <div class="row justify-content-around">
-          <a class="btn btn-outline-secondary btn col-2" type="button" routerLink='/race'>Strona wyścigu</a>
-          <a class="btn btn-outline-secondary btn col-2" type="button" routerLink='/event/info'>Info</a>
-          <a class="btn btn-outline-secondary btn col-2" type="button" routerLink='/event/signup'>Dołącz</a>
-        </div>
-      </div>
-
-      <br>
-    </div>
-
-  </div>
-</div>
-
-<br>
-

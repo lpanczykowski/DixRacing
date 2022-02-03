@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -16,8 +18,11 @@ namespace DixRacing.Data
             if (await context.Users.AnyAsync()) return;
             var data = await System.IO.File.ReadAllTextAsync("../DixRacing.Data/Seeds/UsersSeedData.json");
             var deserializedData = JsonConvert.DeserializeObject<List<Users>>(data);
+            using var hmac = new HMACSHA512();
             foreach (var item in deserializedData)
             {
+                item.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("admin"));
+                item.PasswordSalt = hmac.Key;
                 context.Users.Add(item);
             }
             await context.SaveChangesAsync();

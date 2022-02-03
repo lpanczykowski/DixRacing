@@ -1,4 +1,5 @@
 ﻿using DixRacing.Core;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Authorize]
+   [Authorize(AuthenticationSchemes = 
+    JwtBearerDefaults.AuthenticationScheme)]
     public class WeatherForecastController : BaseApiController
     {
         private static readonly string[] Summaries = new[]

@@ -1,0 +1,8 @@
+<div class="row" *ngIf="events?.length === 0">
+  <h3>No events</h3>
+</div>
+<div class="row" *ngIf="events?.length > 0">
+  <div *ngFor="let event of events">
+    <app-event-box></app-event-box>
+  </div>
+</div>
