@@ -1,13 +1,10 @@
 using AutoMapper;
 using DixRacing.Core;
-using DixRacing.Core.Models.Request;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Data.Models.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers

@@ -1,12 +1,11 @@
 using AutoMapper;
-using DixRacing.Core.Dtos;
-using DixRacing.Core.Models.Response;
 using DixRacing.Data;
+using DixRacing.Data.Dtos;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Data.Models.Response;
 using DixRacing.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,6 +41,12 @@ namespace DixRacing.Services
             }).ToList();
          
             return response;
+        }
+
+        public async Task<IEnumerable<GetEventsWithActiveRound>> GetEventsWithActiveRound()
+        {
+                var events = await _dataContext.Events.Include(s=>s.Rounds).ToListAsync();
+                return _mapper.Map<IEnumerable<Events>,IEnumerable<GetEventsWithActiveRound>>(events);
         }
     }
 }

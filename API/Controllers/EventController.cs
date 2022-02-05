@@ -1,14 +1,13 @@
 using DixRacing.Core;
-using DixRacing.Core.Models.Request;
-using DixRacing.Core.Models.Response;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Data.Models.Request;
+using DixRacing.Data.Models.Response;
 using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -79,6 +78,12 @@ namespace API.Controllers
         public async Task<ActionResult<ICollection<Events>>> GetAllEvents()
         {
             var events = await _eventRepository.GetAllAsync();
+            return Ok(events);
+        }
+        [HttpGet("all/activeRound")]
+        public async Task<ActionResult<ICollection<GetEventsWithActiveRound>>> GetAllEventsWithActiveRound()
+        {
+            var events = await _eventService.GetEventsWithActiveRound();
             return Ok(events);
         }
 

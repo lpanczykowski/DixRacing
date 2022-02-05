@@ -15,6 +15,7 @@ namespace DixRacing.Data.Entites
         public int GameId { get; set; }
         [ForeignKey("GameId")]
         public Games Game { get; set; }
+        [ForeignKey("EventId")]
         public ICollection<Rounds> Rounds { get; set; }
         public byte[] Photo { get; set; }
     }

@@ -1,8 +1,10 @@
+import { Round } from "./round";
+
 export interface RaceEvent {
     eventId: number;
     name: string;
     gameId: number;
  //   game: Games;
-   // rounds: Rounds[];
+    rounds: Round[];
     photo: string;
 }

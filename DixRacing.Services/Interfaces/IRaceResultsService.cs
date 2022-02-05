@@ -1,7 +1,5 @@
-using DixRacing.Core.Models.Response;
-using System;
+using DixRacing.Data.Models.Response;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DixRacing.Services.Interfaces

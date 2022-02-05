@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RaceEvent } from '_models/event';
+import { EventsWithActiveRound } from '_models/eventWithActiveRound';
 import { EventService } from '_services/event.service';
 
 
@@ -10,7 +11,7 @@ import { EventService } from '_services/event.service';
 })
 export class EventListComponent implements OnInit {
 
-  events: RaceEvent[];
+  events: EventsWithActiveRound[];
   constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,8 @@ export class EventListComponent implements OnInit {
   loadEvents() {
    this.eventService.getActiveEvents().subscribe(res =>{
      this.events = res;
+     console.log(res);
+
    });
   }
 

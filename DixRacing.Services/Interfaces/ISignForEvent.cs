@@ -1,7 +1,4 @@
-using DixRacing.Core.Models.Request;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using DixRacing.Data.Models.Request;
 using System.Threading.Tasks;
 
 namespace DixRacing.Services.Interfaces

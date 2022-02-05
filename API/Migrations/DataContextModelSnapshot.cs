@@ -248,6 +248,9 @@ namespace API.Migrations
                     b.Property<int>("TrackId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("isActive")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("RoundId");
 
                     b.HasIndex("EventId");

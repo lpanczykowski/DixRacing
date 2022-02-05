@@ -1,9 +1,7 @@
-using DixRacing.Core.Models.Request;
 using DixRacing.Data;
+using DixRacing.Data.Models.Request;
 using DixRacing.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 

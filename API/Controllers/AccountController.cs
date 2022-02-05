@@ -1,22 +1,18 @@
-using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using API.Extensions;
 using AutoMapper;
 using DixRacing.Core;
-using DixRacing.Core.Models.Request;
-using DixRacing.Core.Models.Response;
 using DixRacing.Data;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Data.Models.Request;
+using DixRacing.Data.Models.Response;
 using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers

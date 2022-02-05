@@ -23,12 +23,23 @@ namespace DixRacing.Data
         public DbSet<RaceLaps> RaceLaps { get; set; }
         public DbSet<Tracks> Tracks { get; set; }
         public DbSet<EventParticipants> EventParticipants { get; set; }
-        public DbSet<RaceResults> RaceResults { get; set; }   
-        public DbSet<Races> Races { get; set; }    
-        public DbSet<RaceConfirmations> RaceConfirmations { get; set; } 
-        public DbSet<Rounds> Rounds {get;set;}
+        public DbSet<RaceResults> RaceResults { get; set; }
+        public DbSet<Races> Races { get; set; }
+        public DbSet<RaceConfirmations> RaceConfirmations { get; set; }
+        public DbSet<Rounds> Rounds { get; set; }
         public DbSet<RacePoints> RacePoints { get; set; }
-
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            // base.OnModelCreating(builder);
+            // builder.Entity<Events>()
+            //     .HasMany(s => s.Rounds)
+            //     .WithOne(l => l.Event)
+            //     .HasForeignKey(s => s.RoundId)
+            //     .OnDelete(DeleteBehavior.Cascade);
+            // builder.Entity<Rounds>()
+            //     .HasOne(s=>s.Event)
+            //     .WithMany(s=>s.Rounds);
+        }
+        
     }
 }

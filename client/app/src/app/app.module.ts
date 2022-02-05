@@ -21,7 +21,6 @@ import { StandingsComponent } from './standings/standings.component';
 import { EventBoxComponent } from './events/event-box/event-box.component';
 import { JwtInterceptor } from '_interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 @NgModule({
   declarations: [

@@ -1,11 +1,9 @@
-using DixRacing.Core.Models.ResultModels;
 using DixRacing.Data;
 using DixRacing.Data.Entites;
 using DixRacing.Data.Interfaces;
+using DixRacing.Data.Models.ResultModels;
 using DixRacing.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 

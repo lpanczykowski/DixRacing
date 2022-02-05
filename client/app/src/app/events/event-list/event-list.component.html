@@ -3,6 +3,6 @@
 </div>
 <div class="row" *ngIf="events?.length > 0">
   <div *ngFor="let event of events">
-    <app-event-box></app-event-box>
+    <app-event-box [raceEvent] = "event" ></app-event-box>
   </div>
 </div>

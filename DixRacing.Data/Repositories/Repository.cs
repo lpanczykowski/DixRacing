@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DixRacing.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +34,7 @@ namespace DixRacing.Data.Repositories
             {
                 return await _dataContext.Set<TEntity>().FindAsync(key);
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
 
                 throw new Exception($"Couldn't retrieve entity: {ex.Message}");
@@ -100,5 +101,6 @@ namespace DixRacing.Data.Repositories
         {
             return await _dataContext.SaveChangesAsync() > 0;
         }
+      
     }
 }

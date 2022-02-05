@@ -26,8 +26,8 @@ namespace API
                 await Seed.SeedUsers(context);
                 await Seed.SeedGames(context);
                 await Seed.SeedTracks(context);
-                await Seed.SeedEvents(context);
                 await Seed.SeedRounds(context);
+                await Seed.SeedEvents(context);                
                 await Seed.SeedRaces(context);
                 await Seed.SeedRacePoints(context);
                 await Seed.SeedParcipitians(context);
