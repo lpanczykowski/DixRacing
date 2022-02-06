@@ -21,6 +21,7 @@ import { StandingsComponent } from './standings/standings.component';
 import { EventBoxComponent } from './events/event-box/event-box.component';
 import { JwtInterceptor } from '_interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventDetailsComponent } from './events/event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PenaltiesComponent,
     StandingsComponent,
     EventBoxComponent,
+    EventDetailsComponent,
   ],
   imports: [
     BrowserModule,

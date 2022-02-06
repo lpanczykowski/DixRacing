@@ -11,6 +11,7 @@ import { TeamsComponent } from './app/teams/teams.component';
 import { StandingsComponent } from './app/standings/standings.component';
 import { PenaltiesComponent } from './app/penalties/penalties.component';
 import { RaceComponent } from './app/race/race.component';
+import { EventDetailsComponent } from './app/events/event-details/event-details.component';
 
 const routes: Routes=[
   {path: '', component: HomeComponent},
@@ -19,8 +20,8 @@ const routes: Routes=[
  // {path: 'event/info', component: EventComponent},
   {path: 'race', component: RaceComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'eventId/info', component: InfoComponent},
-  {path: 'eventId/rules', component: RulesComponent},
+  {path: 'event/:eventId', component: EventDetailsComponent},
+  {path: 'event/signup/:eventId', component: RulesComponent},
   {path: '1/drivers', component: DriversComponent},
   {path: 'eventId/teams', component: TeamsComponent},
   {path: 'eventId/standings', component: StandingsComponent},

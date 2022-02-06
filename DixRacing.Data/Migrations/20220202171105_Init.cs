@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace API.Migrations
+namespace DixRacing.Data.Migrations
 {
     public partial class Init : Migration
     {

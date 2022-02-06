@@ -53,6 +53,7 @@ namespace API.Controllers
         {
             var response = await _raceConfirmation.ChangeRaceStatusAsync(raceConfirmationRequest);
             return Ok(response);
+            
         }
 
     }

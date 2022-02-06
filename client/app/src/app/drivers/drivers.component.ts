@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { $ } from 'protractor';
-import { Driver } from '_models/driver';
+import { Driver} from '_models/driver';
 import { DriverService } from '_services/driver.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { DriverService } from '_services/driver.service';
   styleUrls: ['./drivers.component.css']
 })
 export class DriversComponent implements OnInit {
-  drivers: Driver;
+  drivers: Driver[];
 
   constructor(private driverService: DriverService) { }
 
@@ -21,6 +21,7 @@ export class DriversComponent implements OnInit {
   loadDrivers(){
     this.driverService.getDrivers().subscribe(drivers=>{
       this.drivers=drivers;
+      console.log(this.drivers);
     })
   }
 

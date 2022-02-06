@@ -102,7 +102,6 @@ namespace API.Controllers
             var steamId = claims.Select(s=>s.Value).FirstOrDefault().Split('/').Last();
             await _accountService.AttachSteamToAccount(steamId,userId);
             return Redirect("https://localhost:4200");
-            return Ok(claims);
 
         }
        

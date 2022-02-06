@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace API.Migrations
+namespace DixRacing.Data.Migrations
 {
     public partial class RoundIsActive : Migration
     {

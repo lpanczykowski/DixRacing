@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace API.Migrations
+namespace DixRacing.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20220205140920_RoundIsActive")]

@@ -18,7 +18,7 @@ export class DriverService {
   constructor(private http: HttpClient) { }
 
   getDrivers() {
-    return this.http.get<Driver>(this.baseUrl + 'event/1/participants', httpOptions);
+    return this.http.get<Driver[]>(this.baseUrl + 'event/1/participants', httpOptions);
   }
 
   //getDriver(userId:number){
