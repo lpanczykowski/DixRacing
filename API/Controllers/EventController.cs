@@ -21,12 +21,14 @@ namespace API.Controllers
         private readonly IEventRepository _eventRepository;
         private readonly IEventParticipantsRepository _eventParticipantsRepository;
         private readonly IEventService _eventService;
+        private readonly IRoundService _roundService;
 
         public EventController(ISignForEvent signForEvent,
                                IResignFromEvent resignFromEvent,
                                IEventRepository eventRepository,
                                IEventParticipantsRepository eventParticipantsRepository,
-                               IEventService eventService
+                               IEventService eventService,
+                               IRoundService roundService
                             )
         {
             _signForEvent = signForEvent;
@@ -34,6 +36,7 @@ namespace API.Controllers
             _eventRepository = eventRepository;
             _eventParticipantsRepository = eventParticipantsRepository;
             _eventService = eventService;
+            _roundService = roundService;
         }
 
         [HttpPut("sign")]
@@ -104,6 +107,14 @@ namespace API.Controllers
         public async Task<ICollection<GetEventParticipantsResponse>> GetEventParticipantsResponsesByEventId(int eventId)
         {
             var response = await _eventService.GetEventParticipantsResponsesByEventId(eventId);
+            return response;
+        }
+
+        [HttpGet("{eventId}/rounds")]
+        public async Task<ICollection<GetEventRoundsResponse>> GetEventRoundsResponsesByEventId(int eventId)
+
+        {
+            var response= await _roundService.GetEventRoundsResponsesByEventId(eventId);
             return response;
         }
 

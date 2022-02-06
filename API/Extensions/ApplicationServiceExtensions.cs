@@ -37,6 +37,7 @@ namespace API.Extensions
             services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
             services.AddHostedService<ResultWorker>();
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IRoundService, RoundService>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
