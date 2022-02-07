@@ -10,7 +10,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { InfoComponent } from './info/info.component';
-import { RaceComponent } from './race/race.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { ResultsComponent } from './results/results.component';
 import { RulesComponent } from './rules/rules.component';
@@ -22,6 +21,8 @@ import { EventBoxComponent } from './events/event-box/event-box.component';
 import { JwtInterceptor } from '_interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { RaceBoxComponent } from './races/race-box/race-box.component';
+import { RaceDetailsComponent } from './races/race-details/race-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,6 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
     HomeComponent,
     RegisterComponent,
     InfoComponent,
-    RaceComponent,
     EventListComponent,
     ResultsComponent,
     RulesComponent,
@@ -40,6 +40,8 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
     StandingsComponent,
     EventBoxComponent,
     EventDetailsComponent,
+    RaceBoxComponent,
+    RaceDetailsComponent,
   ],
   imports: [
     BrowserModule,

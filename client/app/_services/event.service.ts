@@ -18,4 +18,5 @@ export class EventService {
   {
     return this.http.get<EventsWithActiveRound[]>(this.baseUrl+'Event/all/activeRound');
   }
+
 }

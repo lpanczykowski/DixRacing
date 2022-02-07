@@ -6,6 +6,5 @@ export interface Round {
     eventId: number;
     serverName: string;
     serverPassword: string;
-    trackId: number;
-    roundDay: Date;
+    isActive: boolean;
 }

@@ -20,7 +20,7 @@ export class EventBoxComponent implements OnInit {
   }
 
   calculateDiff(){
-    const date = new Date(this.raceEvent.activeRound.roundDay);
+    const date = new Date(); //const date = new Date(this.raceEvent.activeRound.roundDay);
     console.log(date);
     const currentDate = new Date();
     var duration =  (+date) - (+currentDate)
