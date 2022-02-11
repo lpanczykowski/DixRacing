@@ -80,15 +80,15 @@
       </div>
 
       <div class="container mt-5 mb-5">
-        <div class="accordion" id="accordion-section">
+        <div class="accordion" id="accordionSection">
           <div class="accordion-item" *ngFor="let round of rounds">
             <h2 class="accordion-header">
-              <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                [attr.data-bs-target]="'#Item' + round.roundId">Round {{round.roundId}} </button>
+              <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#Item' + round.roundId" (click)="loadRaces(round.roundId)" aria-expanded="false" aria-controls="#Item{{round.roundId}}">Round {{round.roundId}}</button>
             </h2>
-            <div class="accordion-collapse collapse" id="Item{{round.roundId}}" data-bs-parent="accordionSection">
-              <div class="accordion-body">
-                <app-race-box [round]="round"></app-race-box>
+            <div class="accordion-collapse collapse" id="Item{{round.roundId}}" data-bs-parent="#accordionSection">
+              <div class="accordion-body" *ngFor="let race of races">
+                <app-race-box *ngIf="race.roundId===round.roundId" [round]="round" [race]="race"></app-race-box>
               </div>
             </div>
           </div>

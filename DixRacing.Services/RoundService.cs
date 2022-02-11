@@ -38,5 +38,14 @@ namespace DixRacing.Services
            
             return response;
         }
+
+        public async Task<ICollection<GetRacesByRoundIdResponse>> GetRacesByRoundId(int roundId)
+        {
+            var RoundRaces= await _dataContext.Races.Where(x=>x.RoundId==roundId).ToListAsync();
+
+            var response= _mapper.Map<ICollection<Races>,ICollection<GetRacesByRoundIdResponse>>(RoundRaces);
+            
+            return response;
+        }
     }
 }

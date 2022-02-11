@@ -27,8 +27,12 @@ namespace API.Controllers
             {
                 RoundId = addRaceRequest.RoundId,
                 MaxPlayers = addRaceRequest.MaxPlayers,
-                SigningTime = addRaceRequest.SigningTime,
-                StartingTime = addRaceRequest.StartingTime,                
+                PracticeDate = addRaceRequest.PracticeDate,
+                PracticeLength = addRaceRequest.PracticeLength,
+                QualiDate=addRaceRequest.QualiDate,
+                QualiLength=addRaceRequest.QualiLength,  
+                RaceDate=addRaceRequest.RaceDate,
+                RaceLength=addRaceRequest.RaceLength               
             };
             var response = await _raceRepository.AddAsync(race);
             return response;

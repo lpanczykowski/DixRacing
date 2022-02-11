@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Round } from '_models/round';
+import {Race} from '_models/race';
+import { ThrowStmt } from '@angular/compiler';
+import { RaceService } from '_services/race.service';
+import { race } from 'rxjs';
 
 @Component({
   selector: 'app-race-box',
@@ -8,6 +12,7 @@ import { Round } from '_models/round';
 })
 export class RaceBoxComponent implements OnInit {
  @Input() round: Round;
+ @Input() race: Race;
   constructor() { }
 
   ngOnInit(): void {

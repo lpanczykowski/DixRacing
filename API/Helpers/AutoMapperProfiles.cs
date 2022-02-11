@@ -21,7 +21,8 @@ namespace API.Helpers
                 .ForMember(destinationMember => destinationMember.RoundCounter, memberOptions=>memberOptions.MapFrom(src=>src.Rounds.Count()))
                 .ForMember(destinationMember => destinationMember.ActiveRound, memberOptions => memberOptions.MapFrom(src=>src.Rounds.Where(x=>x.isActive).FirstOrDefault()));
             CreateMap<Users,ParticipantDto>();    
-            CreateMap<Rounds,GetEventRoundsResponse>();               
+            CreateMap<Rounds,GetEventRoundsResponse>();      
+            CreateMap<Races,GetRacesByRoundIdResponse>();           
 
         }
 

@@ -2,29 +2,45 @@
   {
     "RaceId": 1,
     "RoundId": 1,
-    "StartingTime": "2021-10-19T20:00:00+01:00",
-    "SigningTime": "2021-10-18T20:00:00+01:00",
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": "2021-10-18T20:00:00+01:00",
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": "2021-10-18T20:00:00+01:00",
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": "2021-10-18T20:00:00+01:00",
     "MaxPlayers": 0
   },
   {
     "RaceId": 2,
     "RoundId": 1,
-    "StartingTime": "2021-10-26T20:00:00+01:00",
-    "SigningTime": "2021-10-25T20:00:00+01:00",
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": "2021-10-18T20:00:00+01:00",
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": "2021-10-18T20:00:00+01:00",
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": "2021-10-18T20:00:00+01:00",
     "MaxPlayers": 0
   },
   {
     "RaceId": 3,
     "RoundId": 2,
-    "StartingTime": "2022-02-02T20:00:00+01:00",
-    "SigningTime": "2022-02-02T20:00:00+01:00",
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": "2021-10-18T20:00:00+01:00",
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": "2021-10-18T20:00:00+01:00",
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": "2021-10-18T20:00:00+01:00",
     "MaxPlayers": 0
   },
   {
     "RaceId": 4,
-    "RoundId": 2,
-    "StartingTime": "2022-04-10T20:00:00+01:00",
-    "SigningTime": "2022-04-10T20:00:00+01:00",
+    "RoundId": 3,
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": "2021-10-18T20:00:00+01:00",
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": "2021-10-18T20:00:00+01:00",
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": "2021-10-18T20:00:00+01:00",
     "MaxPlayers": 0
   }
 ]

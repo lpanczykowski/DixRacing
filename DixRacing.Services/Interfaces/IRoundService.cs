@@ -9,5 +9,6 @@ namespace DixRacing.Services.Interfaces
     public interface IRoundService
     {
         Task<ICollection<GetEventRoundsResponse>> GetEventRoundsResponsesByEventId(int eventId);
+        Task<ICollection<GetRacesByRoundIdResponse>> GetRacesByRoundId(int roundId);
     }
 }
