@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Helpers;
 using DixRacing.Data;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +8,6 @@ using DixRacing.Data.Interfaces;
 using DixRacing.Services.Interfaces;
 using DixRacing.Services;
 using DixRacing.Workers;
-using Microsoft.OpenApi.Models;
 
 namespace API.Extensions
 {
@@ -41,7 +36,7 @@ namespace API.Extensions
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlite(config.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("API"));
+                options.UseSqlite(config.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("DixRacing.Data"));
 
             });
 
