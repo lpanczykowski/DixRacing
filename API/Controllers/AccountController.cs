@@ -1,10 +1,14 @@
 using API.Features.Users.Commands.LoginUser;
+using API.Features.Users.Commands.Steam;
 using API.Features.Users.RegisterUser;
 using DixRacing.Domain.Users.Commands.Login;
 using DixRacing.Domain.Users.Commands.Register;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -32,21 +36,20 @@ namespace API.Controllers
             throw new NotImplementedException();
 
         }
-        [HttpGet("connectSteamToUser/{userId}")]
-        public async Task<ActionResult<ClaimsPrincipal>> GetClaims(int userId)
-        {
-            throw new NotImplementedException();
-            //var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            //var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
-            //{
-            //    claim.Issuer,
-            //    claim.OriginalIssuer,
-            //    claim.Type,
-            //    claim.Value
-            //});
-            //var steamId = claims.Select(s => s.Value).FirstOrDefault().Split('/').Last();
-            //await _accountService.AttachSteamToAccount(steamId, userId);
-            //return Redirect("https://localhost:4200");
+        [HttpPut("attachSteamToUser/{userId}")]
+        public async Task<ActionResult> GetClaims(int userId)
+        {   
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+            {
+               claim.Issuer,
+               claim.OriginalIssuer,
+               claim.Type,
+               claim.Value
+            });
+            var steamId = claims.Select(s => s.Value).FirstOrDefault().Split('/').Last();
+            await SendAsync(new AttachSteamCommand(userId,steamId));
+            return Redirect("https://localhost:4200");
 
         }
 

@@ -20,7 +20,7 @@ namespace API
             {
                 var context = services.GetRequiredService<DixRacingDbContext>();
                  await context.Database.MigrateAsync();
-                // await Seed.SeedUsers(context);
+                 await Seed.SeedUsers(context);
                 // await Seed.SeedGames(context);
                  await Seed.SeedTracks(context);             
                  await Seed.SeedEvents(context);

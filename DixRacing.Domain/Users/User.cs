@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DixRacing.Domain.Users
 {
-    public class User : BaseEntity<Guid>
+    public class User : BaseEntity<int>
     {
-        public User() :base(Guid.NewGuid())
+        public User() :base(default)
         {
 
         }        

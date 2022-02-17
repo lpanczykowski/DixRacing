@@ -114,9 +114,9 @@ namespace DixRacing.DataAccess.Migrations
 
             modelBuilder.Entity("DixRacing.Domain.Users.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("DiscordId")
                         .HasColumnType("TEXT");

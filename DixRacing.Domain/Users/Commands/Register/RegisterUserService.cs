@@ -15,10 +15,10 @@ namespace DixRacing.Domain.Users.Commands
     }
     public class RegisterUserService : IRegisterUserService
     {
-        private readonly IRepository<User, Guid> _userRepository;
+        private readonly IRepository<User, int> _userRepository;
         private readonly ITokenService _tokenService;
 
-        public RegisterUserService(IRepository<User,Guid> userRepository, ITokenService tokenService)
+        public RegisterUserService(IRepository<User,int> userRepository, ITokenService tokenService)
         {
             _userRepository = userRepository;
             _tokenService = tokenService;

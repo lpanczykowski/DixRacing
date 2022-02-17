@@ -1,28 +1,25 @@
 [
     {
-        "UserId": 1,
         "Nick": "LUK",
         "Name": "Łukasz",
         "Surname": "Czykowski",
-        "Email" : "LUK@gmail.com",
+        "Email": "LUK@gmail.com",
         "PasswordHash": "",
         "PasswordSalt": ""
     },
     {
-        "UserId": 2,
         "Nick": "Fewjo",
         "Name": "Robert",
         "Surname": "Lewandowski",
-        "Email" :"Fewjo@gmail.com",
+        "Email": "Fewjo@gmail.com",
         "PasswordHash": "",
         "PasswordSalt": ""
     },
     {
-        "UserId": 3,
         "Nick": "Mati",
         "Name": "Mateusz",
         "Surname": "Przedręba",
-        "Email" :"Mati@gmail.com",
+        "Email": "Mati@gmail.com",
         "PasswordHash": "",
         "PasswordSalt": ""
     }

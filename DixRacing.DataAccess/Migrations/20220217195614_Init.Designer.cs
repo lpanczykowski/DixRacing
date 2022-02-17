@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DixRacing.DataAccess.Migrations
 {
     [DbContext(typeof(DixRacingDbContext))]
-    [Migration("20220217191026_Init")]
+    [Migration("20220217195614_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,9 +116,9 @@ namespace DixRacing.DataAccess.Migrations
 
             modelBuilder.Entity("DixRacing.Domain.Users.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("DiscordId")
                         .HasColumnType("TEXT");
