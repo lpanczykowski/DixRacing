@@ -1,0 +1,46 @@
+[
+  {
+    "RaceId": 1,
+    "RoundId": 1,
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": 60,
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": 15,
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": 45,
+    "MaxPlayers": 0
+  },
+  {
+    "RaceId": 2,
+    "RoundId": 1,
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": 15,
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": 25,
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": 300,
+    "MaxPlayers": 0
+  },
+  {
+    "RaceId": 3,
+    "RoundId": 2,
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": 45,
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": 20,
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": 220,
+    "MaxPlayers": 0
+  },
+  {
+    "RaceId": 4,
+    "RoundId": 3,
+    "PracticeDate": "2021-10-19T20:00:00+01:00",
+    "PracticeLength": 45,
+    "QualiDate": "2021-10-19T20:00:00+01:00",
+    "QualiLength": 15,
+    "RaceDate": "2021-10-19T20:00:00+01:00",
+    "RaceLength": 144,
+    "MaxPlayers": 0
+  }
+]

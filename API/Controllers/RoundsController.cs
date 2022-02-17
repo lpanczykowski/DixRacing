@@ -1,32 +1,20 @@
-using AutoMapper;
-using DixRacing.Core;
-using DixRacing.Data.Entites;
-using DixRacing.Data.Interfaces;
-using DixRacing.Data.Models.Request;
+using API.Features.Rounds.Queries.GetRoundWithRaces;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Authorize]
-    public class RoundsController : BaseApiController
-    {
-        private readonly IRoundsRepository _roundsRepository;
-        private readonly IMapper _mapper;
-
-        public RoundsController(IRoundsRepository roundsRepository, IMapper mapper)
+   // [Authorize]
+   public class RoundsController : BaseApiController
+   {
+        public RoundsController(IMediator mediator) : base(mediator)
         {
-            _roundsRepository = roundsRepository;
-            _mapper = mapper;
         }
+        [HttpGet("{roundId}/races")]
+        public Task<ActionResult<GetRoundWithRacesResponse>> GetRoundWithRaces(int roundId) 
+            => SendAsync(new GetRoundWithRacesRequest(roundId));
 
-        [HttpPut("add")]
-        public async Task<Rounds> AddRound(AddRoundRequest addRoundRequest)
-        {
-            var Round = _mapper.Map<AddRoundRequest, Rounds>(addRoundRequest);
-            var response = await _roundsRepository.AddAsync(Round);
-            return response;
-        }
     }
 }

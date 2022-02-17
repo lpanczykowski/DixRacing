@@ -1,10 +1,7 @@
-using DixRacing.Core;
-using DixRacing.Data.Entites;
-using DixRacing.Data.Interfaces;
-using DixRacing.Data.Models.Request;
-using DixRacing.Services.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -12,48 +9,34 @@ namespace API.Controllers
     [Authorize]
     public class RaceController : BaseApiController
     {
-        private readonly IRaceRepository _raceRepository;
-        private readonly IRaceConfirmation _raceConfirmation;
-
-        public RaceController(IRaceRepository raceRepository, IRaceConfirmation raceConfirmation)
+        public RaceController(IMediator mediator) : base(mediator)
         {
-            _raceConfirmation = raceConfirmation;
-            _raceRepository = raceRepository;
         }
+
         [HttpPut("add")]
-        public async Task<Races> AddRace(AddRaceRequest addRaceRequest)
+        public async Task<IActionResult> AddRace()
         {
-            var race = new Races()
-            {
-                RoundId = addRaceRequest.RoundId,
-                MaxPlayers = addRaceRequest.MaxPlayers,
-                SigningTime = addRaceRequest.SigningTime,
-                StartingTime = addRaceRequest.StartingTime,                
-            };
-            var response = await _raceRepository.AddAsync(race);
-            return response;
+            throw new NotImplementedException();
+
         }
         [HttpDelete("delete/{raceId}")]
         public async Task<ActionResult<bool>> DeleteRace(int raceId)
         {
-            var race = await _raceRepository.FindRaceByIdAsync(raceId);
-            var response = await _raceRepository.DeleteAsync(race);
-            return Ok(response);
+            throw new NotImplementedException();
+
         }
         [HttpGet("{raceId}")]
-        public async Task<ActionResult<Races>> FindRaceById(int raceId)
+        public async Task<ActionResult<IActionResult>> FindRaceById(int raceId)
         {
-            var race = await _raceRepository.FindRaceByIdAsync(raceId);
-            return Ok(race);
+            throw new NotImplementedException();
 
         }
 
         [HttpPost("raceStatus")]
-        public async Task<ActionResult<bool>> RaceStatus(RaceStatusRequest raceConfirmationRequest)
+        public async Task<ActionResult<IActionResult>> RaceStatus()
         {
-            var response = await _raceConfirmation.ChangeRaceStatusAsync(raceConfirmationRequest);
-            return Ok(response);
-            
+            throw new NotImplementedException();
+
         }
 
     }

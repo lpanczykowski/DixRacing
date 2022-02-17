@@ -6,22 +6,30 @@
 
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OpenId.Steam" Version="5.0.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.13" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.14" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+    <PackageReference Include="Scrutor" Version="4.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DixRacing.Core\DixRacing.Core.csproj" />
-    <ProjectReference Include="..\DixRacing.Data\DixRacing.Data.csproj" />
-	<ProjectReference Include="..\DixRacing.Services\DixRacing.Services.csproj" />
-	<ProjectReference Include="..\DixRacing.Workers\DixRacing.Workers.csproj" />
+    <ProjectReference Include="..\DixRacing.DataAccess\DixRacing.DataAccess.csproj" />
+    <ProjectReference Include="..\DixRacing.Domain\DixRacing.Domain.csproj" />
+	  <ProjectReference Include="..\DixRacing.Workers\DixRacing.Workers.csproj" />
 	</ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Rounds\" />
+  </ItemGroup>
 
 </Project>

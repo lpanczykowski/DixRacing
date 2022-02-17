@@ -10,9 +10,7 @@ import { RaceEvent } from "../_models/event"
 })
 export class EventService {
   baseUrl = environment.apiUrl;
-
-  constructor(private http: HttpClient) {
-
+    constructor(private http: HttpClient) {
   }
   getActiveEvents()
   {

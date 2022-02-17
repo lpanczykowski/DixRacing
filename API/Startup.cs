@@ -1,5 +1,5 @@
-using API.Extensions;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using API.Infrastructure.DependencyInjection;
+using API.Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,26 +32,26 @@ namespace API
 
                            }));
 
-            services.AddApplicationServices(_config);
+            services.AddDependencies(_config);
             services.AddControllers();
             services.AddMvc(x => x.EnableEndpointRouting = false);
             services.AddIdentityServices(_config);
-             services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "My API",
-                    Version = "v1"
-                });
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please insert JWT with Bearer into field",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-            {
+            services.AddSwaggerGen(c =>
+           {
+               c.SwaggerDoc("v1", new OpenApiInfo
+               {
+                   Title = "My API",
+                   Version = "v1"
+               });
+               c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+               {
+                   In = ParameterLocation.Header,
+                   Description = "Please insert JWT with Bearer into field",
+                   Name = "Authorization",
+                   Type = SecuritySchemeType.ApiKey
+               });
+               c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                     {
                     new OpenApiSecurityScheme
                             {
                             Reference = new OpenApiReference
@@ -62,8 +62,9 @@ namespace API
                             },
                             new string[] { }
                             }
-                        });
-            });
+                       });
+                c.CustomSchemaIds(type=>type.ToString());
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +84,7 @@ namespace API
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
