@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RaceEvent } from '_models/event';
-import { EventsWithActiveRound } from '_models/eventWithActiveRound';
+import { EventWithActiveRound } from '_models/eventWithActiveRound';
+
 
 @Component({
   selector: 'app-event-box',
@@ -8,7 +9,7 @@ import { EventsWithActiveRound } from '_models/eventWithActiveRound';
   styleUrls: ['./event-box.component.css']
 })
 export class EventBoxComponent implements OnInit {
-  @Input() raceEvent: EventsWithActiveRound;
+  @Input() raceEvent: EventWithActiveRound;
   today: number = Date.now();
 
   constructor() {
@@ -16,6 +17,7 @@ export class EventBoxComponent implements OnInit {
 }
 
   ngOnInit(): void {
+    console.log(this.raceEvent);
 
   }
 

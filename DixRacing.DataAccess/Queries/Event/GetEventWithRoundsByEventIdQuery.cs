@@ -15,7 +15,7 @@ namespace DixRacing.DataAccess.Queries.Event
                ,r.*
         from Events e 
         join Rounds r 
-        on e.Id  = r.EventId where e.Id = @EventId ";
+        on e.Id  = r.EventId where e.Id = @p_EventId";
         private readonly DapperContext _dapperContext;
 
         public GetEventWithRoundsByEventIdQuery(DapperContext dapperContext)
@@ -42,7 +42,7 @@ namespace DixRacing.DataAccess.Queries.Event
                 }
 
                 return e;
-            }, new {EventId = eventId}
+            }, new {p_EventId = eventId}
             );
             return eventDictionary.Values.SingleOrDefault();
         }

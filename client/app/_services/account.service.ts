@@ -61,8 +61,8 @@ export class AccountService {
       })
     )
   }
-  steam()
+  steam(userId : number)
   {
-    window.location.href  = this.baseUrl+"steam/login/";
+    window.location.href  = this.baseUrl+"steam/login/"+userId  ;
   }
 }

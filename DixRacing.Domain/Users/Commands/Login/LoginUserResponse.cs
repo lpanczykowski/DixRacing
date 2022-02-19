@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Domain.Users.Commands.Login
 {
-    public record LoginUserResponse(string Email, string Token);
+    public record LoginUserResponse(string Email, string Token,int UserId);
 }

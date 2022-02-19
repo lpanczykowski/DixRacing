@@ -59,15 +59,14 @@ namespace API.Infrastructure.DependencyInjection
         }
         private static IServiceCollection AddDomainDependencies(this IServiceCollection services)
         {
-             services.Scan(scan =>
+            services.Scan(scan =>
             scan.FromAssemblies(Assembly.Load("DixRacing.Domain"))
                 .AddClasses(classes => classes
                     .Where(c => c.FullName!.EndsWith("Service")))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
 
-        return services;
-
+            return services;
         }
     }
 }

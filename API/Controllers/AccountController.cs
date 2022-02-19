@@ -36,7 +36,7 @@ namespace API.Controllers
             throw new NotImplementedException();
 
         }
-        [HttpPut("attachSteamToUser/{userId}")]
+        [HttpGet("attachSteamToUser/{userId}")]
         public async Task<ActionResult> GetClaims(int userId)
         {   
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);

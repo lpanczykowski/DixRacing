@@ -11,14 +11,14 @@ namespace DixRacing.DataAccess.Queries.Event
     public class GetAllEventsQuery : IGetAllEventsQuery
     {
         private const string SqlString = @"
-        select e.EventId,
+        select e.Id as EventId,
 	           e.Name,
                e.Photo,  
-               r.RoundId,
+               r.Id as RoundId,
                r.RoundDay,
-               (select count(*) from Rounds r2 where r2.EventId = EventId)       
+               (select count(*) from Rounds r2 where r2.EventId = e.Id) as AmountOfRounds      
         from Events e
-        left join Rounds r on e.EventId = r.EventId 
+        left join Rounds r on e.Id = r.EventId 
         where r.isActive = true";
         private readonly DapperContext _dapperContext;
 

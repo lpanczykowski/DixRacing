@@ -22,7 +22,7 @@ namespace API.Controllers
                 return BadRequest();
             }
 
-            return Challenge(new AuthenticationProperties { RedirectUri = $"https://localhost:5001/api/account/connectSteamToUser/{userId}" }, "Steam");
+            return Challenge(new AuthenticationProperties { RedirectUri = $"https://localhost:5001/api/account/attachSteamToUser/{userId}" }, "Steam");
         }
     }
 }

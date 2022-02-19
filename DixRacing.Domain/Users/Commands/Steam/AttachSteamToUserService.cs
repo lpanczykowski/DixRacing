@@ -8,7 +8,7 @@ namespace DixRacing.Domain.Users.Commands.Steam
     {
         Task<bool> ExecuteAsync(int userId,string steamId);
     }
-    public class AttachSteamToUserService
+    public class AttachSteamToUserService : IAttachSteamToUserService
     {
         private readonly IRepository<User, int> _userRepository;
 

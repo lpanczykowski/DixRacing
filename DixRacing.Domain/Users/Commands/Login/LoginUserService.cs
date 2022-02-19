@@ -33,7 +33,7 @@ namespace DixRacing.Domain.Users.Commands.Login
             {
                 if (computedHash[i] != user.PasswordHash[i]) throw new InvalidOperationException("Invalid password");
             }
-            var response = new LoginUserResponse(user.Email, _tokenService.CreateToken(user.Id.ToString(), user.Email));            
+            var response = new LoginUserResponse(user.Email, _tokenService.CreateToken(user.Id.ToString(), user.Email),user.Id);            
             return response;
         }
 
