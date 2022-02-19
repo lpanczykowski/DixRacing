@@ -1,14 +1,14 @@
 <ul class="list-group">
   <li class="list-group-item">
-    <a class="text-decoration-none text-black" routerLink='/race/raceId/preq'>PREQ PreqDate</a>
+    <a class="text-decoration-none text-black" routerLink='/round/{{round.roundId}}/race/{{race.raceId}}/preq'>PREQ {{race.preqDate}}</a>
   </li>
   <li class="list-group-item">
-    <a class="text-decoration-none text-black">FP FPDate FPLength</a>
+    <a class="text-decoration-none text-black">FP {{race.practiceDate}} {{race.practiceLength}}</a>
   </li>
   <li class="list-group-item">
-    <a class="text-decoration-none text-black" routerLink='/race/raceId/results/quali'>QUALI QualiDate QualiLength</a>
+    <a class="text-decoration-none text-black" routerLink='/round/{{round.roundId}}/race/{{race.raceId}}/quali'>QUALI {{race.qualiDate}} {{race.qualiLength}}</a>
   </li>
   <li class="list-group-item">
-    <a class="text-decoration-none text-black" routerLink='/race/raceId/results/race'>Race RaceDate RaceLength</a>
+    <a class="text-decoration-none text-black" routerLink='/round/{{round.roundId}}/race/{{race.raceId}}/race'>Race {{race.raceDate}} {{race.raceLength}}</a>
   </li>
 </ul>

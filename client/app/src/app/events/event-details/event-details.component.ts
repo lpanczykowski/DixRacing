@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TouchSequence } from 'selenium-webdriver';
+import { Race } from '_models/race';
 import { Round } from '_models/round';
+import { RaceService } from '_services/race.service';
 import { RoundService } from '_services/round.service';
 
 @Component({
@@ -11,11 +13,12 @@ import { RoundService } from '_services/round.service';
 })
 export class EventDetailsComponent implements OnInit {
   rounds: Round[];
+  races: Race[];
   viewId : number;
   activeRound: Round;
   eventId:number;
 
-  constructor(private route:ActivatedRoute, private roundService:RoundService) {
+  constructor(private route:ActivatedRoute, private roundService:RoundService, private raceService:RaceService) {
     this.viewId = 0 ;
   }
 
@@ -36,8 +39,15 @@ export class EventDetailsComponent implements OnInit {
     this.roundService.getRounds().subscribe(rounds=>{
       this.rounds=rounds;
       this.activeRound=rounds.find(x=>x.isActive);
-      console.log(this.activeRound);
     })
   }
 
+  loadRaces(roundId:number)
+  {
+    this.raceService.getRaces(roundId).subscribe(races=>{
+      this.races=races;
+    });
+    return this.races;
+  }
+  
 }
