@@ -14,7 +14,8 @@ namespace DixRacing.DataAccess.DbMappings
     {
         public void Configure(EntityTypeBuilder<Event> builder)
         {
-            builder.HasKey(x => x.Id);          
+            builder.HasKey(x => x.Id);
+                      
         }
     }
 }

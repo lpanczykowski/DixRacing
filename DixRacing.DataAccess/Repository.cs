@@ -38,7 +38,7 @@ namespace DixRacing.DataAccess
             throw new NotImplementedException();
         }
 
-        public async Task<TEntity> GetUniqeByPropertyAsync(Expression<Func<TEntity, bool>> propertyExpression)
+        public async Task<TEntity> GetUniqueByPropertyAsync(Expression<Func<TEntity, bool>> propertyExpression)
         {
             return await _dbContext.Set<TEntity>().Where(propertyExpression).FirstOrDefaultAsync();
         }
@@ -51,6 +51,11 @@ namespace DixRacing.DataAccess
         public async Task<TId> Update(TEntity entity)
         {
             _dbContext.Set<TEntity>().Update(entity);
+            return entity.Id;
+        }
+        public async Task<TId> DeleteEntity(TEntity entity)
+        {
+            _dbContext.Set<TEntity>().Remove(entity);
             return entity.Id;
         }
     }

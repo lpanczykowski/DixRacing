@@ -24,7 +24,7 @@ namespace DixRacing.DataAccess
       //  public DbSet<HotLap> RaceHotLaps { get; set; }
 //        public DbSet<RaceLap> RaceLaps { get; set; }
           public DbSet<Track> Tracks { get; set; }
-     //   public DbSet<EventParticipant> EventParticipants { get; set; }
+          public DbSet<EventParticipant> EventParticipants { get; set; }
 //        public DbSet<RaceResult> RaceResults { get; set; }
         public DbSet<Race> Races { get; set; }
 //        public DbSet<RaceConfirmation> RaceConfirmations { get; set; }

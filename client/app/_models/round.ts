@@ -1,10 +1,8 @@
 
-import { RaceEvent } from "./event";
-
-export interface Round {
-    roundId: number;
-    eventId: number;
+  export interface Round {
+    id: number;
     serverName: string;
     serverPassword: string;
+    roundNumber: number;
     isActive: boolean;
 }

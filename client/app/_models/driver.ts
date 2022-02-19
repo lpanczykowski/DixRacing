@@ -1,7 +1,9 @@
 import { Participant } from "./participant";
 
 export interface Driver {
-    participantDto: Participant;
+    name :string,
+    surname:string,
+    nick:string,
     number: number;
     team: string;
     car: number;

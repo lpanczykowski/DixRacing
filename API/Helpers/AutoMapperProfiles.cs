@@ -1,5 +1,6 @@
 using API.Features.Events.Queries.GetAllEvents;
 using AutoMapper;
+using DixRacing.Domain.Events;
 using DixRacing.Domain.Events.Queries;
 
 namespace API.Helpers

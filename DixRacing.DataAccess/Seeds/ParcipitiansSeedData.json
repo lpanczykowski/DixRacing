@@ -1,26 +1,23 @@
 [
     {
-        "EventParticipantsId": 1,
         "UserId": 1,
         "EventId": 1,
         "Car": 1,
         "Number": 831,
-        "Team": "Team ACC"
+        "Team": 1
     },
     {
-        "EventParticipantsId": 2,
         "UserId": 2,
         "EventId": 1,
         "Car": 1,
         "Number": 871,
-        "Team": "Team ACC"
+        "Team": 1
     },
     {
-        "EventParticipantsId": 3,
         "UserId": 3,
         "EventId": 1,
         "Car": 1,
         "Number": 823,
-        "Team": "Team ACC"
+        "Team": 1
     }
 ]

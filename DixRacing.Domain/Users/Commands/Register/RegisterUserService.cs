@@ -25,7 +25,7 @@ namespace DixRacing.Domain.Users.Commands
         }
         public async Task<RegisterUserResponse> ExecuteAsync(RegisterUserDto registerUserDto)
         {
-            if (await _userRepository.GetUniqeByPropertyAsync(x=>x.Email == registerUserDto.Email) != null) throw new InvalidOperationException("Email is taken");
+            if (await _userRepository.GetUniqueByPropertyAsync(x=>x.Email == registerUserDto.Email) != null) throw new InvalidOperationException("Email is taken");
             var user = new User();
             using var hmac = new HMACSHA512();
             user.Name = registerUserDto.Name.ToLower();

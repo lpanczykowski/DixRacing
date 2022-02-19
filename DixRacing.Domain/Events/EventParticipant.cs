@@ -1,14 +1,18 @@
+using DixRacing.Domain.SharedKernel;
 using DixRacing.Domain.Users;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DixRacing.Domain.Events
 {
-    public class EventParticipant
+    public class EventParticipant : BaseEntity<int>
     {
-        [Key]
-        public int EventParticipantsId { get; set; }
+        public EventParticipant() : base(default)
+        {
+        }
+        public int UserId {get;set;}
         public int EventId { get; set; }
+        public Event Event {get;set;}
         public int Car { get; set; }
         public int Number { get; set; }
         public string Team { get; set; }

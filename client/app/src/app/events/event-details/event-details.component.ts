@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TouchSequence } from 'selenium-webdriver';
+import { EventDto } from '_models/event';
 import { Round } from '_models/round';
 import { RoundService } from '_services/round.service';
 
@@ -10,34 +10,34 @@ import { RoundService } from '_services/round.service';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
-  rounds: Round[];
-  viewId : number;
+  event: EventDto;
+  viewId: number;
   activeRound: Round;
-  eventId:number;
+  eventId: number;
 
-  constructor(private route:ActivatedRoute, private roundService:RoundService) {
-    this.viewId = 0 ;
+  constructor(private route: ActivatedRoute, private roundService: RoundService) {
+    this.viewId = 0;
   }
 
 
   ngOnInit(): void {
 
-    this.eventId=Number(this.route.snapshot.paramMap.get('eventId'));
+    this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
     this.loadRounds();
   }
 
-  setCurrentView(viewId : number)
-  {
-    this.viewId =  viewId;
+  setCurrentView(viewId: number) {
+    this.viewId = viewId;
   }
 
-  loadRounds()
-  {
-    this.roundService.getRounds().subscribe(rounds=>{
-      this.rounds=rounds;
-      this.activeRound=rounds.find(x=>x.isActive);
+  loadRounds() {
+    this.roundService.getRounds().subscribe((e: EventDto) => {
+      this.event = e
+      console.log(e.event);
+      console.log(e.event.rounds);
+      this.activeRound=e.event.rounds.find(x=>x.isActive);
       console.log(this.activeRound);
-    })
+    }, (error: any) => console.log(error))
   }
 
 }

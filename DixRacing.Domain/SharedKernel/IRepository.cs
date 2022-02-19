@@ -9,7 +9,7 @@ namespace DixRacing.Domain.SharedKernel
     {
         Task<TEntity?> GetByIdAsync(TId id);
 
-        Task<TEntity> GetUniqeByPropertyAsync(Expression<Func<TEntity, bool>> propertyExpression);
+        Task<TEntity> GetUniqueByPropertyAsync(Expression<Func<TEntity, bool>> propertyExpression);
 
         Task<IEnumerable<TEntity>> GetByPropertyAsync(Expression<Func<TEntity, bool>> propertyExpression);
 
@@ -20,5 +20,6 @@ namespace DixRacing.Domain.SharedKernel
         Task<TId> DeleteAsync(TId id);
 
         Task<TId> Update(TEntity entity);
+        Task<TId> DeleteEntity(TEntity entity);
     }
 }

@@ -104,17 +104,17 @@ namespace DixRacing.DataAccess
         //     await context.SaveChangesAsync();
         // }
 
-        // public static async Task SeedParcipitians(DixRacingDbContext context)
-        // {
-        //     if (await context.EventParticipants.AnyAsync()) return;
-        //     var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/ParcipitiansSeedData.json");
-        //     var deserializedData = JsonConvert.DeserializeObject<List<EventParticipant>>(data);
-        //     foreach (var item in deserializedData)
-        //     {
-        //         context.EventParticipants.Add(item);
-        //     }
-        //     await context.SaveChangesAsync();
-        // }
+        public static async Task SeedParticipants(DixRacingDbContext context)
+        {
+            if (await context.EventParticipants.AnyAsync()) return;
+            var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/ParcipitiansSeedData.json");
+            var deserializedData = JsonConvert.DeserializeObject<List<EventParticipant>>(data);
+            foreach (var item in deserializedData)
+            {
+                context.EventParticipants.Add(item);
+            }
+            await context.SaveChangesAsync();
+        }
 
     }
 }

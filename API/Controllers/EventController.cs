@@ -1,10 +1,14 @@
+using API.Features.EventParticipants.Queries;
 using API.Features.Events.Commands.CreateEvent;
+using API.Features.Events.Commands.ResignFromEvent;
+using API.Features.Events.Commands.SignForEvent;
 using API.Features.Events.Commands.UpdateEvent;
 using API.Features.Events.Queries.GetAllEvents;
 using API.Features.Events.Queries.GetEventWithRounds;
+using DixRacing.Domain.Events.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -20,7 +24,7 @@ namespace API.Controllers
         public Task<ActionResult<GetAllEventsResponse>> GetAll()
             => SendAsync(new GetAllEventsRequest());
         [HttpGet("{eventId}/rounds")]
-        public Task<ActionResult<GetEventWithRoundsByEventIdResponse>>  GetEventWithRounds(int eventId) 
+        public Task<ActionResult<GetEventWithRoundsByEventIdResponse>>  GetRounds(int eventId) 
             => SendAsync(new GetEventWithRoundsByEventIdRequest(eventId)); 
         [HttpPost]
         public Task<ActionResult<int>> Create([FromBody] CreateEventCommand command) 
@@ -28,8 +32,16 @@ namespace API.Controllers
         [HttpPut]
         public Task<ActionResult<int>> Update([FromBody] UpdateEventCommand command)
             => SendAsync(command);
-        //[HttpPut("sign")]
-        //public async Task<ActionResult<bool>> SignForEvent(SignForEventRequest signForEventRequest)
+        [HttpPut("sign")]
+        public Task<ActionResult<int>> SignForEvent([FromBody] SignForEventCommand command)
+            => SendAsync(command);
+        [HttpPut("resign")]
+        public Task<ActionResult<bool>> ResignFromEvent([FromBody] ResignFromEventCommand command)
+            => SendAsync(command);
+        [HttpGet("{eventId}/participants")]
+        public Task<ActionResult<IEnumerable<EventParticipantReadModel>>> GetParticipants(int eventId) 
+            => SendAsync(new GetParticipantsByEventIdRequest(eventId));
+
         //{
         //    var response = await _signForEvent.SignUserForEventAsync(signForEventRequest);
         //    return Ok(response);

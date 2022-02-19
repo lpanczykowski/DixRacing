@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RaceEvent } from '_models/event';
 import { EventWithActiveRound } from '_models/eventWithActiveRound';
 
 
@@ -18,7 +17,6 @@ export class EventBoxComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.raceEvent);
-
   }
 
   calculateDiff(){

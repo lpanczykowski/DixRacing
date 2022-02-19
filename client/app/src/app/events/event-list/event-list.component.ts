@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RaceEvent } from '_models/event';
 import { Events } from '_models/eventWithActiveRound';
 
 import { EventService } from '_services/event.service';
