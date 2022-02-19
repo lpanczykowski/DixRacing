@@ -449,3 +449,6 @@ $RECYCLE.BIN/
 
 appsettings.json
 .vs/DixRacing/DesignTimeBuild/.dtbcache.v2
+API/dixracing.db
+API/dixracing.db-shm
+API/dixracing.db-wal
