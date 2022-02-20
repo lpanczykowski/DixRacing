@@ -62,19 +62,44 @@
           </p>
         </div>
         <div *ngIf="viewId === 2">
-          <app-drivers> </app-drivers>
+          <app-driver-list> </app-driver-list>
         </div>
       </div>
 
 
     </div>
 
+
+
     <div class="col-4 bg-secondary text-black">
       <div class="container mt-5 mb-5">
-        <div class="bg-light">
-          <h4 class="mx-2">Nazwa Serwera:{{activeRound?.serverName}}</h4>
-          <h4 class="mx-2">Hasło:{{activeRound?.serverPassword}}</h4>
-          <h4 class="mx-2">Liczba kierowców:</h4>
+        <div class="card-wrapper">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <img
+                src="https://d3npyywa6qnolf.cloudfront.net/prod/user/540311/eyJ1cmwiOiJodHRwczpcL1wvcGF0cm9uaXRlLnBsXC91cGxvYWRcL3VzZXJcLzU0MDMxMVwvYXZhdGFyX29yaWcuanBnPzE2MjI1ODgwNjYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MCwib3B0aW9ucyI6eyJxdWFsaXR5Ijo5NX19LCJ0b0Zvcm1hdCI6ImpwZWcifX0%3D/OL4pCaXUUXl9BnHQ3HmYZovLVzWMv9Bx%2FMZz%2FPTTulg%3D"
+                mat-card-avatar />
+              <mat-card-title>
+               Runda {{activeRound.roundNumber}}
+              </mat-card-title>
+              <mat-card-subtitle>
+                Tor
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Serwer:</p>
+              <p>{{activeRound.serverName}}</p>
+              <p>Password:</p>
+              <p> {{activeRound.serverPassword}}</p>
+
+            </mat-card-content>
+            <hr>
+            <mat-card-actions>
+              <button mat-raised-button color="accent">Potwierdź 00:00:00</button>
+              <!-- <button mat-raised-button color="primary">SHARE</button> -->
+            </mat-card-actions>
+          </mat-card>
+
         </div>
       </div>
 

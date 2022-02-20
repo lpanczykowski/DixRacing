@@ -1,0 +1,13 @@
+.carImageHolder {
+  position: relative;
+}
+.carImageHolder span {
+  position: absolute;
+  right: 5%;
+  top: 75%;
+  border: 2px solid black;
+  background: white;
+}
+.card-body{
+  background: white;
+}

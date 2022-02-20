@@ -23,6 +23,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RaceBoxComponent } from './races/race-box/race-box.component';
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
+import { DriverListComponent } from './drivers/driver-list/driver-list.component';
+import { DriverCardComponent } from './drivers/driver-card/driver-card.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,8 @@ import { RaceDetailsComponent } from './races/race-details/race-details.componen
     EventDetailsComponent,
     RaceBoxComponent,
     RaceDetailsComponent,
+    DriverListComponent,
+    DriverCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ import { RaceDetailsComponent } from './races/race-details/race-details.componen
     FormsModule,
     BsDropdownModule.forRoot(),
     NgbModule,
-    //CalendarModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor,multi:true},
