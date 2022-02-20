@@ -12,6 +12,6 @@ baseUrl=environment.apiUrl;
 
   getRaces(roundId:number)
   {
-    return this.http.get<Race[]>(this.baseUrl + 'rounds/' + roundId + '/races')
+    return this.http.get<Race[]>(this.baseUrl + 'round/' + roundId + '/races')
   }
 }

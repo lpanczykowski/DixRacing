@@ -1,19 +1,11 @@
 export interface Race {
-
-  // raceId: number;
-  // roundId: number;
-  // startingTime: string;
-  // signingTime: string;
-  // maxPlayers: number;
-
-
-
-  raceId: number;
-  preqDate: string;
-  practiceDate: string;
-  practiceLength: string;
-  qualiDate: string;
-  qualiLength: string;
-  raceDate: string;
-  raceLength: string;
+  id: number;
+  preqDate: Date;
+  practiceDate: Date;
+  practiceLength: number;
+  qualiDate: Date;
+  qualiLength: number;
+  raceDate: Date;
+  raceLength: number;
+  roundId: number;
 }
