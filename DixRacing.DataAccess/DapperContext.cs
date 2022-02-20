@@ -7,7 +7,7 @@ namespace DixRacing.DataAccess
     public class DapperContext : IDisposable
     {
         private readonly string _connectionString;
-        private IDbConnection? _connection;
+        private IDbConnection _connection;
 
         public DapperContext(string connectionString)
         {

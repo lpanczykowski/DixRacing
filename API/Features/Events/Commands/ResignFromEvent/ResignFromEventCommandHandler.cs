@@ -17,7 +17,7 @@ namespace API.Features.Events.Commands.ResignFromEvent
         public async Task<bool> Handle(ResignFromEventCommand request, CancellationToken cancellationToken)
         {
             var participant = await _repository.GetUniqueByPropertyAsync(x=>x.EventId == request.eventId && x.UserId == request.userId);
-            return await _repository.DeleteEntity(participant)>0;
+            return  _repository.DeleteEntity(participant)>0;
 
         }
     }

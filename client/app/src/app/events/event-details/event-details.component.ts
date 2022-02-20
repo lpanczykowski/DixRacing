@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventDto } from '_models/event';
+import { Race } from '_models/race';
 import { Round } from '_models/round';
 import { RaceService } from '_services/race.service';
 import { RoundService } from '_services/round.service';
@@ -15,8 +16,9 @@ export class EventDetailsComponent implements OnInit {
   viewId: number;
   activeRound: Round;
   eventId: number;
+  races : Race[];
 
-  constructor(private route: ActivatedRoute, private roundService: RoundService) {
+  constructor(private route: ActivatedRoute, private roundService: RoundService, private raceService : RaceService) {
     this.viewId = 0;
   }
 

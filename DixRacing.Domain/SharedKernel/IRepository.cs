@@ -19,7 +19,7 @@ namespace DixRacing.Domain.SharedKernel
 
         Task<TId> DeleteAsync(TId id);
 
-        Task<TId> Update(TEntity entity);
-        Task<TId> DeleteEntity(TEntity entity);
+        TId Update(TEntity entity);
+        TId DeleteEntity(TEntity entity);
     }
 }

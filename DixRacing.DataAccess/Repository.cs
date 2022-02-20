@@ -48,12 +48,12 @@ namespace DixRacing.DataAccess
             return await _dbContext.Set<TEntity>().Where(propertyExpression).ToListAsync();
         }
 
-        public async Task<TId> Update(TEntity entity)
+        public TId Update(TEntity entity)
         {
             _dbContext.Set<TEntity>().Update(entity);
             return entity.Id;
         }
-        public async Task<TId> DeleteEntity(TEntity entity)
+        public TId DeleteEntity(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
             return entity.Id;

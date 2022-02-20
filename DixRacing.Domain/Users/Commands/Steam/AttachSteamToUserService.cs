@@ -21,7 +21,7 @@ namespace DixRacing.Domain.Users.Commands.Steam
            var user = await _userRepository.GetByIdAsync(userId);
            if (user is null) throw new InvalidOperationException("User not found");
            user.SteamId = steamId;
-           return await _userRepository.Update(user) > 0;
+           return  _userRepository.Update(user) > 0;
             
         }
     }
