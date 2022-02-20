@@ -1,110 +1,58 @@
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using DixRacing.Core;
-using DixRacing.Data;
-using DixRacing.Data.Entites;
-using DixRacing.Data.Interfaces;
-using DixRacing.Data.Models.Request;
-using DixRacing.Data.Models.Response;
-using DixRacing.Services.Interfaces;
+using API.Features.Users.Commands.LoginUser;
+using API.Features.Users.Commands.Steam;
+using API.Features.Users.RegisterUser;
+using DixRacing.Domain.Users.Commands.Login;
+using DixRacing.Domain.Users.Commands.Register;
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
     public class AccountController : BaseApiController
     {
-        private readonly DataContext _context;
-        private readonly IMapper _mapper;
-        private readonly IAccountService _accountService;
-        private readonly IUserRepository _userRepository;
-        private readonly ITokenService _tokenService;
-
-        public AccountController(IMapper mapper,
-                                 IAccountService accountService,
-                                 IUserRepository userRepository,
-                                 ITokenService tokenService)
+        public AccountController(IMediator mediator) : base(mediator)
         {
-            _mapper = mapper;
-            _accountService = accountService;
-            _userRepository = userRepository;
-            _tokenService = tokenService;
         }
+
+
         [HttpPost("register")]
+        public  Task<ActionResult<RegisterUserResponse>> RegisterUser([FromBody] RegisterUserCommand command) => 
+            SendAsync(command);
 
-        public async Task<ActionResult<AccountRegisterResponse>> AccountRegister(AccountRegisterRequest accountRegisterRequest)
-        {
-            if (await _accountService.CheckIfUserExistsByEmail(accountRegisterRequest.Email)) return BadRequest("Email is taken");
-            var user = new Users();
-
-            using var hmac = new HMACSHA512();
-            user.Name = accountRegisterRequest.Name.ToLower();
-            user.Surname = accountRegisterRequest.Surname.ToLower();
-            user.Nick = accountRegisterRequest.Nick.ToLower();
-            user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(accountRegisterRequest.Password));
-            user.PasswordSalt = hmac.Key;
-            user.Email = accountRegisterRequest.Email;
-            user.SteamId = accountRegisterRequest.SteamId;
-            await _userRepository.AddAsync(user);
-
-            return new AccountRegisterResponse
-            {
-                Email = user.Email,
-                Token = _tokenService.CreateToken(user),
-            };
-        }
+        //if (await _accountService.CheckIfUserExistsByEmail(accountRegisterRequest.Email)) return BadRequest("Email is taken");//var user = new Users();//using var hmac = new HMACSHA512();//user.Name = accountRegisterRequest.Name.ToLower();//user.Surname = accountRegisterRequest.Surname.ToLower();//user.Nick = accountRegisterRequest.Nick.ToLower();//user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(accountRegisterRequest.Password));//user.PasswordSalt = hmac.Key;//user.Email = accountRegisterRequest.Email;//user.SteamId = accountRegisterRequest.SteamId;//await _userRepository.AddAsync(user);//return new AccountRegisterResponse//{//    Email = user.Email,//    Token = _tokenService.CreateToken(user),//};
         [HttpPost("login")]
-        public async Task<ActionResult<LoginResponse>> Login(LoginRequest loginRequest)
-        {
-            var user = await _userRepository.FindUserByEmail(loginRequest.Email);
-            if (user == null) return Unauthorized("Invalid username");
-            using var hmac = new HMACSHA512(user.PasswordSalt);
+        public Task<ActionResult<LoginUserResponse>> LoginUser([FromBody] LoginUserCommand command) =>
+            SendAsync(command);
 
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginRequest.Password));
-
-            for (int i = 0; i < computedHash.Length; i++)
-            {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
-
-            }
-            var response = new LoginResponse
-            {
-                Email = user.Email,
-                Token = _tokenService.CreateToken(user)
-
-            };
-            return Ok(response);
-        }      
         [HttpPost("attachDiscord")]
-        public async Task<ActionResult<Users>> AttachDiscordId(AttachDiscordRequest attachDiscordRequest)
+        public async Task<IActionResult> AttachDiscordId()
         {
-            var user = await _userRepository.FindAsync(attachDiscordRequest.UserId);
-            user.DiscordId = attachDiscordRequest.DiscordId;
-            return Ok(await _userRepository.UpdateAsync(user));
+            throw new NotImplementedException();
 
         }
-        [HttpGet("connectSteamToUser/{userId}")]
-        public async Task<ActionResult<ClaimsPrincipal>> GetClaims(int userId)
-        {
+        [HttpGet("attachSteamToUser/{userId}")]
+        public async Task<ActionResult> GetClaims(int userId)
+        {   
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
             {
-                claim.Issuer,
-                claim.OriginalIssuer,
-                claim.Type,
-                claim.Value
+               claim.Issuer,
+               claim.OriginalIssuer,
+               claim.Type,
+               claim.Value
             });
-            var steamId = claims.Select(s=>s.Value).FirstOrDefault().Split('/').Last();
-            await _accountService.AttachSteamToAccount(steamId,userId);
+            var steamId = claims.Select(s => s.Value).FirstOrDefault().Split('/').Last();
+            await SendAsync(new AttachSteamCommand(userId,steamId));
             return Redirect("https://localhost:4200");
 
         }
-       
+
 
 
     }

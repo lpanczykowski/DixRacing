@@ -64,7 +64,6 @@
         <div *ngIf="viewId === 2">
           <app-drivers> </app-drivers>
         </div>
-
       </div>
 
 
@@ -80,8 +79,8 @@
       </div>
 
       <div class="container mt-5 mb-5">
-        <div class="accordion" id="accordionSection">
-          <div class="accordion-item" *ngFor="let round of rounds">
+        <div class="accordion" id="accordion-section">
+          <div class="accordion-item" *ngFor="let round of event?.event.rounds">
             <h2 class="accordion-header">
               <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                 [attr.data-bs-target]="'#Item' + round.roundId" (click)="loadRaces(round.roundId)" aria-expanded="false" aria-controls="#Item{{round.roundId}}">Round {{round.roundId}}</button>

@@ -1,19 +1,29 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map, take } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
+import { RegisterUserDto } from '_models/registerUserDto';
 import { User } from '_models/user';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json-patch+json'})
+};
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AccountService {
   baseUrl=environment.apiUrl;
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
+
+
   constructor(private http: HttpClient) { }
+
 
   login(model: any)
   {
@@ -39,9 +49,9 @@ export class AccountService {
     this.currentUserSource.next(null);
   }
 
-  register(model: any)
+  register(registerUserDto: any)
   {
-    return this.http.post(this.baseUrl+'account/register',model).pipe(
+    return this.http.post(this.baseUrl+'account/register',JSON.stringify({registerUserDto}),httpOptions).pipe(
       map((user: User) =>{
         if(user)
         {
@@ -51,8 +61,8 @@ export class AccountService {
       })
     )
   }
-  steam()
+  steam(userId : number)
   {
-    window.location.href  = this.baseUrl+"steam/login/";
+    window.location.href  = this.baseUrl+"steam/login/"+userId  ;
   }
 }

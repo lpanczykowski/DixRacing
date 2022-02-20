@@ -1,10 +1,5 @@
 using AutoMapper;
-using DixRacing.Core;
-using DixRacing.Data.Entites;
-using DixRacing.Data.Interfaces;
-using DixRacing.Data.Models.Request;
 using DixRacing.Data.Models.Response;
-using DixRacing.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -27,6 +22,9 @@ namespace API.Controllers
             _mapper = mapper;
             _roundService = roundService;
         }
+        [HttpGet("{roundId}/races")]
+        public Task<ActionResult<GetRoundWithRacesResponse>> GetRoundWithRaces(int roundId) 
+            => SendAsync(new GetRoundWithRacesRequest(roundId));
 
         [HttpPut("add")]
         public async Task<Rounds> AddRound(AddRoundRequest addRoundRequest)

@@ -1,0 +1,23 @@
+[
+    {
+        "UserId": 1,
+        "EventId": 1,
+        "Car": 1,
+        "Number": 831,
+        "Team": 1
+    },
+    {
+        "UserId": 2,
+        "EventId": 1,
+        "Car": 1,
+        "Number": 871,
+        "Team": 1
+    },
+    {
+        "UserId": 3,
+        "EventId": 1,
+        "Car": 1,
+        "Number": 823,
+        "Team": 1
+    }
+]

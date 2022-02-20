@@ -1,8 +1,9 @@
-<div class="row" *ngIf="events?.length === 0">
+<div>{{events}}</div>
+<div class="row" *ngIf="events?.events.length === 0">
   <h3>No events</h3>
 </div>
-<div class="row" *ngIf="events?.length > 0">
-  <div *ngFor="let event of events">
+<div class="row" *ngIf="events?.events.length > 0">
+  <div *ngFor="let event of events.events">
     <app-event-box [raceEvent] = "event" ></app-event-box>
   </div>
 </div>

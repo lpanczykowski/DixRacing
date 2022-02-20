@@ -1,13 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Round } from '_models/round';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    Authorization: 'Bearer '+ JSON.parse(localStorage.getItem('user'))?.token
-  })
-}
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +9,8 @@ const httpOptions = {
     baseUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) { }
-
+    //TODO: Wywalić do event service
     getRounds() {
-      return this.http.get<Round[]>(this.baseUrl + 'event/1/rounds', httpOptions);
+      return this.http.get(this.baseUrl + 'event/1/rounds');
     }
 }

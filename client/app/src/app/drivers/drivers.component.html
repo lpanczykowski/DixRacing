@@ -13,7 +13,7 @@
     </thead>
     <tr *ngFor="let driver of drivers">
       <td>{{driver.number}}</td>
-      <td>{{driver.participantDto?.name}} {{driver.participantDto?.surname}} </td>
+      <td>{{driver.name}} "{{driver.nick}}" {{driver.surname}} </td>
       <td>{{driver.team}}</td>
       <td>{{driver.car}}</td>
     </tr>

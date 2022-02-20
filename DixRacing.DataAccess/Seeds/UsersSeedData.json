@@ -1,0 +1,26 @@
+[
+    {
+        "Nick": "LUK",
+        "Name": "Łukasz",
+        "Surname": "Czykowski",
+        "Email": "LUK@gmail.com",
+        "PasswordHash": "",
+        "PasswordSalt": ""
+    },
+    {
+        "Nick": "Fewjo",
+        "Name": "Robert",
+        "Surname": "Lewandowski",
+        "Email": "Fewjo@gmail.com",
+        "PasswordHash": "",
+        "PasswordSalt": ""
+    },
+    {
+        "Nick": "Mati",
+        "Name": "Mateusz",
+        "Surname": "Przedręba",
+        "Email": "Mati@gmail.com",
+        "PasswordHash": "",
+        "PasswordSalt": ""
+    }
+]

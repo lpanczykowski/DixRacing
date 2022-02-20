@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { RegisterUserDto } from '_models/registerUserDto';
 import { AccountService } from '_services/account.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AccountService } from '_services/account.service';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  model: any={};
+  model: RegisterUserDto=new RegisterUserDto();
   registerMode=false;
 
   constructor(private accountService: AccountService, private router: Router) { }
