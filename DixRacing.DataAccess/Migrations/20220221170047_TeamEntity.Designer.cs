@@ -3,14 +3,16 @@ using System;
 using DixRacing.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DixRacing.DataAccess.Migrations
 {
     [DbContext(typeof(DixRacingDbContext))]
-    partial class DixRacingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220221170047_TeamEntity")]
+    partial class TeamEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,7 +153,7 @@ namespace DixRacing.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("TeamName")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

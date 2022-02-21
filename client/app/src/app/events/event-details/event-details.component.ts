@@ -17,14 +17,15 @@ export class EventDetailsComponent implements OnInit {
   activeRound: Round;
   eventId: number;
   races : Race[];
-
+  now : any;
+  seconds;minutes;hours : number;
   constructor(private route: ActivatedRoute, private roundService: RoundService, private raceService : RaceService) {
     this.viewId = 0;
+    setInterval(() => {this.now = Date.now()}, 1000);
   }
 
 
   ngOnInit(): void {
-
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
     this.loadRounds();
   }
@@ -49,6 +50,15 @@ export class EventDetailsComponent implements OnInit {
       this.races=races;
     });
     return this.races;
+  }
+  timeToSign()
+  {
+    var duration =  (+new Date(this.activeRound.roundDay)) - (+this.now)
+    console.log(duration);
+    this.seconds = Math.floor((duration / 1000) % 60) | 0,
+    this.minutes = Math.floor((duration / (1000 * 60)) % 60)|0,
+    this.hours = Math.floor((duration / (1000 * 60 * 60)) % 24) |0;
+    return this.hours + ":"+this.minutes+":"+this.seconds;
   }
 
 }

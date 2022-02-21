@@ -1,6 +1,7 @@
 using DixRacing.Domain.Events;
 using DixRacing.Domain.Races;
 using DixRacing.Domain.Rounds;
+using DixRacing.Domain.Teams;
 using DixRacing.Domain.Users;
 using DixRacing.Domain.Utility;
 using Microsoft.EntityFrameworkCore;
@@ -112,6 +113,17 @@ namespace DixRacing.DataAccess
             foreach (var item in deserializedData)
             {
                 context.EventParticipants.Add(item);
+            }
+            await context.SaveChangesAsync();
+        }
+         public static async Task SeedTeams(DixRacingDbContext context)
+        {
+            if (await context.Teams.AnyAsync()) return;
+            var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/TeamsSeedData.json");
+            var deserializedData = JsonConvert.DeserializeObject<List<Team>>(data);
+            foreach (var item in deserializedData)
+            {
+                context.Teams.Add(item);
             }
             await context.SaveChangesAsync();
         }

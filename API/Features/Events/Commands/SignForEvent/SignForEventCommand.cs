@@ -7,7 +7,7 @@ namespace API.Features.Events.Commands.SignForEvent
                                       int Car,
                                       byte[] Livery,
                                       int Number,
-                                      string Team) : IRequest<int>;
+                                      int Team) : IRequest<int>;
     
     
 }

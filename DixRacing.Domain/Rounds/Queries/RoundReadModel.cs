@@ -7,11 +7,12 @@ namespace DixRacing.Domain.Rounds.Queries
         string ServerName,
         string ServerPassword,
         int RoundNumber,
-        bool isActive
+        bool isActive,
+        DateTime RoundDay
         )
     {
         [Obsolete("For dapper support only")]
-        public RoundReadModel() : this(default, string.Empty, string.Empty, default, default)
+        public RoundReadModel() : this(default, string.Empty, string.Empty, default, default,default)
         {
         }
     }

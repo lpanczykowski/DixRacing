@@ -16,7 +16,6 @@ const routes: Routes=[
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'event', component: EventListComponent},
- // {path: 'event/info', component: EventComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'event/:eventId', component: EventDetailsComponent},
   {path: 'event/signup/:eventId', component: RulesComponent},
@@ -24,8 +23,6 @@ const routes: Routes=[
   {path: 'eventId/teams', component: TeamsComponent},
   {path: 'eventId/standings', component: StandingsComponent},
   {path: 'eventId/penalties', component: PenaltiesComponent},
-  //{path: 'eventId/signup', component: EventComponent},
-  //{path: 'raceId/signup', component: EventComponent},
   {path: '**', component: HomeComponent, pathMatch:'full'},
 ];
 
