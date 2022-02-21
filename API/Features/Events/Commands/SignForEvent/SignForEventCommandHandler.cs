@@ -24,7 +24,7 @@ namespace API.Features.Events.Commands.SignForEvent
                 Car = request.Car,
                 Livery = request.Livery,
                 Number = request.Number,
-                Team = request.Team,                
+                TeamId = request.Team,                
             };
             return await _eventParticipantRepository.CreateAsync(eventParticipant);
         }

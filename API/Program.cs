@@ -27,6 +27,7 @@ namespace API
                  await Seed.SeedRounds(context);
                  await Seed.SeedRaces(context);
                 // await Seed.SeedRacePoints(context);
+                 await Seed.SeedTeams(context);
                  await Seed.SeedParticipants(context);
 
             }

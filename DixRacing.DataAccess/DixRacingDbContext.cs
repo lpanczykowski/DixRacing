@@ -1,6 +1,7 @@
 using DixRacing.Domain.Events;
 using DixRacing.Domain.Races;
 using DixRacing.Domain.Rounds;
+using DixRacing.Domain.Teams;
 using DixRacing.Domain.Users;
 using DixRacing.Domain.Utility;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,7 @@ namespace DixRacing.DataAccess
         public DbSet<Race> Races { get; set; }
 //        public DbSet<RaceConfirmation> RaceConfirmations { get; set; }
         public DbSet<Round> Rounds { get; set; }
+        public DbSet<Team> Teams {get;set;}
      //   public DbSet<RacePoint> RacePoints { get; set; }
 
 
