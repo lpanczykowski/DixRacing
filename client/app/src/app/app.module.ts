@@ -27,6 +27,11 @@ import { DriverListComponent } from './drivers/driver-list/driver-list.component
 import { DriverCardComponent } from './drivers/driver-card/driver-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { EventRulesComponent } from './events/event-rules/event-rules.component';
+import { EventTeamsComponent } from './events/event-teams/event-teams.component';
+import { EventPenaltyComponent } from './events/event-penalty/event-penalty.component';
+import { EventPointsComponent } from './events/event-points/event-points.component';
+import { EventInfoComponent } from './events/event-info/event-info.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import {MatButtonModule} from '@angular/material/button';
     RaceDetailsComponent,
     DriverListComponent,
     DriverCardComponent,
+    EventRulesComponent,
+    EventTeamsComponent,
+    EventPenaltyComponent,
+    EventPointsComponent,
+    EventInfoComponent,
   ],
   imports: [
     BrowserModule,

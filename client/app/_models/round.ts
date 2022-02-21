@@ -5,4 +5,5 @@
     serverPassword: string;
     roundNumber: number;
     isActive: boolean;
+    roundDay: Date;
 }
