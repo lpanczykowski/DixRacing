@@ -7,3 +7,11 @@
   height: 10%;
   background: rgb(255, 255, 255);/*TODO:Global NavbarColor*/
 }
+.dropdown
+{
+  position:absolute;
+  top:50%;
+  -moz-transform:  translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
