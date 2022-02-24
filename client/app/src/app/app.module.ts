@@ -25,13 +25,14 @@ import { RaceBoxComponent } from './races/race-box/race-box.component';
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
 import { DriverListComponent } from './drivers/driver-list/driver-list.component';
 import { DriverCardComponent } from './drivers/driver-card/driver-card.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { EventRulesComponent } from './events/event-rules/event-rules.component';
 import { EventTeamsComponent } from './events/event-teams/event-teams.component';
 import { EventPenaltyComponent } from './events/event-penalty/event-penalty.component';
 import { EventPointsComponent } from './events/event-points/event-points.component';
 import { EventInfoComponent } from './events/event-info/event-info.component';
+import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { EventInfoComponent } from './events/event-info/event-info.component';
     EventPenaltyComponent,
     EventPointsComponent,
     EventInfoComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -68,10 +70,12 @@ import { EventInfoComponent } from './events/event-info/event-info.component';
     BsDropdownModule.forRoot(),
     NgbModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    PaginationModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor,multi:true},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    PaginationConfig
   ],
   bootstrap: [AppComponent]
 })

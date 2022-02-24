@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { $ } from 'protractor';
-import { Driver} from '_models/driver';
+import { Driver} from '_models/driver/driver';
 import { DriverService } from '_services/driver.service';
 
 @Component({
@@ -14,15 +14,7 @@ export class DriversComponent implements OnInit {
   constructor(private driverService: DriverService) { }
 
   ngOnInit(): void {
-    this.loadDrivers();
 
-  }
-
-  loadDrivers(){
-    this.driverService.getDrivers().subscribe(drivers=>{
-      this.drivers=drivers;
-      console.log(this.drivers);
-    })
   }
 
 }

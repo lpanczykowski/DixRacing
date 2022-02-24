@@ -16,12 +16,10 @@ export class EventBoxComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    console.log(this.raceEvent);
   }
 
   calculateDiff(){
     const date = new Date(); //const date = new Date(this.raceEvent.activeRound.roundDay);
-    console.log(date);
     const currentDate = new Date();
     var duration =  (+date) - (+currentDate)
     var milliseconds = Math.floor((duration % 1000) / 100),

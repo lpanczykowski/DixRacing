@@ -1,4 +1,5 @@
 using DixRacing.Domain.Events.Queries;
+using DixRacing.Domain.SharedKernel;
 using MediatR;
 using System.Collections.Generic;
 using System.Threading;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.Features.EventParticipants.Queries
 {
-    public class GetParticipantsByEventIdHandler : IRequestHandler<GetParticipantsByEventIdRequest, IEnumerable<EventParticipantReadModel>>
+    public class GetParticipantsByEventIdHandler : IRequestHandler<GetParticipantsByEventIdRequest, PaginatedResult<EventParticipantReadModel>>
     {
         private readonly IGetParticipantsByEventIdQuery _query;
 
@@ -14,9 +15,9 @@ namespace API.Features.EventParticipants.Queries
         {
             _query = query;
         }
-        public async Task<IEnumerable<EventParticipantReadModel>> Handle(GetParticipantsByEventIdRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<EventParticipantReadModel>> Handle(GetParticipantsByEventIdRequest request, CancellationToken cancellationToken)
         {
-            return await _query.ExecuteAsync(request.EventId);
+            return await _query.ExecuteAsync(request.request);
         }
     }
 }

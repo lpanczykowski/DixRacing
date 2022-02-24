@@ -5,7 +5,9 @@ using API.Features.Events.Commands.SignForEvent;
 using API.Features.Events.Commands.UpdateEvent;
 using API.Features.Events.Queries.GetAllEvents;
 using API.Features.Events.Queries.GetEventWithRounds;
+using API.Infrastructure.Headers;
 using DixRacing.Domain.Events.Queries;
+using DixRacing.Domain.SharedKernel;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -39,8 +41,13 @@ namespace API.Controllers
         public Task<ActionResult<bool>> ResignFromEvent([FromBody] ResignFromEventCommand command)
             => SendAsync(command);
         [HttpGet("{eventId}/participants")]
-        public Task<ActionResult<IEnumerable<EventParticipantReadModel>>> GetParticipants(int eventId) 
-            => SendAsync(new GetParticipantsByEventIdRequest(eventId));
+        public async Task<ActionResult<PaginatedResult<EventParticipantReadModel>>> GetParticipants(int eventId, [FromQuery] PaginationRequest request) 
+            => await SendAsync(new GetParticipantsByEventIdRequest(new EventParticipantPaginatedRequest(){
+                                                                   PageSize = request.PageSize,
+                                                                   PageNumber = request.PageNumber,
+                                                                   EventId = eventId
+                                                                   }));
+
 
         //{
         //    var response = await _signForEvent.SignUserForEventAsync(signForEventRequest);

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px;">
       <br>
-      <h2 class="ms-5 me-5">GT3 ACC Sezon {{eventId}}</h2>
+      <h2 class="ms-5 me-5">{{event?.event.name}}</h2>
       <br>
     </div>
   </div>
@@ -13,7 +13,6 @@
   <div class="row">
     <div class="col-8 bg-secondary text-white">
       <br>
-
       <div class="row text-center">
         <ul class="list-inline">
           <li class="list-inline-item mx-2">
@@ -27,13 +26,10 @@
             <a class="text-decoration-none text-white" (click)="setCurrentView(2)">Kierowcy</a>
           </li>
           <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(3)">Zespoły</a>
+            <a class="text-decoration-none text-white" (click)="setCurrentView(3)">Klasyfikacja</a>
           </li>
           <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(4)">Klasyfikacja</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(5)">Kary</a>
+            <a class="text-decoration-none text-white" (click)="setCurrentView(4)">Kary</a>
           </li>
         </ul>
       </div>
@@ -51,21 +47,13 @@
           <app-driver-list> </app-driver-list>
         </div>
         <div *ngIf="viewId === 3">
-          <app-event-teams></app-event-teams>
-        </div>
-        <div *ngIf="viewId === 4">
           <app-event-points></app-event-points>
         </div>
-        <div *ngIf="viewId === 5">
+        <div *ngIf="viewId === 4">
           <app-event-penalty></app-event-penalty>
         </div>
       </div>
-
-
     </div>
-
-
-
     <div class="col-4 bg-secondary text-black">
       <div class="container mt-5 mb-5">
         <div class="card-wrapper">

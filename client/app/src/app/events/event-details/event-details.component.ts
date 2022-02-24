@@ -37,11 +37,8 @@ export class EventDetailsComponent implements OnInit {
   loadRounds() {
     this.roundService.getRounds().subscribe((e: EventDto) => {
       this.event = e
-      console.log(e.event);
-      console.log(e.event.rounds);
       this.activeRound=e.event.rounds.find(x=>x.isActive);
-      console.log(this.activeRound);
-    }, (error: any) => console.log(error))
+      }, (error: any) => console.log(error))
   }
 
   loadRaces(roundId:number)
@@ -54,7 +51,6 @@ export class EventDetailsComponent implements OnInit {
   timeToSign()
   {
     var duration =  (+new Date(this.activeRound.roundDay)) - (+this.now)
-    console.log(duration);
     this.seconds = Math.floor((duration / 1000) % 60) | 0,
     this.minutes = Math.floor((duration / (1000 * 60)) % 60)|0,
     this.hours = Math.floor((duration / (1000 * 60 * 60)) % 24) |0;
