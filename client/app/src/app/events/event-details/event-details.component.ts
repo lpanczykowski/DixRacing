@@ -48,13 +48,19 @@ export class EventDetailsComponent implements OnInit {
     });
     return this.races;
   }
+  timeToSignAsString()
+  {
+    var duration =  this.timeToSign()
+    this.seconds = Math.floor((duration / 1000) % 60) | 0,
+    this.minutes = Math.floor((duration / (1000 * 60)) % 60)|0,
+    this.hours = Math.floor((duration / (1000 * 60 * 60))) |0;
+    return this.hours + ":"+this.minutes+":"+this.seconds;
+  }
   timeToSign()
   {
     var duration =  (+new Date(this.activeRound.roundDay)) - (+this.now)
-    this.seconds = Math.floor((duration / 1000) % 60) | 0,
-    this.minutes = Math.floor((duration / (1000 * 60)) % 60)|0,
-    this.hours = Math.floor((duration / (1000 * 60 * 60)) % 24) |0;
-    return this.hours + ":"+this.minutes+":"+this.seconds;
+    return duration;
   }
+
 
 }

@@ -77,11 +77,8 @@
 
             </mat-card-content>
             <hr>
-            <mat-card-actions *ngIf="timeToSign()">
-
-              <button mat-raised-button color="accent">Potwierdź {{timeToSign()}}</button>
-              <!-- <button mat-raised-button color="primary">SHARE</button> -->
-              <!-- TODO: zmienic to na listę godzin minut i sekund -->
+            <mat-card-actions *ngIf="timeToSign() > 0">
+              <button mat-raised-button color="accent">Potwierdź {{timeToSignAsString()}}</button>
             </mat-card-actions>
           </mat-card>
 
