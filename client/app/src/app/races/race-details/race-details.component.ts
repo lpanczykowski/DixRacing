@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-race-details',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./race-details.component.css']
 })
 export class RaceDetailsComponent implements OnInit {
-
-  constructor() { }
+  view:string;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.view = this.route.snapshot.paramMap.get('view');
   }
+
+  setCurrentView(view: string) {
+    this.view = view;
+  }
+
 
 }

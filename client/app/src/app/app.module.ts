@@ -27,6 +27,8 @@ import { EventPenaltyComponent } from './events/event-penalty/event-penalty.comp
 import { EventPointsComponent } from './events/event-points/event-points.component';
 import { EventInfoComponent } from './events/event-info/event-info.component';
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
+import { RaceResultsComponent } from './races/race-results/race-results.component';
+import { RaceIncidentsComponent } from './races/race-incidents/race-incidents.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
     EventPenaltyComponent,
     EventPointsComponent,
     EventInfoComponent,
+    RaceResultsComponent,
+    RaceIncidentsComponent,
 
   ],
   imports: [
