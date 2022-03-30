@@ -5,11 +5,36 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './event-points.component.html',
   styleUrls: ['./event-points.component.css']
 })
-export class EventPointsComponent implements OnInit {
+export class EventPointsComponent{
 
-  constructor() { }
+  editField: string;
+  pointsList: Array<any> = [
+    { id: 1, points: 100, place: 1 },
+    { id: 2, points: 80, place: 2 },
+    { id: 3, points: 60, place: 3 },
+    { id: 4, points: 40, place: 4 },
+    { id: 5, points: 20, place: 5 },
+  ];
 
-  ngOnInit(): void {
+  Point: any =
+    { id: 0, points: 0, place: 0 };
+
+  updateList(id: number, property: string, event: any) {
+    const editField = event.target.textContent;
+    this.pointsList[id][property] = editField;
+  }
+
+  remove(id: any) {
+    this.pointsList.splice(id, 1);
+  }
+
+  add() {
+      const point = this.Point;
+      this.pointsList.push(point);
+  }
+
+  changeValue(id: number, property: string, event: any) {
+    this.editField = event.target.textContent;
   }
 
 }
