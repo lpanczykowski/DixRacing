@@ -32,6 +32,9 @@
             <a class="text-decoration-none text-white" (click)="setCurrentView(2)">Kierowcy</a>
           </li>
           <li class="list-inline-item mx-2">
+            <a class="text-decoration-none text-white" (click)="setCurrentView(7)">Zespoły</a>
+          </li>
+          <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView(3)">Klasyfikacja</a>
           </li>
           <li class="list-inline-item mx-2">
@@ -66,6 +69,9 @@
         </div>
         <div *ngIf="viewId === 6">
           <app-event-points></app-event-points>
+        </div>
+        <div *ngIf="viewId === 7">
+          <app-event-teams></app-event-teams>
         </div>
       </div>
     </div>
