@@ -27,11 +27,15 @@
           <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView(1)">Regulamin</a>
           </li>
+
           <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView(2)">Kierowcy</a>
           </li>
           <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView(3)">Klasyfikacja</a>
+          </li>
+          <li class="list-inline-item mx-2">
+            <a class="text-decoration-none text-white" (click)="setCurrentView(6)">Punktacja</a>
           </li>
           <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView(4)">Kary</a>
@@ -52,13 +56,16 @@
           <app-driver-list> </app-driver-list>
         </div>
         <div *ngIf="viewId === 3">
-          <app-event-points></app-event-points>
+          <app-event-results></app-event-results>
         </div>
         <div *ngIf="viewId === 4">
           <app-event-penalty></app-event-penalty>
         </div>
         <div *ngIf="viewId === 5">
           <app-event-signup></app-event-signup>
+        </div>
+        <div *ngIf="viewId === 6">
+          <app-event-points></app-event-points>
         </div>
       </div>
     </div>
