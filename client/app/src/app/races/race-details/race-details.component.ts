@@ -18,5 +18,4 @@ export class RaceDetailsComponent implements OnInit {
     this.view = view;
   }
 
-
 }

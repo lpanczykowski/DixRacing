@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container">
   <div class="row">
     <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px;">
       <br>
@@ -27,22 +27,28 @@
           <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView('incidents')">Incydenty</a>
           </li>
+          <li class="list-inline-item mx-2" *ngIf="view === 'incidents'">
+            <a class="text-decoration-none text-white" (click)="setCurrentView('incidentsReport')">Zgłoś Incydent</a>
+          </li>
         </ul>
       </div>
       <hr>
 
       <div class="bg-light text-black">
         <div *ngIf="view === 'preq'">
-          <app-race-results></app-race-results>
+          <app-race-results [resultsSelector]="view"></app-race-results>
         </div>
         <div *ngIf="view === 'quali'">
-          <app-race-results></app-race-results>
+          <app-race-results [resultsSelector]="view"></app-race-results>
         </div>
         <div *ngIf="view === 'race'">
-          <app-race-results></app-race-results>
+          <app-race-results [resultsSelector]="view"></app-race-results>
         </div>
         <div *ngIf="view === 'incidents'">
           <app-race-incidents></app-race-incidents>
+        </div>
+        <div *ngIf="view === 'incidentsReport'">
+          <app-race-incidents-report></app-race-incidents-report>
         </div>
       </div>
 
@@ -50,10 +56,7 @@
     </div>
     <div class="col-4 bg-secondary text-black">
       <div class="container mt-5 mb-5">
-
       </div>
-
-
     </div>
 
   </div>
