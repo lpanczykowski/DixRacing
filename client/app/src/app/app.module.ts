@@ -31,6 +31,7 @@ import { RaceResultsComponent } from './races/race-results/race-results.componen
 import { RaceIncidentsComponent } from './races/race-incidents/race-incidents.component';
 import { RaceIncidentsReportComponent } from './races/race-incidents-report/race-incidents-report.component';
 import { EventSignupComponent } from './events/event-signup/event-signup.component';
+import { EventResultsComponent } from './events/event-results/event-results.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EventSignupComponent } from './events/event-signup/event-signup.compone
     RaceIncidentsComponent,
     RaceIncidentsReportComponent,
     EventSignupComponent,
+    EventResultsComponent,
 
   ],
   imports: [
