@@ -10,14 +10,14 @@ namespace API.Features.Events.Commands.ResignFromEvent
     {
         private readonly IRepository<EventParticipant, int> _repository;
 
-        public ResignFromEventCommandHandler(IRepository<EventParticipant,int> repository )
+        public ResignFromEventCommandHandler(IRepository<EventParticipant, int> repository)
         {
             _repository = repository;
         }
         public async Task<bool> Handle(ResignFromEventCommand request, CancellationToken cancellationToken)
         {
-            var participant = await _repository.GetUniqueByPropertyAsync(x=>x.EventId == request.eventId && x.UserId == request.userId);
-            return  _repository.DeleteEntity(participant)>0;
+            var participant = await _repository.GetUniqueByPropertyAsync(x => x.EventId == request.eventId && x.UserId == request.userId);
+            return _repository.DeleteEntity(participant) > 0;
 
         }
     }
