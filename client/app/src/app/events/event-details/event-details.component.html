@@ -2,9 +2,14 @@
   <div class="row">
     <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px;">
       <br>
-      <h2 class="ms-5 me-5">{{event?.event.name}}</h2>
-      <br>
+      <div class="d-flex flex-row justify-content-between">
+
+            <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(0)">{{event?.event.name}}</h2>
+
+            <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(5)">Dołącz</h2>
+      </div>
     </div>
+    <br>
   </div>
 </div>
 
@@ -52,6 +57,9 @@
         <div *ngIf="viewId === 4">
           <app-event-penalty></app-event-penalty>
         </div>
+        <div *ngIf="viewId === 5">
+          <app-event-signup></app-event-signup>
+        </div>
       </div>
     </div>
     <div class="col-4 bg-secondary text-black">
@@ -63,7 +71,7 @@
                 src="https://d3npyywa6qnolf.cloudfront.net/prod/user/540311/eyJ1cmwiOiJodHRwczpcL1wvcGF0cm9uaXRlLnBsXC91cGxvYWRcL3VzZXJcLzU0MDMxMVwvYXZhdGFyX29yaWcuanBnPzE2MjI1ODgwNjYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MCwib3B0aW9ucyI6eyJxdWFsaXR5Ijo5NX19LCJ0b0Zvcm1hdCI6ImpwZWcifX0%3D/OL4pCaXUUXl9BnHQ3HmYZovLVzWMv9Bx%2FMZz%2FPTTulg%3D"
                 mat-card-avatar />
               <mat-card-title>
-               Runda {{activeRound.roundNumber}}
+                Runda {{activeRound.roundNumber}}
               </mat-card-title>
               <mat-card-subtitle>
                 Tor
@@ -90,7 +98,8 @@
           <div class="accordion-item" *ngFor="let round of event?.event.rounds">
             <h2 class="accordion-header">
               <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                [attr.data-bs-target]="'#Item' + round.id" (click)="loadRaces(round.id)" aria-expanded="false" aria-controls="#Item{{round.id}}">Round {{round.id}}</button>
+                [attr.data-bs-target]="'#Item' + round.id" (click)="loadRaces(round.id)" aria-expanded="false"
+                aria-controls="#Item{{round.id}}">Round {{round.id}}</button>
             </h2>
             <div class="accordion-collapse collapse" id="Item{{round.id}}" data-bs-parent="#accordionSection">
               <div class="accordion-body" *ngFor="let race of races">

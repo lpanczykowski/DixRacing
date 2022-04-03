@@ -1,1 +1,28 @@
-<p>event-points works!</p>
+<div class="bg-light text-black">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Poz.</th>
+        <th scope="col">#</th>
+        <th scope="col">Kierowca</th>
+        <th scope="col">Zespół</th>
+        <th scope="col">Auto</th>
+        <th scope="col" *ngFor="let eventRace of eventRaces">{{eventRace.raceId}}</th>
+        <th scope="col">Punkty</th>
+        <th scope="col">Punkty Karne</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eventResult of eventResults">
+        <th scope="row">{{eventResult.Position}}</th>
+        <td>{{eventResult.DriverNumber}}</td>
+        <td>{{eventResult.DriverName}} {{eventResult.DriverSurname}}</td>
+        <td>{{eventResult.TeamName}}</td>
+        <td>{{eventResult.Car}}</td>
+        <td *ngFor="let points of eventResult.RacePoints">{{points}}</td>
+        <td>{{eventResult.PenaltyPoints}}</td>
+        <td>{{eventResult.Points}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
