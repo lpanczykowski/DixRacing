@@ -18,20 +18,20 @@ namespace DixRacing.DataAccess
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("DataSource=dixracing.db");
+            => options.UseSqlite("DataSource=../DixRacing.DataAccess/dixracing.db");
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
-       // public DbSet<Game> Games { get; set; }
-      //  public DbSet<HotLap> RaceHotLaps { get; set; }
-//        public DbSet<RaceLap> RaceLaps { get; set; }
-          public DbSet<Track> Tracks { get; set; }
-          public DbSet<EventParticipant> EventParticipants { get; set; }
-//        public DbSet<RaceResult> RaceResults { get; set; }
+        // public DbSet<Game> Games { get; set; }
+        //  public DbSet<HotLap> RaceHotLaps { get; set; }
+        //        public DbSet<RaceLap> RaceLaps { get; set; }
+        public DbSet<Track> Tracks { get; set; }
+        public DbSet<EventParticipant> EventParticipants { get; set; }
+        //        public DbSet<RaceResult> RaceResults { get; set; }
         public DbSet<Race> Races { get; set; }
-//        public DbSet<RaceConfirmation> RaceConfirmations { get; set; }
+        //        public DbSet<RaceConfirmation> RaceConfirmations { get; set; }
         public DbSet<Round> Rounds { get; set; }
-        public DbSet<Team> Teams {get;set;}
-     //   public DbSet<RacePoint> RacePoints { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<RaceResult> RaceResults { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
