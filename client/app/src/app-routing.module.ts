@@ -7,6 +7,7 @@ import { RegisterComponent } from './app/register/register.component';
 import { DriversComponent } from './app/drivers/drivers.component';
 import { EventDetailsComponent } from './app/events/event-details/event-details.component';
 import { RaceDetailsComponent } from './app/races/race-details/race-details.component';
+import { EventSignupComponent } from './app/events/event-signup/event-signup.component';
 
 const routes: Routes=[
   {path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes=[
   {path: 'register', component: RegisterComponent},
   {path: 'event/:eventId', component: EventDetailsComponent},
   {path: 'event/:eventId/round/:roundId/race/:raceId/:view', component: RaceDetailsComponent},
+  {path: 'event/signup/:eventId', component: EventSignupComponent},
   {path: '1/drivers', component: DriversComponent},
   {path: '**', component: HomeComponent, pathMatch:'full'},
 ];

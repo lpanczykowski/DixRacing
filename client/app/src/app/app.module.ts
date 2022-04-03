@@ -29,6 +29,8 @@ import { EventInfoComponent } from './events/event-info/event-info.component';
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 import { RaceResultsComponent } from './races/race-results/race-results.component';
 import { RaceIncidentsComponent } from './races/race-incidents/race-incidents.component';
+import { RaceIncidentsReportComponent } from './races/race-incidents-report/race-incidents-report.component';
+import { EventSignupComponent } from './events/event-signup/event-signup.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { RaceIncidentsComponent } from './races/race-incidents/race-incidents.co
     EventInfoComponent,
     RaceResultsComponent,
     RaceIncidentsComponent,
+    RaceIncidentsReportComponent,
+    EventSignupComponent,
 
   ],
   imports: [
