@@ -1,0 +1,32 @@
+<div class="bg-light text-black mx-auto mb-2">
+      <br>
+      <form #incidentReportForm="ngForm" (ngSubmit)="reportIncident()" autocomplete="off" class="form-group ">
+        <h4 class="text-center text-primary text-black mb-4"> Zgłoszenie incydentu </h4>
+
+        <div class="form-group col-10 mx-auto mb-2">
+          <label for="nickInput">Numer Zgłaszanego kierowcy</label>
+          <input type="text" class="form-control" id="reportedDriverId" name="driver">
+        </div>
+        <div class="form-group col-10 mx-auto mb-2">
+          <label for="nameInput">Okrążenie wyścigu</label>
+          <input type="text" class="form-control" id="reportedLap" name="name" >
+        </div>
+        <div class="form-group col-10 mx-auto mb-2">
+          <label for="surnameInput">Opis incydentu</label>
+          <textarea class="form-control" rows="10" id="incidentDetails" name="surname"></textarea>
+        </div>
+              <br>
+        <div class="form-group text-center mx-auto">
+          <button class="btn btn-success mx-1" type="submit">Zgłoś</button>
+        </div>
+        <br>
+      </form>
+</div>
+
+  <!--<div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
+  </div>-->
