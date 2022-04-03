@@ -1,1 +1,22 @@
-<p>race-incidents works!</p>
+<div class="bg-light text-black">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Lp.</th>
+        <th scope="col">Zgłaszający</th>
+        <th scope="col">Zgłoszony</th>
+        <th scope="col">Okrążenie</th>
+        <th scope="col">Decyzja</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let raceIncident of raceIncidents">
+        <th scope="row">{{raceIncident.IncidentId}}</th>
+        <td>{{raceIncident.ReportingDriver}}</td>
+        <td>{{raceIncident.ReportedDriver}}</td>
+        <td>{{raceIncident.IncidentLap}}</td>
+        <td>{{raceIncident.Result}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
