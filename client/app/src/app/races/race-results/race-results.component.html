@@ -7,45 +7,29 @@
         <th scope="col">Kierowca</th>
         <th scope="col">Zespół</th>
         <th scope="col">Auto</th>
+        <th scope="col" *ngIf="resultsSelector!=='race'">S1</th>
+        <th scope="col" *ngIf="resultsSelector!=='race'">S2</th>
+        <th scope="col" *ngIf="resultsSelector!=='race'">S3</th>
         <th scope="col">Czas</th>
         <th scope="col">Gap</th>
-        <th scope="col">Okrążenia</th>
-        <th scope="col">Punkty</th>
+        <th scope="col" *ngIf="resultsSelector!=='quali'">Okrążenia</th>
+        <th scope="col" *ngIf="resultsSelector!=='preq'">Punkty</th> <!--TODO:jesli nie ma pkt za quali w sezonie to wylaczyc widok w tabeli wynikow z quali-->
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>830</td>
-        <td>Marcin Lewandowski</td>
-        <td>SMR</td>
-        <td>AMR V8 Vintage</td>
-        <td>1337:420</td>
-        <td>0</td>
-        <td>50</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>831</td>
-        <td>Łukasz Pan Czykowski</td>
-        <td>SMR</td>
-        <td>AMR V8 Vintage</td>
-        <td>1337:420</td>
-        <td>0</td>
-        <td>50</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>3131</td>
-        <td>Mateusz Przedręba</td>
-        <td>SMR</td>
-        <td>MakLaren</td>
-        <td>1337:420</td>
-        <td>0</td>
-        <td>50</td>
-        <td>100</td>
+      <tr *ngFor="let raceResult of raceResults">
+        <th scope="row">{{raceResult.Position}}</th>
+        <td>{{raceResult.DriverNumber}}</td>
+        <td>{{raceResult.DriverName}} {{raceResult.DriverSurname}}</td>
+        <td>{{raceResult.TeamName}}</td>
+        <td>{{raceResult.Car}}</td>
+        <td *ngIf="resultsSelector!=='race'">{{raceResult.Sector1Time}}</td>
+        <td *ngIf="resultsSelector!=='race'">{{raceResult.Sector2Time}}</td>
+        <td *ngIf="resultsSelector!=='race'">{{raceResult.Sector3Time}}</td>
+        <td>{{raceResult.Time}}</td>
+        <td>{{raceResult.Gap}}</td>
+        <td *ngIf="resultsSelector!=='quali'">{{raceResult.Laps}}</td>
+        <td *ngIf="resultsSelector!=='preq'">{{raceResult.Points}}</td>
       </tr>
     </tbody>
   </table>
