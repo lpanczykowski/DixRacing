@@ -1,6 +1,7 @@
 using DixRacing.Domain.Rounds;
 using DixRacing.Domain.SharedKernel;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DixRacing.Domain.Races
@@ -20,6 +21,7 @@ namespace DixRacing.Domain.Races
         public int RaceLength{get;set;}
         public DateTime SigningTime { get; set; }
         public int MaxPlayers { get; set; }
+        public ICollection<RaceResult> RaceResults { get; set; }
 
     }
 }
