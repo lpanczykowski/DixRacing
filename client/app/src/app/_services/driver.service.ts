@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Driver } from '_models/driver/driver';
-import { DriverParams } from '_models/driver/driverParams';
-import { PaginatedResult } from '_models/pagination';
+import { Driver } from '../_models/driver/driver';
+import { DriverParams } from '../_models/driver/driverParams';
+import { PaginatedResult } from '../_models/pagination';
 import { getPaginationHeaders } from './paginationHelper';
 
 

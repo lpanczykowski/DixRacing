@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Round } from '_models/round';
-import {Race} from '_models/race';
 import { ThrowStmt } from '@angular/compiler';
-import { RaceService } from '_services/race.service';
 import { race } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Round } from 'src/app/_models/round';
+import { Race } from 'src/app/_models/race';
 
 @Component({
   selector: 'app-race-box',

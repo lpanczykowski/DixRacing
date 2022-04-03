@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Race } from '_models/race';
-import { RaceResult } from '_models/raceResult';
+import { Race } from '../_models/race';
+import { RaceResult } from '../_models/raceResult';
 
 @Injectable({
   providedIn: 'root'

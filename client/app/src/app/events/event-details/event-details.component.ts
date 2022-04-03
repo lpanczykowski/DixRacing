@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventDto } from '_models/event';
-import { Race } from '_models/race';
-import { Round } from '_models/round';
-import { RaceService } from '_services/race.service';
-import { RoundService } from '_services/round.service';
+import { EventDto } from 'src/app/_models/event';
+import { Race } from 'src/app/_models/race';
+import { Round } from 'src/app/_models/round';
+import { RaceService } from 'src/app/_services/race.service';
+import { RoundService } from 'src/app/_services/round.service';
 
 @Component({
   selector: 'app-event-details',

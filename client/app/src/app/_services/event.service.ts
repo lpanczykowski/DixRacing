@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { Events, EventWithActiveRound } from "_models/eventWithActiveRound";
+import { Events } from "../_models/eventWithActiveRound";
 
 @Injectable({
   providedIn: 'root'

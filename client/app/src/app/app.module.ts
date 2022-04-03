@@ -12,7 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { DriversComponent } from './drivers/drivers.component';
 import { EventBoxComponent } from './events/event-box/event-box.component';
-import { JwtInterceptor } from '_interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RaceBoxComponent } from './races/race-box/race-box.component';
@@ -32,6 +31,7 @@ import { RaceIncidentsComponent } from './races/race-incidents/race-incidents.co
 import { RaceIncidentsReportComponent } from './races/race-incidents-report/race-incidents-report.component';
 import { EventSignupComponent } from './events/event-signup/event-signup.component';
 import { EventResultsComponent } from './events/event-results/event-results.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [

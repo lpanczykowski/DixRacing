@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegisterUserDto } from '_models/registerUserDto';
-import { AccountService } from '_services/account.service';
+import { RegisterUserDto } from '../_models/registerUserDto';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-register',

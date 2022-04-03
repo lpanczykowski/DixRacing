@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Events } from '_models/eventWithActiveRound';
-
-import { EventService } from '_services/event.service';
+import { Events } from 'src/app/_models/eventWithActiveRound';
+import { EventService } from 'src/app/_services/event.service';
 
 
 @Component({

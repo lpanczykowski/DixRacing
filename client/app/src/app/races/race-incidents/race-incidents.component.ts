@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RaceIncident } from '_models/raceIncident';
-
+import { RaceIncident } from 'src/app/_models/raceIncident';
 @Component({
   selector: 'app-race-incidents',
   templateUrl: './race-incidents.component.html',

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatCardActions } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
-import { RaceResult } from '_models/raceResult';
-import { RaceService } from '_services/race.service';
+import { RaceResult } from '../../_models/raceResult';
+import { RaceService } from '../../_services/race.service';
 
 
 @Component({

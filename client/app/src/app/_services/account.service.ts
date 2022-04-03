@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map, take } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
-import { RegisterUserDto } from '_models/registerUserDto';
-import { User } from '_models/user';
+import { User } from '../_models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json-patch+json'})

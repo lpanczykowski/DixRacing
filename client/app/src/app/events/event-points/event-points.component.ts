@@ -1,8 +1,5 @@
 import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
-import { EventRace } from '_models/eventRace';
-import { EventResult } from '_models/eventResult';
-import { RaceService } from '_services/race.service';
 
 @Component({
   selector: 'app-event-points',
