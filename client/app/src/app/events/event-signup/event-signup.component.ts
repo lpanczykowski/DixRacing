@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventCar } from 'src/app/_models/eventCar';
-import { eventRegisterDriverDto } from 'src/app/_models/eventRegisterDto';
-import { Team } from 'src/app/_models/Team';
-import { EventService } from 'src/app/_services/event.service';
+import { eventRegisterDriverDto } from 'app/_models/eventRegisterDto';
+import { Team } from 'app/_models/Team';
+import { EventService } from 'app/_services/event.service';
+import { EventCar } from 'app/_models/eventCar';
 @Component({
   selector: 'app-event-signup',
   templateUrl: './event-signup.component.html',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Driver } from 'src/app/_models/driver/driver';
-import { DriverParams } from 'src/app/_models/driver/driverParams';
-import { Pagination } from 'src/app/_models/pagination';
-import { DriverService } from 'src/app/_services/driver.service';
+import { Driver } from 'app/_models/driver/driver';
+import { DriverParams } from 'app/_models/driver/driverParams';
+import { Pagination } from 'app/_models/pagination';
+import { DriverService } from 'app/_services/driver.service';
 @Component({
   selector: 'app-driver-list',
   templateUrl: './driver-list.component.html',

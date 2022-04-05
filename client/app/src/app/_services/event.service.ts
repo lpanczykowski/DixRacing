@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment";
 import { EventCar } from "../_models/eventCar";
 import { EventRace } from "../_models/eventRace";
 import { EventResult } from "../_models/eventResult";
+import { environment } from "environments/environment";
 import { Events } from "../_models/eventWithActiveRound";
 import { Team } from "../_models/team";
 

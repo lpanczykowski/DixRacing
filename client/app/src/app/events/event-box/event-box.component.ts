@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventWithActiveRound } from 'src/app/_models/eventWithActiveRound';
+import { EventWithActiveRound } from 'app/_models/eventWithActiveRound';
 
 @Component({
   selector: 'app-event-box',

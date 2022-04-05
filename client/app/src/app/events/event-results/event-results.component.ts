@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventRace } from 'src/app/_models/eventRace';
-import { EventResult } from 'src/app/_models/eventResult';
-import { EventService } from 'src/app/_services/event.service';
+import { EventService } from 'app/_services/event.service';
+import { EventRace } from 'app/_models/eventRace';
+import { EventResult } from 'app/_models/eventResult';
+import { RaceService } from 'app/_services/race.service';
+
 
 @Component({
   selector: 'app-event-results',
