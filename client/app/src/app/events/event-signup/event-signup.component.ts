@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventCar } from 'src/app/_models/eventCar';
-import { EventTeam } from 'src/app/_models/eventTeam';
+import { EventCar } from 'app/_models/eventCar';
+import { EventTeam } from 'app/_models/eventTeam';
 @Component({
   selector: 'app-event-signup',
   templateUrl: './event-signup.component.html',

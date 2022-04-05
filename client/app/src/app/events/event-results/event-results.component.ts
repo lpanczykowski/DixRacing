@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EventRace } from 'src/app/_models/eventRace';
-import { EventResult } from 'src/app/_models/eventResult';
-import { RaceService } from 'src/app/_services/race.service';
+import { EventRace } from 'app/_models/eventRace';
+import { EventResult } from 'app/_models/eventResult';
+import { RaceService } from 'app/_services/race.service';
+
 
 @Component({
   selector: 'app-event-results',
