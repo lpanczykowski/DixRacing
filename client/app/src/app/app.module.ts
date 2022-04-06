@@ -29,6 +29,7 @@ import { EventSignupComponent } from './events/event-signup/event-signup.compone
 import { EventResultsComponent } from './events/event-results/event-results.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
+import { CardComponent } from './_modules/card/card.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { BrowserModule } from '@angular/platform-browser';
     RaceIncidentsReportComponent,
     EventSignupComponent,
     EventResultsComponent,
+    CardComponent,
   ],
   imports: [
     FormsModule,
