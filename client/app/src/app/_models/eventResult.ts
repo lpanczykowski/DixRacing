@@ -1,11 +1,12 @@
 export interface EventResult {
-  Position: number;
-  DriverNumber: number;
-  DriverName: string;
-  DriverSurname: string;
-  TeamName?: string;
-  Car: number;
-  RacePoints?: number[];
-  PenaltyPoints: number;
-  Points: number;
+  position: number;
+  driverNumber: number;
+  driverName: string;
+  driverSurname: string;
+  teamName?: string;
+  car: number;
+  carNumber: number;
+  racePoints?: number[];
+  penaltyPoints: number;
+  points: number;
 }

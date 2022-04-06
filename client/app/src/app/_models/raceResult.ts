@@ -1,17 +1,18 @@
 export interface RaceResult {
-  DriverNumber: number;
-  DriverName: string;
-  DriverSurname: string;
-  TeamName: string;
-  Car: number;
-  RaceId: number;
-  Position: number;
-  Sector1Time:number;
-  Sector2Time:number;
-  Sector3Time:number;
-  Time: number;
-  Gap: number;
-  Laps: number;
-  Points: number;
-  PenaltyPoints: number;
+  driverNumber: number;
+  driverName: string;
+  driverSurname: string;
+  teamName: string;
+  car: number;
+  carNumber: number;
+  raceId: number;
+  position: number;
+  sector1Time:number;
+  sector2Time:number;
+  sector3Time:number;
+  time: number;
+  gap: number;
+  laps: number;
+  points: number;
+  penaltyPoints: number;
 }
