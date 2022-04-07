@@ -16,6 +16,7 @@ export class RaceDetailsComponent implements OnInit {
   raceId:number;
   userId:number;
   view:string;
+
   constructor(private route: ActivatedRoute, private raceService: RaceService) { }
   currentDriverResult: RaceResult={ driverNumber: 930,
                                     driverName: 'Marcin',
@@ -45,8 +46,8 @@ export class RaceDetailsComponent implements OnInit {
 
   getNumberOfParticipants(gridSize:number)
   {
-    this.numberOfParticipantsForEvent=gridSize;
-  }
+     this.numberOfParticipantsForEvent=gridSize;
+    }
 
   checkUserStatus(raceId:number,userId:number){
 

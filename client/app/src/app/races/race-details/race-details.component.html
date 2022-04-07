@@ -29,7 +29,7 @@
           <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView('incidents')">Incydenty</a>
           </li>
-          <li class="list-inline-item mx-2" *ngIf="view === 'incidents'">
+          <li class="list-inline-item mx-2">
             <a class="text-decoration-none text-white" (click)="setCurrentView('incidentsReport')">Zgłoś Incydent</a>
           </li>
         </ul>
@@ -38,13 +38,16 @@
 
       <div class="bg-light text-black">
         <div *ngIf="view === 'preq'">
-          <app-race-results [resultsSelector]="view" (numberOfParticipants)="getNumberOfParticipants(gridSize)"></app-race-results> <!--TODO:naprawić emittera liczby kierowców w danej sesji-->
+          <app-race-results [resultsSelector]="view" (numberOfParticipantsEmitter)="getNumberOfParticipants($event)">
+          </app-race-results>
         </div>
         <div *ngIf="view === 'quali'">
-          <app-race-results [resultsSelector]="view"></app-race-results>
+          <app-race-results [resultsSelector]="view" (numberOfParticipantsEmitter)="getNumberOfParticipants($event)">
+          </app-race-results>
         </div>
         <div *ngIf="view === 'race'">
-          <app-race-results [resultsSelector]="view"></app-race-results>
+          <app-race-results [resultsSelector]="view" (numberOfParticipantsEmitter)="getNumberOfParticipants($event)">
+          </app-race-results>
         </div>
         <div *ngIf="view === 'incidents'">
           <app-race-incidents></app-race-incidents>
@@ -57,14 +60,15 @@
 
     <div class="col-4 bg-secondary text-black">
       <div class="container mt-5 mb-5">
-        <app-card>
-          <h5 class="card-title">{{currentDriverResult.driverName}} {{currentDriverResult.driverSurname}}</h5>
-          <p class="card-text text-end">{{currentDriverResult.carNumber}}</p>
-          <p class="card-text text-end">{{currentDriverResult.position}}/3{{numberOfParticipantsForEvent}}</p>
-          <p class="card-text text-end" >{{currentDriverResult.points}}</p>
-          <a href="#" class="btn btn-primary" *ngIf="view === 'preq'" (click)="changeRaceStatus()">Obecność</a>
-        </app-card>
-
+        <div *ngIf="view === 'preq'||'race'||'quali'">
+          <app-card>
+            <h5 class="card-title">{{currentDriverResult.driverName}} {{currentDriverResult.driverSurname}}</h5>
+            <p class="card-text text-end">{{currentDriverResult.carNumber}}</p>
+            <p class="card-text text-end">{{currentDriverResult.position}}/{{numberOfParticipantsForEvent}}</p>
+            <p class="card-text text-end">{{currentDriverResult.points}}</p>
+            <a href="#" class="btn btn-primary" *ngIf="view === 'preq'" (click)="changeRaceStatus()">Obecność</a>
+          </app-card>
+        </div>
       </div>
     </div>
 

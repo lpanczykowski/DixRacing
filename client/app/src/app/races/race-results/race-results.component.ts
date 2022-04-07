@@ -14,6 +14,7 @@ export class RaceResultsComponent implements OnInit {
   @Input() resultsSelector: string;
   @Output() numberOfParticipantsEmitter= new EventEmitter<number>();
 
+  body = document.getElementById('raceResultsTable')
   currentResults: string;
   raceId:number;
   raceResults: RaceResult[] = [{driverNumber: 830,
@@ -70,10 +71,17 @@ export class RaceResultsComponent implements OnInit {
   ngOnInit(): void {
     this.raceId = Number(this.route.snapshot.paramMap.get('raceId'));
     //this.loadView();
-    this.numberOfParticipantsEmitter.emit(this.raceResults.length);
+    let participantCount=this.body.childNodes.length
+    this.numberOfRaceParticipants(participantCount)
   }
 
   loadView() {
     this.raceService.getRaceResults(this.raceId,this.resultsSelector);
   }
+
+  numberOfRaceParticipants(participants:number)
+  {
+    this.numberOfParticipantsEmitter.emit(participants);
+  }
+
 }
