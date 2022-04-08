@@ -6,39 +6,38 @@ import { AccountService } from '../_services/account.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  model: RegisterUserDto=new RegisterUserDto();
-  registerMode=false;
+  model: RegisterUserDto = new RegisterUserDto();
+  registerMode = false;
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  register() {
+    this.accountService.register(this.model).subscribe(
+      (response) => {
+        this.router.navigateByUrl('/home');
+        this.cancel();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  register()
-  {
-    this.accountService.register(this.model).subscribe(response => {
-      this.router.navigateByUrl('/home');
-      this.cancel();
-    },error=>{error.log(error);}
-    )
-  }
-
-  cancel()
-  {
+  cancel() {
     this.cancelRegister.emit(false);
   }
 
-  registerToggle()
-  {
-    this.registerMode=!this.registerMode;
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
-  cancelRegisterMode(event:boolean)
-  {
-    this.registerMode=event;
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
   }
 }
