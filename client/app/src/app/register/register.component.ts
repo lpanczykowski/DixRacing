@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit {
 
   register()
   {
-    this.accountService.register(this.model).subscribe(response => {
+    this.accountService.register(this.model).subscribe(response=> {
       this.router.navigateByUrl('/home');
       this.cancel();
-    },error=>{error.log(error);}
+    },error=>{console.log(error);}
     )
   }
 
