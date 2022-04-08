@@ -14,15 +14,42 @@
     </thead>
     <tbody>
       <tr *ngFor="let eventResult of eventResults">
-        <th scope="row">{{eventResult.Position}}</th>
-        <td>{{eventResult.DriverNumber}}</td>
-        <td>{{eventResult.DriverName}} {{eventResult.DriverSurname}}</td>
-        <td>{{eventResult.TeamName}}</td>
-        <td>{{eventResult.Car}}</td>
-        <td *ngFor="let points of eventResult.RacePoints">{{points}}</td>
-        <td>{{eventResult.PenaltyPoints}}</td>
-        <td>{{eventResult.Points}}</td>
+        <th scope="row">{{eventResult.position}}</th>
+        <td>{{eventResult.driverNumber}}</td>
+        <td>{{eventResult.driverName}} {{eventResult.driverSurname}}</td>
+        <td>{{eventResult.teamName}}</td>
+        <td>{{eventResult.car}}</td>
+        <td *ngFor="let points of eventResult.racePoints">{{points}}</td>
+        <td>{{eventResult.penaltyPoints}}</td>
+        <td>{{eventResult.points}}</td>
       </tr>
     </tbody>
   </table>
+  <hr>
+  <p-table [value]="eventResults">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Poz.</th>
+        <th>#</th>
+        <th>Kierowca</th>
+        <th>Zespół</th>
+        <th>Auto</th>
+        <th>*ngFor="let eventRace of eventRaces">{{eventRace.raceId}}</th>
+        <th>Punkty</th>
+        <th>Punkty Karne</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-eventResult>
+      <tr>
+        <td>{{eventResult.position}}</td>
+        <td>{{eventResult.driverNumber}}</td>
+        <td>{{eventResult.driverName}} {{eventResult.driverSurname}}</td>
+        <td>{{eventResult.teamName}}</td>
+        <td>{{eventResult.car}}</td>
+        <td *ngFor="let points of eventResult.racePoints">{{points}}</td>
+        <td>{{eventResult.penaltyPoints}}</td>
+        <td>{{eventResult.points}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

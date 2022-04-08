@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserStatusDto } from 'app/_models/userStatusDto';
+import { PreqStatus } from 'app/_models/preqStatus';
+import { PreqStatusDto} from 'app/_models/preqStatusDto';
 import { environment } from 'environments/environment';
 import { Race } from '../_models/race';
 import { RaceResult } from '../_models/raceResult';
@@ -26,13 +27,17 @@ baseUrl=environment.apiUrl;
     return this.http.get<RaceResult[]>(this.baseUrl + 'race/' + raceId + '/' + resultsSelector + '/results')
   }
 
-  changeRaceStatus(userStatusDto:any)
+  changeRaceStatus(userStatusDto:PreqStatusDto)
   {
-    return this.http.post<UserStatusDto[]>(this.baseUrl+'race/racestatus/change',JSON.stringify({userStatusDto}),httpOptions)
+    return this.http.post(this.baseUrl+'race/racestatus/change',JSON.stringify({userStatusDto}),httpOptions) //TODO: co zwraca post
   }
 
-  checkUserStatus(raceId:number,userId:number)
+  checkUserStatus(userStatusDto:PreqStatusDto)
   {
-    return this.http.get<UserStatusDto[]>(this.baseUrl+'race/'+raceId+'/'+userId+'/racestatus')
+    let params = new HttpParams();
+     params = params.append('raceId',userStatusDto.raceId.toString());
+     params = params.append('userId',userStatusDto.userId.toString());
+
+    return this.http.get<PreqStatus>(this.baseUrl+'race/racestatus',{params:params});
   }
 }

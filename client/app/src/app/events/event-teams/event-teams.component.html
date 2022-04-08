@@ -21,3 +21,31 @@
       <td>{{team.teamPoints}}</td>
     </tr>
   </table>
+
+  <p-table [value]="teams">
+    <ng-template pTemplate="header">
+      <tr>
+        <th scope="col">Lp.</th>
+        <th scope="col">Nazwa zespołu</th>
+        <th scope="col">Kierowcy</th>
+        <th scope="col">Auto</th>
+        <th scope="col">Punkty</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-team>
+      <tr>
+        <td scope="row">{{team.teamId}}</td>
+        <td>{{team.teamName}}</td>
+        <td>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let teamMate of team.teamMate">{{teamMate}}</li>
+          </ul>
+        </td>
+        <td>{{team.teamCar}}</td>
+        <td>{{team.teamPoints}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>

@@ -30,6 +30,15 @@ import { EventResultsComponent } from './events/event-results/event-results.comp
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './_modules/card/card.component';
+import { ButtonModule } from 'primeng/button';
+import {CardModule} from 'primeng/card';
+import {AccordionModule} from 'primeng/accordion';
+import {TableModule} from 'primeng/table'
+import { InputTextModule } from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import { InputNumberModule } from 'primeng/inputnumber';
+import {PasswordModule} from 'primeng/password';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [
@@ -63,7 +72,16 @@ import { CardComponent } from './_modules/card/card.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     BrowserModule,
-    SharedModule
+    SharedModule,
+    ButtonModule,
+    CardModule,
+    AccordionModule,
+    TableModule,
+    InputTextModule,
+    InputTextareaModule,
+    InputNumberModule,
+    PasswordModule,
+    ToggleButtonModule,
   ],
 
   providers: [
@@ -72,4 +90,4 @@ import { CardComponent } from './_modules/card/card.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

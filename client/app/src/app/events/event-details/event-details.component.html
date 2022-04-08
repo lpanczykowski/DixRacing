@@ -103,6 +103,31 @@
             </mat-card-actions>
           </mat-card>
 
+          <hr>
+
+          <p-card>
+            <ng-template pTemplate="header">
+              <img alt="Card"
+                src="https://d3npyywa6qnolf.cloudfront.net/prod/user/540311/eyJ1cmwiOiJodHRwczpcL1wvcGF0cm9uaXRlLnBsXC91cGxvYWRcL3VzZXJcLzU0MDMxMVwvYXZhdGFyX29yaWcuanBnPzE2MjI1ODgwNjYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MCwib3B0aW9ucyI6eyJxdWFsaXR5Ijo5NX19LCJ0b0Zvcm1hdCI6ImpwZWcifX0%3D/OL4pCaXUUXl9BnHQ3HmYZovLVzWMv9Bx%2FMZz%2FPTTulg%3D"
+              >
+                <ng-template pTemplate="title">
+                  Runda {{activeRound.roundNumber}}
+                </ng-template>
+                <ng-template pTemplate="subtitle">
+                  Tor
+                </ng-template>
+            </ng-template>
+
+            <p>Serwer:</p>
+            <p>{{activeRound.serverName}}</p>
+            <p>Password:</p>
+            <p> {{activeRound.serverPassword}}</p>
+            <hr>
+            <ng-template pTemplate="footer">
+              <p-button label="Potwierdź" icon="pi pi-check" *ngIf="timeToSign() > 0">Potwierdź {{timeToSignAsString()}}</p-button>
+            </ng-template>
+          </p-card>
+
         </div>
       </div>
 
@@ -120,9 +145,22 @@
               </div>
             </div>
           </div>
-
-
         </div>
+
+        <hr>
+
+        <p-accordion>
+        <p-accordionTab *ngFor="let round of event?.event.rounds"  (click)="loadRaces(round.id)">
+          <ng-template pTemplate="header">
+            Round {{round.id}}
+          </ng-template>
+          <ng-template pTemplate="content">
+          <div class="col-12" *ngFor="let race of races">
+          <app-race-box *ngIf="race.roundId===round.id" [round]="round" [race]="race"></app-race-box>
+        </div>
+        </ng-template>
+        </p-accordionTab>
+        </p-accordion>
 
       </div>
 
