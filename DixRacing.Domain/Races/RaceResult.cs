@@ -11,11 +11,18 @@ namespace DixRacing.Domain.Races
         {
 
         }
- 
+
         public int RaceId { get; set; }
         public int Position { get; set; }
         public double Points { get; set; } = 0;
         public int? PenaltyPoints { get; set; }
         public Race Race { get; set; }
+        public string UserSteamId { get; set; }
+        public int BestLap { get; set; }
+        public int BestSplit1 { get; set; }
+        public int BestSplit2 { get; set; }
+        public int BestSplit3 { get; set; }
+        public int LapCount { get; set; }
+
     }
 }
