@@ -12,6 +12,7 @@ using API.Helpers;
 using DixRacing.Domain.Users.Commands;
 using DixRacing.Domain.Users.Commands.Login;
 using Microsoft.AspNetCore.Http;
+using DixRacing.Workers;
 
 namespace API.Infrastructure.DependencyInjection
 {
@@ -22,7 +23,8 @@ namespace API.Infrastructure.DependencyInjection
             return services
                 .AddDataAccessDependencies(configuration)
                 .AddApiDependencies()
-                .AddDomainDependencies();
+                .AddDomainDependencies()
+                .AddWorkers();
         }
 
         private static IServiceCollection AddApiDependencies(this IServiceCollection services)
@@ -68,5 +70,11 @@ namespace API.Infrastructure.DependencyInjection
 
             return services;
         }
+        private static IServiceCollection AddWorkers(this IServiceCollection services)
+        {
+            services.AddHostedService<ResultWorker>();
+            return services;
+        }
+
     }
 }
