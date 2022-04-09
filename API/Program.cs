@@ -19,16 +19,17 @@ namespace API
             try
             {
                 var context = services.GetRequiredService<DixRacingDbContext>();
-                 await context.Database.MigrateAsync();
-                 await Seed.SeedUsers(context);
+                await context.Database.MigrateAsync();
+                await Seed.SeedUsers(context);
                 // await Seed.SeedGames(context);
-                 await Seed.SeedTracks(context);             
-                 await Seed.SeedEvents(context);
-                 await Seed.SeedRounds(context);
-                 await Seed.SeedRaces(context);
-                 await Seed.SeedRacePoints(context);
-                 await Seed.SeedTeams(context);
-                 await Seed.SeedParticipants(context);  
+                await Seed.SeedTracks(context);
+                await Seed.SeedEvents(context);
+                await Seed.SeedRounds(context);
+                await Seed.SeedRaces(context);
+                await Seed.SeedRacePoints(context);
+                await Seed.SeedTeams(context);
+                await Seed.SeedParticipants(context);
+                await Seed.SeedRaceResult(context);
             }
             catch (Exception ex)
             {

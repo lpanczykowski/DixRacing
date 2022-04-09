@@ -1,3 +1,5 @@
+using API.Features.Races.Command.GetRaceConfirmationByIdAndUserId;
+using API.Features.Races.Command.RaceConfirmationByIdAndUserId;
 using API.Features.Races.Queries.GetRaceResults;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -42,6 +44,13 @@ namespace API.Controllers
         [HttpGet("{raceId}/results/{sessionType}")]
         public async Task<ActionResult<GetRaceResultsResponse>> RaceResults(int raceId, string sessionType)
          => await SendAsync(new GetRaceResultsRequest(raceId, sessionType));
+        [HttpPost("confirmation")]
+        public async Task<ActionResult<bool>> RaceConfirmation([FromQuery] int raceId, int userId)
+            => await SendAsync(new RaceConfirmationByIdAndUserIdCommand(raceId, userId));
+
+        [HttpGet("confirmation")]
+        public async Task<ActionResult<bool>> GetRaceConfirmation([FromQuery] int raceId, int userId)
+            => await SendAsync(new GetRaceConfirmationByIdAndUserIdCommand(raceId, userId));
 
 
     }

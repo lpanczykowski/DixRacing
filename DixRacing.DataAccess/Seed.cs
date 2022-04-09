@@ -127,6 +127,18 @@ namespace DixRacing.DataAccess
             }
             await context.SaveChangesAsync();
         }
+        public static async Task SeedRaceResult(DixRacingDbContext context)
+        {
+            if (await context.RaceResults.AnyAsync()) return;
+            var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/RaceResultSeedData.json");
+            var deserializedData = JsonConvert.DeserializeObject<List<RaceResult>>(data);
+            foreach (var item in deserializedData)
+            {
+                context.RaceResults.Add(item);
+            }
+            await context.SaveChangesAsync();
+        }
+
 
     }
 }

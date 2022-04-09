@@ -13,5 +13,6 @@ namespace DixRacing.Domain.Races
         public int Position { get; set; }
         public int IncidentId { get; set; }
         public Race Race { get; set; }
+        public int IsUserConfirmed { get; set; }
     }
 }

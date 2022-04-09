@@ -1,0 +1,44 @@
+[
+  {
+    "raceId": 1,
+    "userId": 1,
+    "position": 0,
+    "incidentId": 0,
+    "isUserConfirmed": 0
+  },
+  {
+    "raceId": 1,
+    "userId": 2,
+    "position": 0,
+    "incidentId": 0,
+    "isUserConfirmed": 1
+  },
+  {
+    "raceId": 1,
+    "userId": 3,
+    "position": 0,
+    "incidentId": 0,
+    "isUserConfirmed": 1
+  },
+  {
+    "raceId": 2,
+    "userId": 1,
+    "position": 0,
+    "incidentId": 0,
+    "isUserConfirmed": 1
+  },
+  {
+    "raceId": 2,
+    "userId": 2,
+    "position": 0,
+    "incidentId": 0,
+    "isUserConfirmed": 1
+  },
+  {
+    "raceId": 2,
+    "userId": 3,
+    "position": 0,
+    "incidentId": 0,
+    "isUserConfirmed": 0
+  }
+]
