@@ -12,9 +12,9 @@ namespace API.Features.Events.Commands.DeleteEvent
 {
     public class DeleteEventCommandHandler : IRequestHandler<DeleteEventCommand, int>
     {
-        private readonly IRepository<Event, int> _eventRepository;
+        private readonly IRepository<Event> _eventRepository;
 
-        public DeleteEventCommandHandler(IRepository<Event,int> eventRepository)        {
+        public DeleteEventCommandHandler(IRepository<Event> eventRepository)        {
             _eventRepository = eventRepository;
         }
         public async Task<int> Handle(DeleteEventCommand request, CancellationToken cancellationToken)

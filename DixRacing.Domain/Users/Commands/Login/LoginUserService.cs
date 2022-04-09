@@ -14,10 +14,10 @@ namespace DixRacing.Domain.Users.Commands.Login
     }
     public class LoginUserService : ILoginUserService
     {
-        private readonly IRepository<User, int> _userRepository;
+        private readonly IRepository<User> _userRepository;
         private readonly ITokenService _tokenService;
 
-        public LoginUserService(IRepository<User, int> userRepository,ITokenService tokenService)
+        public LoginUserService(IRepository<User> userRepository,ITokenService tokenService)
         {
             _userRepository = userRepository;
             _tokenService = tokenService;

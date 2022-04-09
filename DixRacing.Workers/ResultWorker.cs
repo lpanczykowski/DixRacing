@@ -1,3 +1,6 @@
+using DixRacing.DataAccess;
+using DixRacing.Domain.Races.Services;
+using DixRacing.Domain.SharedKernel;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,50 +19,67 @@ namespace DixRacing.Workers
     {
         private readonly ILogger<ResultWorker> _logger;
         private readonly IConfiguration _config;
-        private readonly IServiceProvider _serviceProvider;
 
-        public ResultWorker(ILogger<ResultWorker> logger, IConfiguration config, IServiceProvider serviceProvider)
+
+        public ResultWorker(ILogger<ResultWorker> logger,
+                            IConfiguration config
+
+                            )
         {
             _logger = logger;
             _config = config;
-
-            _serviceProvider = serviceProvider;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            using (IServiceScope scope = _serviceProvider.CreateScope())
+            var services = new ServiceCollection();
+            services.AddDbContext<DixRacingDbContext>();
+            services.AddScoped<ReadResultService>();
+            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            using (var _serviceProvider = services.BuildServiceProvider())
             {
-
-                var directoryPath = _config.GetSection("RaceResultPath");
-                DirectoryInfo d = new DirectoryInfo(directoryPath.Value);
-                System.IO.Directory.CreateDirectory(directoryPath.Value + @"\cpy");
-                while (!stoppingToken.IsCancellationRequested)
+                using (IServiceScope scope = _serviceProvider.CreateScope())
                 {
-                    foreach (var file in d.GetFiles("*.json"))
+                    var raceResultService = scope.ServiceProvider.GetRequiredService<ReadResultService>();
+                    var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+                    var directoryPath = _config.GetSection("RaceResultPath");
+                    System.IO.Directory.CreateDirectory(directoryPath.Value + @"\cpy");
+                    DirectoryInfo d = new DirectoryInfo(directoryPath.Value);
+
+                    while (!stoppingToken.IsCancellationRequested)
                     {
-                        try
+                        foreach (var file in d.GetFiles("*.json"))
                         {
-                            var resultsText = await File.ReadAllTextAsync(file.FullName, Encoding.Unicode);
-                            var results = JsonConvert.DeserializeObject<AccResult>( resultsText);
-                            file.MoveTo(file.DirectoryName + @"\cpy\" + file.Name);
+                            try
+                            {
+                                var resultsText = await File.ReadAllTextAsync(file.FullName, Encoding.Unicode);
+                                var results = JsonConvert.DeserializeObject<AccResult>(resultsText);
+                                if (results is not null)
+                                {
+                                    await unitOfWork.ExecuteInTransactionAsync(async () =>
+                                    {
+                                        if (await raceResultService.ReadResultAccAsync(results))
+                                            file.MoveTo(file.DirectoryName + @"\cpy\" + file.Name);
+                                    });
+                                }
+                            }
+                            catch (ArgumentException e)
+
+                            {
+                                _logger.LogInformation("Error: {e}", e.Message);
+                            }
+
+
 
                         }
-                        catch (ArgumentException e)
 
-                        {
-                            _logger.LogInformation("Error: {e}", e.Message);
-                        }
-
-
-
+                        await Task.Delay(10000, stoppingToken);
                     }
-                    await Task.Delay(10000, stoppingToken);
+
                 }
 
             }
-
-
         }
     }
 }

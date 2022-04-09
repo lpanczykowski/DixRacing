@@ -99,6 +99,9 @@ namespace DixRacing.DataAccess.Migrations
                     b.Property<int>("RoundId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("SessionType")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("SigningTime")
                         .HasColumnType("TEXT");
 
@@ -109,13 +112,44 @@ namespace DixRacing.DataAccess.Migrations
                     b.ToTable("Races");
                 });
 
-            modelBuilder.Entity("DixRacing.Domain.Races.RaceResult", b =>
+            modelBuilder.Entity("DixRacing.Domain.Races.RaceLap", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("PenaltyPoints")
+                    b.Property<int>("IsValid")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Lap")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RaceId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Split1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Split2")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Split3")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserSteamId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RaceId");
+
+                    b.ToTable("RaceLaps");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Races.RacePoint", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("Points")
@@ -125,6 +159,31 @@ namespace DixRacing.DataAccess.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RaceId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RaceId");
+
+                    b.ToTable("RacePoints");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Races.RaceResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IncidentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RaceId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -266,6 +325,28 @@ namespace DixRacing.DataAccess.Migrations
                     b.Navigation("Round");
                 });
 
+            modelBuilder.Entity("DixRacing.Domain.Races.RaceLap", b =>
+                {
+                    b.HasOne("DixRacing.Domain.Races.Race", "Race")
+                        .WithMany("RaceLaps")
+                        .HasForeignKey("RaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Race");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Races.RacePoint", b =>
+                {
+                    b.HasOne("DixRacing.Domain.Races.Race", "Race")
+                        .WithMany("RacePoints")
+                        .HasForeignKey("RaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Race");
+                });
+
             modelBuilder.Entity("DixRacing.Domain.Races.RaceResult", b =>
                 {
                     b.HasOne("DixRacing.Domain.Races.Race", "Race")
@@ -305,6 +386,10 @@ namespace DixRacing.DataAccess.Migrations
 
             modelBuilder.Entity("DixRacing.Domain.Races.Race", b =>
                 {
+                    b.Navigation("RaceLaps");
+
+                    b.Navigation("RacePoints");
+
                     b.Navigation("RaceResults");
                 });
 

@@ -48,7 +48,8 @@ namespace API
                    In = ParameterLocation.Header,
                    Description = "Please insert JWT with Bearer into field",
                    Name = "Authorization",
-                   Type = SecuritySchemeType.ApiKey
+                   Type = SecuritySchemeType.ApiKey,
+                   
                });
                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
                      {
@@ -58,9 +59,10 @@ namespace API
                             {
                                 Type = ReferenceType.SecurityScheme,
                                 Id = "Bearer"
+
                             }
                             },
-                            new string[] { }
+                            new string[] {}
                             }
                        });
                 c.CustomSchemaIds(type=>type.ToString());

@@ -8,9 +8,9 @@ namespace API.Features.Events.Commands.SignForEvent
 {
     public class SignForEventCommandHandler : IRequestHandler<SignForEventCommand, int>
     {
-        private readonly IRepository<EventParticipant, int> _eventParticipantRepository;
+        private readonly IRepository<EventParticipant> _eventParticipantRepository;
 
-        public SignForEventCommandHandler(IRepository<EventParticipant,int> eventParticipantRepository)
+        public SignForEventCommandHandler(IRepository<EventParticipant> eventParticipantRepository)
         {
             _eventParticipantRepository = eventParticipantRepository;
         }

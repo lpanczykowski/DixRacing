@@ -5,7 +5,8 @@
         "Surname": "Czykowski",
         "Email": "LUK@gmail.com",
         "PasswordHash": "",
-        "PasswordSalt": ""
+        "PasswordSalt": "",
+        "SteamId" : "76561197985376074"
     },
     {
         "Nick": "Fewjo",
@@ -13,7 +14,8 @@
         "Surname": "Lewandowski",
         "Email": "Fewjo@gmail.com",
         "PasswordHash": "",
-        "PasswordSalt": ""
+        "PasswordSalt": "",
+        "SteamId":"76561198085614852"
     },
     {
         "Nick": "Mati",
@@ -21,7 +23,8 @@
         "Surname": "Przedręba",
         "Email": "Mati@gmail.com",
         "PasswordHash": "",
-        "PasswordSalt": ""
+        "PasswordSalt": "",
+        "SteamId" :"76561198152177371"
     }
     
 ]

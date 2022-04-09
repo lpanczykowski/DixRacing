@@ -37,7 +37,7 @@ namespace API.Infrastructure.DependencyInjection
 
         private static IServiceCollection AddDataAccessDependencies(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DixRacingDbContext>(options =>
             {

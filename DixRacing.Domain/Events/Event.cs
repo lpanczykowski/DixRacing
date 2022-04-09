@@ -5,16 +5,12 @@ using System.Collections.Generic;
 
 namespace DixRacing.Domain.Events
 {
-    public class Event : BaseEntity<int>
+    public class Event : BaseEntity
     {
-        public Event() : base(default)
-        {
-        }
-
         public string Name { get; set; }
         public int GameId { get; set; }
         public IEnumerable<Round> Rounds { get; set; }
         public byte[] Photo { get; set; }
-        public ICollection<EventParticipant> EventParticipants {get;set;}
+        public ICollection<EventParticipant> EventParticipants { get; set; }
     }
 }

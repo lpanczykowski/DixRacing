@@ -12,9 +12,9 @@ namespace API.Features.Events.Commands.CreateEvent
 { 
     public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, int>
     {
-        private readonly IRepository<Event, int> _eventRepository;
+        private readonly IRepository<Event> _eventRepository;
 
-        public CreateEventCommandHandler(IRepository<Event, int> eventRepository)
+        public CreateEventCommandHandler(IRepository<Event> eventRepository)
         {
             _eventRepository = eventRepository;
         }

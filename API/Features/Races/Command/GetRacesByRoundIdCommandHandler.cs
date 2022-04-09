@@ -10,10 +10,10 @@ namespace API.Features.Races.Command
 {
     public class GetRacesByRoundIdCommandHandler : IRequestHandler<GetRacesByRoundIdCommand, IEnumerable<GetRacesByRoundIdResponse>>
     {
-        private readonly IRepository<Race, int> _repository;
+        private readonly IRepository<Race> _repository;
         private readonly IMapper _mapper;
 
-        public GetRacesByRoundIdCommandHandler(IRepository<Race,int> repository, IMapper mapper)
+        public GetRacesByRoundIdCommandHandler(IRepository<Race> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

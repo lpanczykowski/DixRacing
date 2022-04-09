@@ -9,11 +9,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DixRacing.Domain.Rounds
 {
-    public class Round : BaseEntity<int>
+    public class Round : BaseEntity
     {
-        public Round(int id) : base(default)
-        {
-        }
         public int RoundNumber { get; set; }
         public int EventId { get; set; }
         public Event Event { get; set; }
@@ -22,7 +19,7 @@ namespace DixRacing.Domain.Rounds
         public string ServerPassword { get; set; }
         public int TrackId { get; set; }
         [ForeignKey("TrackId")]
-        public Track Track { get; set; }       
+        public Track Track { get; set; }
         public DateTime RoundDay { get; set; }
         public bool IsActive { get; set; }
 

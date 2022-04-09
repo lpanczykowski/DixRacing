@@ -26,10 +26,9 @@ namespace API
                  await Seed.SeedEvents(context);
                  await Seed.SeedRounds(context);
                  await Seed.SeedRaces(context);
-                // await Seed.SeedRacePoints(context);
+                 await Seed.SeedRacePoints(context);
                  await Seed.SeedTeams(context);
-                 await Seed.SeedParticipants(context);
-
+                 await Seed.SeedParticipants(context);  
             }
             catch (Exception ex)
             {

@@ -1,11 +1,11 @@
 [
   {
-    "TrackId": 1,
+    "Id": 1,
     "Photo": "",
     "Name": "monza_2020"
   },
   {
-    "TrackId": 2,
+    "Id": 2,
     "Photo": "",
     "Name": "Silverstone"
   }

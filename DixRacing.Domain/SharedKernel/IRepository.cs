@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Domain.SharedKernel
 {
-    public interface IRepository<TEntity, TId> where TEntity : BaseEntity<TId>
+    public interface IRepository<TEntity> where TEntity : BaseEntity
     {
-        Task<TEntity?> GetByIdAsync(TId id);
+        Task<TEntity?> GetByIdAsync(int id);
 
         Task<TEntity> GetUniqueByPropertyAsync(Expression<Func<TEntity, bool>> propertyExpression);
 
@@ -15,11 +15,12 @@ namespace DixRacing.Domain.SharedKernel
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<TId> CreateAsync(TEntity entity);
+        Task<int> CreateAsync(TEntity entity);
+        Task CreateMultipleAsync(List<TEntity> entities);
 
-        Task<TId> DeleteAsync(TId id);
+        Task<int> DeleteAsync(int id);
 
-        TId Update(TEntity entity);
-        TId DeleteEntity(TEntity entity);
+        int Update(TEntity entity);
+        int DeleteEntity(TEntity entity);
     }
 }

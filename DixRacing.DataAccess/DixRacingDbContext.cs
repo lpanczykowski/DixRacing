@@ -32,7 +32,8 @@ namespace DixRacing.DataAccess
         public DbSet<Round> Rounds { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<RaceResult> RaceResults { get; set; }
-
+        public DbSet<RaceLap> RaceLaps { get; set; }
+        public DbSet<RacePoint> RacePoints { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

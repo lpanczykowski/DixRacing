@@ -92,18 +92,18 @@ namespace DixRacing.DataAccess
             }
             await context.SaveChangesAsync();
         }
-        // public static async Task SeedRacePoints(DixRacingDbContext context)
-        // {
-        //     if (await context.RacePoints.AnyAsync()) return;
+        public static async Task SeedRacePoints(DixRacingDbContext context)
+        {
+            if (await context.RacePoints.AnyAsync()) return;
 
-        //     var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/RacePointsSeedData.json");
-        //     var deserializedData = JsonConvert.DeserializeObject<List<RacePoint>>(data);
-        //     foreach (var item in deserializedData)
-        //     {
-        //         context.RacePoints.Add(item);
-        //     }
-        //     await context.SaveChangesAsync();
-        // }
+            var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/RacePointsSeedData.json");
+            var deserializedData = JsonConvert.DeserializeObject<List<RacePoint>>(data);
+            foreach (var item in deserializedData)
+            {
+                context.RacePoints.Add(item);
+            }
+            await context.SaveChangesAsync();
+        }
 
         public static async Task SeedParticipants(DixRacingDbContext context)
         {
@@ -116,7 +116,7 @@ namespace DixRacing.DataAccess
             }
             await context.SaveChangesAsync();
         }
-         public static async Task SeedTeams(DixRacingDbContext context)
+        public static async Task SeedTeams(DixRacingDbContext context)
         {
             if (await context.Teams.AnyAsync()) return;
             var data = await System.IO.File.ReadAllTextAsync("../DixRacing.DataAccess/Seeds/TeamsSeedData.json");

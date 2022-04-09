@@ -12,9 +12,9 @@ namespace API.Features.Events.Commands.UpdateEvent
 {
     public class UpdateEventCommandHandler : IRequestHandler<UpdateEventCommand, int>
     {
-        private readonly IRepository<Event, int> _eventRepository;
+        private readonly IRepository<Event> _eventRepository;
 
-        public UpdateEventCommandHandler(IRepository<Event,int> eventRepository)
+        public UpdateEventCommandHandler(IRepository<Event> eventRepository)
         {
             _eventRepository = eventRepository;
         }

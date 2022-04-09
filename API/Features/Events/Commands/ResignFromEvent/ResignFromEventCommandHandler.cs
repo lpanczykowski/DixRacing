@@ -8,9 +8,9 @@ namespace API.Features.Events.Commands.ResignFromEvent
 {
     public class ResignFromEventCommandHandler : IRequestHandler<ResignFromEventCommand, bool>
     {
-        private readonly IRepository<EventParticipant, int> _repository;
+        private readonly IRepository<EventParticipant> _repository;
 
-        public ResignFromEventCommandHandler(IRepository<EventParticipant, int> repository)
+        public ResignFromEventCommandHandler(IRepository<EventParticipant> repository)
         {
             _repository = repository;
         }

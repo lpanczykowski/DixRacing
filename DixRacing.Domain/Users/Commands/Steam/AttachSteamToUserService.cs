@@ -10,9 +10,9 @@ namespace DixRacing.Domain.Users.Commands.Steam
     }
     public class AttachSteamToUserService : IAttachSteamToUserService
     {
-        private readonly IRepository<User, int> _userRepository;
+        private readonly IRepository<User> _userRepository;
 
-        public AttachSteamToUserService(IRepository<User,int> userRepository)
+        public AttachSteamToUserService(IRepository<User> userRepository)
         {
             _userRepository = userRepository;
         }

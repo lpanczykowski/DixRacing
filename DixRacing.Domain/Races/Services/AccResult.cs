@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DixRacing.Workers
+namespace DixRacing.Domain.Races.Services
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);

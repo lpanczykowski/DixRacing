@@ -1,3 +1,4 @@
+using API.Features.Races.Queries.GetRaceResults;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class RaceController : BaseApiController
     {
         public RaceController(IMediator mediator) : base(mediator)
@@ -26,18 +27,22 @@ namespace API.Controllers
 
         }
         [HttpGet("{raceId}")]
-        public async Task<ActionResult<IActionResult>> FindRaceById(int raceId)
+        public async Task<IActionResult> FindRaceById(int raceId)
         {
             throw new NotImplementedException();
 
         }
 
         [HttpPost("raceStatus")]
-        public async Task<ActionResult<IActionResult>> RaceStatus()
+        public async Task<IActionResult> RaceStatus()
         {
             throw new NotImplementedException();
 
         }
+        [HttpGet("{raceId}/results/{sessionType}")]
+        public async Task<ActionResult<GetRaceResultsResponse>> RaceResults(int raceId, string sessionType)
+         => await SendAsync(new GetRaceResultsRequest(raceId, sessionType));
+
 
     }
 

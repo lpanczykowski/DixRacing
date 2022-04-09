@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DixRacing.DataAccess
 {
-    public class Repository<TEntity, TId> : IRepository<TEntity, TId> where TEntity : BaseEntity<TId>
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly DixRacingDbContext _dbContext;
 
@@ -16,7 +16,7 @@ namespace DixRacing.DataAccess
         {
             _dbContext = dbContext;
         }
-        public async Task<TEntity> GetByIdAsync(TId id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
             return await _dbContext.Set<TEntity>().SingleOrDefaultAsync(x => x.Id!.Equals(id));
         }
@@ -26,14 +26,16 @@ namespace DixRacing.DataAccess
             return await _dbContext.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TId> CreateAsync(TEntity entity)
+        public async Task<int> CreateAsync(TEntity entity)
         {
             var entityEntry = await _dbContext.Set<TEntity>().AddAsync(entity);
 
             return entityEntry.Entity.Id;
         }
+        public async Task CreateMultipleAsync(List<TEntity> entities) 
+            => await _dbContext.Set<TEntity>().AddRangeAsync(entities);
 
-        public Task<TId> DeleteAsync(TId id)
+        public Task<int> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
@@ -48,12 +50,12 @@ namespace DixRacing.DataAccess
             return await _dbContext.Set<TEntity>().Where(propertyExpression).ToListAsync();
         }
 
-        public TId Update(TEntity entity)
+        public int Update(TEntity entity)
         {
             _dbContext.Set<TEntity>().Update(entity);
             return entity.Id;
         }
-        public TId DeleteEntity(TEntity entity)
+        public int DeleteEntity(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
             return entity.Id;
