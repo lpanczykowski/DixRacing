@@ -1,33 +1,83 @@
-<!-- Editable table -->
-<div class="card">
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Punktacja</h3>
-  <div class="card-body">
-    <div id="table" class="table-editable">
-      <span *ngIf="1==1" class="table-add float-right mb-3 mr-2">
-        <a class="text-success" (click)="add()">
-          <button>Dodaj</button>
-        </a>
-        <a class="text-success" (click)="save()">
-          <button>Zapisz</button>
-        </a>
-      </span>
-      <table class="table table-bordered table-responsive-md table-striped">
-        <tr>
-          <th class="text-left">Place</th>
-          <th class="text-center">Points</th>
-        </tr>
-        <tr *ngFor="let points of pointsList; let id = index">
-          <td>
-            <span *ngIf="1==1" (keyup)="changeValue(id, 'place', $event)" (blur)="updateList(id, 'place', $event)" contenteditable="true">
-              {{points.place}}</span>
-            <span  *ngIf="1!=1">{{points.place}}</span>
-          </td>
-          <td>
-            <span  *ngIf="1==1" (keyup)="changeValue(id, 'points', $event)" (blur)="updateList(id, 'points', $event)" contenteditable="true">{{points.points}}</span>
-            <span  *ngIf="1!=1">{{points.points}}</span>
-          </td>
-        </tr>
-      </table>
+<p-table [value]="points" styleClass="p-datatable-sm">
+  <ng-template pTemplate="caption">
+    <div class="table-header">Punktacja</div>
+    <span class="p-input-icon-left">
+      <button pButton icon="pi pi-plus" (click)="add()"></button>
+    </span>
+  </ng-template>
+  <ng-template pTemplate="body" let-point>
+    <tr>
+      <td>Pozycja : {{ point.position }}</td>
+      <td>{{ point.points }} pkt.</td>
+      <td style="text-align: center"></td>
+      <td>
+        <button
+          pButton
+          pRipple
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-success m-2"
+          (click)="edit(point)"
+        ></button>
+
+        <button
+          pButton
+          pRipple
+          icon="pi pi-trash"
+          class="p-button-rounded p-button-warning m-2"
+          (click)="remove(point)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-dialog
+  [(visible)]="editDialog"
+  [style]="{ width: '450px' }"
+  header="Punktacja"
+  [modal]="true"
+  styleClass="p-fluid"
+  ><ng-template pTemplate="content">
+    <div class="field">
+      <label for="position">Pozycja</label>
+      <input
+        [disabled]="item.id > 0"
+        type="text"
+        [(ngModel)]="item.position"
+        pInputText
+        id="position"
+        required
+        autofocus
+      />
+      <small class="p-error" *ngIf="submitted && !product.name"
+        >Name is required.</small
+      >
     </div>
-  </div>
-</div>
+    <div class="field">
+      <label for="points">Punkty</label>
+      <input
+        type="text"
+        [(ngModel)]="item.points"
+        pInputText
+        required
+        id="points"
+        autofocus
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      label="Anuluj"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="cancel()"
+    ></button>
+    <button
+      pButton
+      label="Zapisz"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="save()"
+    ></button>
+  </ng-template>
+</p-dialog>

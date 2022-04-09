@@ -1,6 +1,4 @@
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './_modules/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -21,24 +19,24 @@ import { EventTeamsComponent } from './events/event-teams/event-teams.component'
 import { EventPenaltyComponent } from './events/event-penalty/event-penalty.component';
 import { EventPointsComponent } from './events/event-points/event-points.component';
 import { EventInfoComponent } from './events/event-info/event-info.component';
-import { PaginationConfig } from 'ngx-bootstrap/pagination';
 import { RaceResultsComponent } from './races/race-results/race-results.component';
 import { RaceIncidentsComponent } from './races/race-incidents/race-incidents.component';
 import { RaceIncidentsReportComponent } from './races/race-incidents-report/race-incidents-report.component';
 import { EventSignupComponent } from './events/event-signup/event-signup.component';
 import { EventResultsComponent } from './events/event-results/event-results.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
-import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './_modules/card/card.component';
 import { ButtonModule } from 'primeng/button';
-import {CardModule} from 'primeng/card';
-import {AccordionModule} from 'primeng/accordion';
-import {TableModule} from 'primeng/table'
+import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
+import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
-import {PasswordModule} from 'primeng/password';
-import {ToggleButtonModule} from 'primeng/togglebutton';
+import { PasswordModule } from 'primeng/password';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -71,7 +69,6 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    BrowserModule,
     SharedModule,
     ButtonModule,
     CardModule,
@@ -86,8 +83,7 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
 
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    PaginationConfig,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
