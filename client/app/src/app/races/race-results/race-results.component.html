@@ -1,40 +1,5 @@
 <div class="bg-light text-black">
-  <table class="table table-hover" id="raceResultsTable">
-    <thead>
-      <tr>
-        <th scope="col">Poz.</th>
-        <th scope="col">#</th>
-        <th scope="col">Kierowca</th>
-        <th scope="col">Zespół</th>
-        <th scope="col">Auto</th>
-        <th scope="col" *ngIf="resultsSelector!=='race'">S1</th>
-        <th scope="col" *ngIf="resultsSelector!=='race'">S2</th>
-        <th scope="col" *ngIf="resultsSelector!=='race'">S3</th>
-        <th scope="col">Czas</th>
-        <th scope="col">Gap</th>
-        <th scope="col" *ngIf="resultsSelector!=='quali'">Okrążenia</th>
-        <th scope="col" *ngIf="resultsSelector!=='preq'">Punkty</th> <!--TODO:jesli nie ma pkt za quali w sezonie to wylaczyc widok w tabeli wynikow z quali-->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let raceResult of raceResults">
-        <th scope="row">{{raceResult.position}}</th>
-        <td>{{raceResult.driverNumber}}</td>
-        <td>{{raceResult.driverName}} {{raceResult.driverSurname}}</td>
-        <td>{{raceResult.teamName}}</td>
-        <td>{{raceResult.car}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.sector1Time}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.sector2Time}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.sector3Time}}</td>
-        <td>{{raceResult.time}}</td>
-        <td>{{raceResult.gap}}</td>
-        <td *ngIf="resultsSelector!=='quali'">{{raceResult.laps}}</td>
-        <td *ngIf="resultsSelector!=='preq'">{{raceResult.points}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p-table [value]="raceResults">
+   <p-table [value]="raceResults">
     <ng-template pTemplate="header">
       <tr>
         <th >Poz.</th>
@@ -69,4 +34,5 @@
       </tr>
     </ng-template>
   </p-table>
+  <hr>
 </div>

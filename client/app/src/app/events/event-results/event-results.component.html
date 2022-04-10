@@ -1,31 +1,4 @@
 <div class="bg-light text-black">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Poz.</th>
-        <th scope="col">#</th>
-        <th scope="col">Kierowca</th>
-        <th scope="col">Zespół</th>
-        <th scope="col">Auto</th>
-        <th scope="col" *ngFor="let eventRace of eventRaces">{{eventRace.raceId}}</th>
-        <th scope="col">Punkty</th>
-        <th scope="col">Punkty Karne</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let eventResult of eventResults">
-        <th scope="row">{{eventResult.position}}</th>
-        <td>{{eventResult.driverNumber}}</td>
-        <td>{{eventResult.driverName}} {{eventResult.driverSurname}}</td>
-        <td>{{eventResult.teamName}}</td>
-        <td>{{eventResult.car}}</td>
-        <td *ngFor="let points of eventResult.racePoints">{{points}}</td>
-        <td>{{eventResult.penaltyPoints}}</td>
-        <td>{{eventResult.points}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <hr>
   <p-table [value]="eventResults">
     <ng-template pTemplate="header">
       <tr>
@@ -34,7 +7,7 @@
         <th>Kierowca</th>
         <th>Zespół</th>
         <th>Auto</th>
-        <th>*ngFor="let eventRace of eventRaces">{{eventRace.raceId}}</th>
+        <!--<th>*ngFor="let eventRace of eventRaces">{{eventRace.raceId}}</th> TODO: z jakiegos powodu to nie dziala, sprawdzić później dlaczego-->
         <th>Punkty</th>
         <th>Punkty Karne</th>
       </tr>
@@ -46,7 +19,7 @@
         <td>{{eventResult.driverName}} {{eventResult.driverSurname}}</td>
         <td>{{eventResult.teamName}}</td>
         <td>{{eventResult.car}}</td>
-        <td *ngFor="let points of eventResult.racePoints">{{points}}</td>
+        <!--<td *ngFor="let points of eventResult.racePoints">{{points}}</td>-->
         <td>{{eventResult.penaltyPoints}}</td>
         <td>{{eventResult.points}}</td>
       </tr>

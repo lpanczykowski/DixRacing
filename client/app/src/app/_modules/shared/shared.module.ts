@@ -14,6 +14,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PaginatorModule } from 'primeng/paginator';
 import { CalendarModule } from 'primeng/calendar';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   imports: [
@@ -46,7 +49,10 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
     DialogModule,
     CalendarModule,
     PaginatorModule,
-    TieredMenuModule
+    TieredMenuModule,
+    InputTextModule,
+    ButtonModule,
+    PasswordModule,
   ],
 })
 export class SharedModule {}

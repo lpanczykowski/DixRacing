@@ -72,26 +72,26 @@
       >
         <input
           name="email"
-          [(ngModel)]="model.email"
-          class="form-control me-1"
+          class="form-control mx-1"
           type="text"
-          placeholder="Email"
+          pInputText
+          [(ngModel)]="model.email"
+          placeholder="E-mail"
         />
 
         <input
           name="password"
+          class="form-control mx-1"
+          pPassword
           [(ngModel)]="model.password"
-          class="form-control me-2"
-          type="Hasło"
+          type="password"
           placeholder="Password"
+          [feedback]="false"
         />
 
-        <button class="btn btn-outline-success me-1" type="submit">
-          Zaloguj
-        </button>
-        <a routerLink="/register" class="btn btn-info me-1" role="button"
-          >Dołącz</a
-        >
+          <button pButton pRipple type="submit"  class="p-button-success mx-1" style="width:12rem">Zaloguj</button>
+          <button pButton pRipple type="button"  class="p-button-danger mx-1" routerLink="/register" style="width:12rem">Dołącz</button>
+
       </form>
     </ul>
   </div>

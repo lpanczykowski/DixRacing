@@ -1,24 +1,4 @@
 <div class="bg-light text-black">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Lp.</th>
-        <th scope="col">Zgłaszający</th>
-        <th scope="col">Zgłoszony</th>
-        <th scope="col">Okrążenie</th>
-        <th scope="col">Decyzja</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let raceIncident of raceIncidents">
-        <th scope="row">{{raceIncident.IncidentId}}</th>
-        <td>{{raceIncident.ReportingDriver}}</td>
-        <td>{{raceIncident.ReportedDriver}}</td>
-        <td>{{raceIncident.IncidentLap}}</td>
-        <td>{{raceIncident.Result}}</td>
-      </tr>
-    </tbody>
-  </table>
 <hr>
   <p-table [value]="raceIncidents">
     <ng-template pTemplate="header">
@@ -32,11 +12,11 @@
     </ng-template>
     <ng-template pTemplate="body" let-raceIncident>
       <tr>
-        <td>{{raceIncident.IncidentId}}</td>
-        <td>{{raceIncident.ReportingDriver}}</td>
-        <td>{{raceIncident.ReportedDriver}}</td>
-        <td>{{raceIncident.IncidentLap}}</td>
-        <td>{{raceIncident.Result}}</td>
+        <td>{{raceIncident.incidentId}}</td>
+        <td>{{raceIncident.reportingDriver}}</td>
+        <td>{{raceIncident.reportedDriver}}</td>
+        <td>{{raceIncident.incidentLap}}</td>
+        <td>{{raceIncident.result}}</td>
       </tr>
     </ng-template>
   </p-table>
