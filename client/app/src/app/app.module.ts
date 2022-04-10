@@ -1,3 +1,4 @@
+import { EventFormComponent } from './forms/event-form/event-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './_modules/shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -37,6 +38,8 @@ import { PasswordModule } from 'primeng/password';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MonthPipe } from './pipes/month.pipe';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventSignupComponent,
     EventResultsComponent,
     CardComponent,
+    CalendarComponent,
+    MonthPipe,
+    EventFormComponent
   ],
   imports: [
     FormsModule,

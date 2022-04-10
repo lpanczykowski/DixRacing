@@ -49,7 +49,7 @@ namespace API.Controllers
             });
             var steamId = claims.Select(s => s.Value).FirstOrDefault().Split('/').Last();
             await SendAsync(new AttachSteamCommand(userId,steamId));
-            return Redirect("https://localhost:4200");
+            return Redirect("http://localhost:4200");
 
         }
 

@@ -1,14 +1,20 @@
 <div class="container-fluid">
   <div class="row">
-      <div class="col-xl-10">
-        <app-event-list></app-event-list>
+    <div class="col-xl-8">
+      <app-event-list></app-event-list>
+    </div>
+    <div class="col-xl-4" style="margin-top: 90px">
+      <div class="row">
+        <app-calendar></app-calendar>
       </div>
-      <div class="col-lg-2">
-        <div class="col bg-dark text-white" style="margin-top: 10%;">
-          <div class="row">
-            <!-- <ejs-calendar id=calendar [value]="05/16/2017" [min]="05/07/2017" [max]="08/27/2025"></ejs-calendar> -->
-          </div>
-        </div>
-      </div>
+    </div>
   </div>
 </div>
+<button
+  pButton
+  class="bottom-right"
+  label="Dodaj event"
+  icon="pi pi-plus"
+  (click)="onAddEventClick()"
+></button>
+<app-event-form [displayModal]="displayEventCreator"></app-event-form>

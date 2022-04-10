@@ -1,19 +1,27 @@
-<div class="col-10 bg-dark text-white me-auto" style="margin-top: 150px;">
-  <br>
+<div class="col-10 bg-dark text-white me-auto" style="margin-top: 70px">
+  <br />
   <div class="container">
-    <h2>{{raceEvent.eventName}}</h2>
-    <h4>Runda {{raceEvent.roundId}}/{{raceEvent.amountOfRounds}}</h4>
+    <h2>{{ raceEvent.eventName }}</h2>
+    <h4>Runda {{ raceEvent.roundId }}/{{ raceEvent.amountOfRounds }}</h4>
     <h4>Preq aktywne</h4>
     <h4>Preq zakończone</h4>
-    <hr>
+    <hr />
     <!-- <h6>Następna runda: {{raceEvent.activeRound?.roundDay | date:'short':'UTC'}}</h6> -->
-    <!-- <img src = "{{raceEvent.photo}}"/> -->
+    <img
+      src="https://www.racedepartment.com/attachments/timthumb-png.312357/"
+    />
   </div>
-  <br>
+  <br />
   <div class="container">
     <div class="row justify-content-around">
-            <button type="button" pButton label="Strona wyścigu" routerLink='/event/{{raceEvent.eventId}}'></button>
+      <button
+        type="button"
+        pButton
+        label="Strona wydarzenia"
+        routerLink="/event/{{ raceEvent.eventId }}"
+        class="p-button-secondary"
+      ></button>
     </div>
-    <br>
+    <br />
   </div>
 </div>

@@ -1,0 +1,54 @@
+<p-card>
+  <div class="calendar">
+    <div class="header">
+      <div class="flex card-container blue-container overflow-hidden">
+        <div
+          class="flex-grow-1 flex align-items-center justify-content-center bg-dark font-bold text-white m-2 border-round"
+        >
+          {{ currentDate.month() + 1 | month }} ({{ currentDate.year() }})
+        </div>
+        <div
+          class="flex-none flex align-items-center justify-content-center font-bold text-white m-1 border-round"
+        >
+          <button
+            pButton
+            icon="pi pi-chevron-left"
+            (click)="prevMonth()"
+            class="bg-dark"
+          ></button>
+        </div>
+        <div
+          class="flex-none flex align-items-center justify-content-center font-bold text-white m-1 border-round"
+        >
+          <button
+            pButton
+            icon="pi pi-chevron-right"
+            (click)="nextMonth()"
+            class="bg-dark"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <div class="body mt-2">
+      <div class="grid flex align-items-center justify-content-center">
+        <div *ngFor="let week of weeks" class="row">
+          <div *ngFor="let item of week" class="col-fixed" style="width: 50px">
+            <div
+              *ngIf="isSelectedMonth(item.mDate)"
+              class="day flex align-items-center justify-content-center border-round bg-gray-500 py-1"
+            >
+              {{ item.mDate.date() }}
+            </div>
+            <div
+              *ngIf="!isSelectedMonth(item.mDate)"
+              class="day flex align-items-center justify-content-center bg-gray-500 border-round py-1"
+              style="opacity: 30%"
+            >
+              {{ item.mDate.date() }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-card>

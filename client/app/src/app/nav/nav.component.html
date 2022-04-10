@@ -43,18 +43,19 @@
         class="navbar-nav"
         *ngIf="accountService.currentUser$ | async as user"
       >
-        <li>
-          <a class="nav-link" (click)="connectSteam(user.userId)">Steam</a>
+        <li class="nav-item">
+          <a class="nav-link" (click)="connectSteam(user.userId)"><i class="fa-brands fa-steam fa-lg"></i> Steam</a>
         </li>
         <li class="nav-item">
-          <div class="dropdown" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Witaj</a>
-            <div class="dropdown-menu mt-3" *dropdownMenu>
-              <a class="dropdown-item">Edytuj profil</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" (click)="logout()">Wyloguj</a>
-            </div>
-          </div>
+          <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
+          <p-button
+            label="Nick"
+            icon="fa-solid fa-id-card fa-xl"
+            styleClass="p-button-warning"
+            badge="8"
+            badgeClass="p-badge-danger"
+            (click)="menu.toggle($event)"
+          ></p-button>
         </li>
       </ul>
     </div>

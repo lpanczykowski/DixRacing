@@ -6,11 +6,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { MenuModule } from 'primeng/menu';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { PaginatorModule } from 'primeng/paginator';
+import { CalendarModule } from 'primeng/calendar';
+import { TieredMenuModule } from 'primeng/tieredmenu';
 
 @NgModule({
   imports: [
@@ -24,7 +27,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     AppRoutingModule,
     MenuModule,
-    DialogModule
+    DialogModule,
+    PaginatorModule,
+    CalendarModule,
+    TieredMenuModule
   ],
   exports: [
     CommonModule,
@@ -37,7 +43,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     AppRoutingModule,
     MenuModule,
-    DialogModule
+    DialogModule,
+    CalendarModule,
+    PaginatorModule,
+    TieredMenuModule
   ],
 })
 export class SharedModule {}
