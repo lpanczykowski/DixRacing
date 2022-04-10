@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PreqStatus } from 'app/_models/preqStatus';
 import { PreqStatusDto} from 'app/_models/preqStatusDto';
+import { RaceIncidentDto } from 'app/_models/raceIncidentDto';
 import { environment } from 'environments/environment';
 import { Race } from '../_models/race';
 import { RaceResult } from '../_models/raceResult';
@@ -40,4 +41,10 @@ baseUrl=environment.apiUrl;
 
     return this.http.get<PreqStatus>(this.baseUrl+'race/racestatus',{params:params});
   }
+
+  reportIncident(raceIncidentDto:RaceIncidentDto)
+  {
+    return this.http.post(this.baseUrl+'reportIncident',JSON.stringify({raceIncidentDto}),httpOptions);
+  }
+
 }

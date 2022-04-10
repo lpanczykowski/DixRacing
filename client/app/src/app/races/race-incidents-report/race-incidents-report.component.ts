@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RaceIncidentDto } from 'app/_models/raceIncidentDto';
+import { RaceService } from 'app/_services/race.service';
 
 @Component({
   selector: 'app-race-incidents-report',
@@ -7,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RaceIncidentsReportComponent implements OnInit {
 
-  constructor() { }
+  model:RaceIncidentDto=new RaceIncidentDto();
+
+  constructor(private raceService:RaceService) { }
 
   ngOnInit(): void {
   }
 
-  reportIncident()
+  reportIncident(model:RaceIncidentDto)
   {
-    //TODO:Przekazanie zgloszonego incydentu do DB
+        this.raceService.reportIncident(model);
   }
 }

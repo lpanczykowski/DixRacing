@@ -1,29 +1,34 @@
-<div class="bg-light text-black mx-auto mb-2">
-      <br>
-      <form #incidentReportForm="ngForm" (ngSubmit)="reportIncident()" autocomplete="off" class="form-group ">
-        <h4 class="text-center text-primary text-black mb-4"> Zgłoszenie incydentu </h4>
+<div class="bg-light text-black mx-auto mb-2" >
 
-        <div class="form-group col-10 mx-auto mb-2">
-          <label for="reportedDriverNumberInput">Numer Zgłaszanego kierowcy</label>
-          <p-inputNumber type="text" class="form-control" id="reportedDriverId" name="reportedDriverNumber"></p-inputNumber>
-        </div>
-        <div class="form-group col-10 mx-auto mb-2">
-          <label for="reportedLapInput">Okrążenie wyścigu</label>
-          <input type="text" class="form-control" id="reportedLap" name="reportedLap" >
-        </div>
-        <div class="form-group col-10 mx-auto mb-2">
-          <label for="reportDescriptionInput">Opis incydentu</label>
-          <textarea class="form-control" rows="10" id="incidentDetails" name="reportDescription"></textarea>
-        </div>
-              <br>
-        <div class="form-group text-center mx-auto">
-          <button class="btn btn-success mx-1" type="submit">Zgłoś</button>
-        </div>
-        <br>
-      </form>
+  <form #incidentReportForm="ngForm" (ngSubmit)="reportIncident(incidentReportForm)" novalidate>
+    <h4 class="text-center text-primary text-black mb-4"> Zgłoszenie incydentu </h4>
+    <div class="form-group">
+      <span class="p-float-label">
+        <p-inputNumber id="float-input"  [(ngModel)]="model.reportedDriver" name="reportedNumber"></p-inputNumber>
+        <label for="float-input">Numer zgłaszanego kierowcy</label>
+      </span>
+    </div>
+    <div class="form-group">
+      <span class="p-float-label">
+        <p-inputNumber id="float-input" [(ngModel)]="model.incidentLap" name="reportedLap"></p-inputNumber>
+        <label for="float-input">Okrążenie</label>
+      </span>
+    </div>
+    <div class="form-group">
+      <span class="p-float-label">
+        <textarea id="float-input" rows="5" cols="22" pInputTextarea [(ngModel)]="model.incidentDescription" name="reportedDescription"></textarea>
+        <label for="float-input">Opis incydentu</label>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <button pButton type="button" label="Zgłoś"></button>
+    </div>
+
+  </form>
 </div>
 
-  <!--<div *ngIf="registerMode" class="container">
+<!--<div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
         <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
