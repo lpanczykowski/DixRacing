@@ -1,0 +1,18 @@
+<form #eventCreatorForm="ngForm" (ngSubmit)="createEvent()" autocomplete="off" class="form-group">
+
+<span class="p-float-label">
+    <input id="eventName" type="text" pInputText [(ngModel)]="model.name" name="eventName">
+    <label for="eventName">Nazwa eventu</label>
+</span>
+
+<span class="p-float-label">
+  <input id="eventGame" type="text" pInputText [(ngModel)]="model.gameId" name="eventGame">
+  <label for="eventGame">Platforma</label>
+</span>
+
+<span class="p-float-label">
+  <input id="eventPhoto" type="text" pInputText [(ngModel)]="model.photo" name="eventPhoto">
+  <label for="eventPhoto">Link do grafiki eventu</label>
+</span>
+
+</form>

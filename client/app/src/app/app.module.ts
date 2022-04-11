@@ -40,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MonthPipe } from './pipes/month.pipe';
+import { EventCreatorComponent } from './events/event-creator/event-creator.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { MonthPipe } from './pipes/month.pipe';
     CardComponent,
     CalendarComponent,
     MonthPipe,
-    EventFormComponent
+    EventFormComponent,
+    EventCreatorComponent
   ],
   imports: [
     FormsModule,
