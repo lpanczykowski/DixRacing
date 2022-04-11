@@ -5,17 +5,15 @@ import { EventService } from 'app/_services/event.service';
 @Component({
   selector: 'app-event-creator',
   templateUrl: './event-creator.component.html',
-  styleUrls: ['./event-creator.component.css']
+  styleUrls: ['./event-creator.component.css'],
 })
 export class EventCreatorComponent implements OnInit {
+  model: EventCreateDto = new EventCreateDto();
+  constructor(private eventService: EventService) {}
 
-  model: EventCreateDto
-  constructor(private eventService:EventService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  createEvent(){
+  createEvent() {
     this.eventService.createEvent(this.model);
   }
 }

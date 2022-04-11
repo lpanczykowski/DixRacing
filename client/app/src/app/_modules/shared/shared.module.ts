@@ -17,6 +17,8 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   imports: [
@@ -33,7 +35,9 @@ import { PasswordModule } from 'primeng/password';
     DialogModule,
     PaginatorModule,
     CalendarModule,
-    TieredMenuModule
+    TieredMenuModule,
+    TabMenuModule,
+    TabViewModule,
   ],
   exports: [
     CommonModule,
@@ -53,6 +57,8 @@ import { PasswordModule } from 'primeng/password';
     InputTextModule,
     ButtonModule,
     PasswordModule,
+    TabMenuModule,
+    TabViewModule,
   ],
 })
 export class SharedModule {}

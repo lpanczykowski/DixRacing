@@ -1,119 +1,109 @@
-<div class="container ">
+<div class="container">
   <div class="row">
-    <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px;">
-      <br>
+    <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px">
+      <br />
       <div class="d-flex flex-row justify-content-between">
+        <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(0)">
+          {{ event?.event.name }}
+        </h2>
 
-            <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(0)">{{event?.event.name}}</h2>
-
-            <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(5)">Dołącz</h2>
+        <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(5)">Dołącz</h2>
       </div>
     </div>
-    <br>
+    <br />
   </div>
 </div>
-
 
 <div class="container">
   <div class="row">
     <div class="col-8 bg-secondary text-white">
-      <br>
-      <div class="row text-center">
-        <ul class="list-inline">
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(0)">Info</a>
-            <!--TODO: zmienić to potem na eventId/race -->
-          </li>
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(1)">Regulamin</a>
-          </li>
+      <br />
+      <div class="row text-center ml-4">
+        <p-tabView>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-info p-2"></i> Info
+            </ng-template>
 
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(2)">Kierowcy</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(7)">Zespoły</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(3)">Klasyfikacja</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(6)">Punktacja</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a class="text-decoration-none text-white" (click)="setCurrentView(4)">Kary</a>
-          </li>
-        </ul>
-      </div>
-      <hr>
-      <div class="bg-light text-black">
-
-        <div *ngIf="viewId === 0">
-          <app-event-info></app-event-info>
-        </div>
-
-        <div *ngIf="viewId === 1">
-          <app-event-rules></app-event-rules>
-        </div>
-        <div *ngIf="viewId === 2">
-          <app-driver-list> </app-driver-list>
-        </div>
-        <div *ngIf="viewId === 3">
-          <app-event-results></app-event-results>
-        </div>
-        <div *ngIf="viewId === 4">
-          <app-event-penalty></app-event-penalty>
-        </div>
-        <div *ngIf="viewId === 5">
-          <app-event-signup></app-event-signup>
-        </div>
-        <div *ngIf="viewId === 6">
-          <app-event-points></app-event-points>
-        </div>
-        <div *ngIf="viewId === 7">
-          <app-event-teams></app-event-teams>
-        </div>
+            <app-event-info></app-event-info>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-sheet-plastic p-2"></i> Regulamin
+            </ng-template>
+            <app-event-rules></app-event-rules>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-user p-2"></i> Kierowcy
+            </ng-template>
+            <app-driver-list></app-driver-list>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-chalkboard-user p-2"></i> Klasyfikacja
+            </ng-template>
+            <app-event-results></app-event-results>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-users p-2"></i> Zespoły
+            </ng-template>
+            <app-event-teams></app-event-teams>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-chalkboard p-2"></i> Punktacja
+            </ng-template>
+            <app-event-points></app-event-points>
+          </p-tabPanel>
+        </p-tabView>
       </div>
     </div>
     <div class="col-4 bg-secondary text-black">
-      <div class="container mt-5 mb-5">
-
-          <p-card header="Runda {{activeRound.roundNumber}}" subheader="Tor">
-            <ng-template pTemplate="header">
-              <img alt="Card"
-                src="https://d3npyywa6qnolf.cloudfront.net/prod/user/540311/eyJ1cmwiOiJodHRwczpcL1wvcGF0cm9uaXRlLnBsXC91cGxvYWRcL3VzZXJcLzU0MDMxMVwvYXZhdGFyX29yaWcuanBnPzE2MjI1ODgwNjYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MCwib3B0aW9ucyI6eyJxdWFsaXR5Ijo5NX19LCJ0b0Zvcm1hdCI6ImpwZWcifX0%3D/OL4pCaXUUXl9BnHQ3HmYZovLVzWMv9Bx%2FMZz%2FPTTulg%3D"
-              >
-            </ng-template>
-
-            <p>Serwer:</p>
-            <p>{{activeRound.serverName}}</p>
-            <p>Password:</p>
-            <p> {{activeRound.serverPassword}}</p>
-            <ng-template pTemplate="footer">
-              <p-button label="Potwierdź" icon="pi pi-check" *ngIf="timeToSign() > 0">Potwierdź {{timeToSignAsString()}}</p-button>
-            </ng-template>
-          </p-card>
-
-      </div>
-
-      <div class="container mt-5 mb-5">
-
-        <p-accordion>
-        <p-accordionTab *ngFor="let round of event?.event.rounds"  (click)="loadRaces(round.id)">
+      <div class="container mt-4">
+        <p-card header="Runda {{ activeRound.roundNumber }}" subheader="Tor">
           <ng-template pTemplate="header">
-            Round {{round.id}}
+            <img
+              alt="Card"
+              src="https://d3npyywa6qnolf.cloudfront.net/prod/user/540311/eyJ1cmwiOiJodHRwczpcL1wvcGF0cm9uaXRlLnBsXC91cGxvYWRcL3VzZXJcLzU0MDMxMVwvYXZhdGFyX29yaWcuanBnPzE2MjI1ODgwNjYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MCwib3B0aW9ucyI6eyJxdWFsaXR5Ijo5NX19LCJ0b0Zvcm1hdCI6ImpwZWcifX0%3D/OL4pCaXUUXl9BnHQ3HmYZovLVzWMv9Bx%2FMZz%2FPTTulg%3D"
+            />
           </ng-template>
-          <ng-template pTemplate="content">
-          <div class="col-12" *ngFor="let race of races">
-          <app-race-box *ngIf="race.roundId===round.id" [round]="round" [race]="race"></app-race-box>
-        </div>
-        </ng-template>
-        </p-accordionTab>
-        </p-accordion>
 
+          <p>Serwer:</p>
+          <p>{{ activeRound.serverName }}</p>
+          <p>Password:</p>
+          <p>{{ activeRound.serverPassword }}</p>
+          <ng-template pTemplate="footer">
+            <p-button
+              label="Potwierdź"
+              icon="pi pi-check"
+              *ngIf="timeToSign() > 0"
+              >Potwierdź {{ timeToSignAsString() }}</p-button
+            >
+          </ng-template>
+        </p-card>
       </div>
 
+      <div class="container mt-4">
+        <p-accordion>
+          <p-accordionTab
+            *ngFor="let round of event?.event.rounds"
+            (click)="loadRaces(round.id)"
+          >
+            <ng-template pTemplate="header"> Round {{ round.id }} </ng-template>
+            <ng-template pTemplate="content">
+              <div class="col-12" *ngFor="let race of races">
+                <app-race-box
+                  *ngIf="race.roundId === round.id"
+                  [round]="round"
+                  [race]="race"
+                ></app-race-box>
+              </div>
+            </ng-template>
+          </p-accordionTab>
+        </p-accordion>
+      </div>
     </div>
-
   </div>
 </div>

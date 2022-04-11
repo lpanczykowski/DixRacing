@@ -1,612 +1,1012 @@
-<div id="rulesTab" class="k-content k-state-active  mb-2" role="tabpanel" tabindex="0" aria-labelledby="rules" aria-expanded="true" style="height: auto; overflow-y: scroll; opacity: 1; display: block; overflow-x:hidden; height:400px;">  <div id="infoTabView" ng-show="!$ctrl.editMode &amp;&amp; ($ctrl.canEdit || $ctrl.text.length)">
-      <div ng-bind-html="$ctrl.safeText" class="ng-binding">
-<p style="text-align:center"><strong><span style="font-size:x-large">Regulamin Sezon 3 2022</span></strong><strong><br><br><br>§1. Postanowienia ogólne.</strong></p>
+<div
+  id="rulesTab"
+  class="k-content k-state-active mb-2"
+  role="tabpanel"
+  tabindex="0"
+  aria-labelledby="rules"
+  aria-expanded="true"
+  style="
+    height: 70vh;
+    overflow-y: scroll;
+    opacity: 1;
+    display: block;
+    overflow-x: hidden;
+  "
+>
+  <div
+    id="infoTabView"
+    ng-show="!$ctrl.editMode &amp;&amp; ($ctrl.canEdit || $ctrl.text.length)"
+  >
+    <div ng-bind-html="$ctrl.safeText" class="ng-binding">
+      <p style="text-align: center">
+        <strong
+          ><span style="font-size: x-large"
+            >Regulamin Sezon 3 2022</span
+          ></strong
+        ><strong><br /><br /><br />§1. Postanowienia ogólne.</strong>
+      </p>
+
+      <p style="text-align: center">
+        Przystąpienie do ligi oznacza akceptację regulaminu.
+      </p>
+
+      <p style="text-align: center">
+        Administratorami ligi ACC GT3 są Paweł "Dolan" Dominiak, Piotr "Peter"
+        Gajewski, Andrzej “Colin” Dziekoński, Mariusz "Maz7er" Tryc oraz
+        Grzegorz “Czikeno” Kogut.
+      </p>
+
+      <p style="text-align: center">
+        <strong
+          >Rozgrywki oparte są na grze Assetto Corsa Competizione. Wymagane jest
+          posiadanie DLC "Intercontinental GT Pack" oraz "British GT
+          Pack".</strong
+        >
+        Posiadanie pozostałych DLC (2020 GTWC Pack oraz GT4) nie jest wymagane.
+      </p>
+
+      <p style="text-align: center">
+        Administracja Ligi zastrzega sobie prawo do zmian w regulaminie w
+        dowolnym momencie, po uprzednim poinformowaniu uczestników rozgrywek
+        ligowych na forum.
+      </p>
+
+      <p style="text-align: center">
+        Zmiany w regulaminie wchodzą w życie od najbliższego wyścigu i nie
+        działają wstecz. Muszą jednak być ogłoszone najpóźniej 24 godziny przed
+        rozpoczęciem wyścigu. W innym wypadku będą obowiązywać dopiero od
+        kolejnej rundy wyścigowej.
+      </p>
+
+      <p style="text-align: center">
+        W przypadku sytuacji nieokreślonych regulaminem, ostateczna decyzja
+        zawsze należy do Administracji Ligi.
+      </p>
+
+      <p style="text-align: center">
+        W czasie jazdy na serwerach ligowych jest możliwa komunikacja poprzez
+        komunikatory np: Discord. Serwer Discord:
+        <a href="https://discord.gg/A2MzFTD5gG">https://discord.gg/A2MzFTD5gG</a
+        >&nbsp;
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center">
+        <strong>§2. Ustawienia ogólne serwera.</strong>
+      </p>
+
+      <p style="text-align: center">
+        Dystans wyścigów: 8 rund w formacie Sprint
+      </p>
+
+      <p style="text-align: center">
+        Przyspieszenie czasu – 1x (z wyjątkiem ostatniej rundy sezonu)
+      </p>
+
+      <p style="text-align: center">Zużycie opon – ON (1x)</p>
+
+      <p style="text-align: center">Zużycie paliwa – ON (1x)</p>
+
+      <p style="text-align: center">Awarie mechaniczne – ON (100%)</p>
+
+      <p style="text-align: center">Dostępne pomoce: sprzęgło</p>
+
+      <p style="text-align: center">
+        Godzina startu wyścigu (na serwerze): każdy z wyścigów może odbywać się
+        o różnych porach dnia i nocy.&nbsp;
+      </p>
+
+      <p style="text-align: center">
+        Pogoda na dany wyścig jest określana swobodnie przez serwer i w znacznym
+        stopniu losowa.
+      </p>
+
+      <p style="text-align: center">
+        Informacje dotyczące ustawień serwera na daną rundę, w zakresie pory
+        dnia oraz pogody, zostaną podane na Discordzie najpóźniej na 3 dni przed
+        rozegraniem rundy.
+      </p>
+
+      <p style="text-align: center">
+        W sezonie odbędzie się przynajmniej jeden wyścig w deszczu.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center">
+        <strong>§3. Serwer Prekwalifikacyjny oraz Serwer Ligowy.</strong>
+      </p>
+
+      <p style="text-align: center">
+        Serwery dla serii ACC GT3 to „DIX RACING
+        <a href="http://www.dix-racing.pl/">www.Dix-Racing.pl</a> Liga ACC”
+        dostępne na liście serwerów.
+      </p>
+
+      <p style="text-align: center">Serwery działają 24 godziny na dobę.</p>
+
+      <p style="text-align: center">
+        Na 2 tygodnie przed rozpoczęciem kolejnej rundy zostanie uruchomiony
+        serwer prekwalifikacyjny (Preq), który zostaje zamknięty o godzinie
+        23.59 w dniu poprzedzającym rundę.
+      </p>
+
+      <p style="text-align: center">
+        Serwer ligowy (wyścigowy) jest uruchamiany najwcześniej na 6 godzin
+        przed rozpoczęciem rundy.
+      </p>
+
+      <p style="text-align: center">
+        Przed każdą rundą wyścigową, o godzinie 19.19 zostanie przeprowadzony
+        reset serwera.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§4. Licencja.</strong></p>
+
+      <p style="text-align: center">
+        Osoba chcąca przystąpić do sezonu musi zgłosić ten fakt Administracji
+        poprzez zapisanie się na platformie RaceApp.eu, link do zapisów oraz
+        instrukcji:
+        <a href="https://raceapp.eu/dix/Series/2399" target="_blank"
+          >https://raceapp.eu/dix/Series/2644</a
+        >
+      </p>
+
+      <p style="text-align: center">Licencje udzielane są automatycznie.</p>
+
+      <p style="text-align: center">
+        Licencja może zostać cofnięta za naruszenie niniejszego regulaminu.
+      </p>
 
+      <p style="text-align: center">
+        Podczas zapisów zawodnik musi dokonać wyboru samochodu z listy opisanej
+        w §5.
+      </p>
 
-<p style="text-align:center">Przystąpienie do ligi oznacza akceptację regulaminu.</p>
+      <p style="text-align: center">
+        Zmiana samochodu jest możliwa do momentu potwierdzenia przez zawodnika
+        obecności na pierwszym wyścigu, w którym kierowca bierze udział.
+        Potwierdzanie obecności odbywa się najwcześniej na tydzień przed
+        rozpoczęciem wyścigu, a najpóźniej na 6 godzin przed rozpoczęciem
+        wyścigu.&nbsp;
+      </p>
 
+      <p style="text-align: center">
+        <strong
+          >Nie ma możliwości zmiany samochodu w trakcie sezonu, po potwierdzeniu
+          udziału w pierwszym wyścigu.</strong
+        >
+      </p>
 
-<p style="text-align:center">Administratorami ligi ACC GT3 są Paweł "Dolan" Dominiak, Piotr "Peter" Gajewski, Andrzej “Colin” Dziekoński, Mariusz "Maz7er" Tryc oraz Grzegorz “Czikeno” Kogut.</p>
+      <p style="text-align: center">
+        W sezonie 2 ligi ACC dopuszczalne jest tworzenie zespołów. Zespoły są
+        2-osobowe. Rejestracja drużyny odbywa się podczas rejestracji zawodników
+        na portalu RaceApp.eu. Kierowcy nie muszą startować w identycznych
+        samochodach. Preferowane jest jednak, aby obaj kierowcy posiadali
+        podobne malowanie w celu identyfikacji zespołów.
+      </p>
 
+      <p style="text-align: center">
+        <strong
+          >Skład drużyny zostaje potwierdzony w pierwszym wyścigu i nie ma
+          możliwości jego zmiany w trakcie trwania sezonu.</strong
+        >
+      </p>
 
-<p style="text-align:center"><strong>Rozgrywki oparte są na grze Assetto Corsa Competizione. Wymagane jest posiadanie DLC "Intercontinental GT Pack" oraz "British GT Pack".</strong> Posiadanie pozostałych DLC (2020 GTWC Pack oraz GT4) nie jest wymagane.</p>
+      <p style="text-align: center">
+        Dopuszczalne jest używanie własnych malowań (livery) do transmisji TV. W
+        tym celu prosimy o kontakt z administracją na serwerze Discord.
+      </p>
 
+      <p style="text-align: center">
+        <strong
+          >Zgłoszenia własnego malowania do Administracji należy wykonać
+          maksymalnie do dnia poprzedzającego kolejną rundę.
+        </strong>
+      </p>
 
-<p style="text-align:center">Administracja Ligi zastrzega sobie prawo do zmian w regulaminie w dowolnym momencie, po uprzednim poinformowaniu uczestników rozgrywek ligowych na forum.</p>
+      <p style="text-align: center">
+        <strong
+          >Malowania można zamieszczać na kanale Discord #acc-liveries (dostępny
+          po zapisaniu się do sezonu 3 i uzyskaniu rangi @Driver_ACC_S3.</strong
+        >
+      </p>
 
+      <p style="text-align: center">
+        Malowania muszą zawierać logo ligi Dix-Racing.pl umieszczone w widocznym
+        miejscu, dostępne tutaj:
+        <a
+          href="http://www.dix-racing.pl/WP/wp-content/uploads/2021/09/logo_dix.png"
+          >http://www.dix-racing.pl/WP/wp-content/uploads/2021/09/logo_dix.png</a
+        >
+      </p>
 
-<p style="text-align:center">Zmiany w regulaminie wchodzą w życie od najbliższego wyścigu i nie działają wstecz. Muszą jednak być ogłoszone najpóźniej 24 godziny przed rozpoczęciem wyścigu. W innym wypadku będą obowiązywać dopiero od kolejnej rundy wyścigowej.</p>
+      <hr class="wp-block-separator" />
 
+      <p style="text-align: center">
+        <strong>§5. Lista dostępnych samochodów</strong>
+      </p>
 
-<p style="text-align:center">W przypadku sytuacji nieokreślonych regulaminem, ostateczna decyzja zawsze należy do Administracji Ligi.</p>
+      <p style="text-align: center">1. AMR V12 Vantage GT3 (2013)</p>
 
+      <p style="text-align: center">2. AMR V8 Vantage GT3 (2019)</p>
 
-<p style="text-align:center">W czasie jazdy na serwerach ligowych jest możliwa komunikacja poprzez komunikatory np: Discord. Serwer Discord: <a href="https://discord.gg/A2MzFTD5gG">https://discord.gg/A2MzFTD5gG</a>&nbsp;</p>
+      <p style="text-align: center">3. Audi R8 LMS (2015)</p>
 
+      <p style="text-align: center">4. Audi R8 LMS EVO (2019)</p>
 
-<hr class="wp-block-separator">
+      <p style="text-align: center">5. Bentley Continental GT3 (2015)</p>
 
+      <p style="text-align: center">6. Bentley Continental GT3 (2018)</p>
 
-<p style="text-align:center"><strong>§2. Ustawienia ogólne serwera.</strong></p>
+      <p style="text-align: center">7. BMW M6 GT3 (2017)</p>
 
+      <p style="text-align: center">8. BMW M4 GT3 (2022)</p>
 
-<p style="text-align:center">Dystans wyścigów: 8 rund w formacie Sprint</p>
+      <p style="text-align: center">9. Ferrari 488 GT3 (2018)</p>
 
+      <p style="text-align: center">10. Ferrari 488 GT3 Evo (2020)</p>
 
-<p style="text-align:center">Przyspieszenie czasu – 1x (z wyjątkiem ostatniej rundy sezonu)</p>
+      <p style="text-align: center">11. Honda NSX GT3 (2017)</p>
 
+      <p style="text-align: center">12. Honda NSX GT3 EVO (2019)</p>
 
-<p style="text-align:center">Zużycie opon – ON (1x)</p>
+      <p style="text-align: center">13. Emil Frey Jaguar G3 (2012)</p>
 
+      <p style="text-align: center">14. Lamborghini Huracan GT3 (2015)</p>
 
-<p style="text-align:center">Zużycie paliwa – ON (1x)</p>
+      <p style="text-align: center">15. Lamborghini Huracan GT3 EVO (2019)</p>
 
+      <p style="text-align: center">16. Lexus RC F GT3 (2016)</p>
 
-<p style="text-align:center">Awarie mechaniczne – ON (100%)</p>
+      <p style="text-align: center">17. McLaren 650S GT3 (2015)</p>
 
+      <p style="text-align: center">18. McLaren 720s GT3 (2019)</p>
 
-<p style="text-align:center">Dostępne pomoce: sprzęgło</p>
+      <p style="text-align: center">19. Mercedes AMG GT3 (2015)</p>
 
+      <p style="text-align: center">20. Mercedes AMG GT3 (2020)</p>
 
-<p style="text-align:center">Godzina startu wyścigu (na serwerze): każdy z wyścigów może odbywać się o różnych porach dnia i nocy.&nbsp;</p>
+      <p style="text-align: center">21. Nissan GT-R Nismo GT3 (2015)</p>
 
+      <p style="text-align: center">22. Nissan GT-R Nismo GT3 (2018)</p>
 
-<p style="text-align:center">Pogoda na dany wyścig jest określana swobodnie przez serwer i w znacznym stopniu losowa.</p>
+      <p style="text-align: center">23. Porsche 991 GT3-R (2018)</p>
 
+      <p style="text-align: center">24. Porsche 991 II GT3 R (2019)</p>
 
-<p style="text-align:center">Informacje dotyczące ustawień serwera na daną rundę, w zakresie pory dnia oraz pogody, zostaną podane na Discordzie najpóźniej na 3 dni przed rozegraniem rundy.</p>
+      <hr class="wp-block-separator" />
 
+      <p style="text-align: center"><strong>§6. Rundy wyścigowe.</strong></p>
 
-<p style="text-align:center">W sezonie odbędzie się przynajmniej jeden wyścig w deszczu.</p>
+      <p style="text-align: center">
+        Wyścigi odbywają się we wtorki. Godziny rozgrywania sesji opisano
+        poniżej.
+      </p>
 
+      <p style="text-align: center">
+        Dni oraz godziny rozgrywania poszczególnych sesji mogą, w wyjątkowych
+        przypadkach, ulec zmianie, o czym administracja ligi poinformuje na
+        portalu ligowym.
+      </p>
 
-<hr class="wp-block-separator">
+      <p style="text-align: center">
+        a) <strong>Godziny sesji Grand Prix:</strong>
+      </p>
 
+      <p style="text-align: center">Trening – 19:20 (40 minut),</p>
 
-<p style="text-align:center"><strong>§3. Serwer Prekwalifikacyjny oraz Serwer Ligowy.</strong></p>
+      <p style="text-align: center">Kwalifikacje&nbsp; – 20:00 (Q 15min),</p>
 
+      <p style="text-align: center">
+        Wyścig - ok. 20:20 - długość wyścigu między 70 a 100 minut, w zależności
+        od toru.
+      </p>
 
-<p style="text-align:center">Serwery dla serii ACC GT3 to „DIX RACING <a href="http://www.dix-racing.pl/">www.Dix-Racing.pl</a> Liga ACC” dostępne na liście serwerów.</p>
+      <p style="text-align: center">
+        b) <strong>Godziny sesji Grand Prix w ostatniej rundzie sezonu:</strong>
+      </p>
+
+      <p style="text-align: center">Trening – 19:20 (40 minut),</p>
+
+      <p style="text-align: center">Kwalifikacje&nbsp; – 20:00 (Q 15min),</p>
 
+      <p style="text-align: center">
+        Wyścig - ok. 20:20 - długość wyścigu 144 minuty.
+      </p>
 
-<p style="text-align:center">Serwery działają 24 godziny na dobę.</p>
+      <hr class="wp-block-separator" />
 
+      <p style="text-align: center"><strong>§7. Pit Stop&nbsp;</strong></p>
 
-<p style="text-align:center">Na 2 tygodnie przed rozpoczęciem kolejnej rundy zostanie uruchomiony serwer prekwalifikacyjny (Preq), który zostaje zamknięty o godzinie 23.59 w dniu poprzedzającym rundę.</p>
-
-
-<p style="text-align:center">Serwer ligowy (wyścigowy) jest uruchamiany najwcześniej na 6 godzin przed rozpoczęciem rundy.</p>
-
-
-<p style="text-align:center">Przed każdą rundą wyścigową, o godzinie 19.19 zostanie przeprowadzony reset serwera.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§4. Licencja.</strong></p>
-
-
-<p style="text-align:center">Osoba chcąca przystąpić do sezonu musi zgłosić ten fakt Administracji poprzez zapisanie się na platformie RaceApp.eu, link do zapisów oraz instrukcji: <a href="https://raceapp.eu/dix/Series/2399" target="_blank">https://raceapp.eu/dix/Series/2644</a></p>
-
-
-<p style="text-align:center">Licencje udzielane są automatycznie.</p>
-
-
-<p style="text-align:center">Licencja może zostać cofnięta za naruszenie niniejszego regulaminu.</p>
-
-
-<p style="text-align:center">Podczas zapisów zawodnik musi dokonać wyboru samochodu z listy opisanej w §5.</p>
-
-
-<p style="text-align:center">Zmiana samochodu jest możliwa do momentu potwierdzenia przez zawodnika obecności na pierwszym wyścigu, w którym kierowca bierze udział. Potwierdzanie obecności odbywa się najwcześniej na tydzień przed rozpoczęciem wyścigu, a najpóźniej na 6 godzin przed rozpoczęciem wyścigu.&nbsp;</p>
-
-
-<p style="text-align:center"><strong>Nie ma możliwości zmiany samochodu w trakcie sezonu, po potwierdzeniu udziału w pierwszym wyścigu.</strong></p>
-
-
-<p style="text-align:center">W sezonie 2 ligi ACC dopuszczalne jest tworzenie zespołów. Zespoły są 2-osobowe. Rejestracja drużyny odbywa się podczas rejestracji zawodników na portalu RaceApp.eu. Kierowcy nie muszą startować w identycznych samochodach. Preferowane jest jednak, aby obaj kierowcy posiadali podobne malowanie w celu identyfikacji zespołów.</p>
-
-
-<p style="text-align:center"><strong>Skład drużyny zostaje potwierdzony w pierwszym wyścigu i nie ma możliwości jego zmiany w trakcie trwania sezonu.</strong></p>
-
-
-<p style="text-align:center">Dopuszczalne jest używanie własnych malowań (livery) do transmisji TV. W tym celu prosimy o kontakt z administracją na serwerze Discord. </p>
-
-
-<p style="text-align:center"><strong>Zgłoszenia własnego malowania do Administracji należy wykonać maksymalnie do dnia poprzedzającego kolejną rundę. </strong></p>
-
-
-<p style="text-align:center"><strong>Malowania można zamieszczać na kanale Discord #acc-liveries (dostępny po zapisaniu się do sezonu 3 i uzyskaniu rangi @Driver_ACC_S3.</strong></p>
-
-
-<p style="text-align:center">Malowania muszą zawierać logo ligi Dix-Racing.pl umieszczone w widocznym miejscu, dostępne tutaj: <a href="http://www.dix-racing.pl/WP/wp-content/uploads/2021/09/logo_dix.png">http://www.dix-racing.pl/WP/wp-content/uploads/2021/09/logo_dix.png</a></p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§5. Lista dostępnych samochodów</strong></p>
-
-
-<p style="text-align:center">1. AMR V12 Vantage GT3 (2013)</p>
-
-
-<p style="text-align:center">2. AMR V8 Vantage GT3 (2019)</p>
-
-
-<p style="text-align:center">3. Audi R8 LMS (2015)</p>
-
-
-<p style="text-align:center">4. Audi R8 LMS EVO (2019)</p>
-
-
-<p style="text-align:center">5. Bentley Continental GT3 (2015)</p>
-
-
-<p style="text-align:center">6. Bentley Continental GT3 (2018)</p>
-
-
-<p style="text-align:center">7. BMW M6 GT3 (2017)</p>
-
-
-<p style="text-align:center">8. BMW M4 GT3 (2022)</p>
-
-
-<p style="text-align:center">9. Ferrari 488 GT3 (2018)</p>
-
-
-<p style="text-align:center">10. Ferrari 488 GT3 Evo (2020)</p>
-
-
-<p style="text-align:center">11. Honda NSX GT3 (2017)</p>
-
-
-<p style="text-align:center">12. Honda NSX GT3 EVO (2019)</p>
-
-
-<p style="text-align:center">13. Emil Frey Jaguar G3 (2012)</p>
-
-
-<p style="text-align:center">14. Lamborghini Huracan GT3 (2015)</p>
-
-
-<p style="text-align:center">15. Lamborghini Huracan GT3 EVO (2019)</p>
-
-
-<p style="text-align:center">16. Lexus RC F GT3 (2016)</p>
-
-
-<p style="text-align:center">17. McLaren 650S GT3 (2015)</p>
-
-
-<p style="text-align:center">18. McLaren 720s GT3 (2019)</p>
-
-
-<p style="text-align:center">19. Mercedes AMG GT3 (2015)</p>
-
-
-<p style="text-align:center">20. Mercedes AMG GT3 (2020)</p>
-
-
-<p style="text-align:center">21. Nissan GT-R Nismo GT3 (2015)</p>
-
-
-<p style="text-align:center">22. Nissan GT-R Nismo GT3 (2018)</p>
-
-
-<p style="text-align:center">23. Porsche 991 GT3-R (2018)</p>
-
-
-<p style="text-align:center">24. Porsche 991 II GT3 R (2019)</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§6. Rundy wyścigowe.</strong></p>
-
-
-<p style="text-align:center">Wyścigi odbywają się we wtorki. Godziny rozgrywania sesji opisano poniżej.</p>
-
-
-<p style="text-align:center">Dni oraz godziny rozgrywania poszczególnych sesji mogą, w wyjątkowych przypadkach, ulec zmianie, o czym administracja ligi poinformuje na portalu ligowym.</p>
-
-
-<p style="text-align:center">a) <strong>Godziny sesji Grand Prix:</strong></p>
-
-
-<p style="text-align:center">Trening – 19:20 (40 minut),</p>
-
-
-<p style="text-align:center">Kwalifikacje&nbsp; – 20:00 (Q 15min),</p>
-
-
-<p style="text-align:center">Wyścig - ok. 20:20 - długość wyścigu między 70 a 100 minut, w zależności od toru.</p>
-
-
-<p style="text-align:center">b) <strong>Godziny sesji Grand Prix w ostatniej rundzie sezonu:</strong></p>
-
-
-<p style="text-align:center">Trening – 19:20 (40 minut),</p>
-
-
-<p style="text-align:center">Kwalifikacje&nbsp; – 20:00 (Q 15min),</p>
-
-
-<p style="text-align:center">Wyścig - ok. 20:20 - długość wyścigu 144 minuty.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§7. Pit Stop&nbsp;</strong></p>
-
-
-<p style="text-align:center">Podczas wyścigu kierowca zobowiązany do odbycia przynajmniej jednego zjazdu do alei serwisowej. Podczas postoju w alei serwisowej kierowca musi dokonać tankowania minimum 1 litra paliwa. Kierowca może, lecz nie musi dokonać zmiany opon. Nie obowiązuje okno serwisowe (pit stop window).</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§8. Prekwalifikacje.</strong></p>
-
-
-<p style="text-align:center">Każdy zawodnik ma obowiązek wykonania co najmniej 10 poprawnych okrążeń na serwerze Hotlap. Aktualne czasy i liczba okrążeń na serwerach hotlap jest dostępna pod adresem <a href="http://89.163.146.62:9300/PerServerRankingTracks/Index">http://89.163.146.62:9300/PerServerRankingTracks/Index</a> oraz na stronie <a href="http://www.dix-racing.pl/acc-gt3-sezon-2/">http://www.dix-racing.pl/acc-gt3-sezon-2/</a> w zakładce Hot Laps.</p>
-
-
-<p style="text-align:center">Lista startowa do rundy tworzona jest automatycznie na podstawie uzyskanych czasów oraz obecności zgłaszanych w systemie RaceApp. Obowiązkiem zawodnika jest spełnienie warunków kwalifikacji do danej rundy. Wnioski o warunkowe dopisanie zawodnika do rundy zostaną odrzucone przez administrację.</p>
-
-
-<p style="text-align:center">Standardowy limit miejsc na serwerach ligowych wynosi 30. W przypadku większej ilości chętnych utworzony zostanie dodatkowy serwer, jednak dla liczby co najmniej 10 zawodników. W przypadku całkowitej liczby chętnych poniżej 40, warunkowo zwiększona zostanie liczba zawodników na serwerze głównym.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§9. Kwalifikacje.</strong></p>
-
-
-<p style="text-align:center">Udział w kwalifikacjach nie jest obowiązkowy.</p>
-
-
-<p style="text-align:center">Kierowcy, którzy nie przystąpili do kwalifikacji, zobowiązani są do startu z końca stawki.</p>
-
-
-<p style="text-align:center">Podczas sesji kwalifikacyjnych i wyścigu obowiązuje całkowity zakaz pisania na czacie. Pisać mają prawo tylko Administratorzy w celu wydawania poleceń, bądź dawania ogłoszeń.</p>
-
-
-<p style="text-align:center"><strong>W trakcie sesji kwalifikacyjnej kierowcy mogą używać opcji “Return to garage” / “Powrót do boksu”, poza aleją serwisową. Przed użyciem opcji “Return to garage” kierowca musi upewnić się, że zatrzymanie się nie przeszkodzi innym zawodnikom. Niedopuszczalne jest zatrzymywanie się na linii wyścigowej.</strong></p>
-
-
-<p style="text-align:center">W trakcie sesji kwalifikacyjnej wyprzedzanie dopuszczalne jest tylko, gdy kierowca jadący przed zawodnikiem popełni błąd lub jest znacząco wolniejszy. W przypadku, gdy kierowca zbliża się do poprzedzającego, ze względu na różnice w tempie jazdy, oznacza, że pozostawił sobie zbyt mały odstęp i jest on zobowiązany do odpuszczenia swojego okrążenia pomiarowego. Przypadki wymuszania na poprzedzającym kierowcy odpuszczenia swojego okrążenia bądź spychanie go, może skutkować nałożeniem kary.</p>
-
-
-<p style="text-align:center">Każdy kierowca nie będący na swoim pomiarowym okrążeniu ma obowiązek przepuszczenia innych kierowców będących na swoich okrążeniach pomiarowych. W przypadku blokowania kierowca może zostać ukarany zgodnie z regulaminem.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§10. Wyścig.</strong></p>
-
-
-<p style="text-align:center">Dystans wyścigu: (patrz <strong>§6 Rundy wyścigowe</strong>)</p>
-
-
-<p style="text-align:center">Udział w wyścigu jest obowiązkowy.</p>
-
-
-<p style="text-align:center"><strong>Kierowca jest zobowiązany do potwierdzenia bądź odrzucenia obecności w każdym wyścigu sezonu, w odpowiednim miejscu na platformie RaceApp.eu, najwcześniej na tydzień i najpóźniej na 6 godzin przed rozpoczęciem danego wyścigu.</strong></p>
-
-
-<p style="text-align:center">Kierowca, który nie potwierdził, bądź nie odrzucił udziału w danym wyścigu, i nie pojawi się na starcie, otrzyma status DNS (Did Not Start), co wiąże się z nałożeniem kary zgodnie z regulaminem.</p>
-
-
-<p style="text-align:center">Kierowca, który potwierdził udział w wyścigu, lecz nie pojawi się na starcie, również otrzymuje status DNS oraz karę punktową zgodnie z regulaminem.</p>
-
-
-<p style="text-align:center">Podczas wyścigu niedopuszczalne jest kontynuowanie wyścigu po użyciu opcji “Return to Garage”/”Powrót do boksu”. W przypadku złamania tego punktu regulaminu kierowca otrzyma karę zgodnie z regulaminem.</p>
-
-
-<p style="text-align:center">Przed startem wyścigu obowiązuje tzw. krótkie okrążenie formujące. Podczas okrążenia formującego kierowcy zobowiązani są do utrzymywania prawidłowych odległości oraz prędkości zgodnie z informacjami, które wydaje system gry.</p>
-
-
-<p style="text-align:center">W wyścigu istnieje możliwość tankowania, wymiany opon oraz hamulców lub naprawy pojazdu.</p>
-
-
-<p style="text-align:center">Kierowca jest klasyfikowany, gdy ukończy co najmniej 75% liczby okrążeń przejechanych przez zwycięzcę wyścigu.</p>
-
-
-<p style="text-align:center">Wszyscy kierowcy zostają sklasyfikowani według liczby ukończonych okrążeń. Zawodnicy, którzy ukończyli taką samą liczbę okrążeń zostają sklasyfikowani według kolejności przekraczania linii mety.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§11. Skargi.</strong></p>
-
-
-<p style="text-align:center">Administracja po ukończonym wyścigu ma prawo przejrzeć powtórkę w poszukiwaniu nieprawidłowej jazdy (opuszczanie toru, wypadki) i ukarać takie zachowanie bez wnoszenia skarg przez innych.</p>
-
-
-<p style="text-align:center">Kierowca ukarany ma prawo odwołać się od decyzji Administracji w ciągu 48 godzin. W takim przypadku odwołanie zostanie ponownie rozpatrzone przez Komisję.</p>
-
-
-<p style="text-align:center">Każdy poszkodowany w wyścigu ma prawo do złożenia skargi na innego kierowcę.</p>
-
-
-<p style="text-align:center">Skarga będzie przyjęta do rozpatrzenia, gdy zostanie napisana zgodnie ze wzorem podanym na Forum w dziale skarg.</p>
-
-
-<p style="text-align:center">Wzór skarg obejmuje: nr wyścigu (dotyczy rund Super Sprint), kierowców biorących udział w incydencie, numer okrążenia oraz czas na oficjalnej powtórce z wyścigu (udostępnianej bezpośrednio po rundzie przez Administrację).&nbsp;</p>
-
-
-<p style="text-align:center">Skargi złożone niepoprawnie nie będą rozpatrywane.</p>
-
-
-<p style="text-align:center">Skargę składamy do 48 godzin po rozegranej rundzie (do czwartku po rozegranej rundzie, do godz. 23.59).</p>
-
-
-<p style="text-align:center">Skargi będą rozpatrzone przez Komisję. Werdykt ukaże się na forum oraz Discordzie.</p>
-
-
-<p style="text-align:center">Po rozpatrzeniu skarg i uznaniu kogoś winnym wyniki w Systemie Ligowym ulegną aktualizacji.</p>
-
-
-<p style="text-align:center">Kary będą udzielane według werdyktu Komisji złożonej z co najmniej 3 członków.</p>
-
-
-<p style="text-align:center">W przypadku kiedy incydent dotyczy któregoś z członków Komisji, osoba ta nie będzie brała udziału w rozpatrywaniu danego incydentu.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§12. Kary.</strong></p>
-
-
-<p style="text-align:center">Kary nakładane są na zawodnika podczas gry i po zakończonej rozgrywce.</p>
-
-
-<p style="text-align:center">Kary podczas gry nakładane są automatycznie przez Assetto Corsa Competizione i dotyczą głównie „STOP and GO” lub przejazd przez aleję serwisową (DT). W najgorszym wypadku może to być dyskwalifikacja.</p>
-
-
-<p style="text-align:center">Po zakończeniu wyścigu sędziowie mogą nałożyć następujące kary wg taryfikatora:</p>
-
-
-<p style="text-align:center">a) Racing incident (brak ewidentnej winy jednego zawodnika): 0 punktów</p>
-
-
-<p style="text-align:center">b) Reprymenda: 1 punkt</p>
-
-
-<p style="text-align:center">c) Niebezpieczna/niesportowa jazda: 3 punkty</p>
-
-
-<p style="text-align:center">d) Spowodowanie niewielkiej, możliwej do uniknięcia kolizji: 5 punktów</p>
-
-
-<ul><li style="text-align:center;list-style-position:inside">niewielka kolizja = poszkodowany zawodnik doznał niewielkich uszkodzeń auta i/lub kolizja powoduje spadek poszkodowanego o max 2 pozycje (lub stratę max 5 sekund)</li></ul>
-
-
-<p style="text-align:center">e) Spowodowanie średniej, możliwej do uniknięcia kolizji: 10 punktów</p>
-
-
-<ul><li style="text-align:center;list-style-position:inside">średnia kolizja = poszkodowany zawodnik doznał uszkodzeń auta i/lub kolizja powoduje spadek poszkodowanego i więcej niż 2 pozycje (lub stratę co najmniej 5 sekund)</li></ul>
-
-
-<p style="text-align:center">f) Spowodowanie dużej, możliwej do uniknięcia kolizji: 15 punktów</p>
-
-
-<ul><li style="text-align:center;list-style-position:inside">duża kolizja = poszkodowany zawodnik doznał dużych uszkodzeń auta i/lub kolizja powoduje konieczność zakończenia wyścigu przez poszkodowanego; LUB w kolizji poszkodowanych jest wielu zawodników</li></ul>
-
-
-<p style="text-align:center">g) Dodatkowe punkty karne za spowodowanie kolizji na pierwszym okrążeniu: 5 punktów</p>
-
-
-<p style="text-align:center">h) Niebezpieczny powrót na tor: 5 punktów</p>
-
-
-<p style="text-align:center">i) Blokowanie zawodników będących na okrążeniu pomiarowym w kwalifikacjach: 5 punktów</p>
-
-
-<p style="text-align:center">j) Przekroczenie linii wyjazdowej z alei serwisowej: 2 punkty</p>
-
-
-<p style="text-align:center">k) Wyprzedzanie przy żółtych flagach: 10 punktów</p>
-
-
-<p style="text-align:center">l) Użycie opcji “Return to garage” w wyścigu i powrót na tor: dyskwalifikacja z wyścigu</p>
-
-
-<p style="text-align:center">m) Umyślne spowodowanie kolizji z innymi zawodnikami: dyskwalifikacja z wyścigu i/lub ligi</p>
-
-
-<p style="text-align:center">n) Nieobecność na wyścigu mimo potwierdzenia obecności w systemie RaceApp (DNS): 10 punktów</p>
-
-
-<p style="text-align:center">o) Niezgłoszenie obecności/nieobecności (status Unconfirmed) w wyścigu w systemie RaceApp w wymaganym oknie czasowym (DNS): 5 punktów</p>
-
-
-<p style="text-align:center">p) Nietrzymanie wciśniętego hamulca w przypadku utraty kontroli nad autem (spin) aż do całkowitego zatrzymania pojazdu: 10 punktów</p>
-
-
-<p style="text-align:center">Suma punktów karnych według powyższego taryfikatora zostanie odjęta od zdobyczy punktowych zawodnika do klasyfikacji generalnej, po zakończeniu każdej rundy, w stosunku 1:1 (dopuszczalne są punkty ujemne w klasyfikacji generalnej).</p>
-
-
-<p style="text-align:center">W przypadku sytuacji wyjątkowych, nieujętych w powyższym taryfikatorze, Komisja może nałożyć na zawodnika dodatkowe punkty karne w zakresie 0-20 punktów, lub podjąć decyzję o innym rodzaju kary.</p>
-
-
-<p style="text-align:center"><strong>W przypadku zebrania przez zawodnika określonej poniżej ilości punktów karnych, w kolejnej rundzie zawodnik dodatkowo zostaje ukarany:</strong></p>
-
-
-<p style="text-align:center">a) Suma 20 punktów karnych (i wielokrotność, liczona w całym sezonie): zakaz startu w kwalifikacjach do kolejnej rundy; zakaz startu w Q oznacza całkowity zakaz wyjazdu na tor podczas kwalifikacji;</p>
-
-
-<p style="text-align:center">b) Suma 30 punktów karnych (uzyskana w jednej rundzie): zakaz startu w kwalifikacjach plus obowiązek startu z alei serwisowej do wyścigu (należy użyć opcji BTP podczas odliczania do wyścigu);</p>
-
-
-<p style="text-align:center">c) Suma 40 punktów karnych (uzyskana w jednej rundzie): dyskwalifikacja z kolejnej rundy;</p>
-
-
-<p style="text-align:center">d) Suma 60 punktów karnych (w całym sezonie): dalszy udział zawodnika w lidze zostaje poddany ocenie Komisji, z możliwą karą całkowitego wykluczenia zawodnika z sezonu;</p>
-
-
-<p style="text-align:center">e) Suma 80 punktów karnych: automatyczna dyskwalifikacja z sezonu; możliwość całkowitego usunięcia zawodnika z ligi po ocenie przez Komisję;</p>
-
-
-<p style="text-align:center">Po zakończeniu sezonu wszystkie punkty karne zostają anulowane.</p>
-
-
-<p style="text-align:center">Do punktacji w klasyfikacji generalnej punkty karne liczone są zawsze, bez względu na to, która runda zostaje odrzucona do całkowitego wyniku zawodnika (patrz pkt 13.)</p>
-
-
-<p style="text-align:center">Zawodników biorących udział w rozgrywkach ligowych oraz pozostałych użytkowników obowiązuje odpowiednie zachowanie i kultura na portalu, Discordzie, jak i na serwerze ligowym. Nieodpowiednie zachowanie, obrażanie innych graczy i podobne wybryki będą karne przez Administrację z całą stanowczością, z pełnymi możliwościami karania takiej osoby, aż do dożywotniego bana na portalu i wykluczenia z ligi włącznie.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§13. System punktacji</strong></p>
-
-
-<p style="text-align:center">Szczegóły punktacji za poszczególne rundy znajdują się pod tym linkiem:</p>
-
-
-<p style="text-align:center"><a href="https://raceapp.eu/dix/Series/2644?tab=settings&amp;settingsTab=settingsScoring" target="_blank">https://raceapp.eu/dix/Series/2644?tab=settings&amp;settingsTab=settingsScoring</a></p>
-
-
-<p style="text-align:center">Za każdą rundę sezonu można uzyskać maksymalnie 250 punktów.</p>
-
-
-<p style="text-align:center">Tytuł Mistrza Ligi na dany sezon przypada temu kierowcy, który w danym sezonie zdobędzie najwięcej punktów. W przypadku równej liczby punktów o pierwszeństwie decyduje ilość zwycięstw, następnie ilość miejsc 2, następnie miejsc 3. itd.</p>
-
-
-<p style="text-align:center"><strong>Do klasyfikacji generalnej liczone będzie 7 z 8 najlepszych rund danego zawodnika (odrzucany jest wynik najgorszej rundy, liczony przed uwzględnieniem punktów karnych).</strong></p>
-
-
-<p style="text-align:center"><strong>Przy podliczaniu klasyfikacji generalnej, punkty karne zdobyte przez danego zawodnika w ciągu wszystkich 8 rund zostają odjęte od sumy punktów zebranych w liczonych 7 najlepszych rundach.</strong></p>
-
-
-<p style="text-align:center">Jeśli wyścig zostanie przerwany i nie może zostać wznowiony:</p>
-
-
-<p style="text-align:center">a. Nie zostają przyznane punkty, gdy lider nie ukończył dwóch okrążeń.</p>
-
-
-<p style="text-align:center">b. Zostaje przyznana połowa punktów, gdy lider ukończył mniej niż 75% zaplanowanego dystansu.</p>
-
-
-<p style="text-align:center">c. Zostają przyznane pełne punkty, jeśli lider ukończył ponad 75% dystansu.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§14. Zasady bezpieczeństwa i Fair Play.</strong></p>
-
-
-<p style="text-align:center">Nie można doprowadzać do celowych kontaktów samochodów ze sobą.</p>
-
-
-<p style="text-align:center">Nie można pozostawiać bolidu w niebezpiecznych miejscach.</p>
-
-
-<p style="text-align:center">Zawodnik, który uszkodził pojazd ale może nim nadal jechać ma obowiązek jak najszybciej zjechać do swoich mechaników nie stwarzając przy tym zagrożenia dla innych kierowców. W tym czasie wyświetlana jest dla niego flaga czarna z pomarańczową kropką. Jeżeli dalsza jazda jest niemożliwa powinien nacisnąć ESC – wycofać się z wyścigu. Zabronione jest ponowne ruszanie do wyścigu po wciśnięciu ESC w czasie trwania wyścigu.</p>
-
-
-<p style="text-align:center">W przypadku wypadnięcia pojazdu poza tor, kierowca może powrócić na tor mając 100% pewność, iż nie spowoduje kolizji/wypadku/zagrożenia. Jeżeli kierowca złamie ten punkt regulaminu, powinien spodziewać się kary.</p>
-
-
-<p style="text-align:center">Niedopuszczalne jest ciągłe zmienianie linii jazdy. Broniący się zawodnik ma prawo raz zmienić swoją linię jazdy, pod warunkiem, że uczyni to na tyle wcześnie, by nie wywołać zagrożenia lub wypadku. Jazda zgodnie z linią wyścigową (bestline) nie jest uważana za zmianę toru jazdy.</p>
-
-
-<p style="text-align:center">W czasie kwalifikacji osoba na okrążeniu wyjazdowym musi ustąpić pierwszeństwa kierowcy będącemu na okrążeniu pomiarowym (niebieska flaga). W przypadku błędu gry Komisja będzie skrupulatnie sprawdzać jak kierowca się zachowuje przy sytuacji gdzie zaistnieje blokowanie i gdy gra nie pokaże niebieskiej flagi, błąd gry nie będzie wymówką.</p>
-
-
-<p style="text-align:center">Niedozwolone jest w czasie kwalifikacji przeszkadzanie lub atakowanie innego kierowcy będącego na okrążeniu pomiarowym. Każdy kierowca zobowiązany jest do zachowania odpowiedniego odstępu do poprzedzającego zawodnika przed rozpoczęciem swojego okrążenia pomiarowego (uwzględniając także różnice w tempie).</p>
-
-
-<p style="text-align:center">Kontrolę nad limitami toru sprawuje system gry. Administracja nie ma możliwości podczas wyścigu kontrolowania zachowania systemu nadawania kar przez system gry. W każdym wyścigu dopuszczalne są trzy wyjazdy poza tor. Ilość wyjazdów i limit są na bieżąco raportowane w HUD gry. Za przekraczanie limitów toru gra automatycznie nadaje kary.</p>
-
-
-<p style="text-align:center">Aby nie dostać kary za ścinanie lub poszerzanie toru jazdy, zalecane jest podczas takiego manewru odpuszczenie gazu.</p>
-
-
-<p style="text-align:center">Jeśli w wyniku ścięcia została zyskana pozycja należy ją natychmiast oddać poprzez przepuszczenie, przy kolejnej nadarzającej się na torze okazji, zawodnika wyprzedzonego w ten sposób. Przepis ten nie obowiązuje w przypadku, gdy wszyscy walczący kierowcy ścięli zakręt. Kierowca, który oddał pozycje, nie można przeprowadzić ataku do najbliższego szczytu zakrętu włącznie (nie obowiązuje, jeśli przeciwnik sam wypadnie poza tor do tego czasu).</p>
-
-
-<p style="text-align:center"><strong>Żółte flagi:</strong></p>
-
-
-<p style="text-align:center">a). Gdy wywieszona jest żółta flaga w sektorze należy zachować szczególną ostrożność i zmniejszyć swoje tempo jazdy tak, aby być gotowym do uniknięcia zagrożenia. Nie można wyprzedzać w sektorze w którym wywieszona jest żółta flaga.</p>
-
-
-<p style="text-align:center">b). Bezpieczny sektor zaczyna się od miejsca tablicy świetlnej wyświetlającej zieloną flagę. Pod zieloną flaga można już wyprzedzać. (dotyczy torów wyposażonych w tablice świetlne)</p>
-
-
-<p style="text-align:center"><strong>Niebieska flaga: </strong>oznacza, że kierowca znajdujący się za nami będzie nas dublował. W serii GT flaga ta pełni rolę informacyjną. Kierowca dublowany może, ale nie ma obowiązku zjeżdżania z linii wyścigowej w celu przepuszczenia kierowcy dublującego. Kierowca dublowany nie może jednak celowo blokować ani bronić pozycji na torze. Kierowca dublowany powinien zachować się w jak najbardziej przewidywalny sposób i nie dokonywać żadnych nagłych manewrów zmiany toru jazdy.</p>
-
-
-<p style="text-align:center">Kierowca zdublowany ma prawo się oddublować pod warunkiem, że jest szybszy od kierowcy jadącego przed nim, a po manewrze oddublowania jest w stanie odjechać od kierowcy mającego okrążenie przewagi.</p>
-
-
-<p style="text-align:center"><strong>Flaga czarna z pomarańczową kropką</strong> może zostać pokazana kierowcy, który posiada nadmierne uszkodzenia pojazdu. Ignorowanie tej flagi i pozostawanie na torze bez dokonania napraw może skutkować nadaniem kary dyskwalifikacji z wyścigu.</p>
-
-
-<p style="text-align:center">Odpowiedzialność za bezpieczne przeprowadzenie manewru wyprzedzania i w bezpiecznym czasie spoczywa w głównej mierze na kierowcy atakującym. Jednakże obaj kierowcy powinni zadbać by manewr ten odbył się z uniknięciem wszelkich kolizji.</p>
-
-
-<p style="text-align:center">Atak powinien być przeprowadzony w przewidywalny sposób. Nadmierna agresja może podlegać karze.</p>
-
-
-<p style="text-align:center">Kierowca będący z przodu ma prawo do obrania dowolnej linii jazdy w zakręcie (na torze). Kierowca z przodu traci to prawo w momencie kiedy dochodzi do sytuacji 2-Wide (patrz dalsze punkty) lub jeśli popełni wyraźny błąd (np. utrata kontroli nad pojazdem, “przestrzelenie” zakrętu itp.).</p>
-
-
-<p style="text-align:center">W przypadku sytuacji 2-Wide (jazda obok siebie) obaj kierowcy muszą pozostawić sobie wystarczającą ilość miejsca – przynajmniej na szerokość jednego samochodu – w zakręcie (na torze).</p>
-
-
-<p style="text-align:center">Aby zaistniała sytuacja 2-Wide pojazd atakujący musi zrównać się z pojazdem broniącym. Poprzez zrównanie rozumie się spełnienie następujących warunków:</p>
-
-
-<ul><li style="text-align:center;list-style-position:inside">przednie koła pojazdu atakującego muszą znaleźć się na wysokości głowy kierowcy pojazdu broniącego,</li><li style="text-align:center;list-style-position:inside">sytuacja ta musi nastąpić przed momentem złożenia się w zakręt kierowcy broniącego (ang. turn-in point).</li></ul>
-
-
-<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/2YZnEpvDvgrar76QC-PExii8AeMMBIYv8JnnUCmWfkFu_qfwws66psIHdBaNSN8Sq7-QQxVdUdgcz_qO2Ws9t7C3YQM7Wl8dfVJ3EekcEllUpu6d3IZNS-f7xgXNHwURjScHwc4X=s0" style="display:block;margin-left:auto;margin-right:auto"></figure>
-
-
-<p style="text-align:center">Jeśli do zrównania nie doszło, to sytuacja 2-Wide nie obowiązuje.</p>
-
-
-<p style="text-align:center"><strong>Czarna flaga:</strong> oznacza dyskwalifikację zawodnika z danego wyścigu.</p>
-
-
-<p style="text-align:center">Wszystkie manewry powodujące niebezpieczeństwo na torze i / lub wypadki (w tym również np. niepotrzebne hamowanie, zbyt wczesne hamowanie, niepotrzebnie wolna jazda w zakręcie, uderzanie w zderzak), są zabronione i będą karane wedle regulaminu lub ustaleń Administracji.</p>
-
-
-<hr class="wp-block-separator">
-
-
-<p style="text-align:center"><strong>§15. Aleja serwisowa.</strong></p>
-
-
-<p style="text-align:center">Każdy z zawodników ma obowiązek poruszania się po alei serwisowej z włączonym ogranicznikiem prędkości. W przypadku przekroczenia prędkości obowiązują kary nakładane przez grę.</p>
-
-
-<p style="text-align:center">Przy wyjeździe z boksów przed zapaleniem się zielonych świateł należy ustawić się za rywalami, którzy dojechali do linii wcześniej (a nie jeden obok drugiego). Nie stosowanie się do tego przepisu spowoduje karę dla kierowcy. W przypadku najechania obu pojazdów w tym samym momencie (efet ducha) pierwszeństwo wyjazdu ma pojazd będący bardziej wysunięty do przodu.</p>
-
-
-<p style="text-align:center">Początek i koniec alei serwisowych ustalone są przez twórców gry. Każdy zawodnik musi sam znaleźć te punkty. Nie zawsze są one tuż za sygnalizacjami świetlnymi.</p>
-
-
-<p style="text-align:center">Zakaz przekraczania linii obowiązuje przy wyjeździe z alei serwisowej. Wyjazd na tor musi odbywać się po specjalnie do tego wytyczonej ścieżce wyjazdu z boksu (nie dotyczy gdy na torze nie ma namalowanej linii).</p>
-
-
-<p style="text-align:center">W kwalifikacjach kierowca wyjeżdżający z boksów ma obowiązek ustąpienia pierwszeństwa wszystkim kierowcom jadącym okrążenie pomiarowe.</p>
-
-
-<p style="text-align:center">Podczas wyścigu przy wyjeździe z boksów na wyznaczonym pasie wyjazdowym pierwszeństwo ma kierowca wyjeżdżający z boksów. Kierowca znajdujący się na torze jest informowany o autach wyjeżdżających z boksów i ma obowiązek umożliwić im wjazd na tor. Kierowca wyjeżdżający z boksów ma obowiązek utrzymywania pojazdu do końca linii wyjazdu z alei serwisowej. Przekraczanie tych linii skutkuje nałożeniem kary.</p>
-
-
-<p style="text-align:center">Sygnalizator znajdujący się na wjeździe i wyjeździe w alei serwisowej reguluje ruch po niej. Światło zielone oznacza zezwolenie na wyjazd/wjazd. Światło czerwone wyjazdu/wjazdu zakazuję, a migające światło niebieskie ostrzega przed zbliżającym się bolidem nadjeżdżającym w naszym kierunku.</p></div>
+      <p style="text-align: center">
+        Podczas wyścigu kierowca zobowiązany do odbycia przynajmniej jednego
+        zjazdu do alei serwisowej. Podczas postoju w alei serwisowej kierowca
+        musi dokonać tankowania minimum 1 litra paliwa. Kierowca może, lecz nie
+        musi dokonać zmiany opon. Nie obowiązuje okno serwisowe (pit stop
+        window).
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§8. Prekwalifikacje.</strong></p>
+
+      <p style="text-align: center">
+        Każdy zawodnik ma obowiązek wykonania co najmniej 10 poprawnych okrążeń
+        na serwerze Hotlap. Aktualne czasy i liczba okrążeń na serwerach hotlap
+        jest dostępna pod adresem
+        <a href="http://89.163.146.62:9300/PerServerRankingTracks/Index"
+          >http://89.163.146.62:9300/PerServerRankingTracks/Index</a
+        >
+        oraz na stronie
+        <a href="http://www.dix-racing.pl/acc-gt3-sezon-2/"
+          >http://www.dix-racing.pl/acc-gt3-sezon-2/</a
+        >
+        w zakładce Hot Laps.
+      </p>
+
+      <p style="text-align: center">
+        Lista startowa do rundy tworzona jest automatycznie na podstawie
+        uzyskanych czasów oraz obecności zgłaszanych w systemie RaceApp.
+        Obowiązkiem zawodnika jest spełnienie warunków kwalifikacji do danej
+        rundy. Wnioski o warunkowe dopisanie zawodnika do rundy zostaną
+        odrzucone przez administrację.
+      </p>
+
+      <p style="text-align: center">
+        Standardowy limit miejsc na serwerach ligowych wynosi 30. W przypadku
+        większej ilości chętnych utworzony zostanie dodatkowy serwer, jednak dla
+        liczby co najmniej 10 zawodników. W przypadku całkowitej liczby chętnych
+        poniżej 40, warunkowo zwiększona zostanie liczba zawodników na serwerze
+        głównym.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§9. Kwalifikacje.</strong></p>
+
+      <p style="text-align: center">
+        Udział w kwalifikacjach nie jest obowiązkowy.
+      </p>
+
+      <p style="text-align: center">
+        Kierowcy, którzy nie przystąpili do kwalifikacji, zobowiązani są do
+        startu z końca stawki.
+      </p>
+
+      <p style="text-align: center">
+        Podczas sesji kwalifikacyjnych i wyścigu obowiązuje całkowity zakaz
+        pisania na czacie. Pisać mają prawo tylko Administratorzy w celu
+        wydawania poleceń, bądź dawania ogłoszeń.
+      </p>
+
+      <p style="text-align: center">
+        <strong
+          >W trakcie sesji kwalifikacyjnej kierowcy mogą używać opcji “Return to
+          garage” / “Powrót do boksu”, poza aleją serwisową. Przed użyciem opcji
+          “Return to garage” kierowca musi upewnić się, że zatrzymanie się nie
+          przeszkodzi innym zawodnikom. Niedopuszczalne jest zatrzymywanie się
+          na linii wyścigowej.</strong
+        >
+      </p>
+
+      <p style="text-align: center">
+        W trakcie sesji kwalifikacyjnej wyprzedzanie dopuszczalne jest tylko,
+        gdy kierowca jadący przed zawodnikiem popełni błąd lub jest znacząco
+        wolniejszy. W przypadku, gdy kierowca zbliża się do poprzedzającego, ze
+        względu na różnice w tempie jazdy, oznacza, że pozostawił sobie zbyt
+        mały odstęp i jest on zobowiązany do odpuszczenia swojego okrążenia
+        pomiarowego. Przypadki wymuszania na poprzedzającym kierowcy
+        odpuszczenia swojego okrążenia bądź spychanie go, może skutkować
+        nałożeniem kary.
+      </p>
+
+      <p style="text-align: center">
+        Każdy kierowca nie będący na swoim pomiarowym okrążeniu ma obowiązek
+        przepuszczenia innych kierowców będących na swoich okrążeniach
+        pomiarowych. W przypadku blokowania kierowca może zostać ukarany zgodnie
+        z regulaminem.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§10. Wyścig.</strong></p>
+
+      <p style="text-align: center">
+        Dystans wyścigu: (patrz <strong>§6 Rundy wyścigowe</strong>)
+      </p>
+
+      <p style="text-align: center">Udział w wyścigu jest obowiązkowy.</p>
+
+      <p style="text-align: center">
+        <strong
+          >Kierowca jest zobowiązany do potwierdzenia bądź odrzucenia obecności
+          w każdym wyścigu sezonu, w odpowiednim miejscu na platformie
+          RaceApp.eu, najwcześniej na tydzień i najpóźniej na 6 godzin przed
+          rozpoczęciem danego wyścigu.</strong
+        >
+      </p>
+
+      <p style="text-align: center">
+        Kierowca, który nie potwierdził, bądź nie odrzucił udziału w danym
+        wyścigu, i nie pojawi się na starcie, otrzyma status DNS (Did Not
+        Start), co wiąże się z nałożeniem kary zgodnie z regulaminem.
+      </p>
+
+      <p style="text-align: center">
+        Kierowca, który potwierdził udział w wyścigu, lecz nie pojawi się na
+        starcie, również otrzymuje status DNS oraz karę punktową zgodnie z
+        regulaminem.
+      </p>
+
+      <p style="text-align: center">
+        Podczas wyścigu niedopuszczalne jest kontynuowanie wyścigu po użyciu
+        opcji “Return to Garage”/”Powrót do boksu”. W przypadku złamania tego
+        punktu regulaminu kierowca otrzyma karę zgodnie z regulaminem.
+      </p>
+
+      <p style="text-align: center">
+        Przed startem wyścigu obowiązuje tzw. krótkie okrążenie formujące.
+        Podczas okrążenia formującego kierowcy zobowiązani są do utrzymywania
+        prawidłowych odległości oraz prędkości zgodnie z informacjami, które
+        wydaje system gry.
+      </p>
+
+      <p style="text-align: center">
+        W wyścigu istnieje możliwość tankowania, wymiany opon oraz hamulców lub
+        naprawy pojazdu.
+      </p>
+
+      <p style="text-align: center">
+        Kierowca jest klasyfikowany, gdy ukończy co najmniej 75% liczby okrążeń
+        przejechanych przez zwycięzcę wyścigu.
+      </p>
+
+      <p style="text-align: center">
+        Wszyscy kierowcy zostają sklasyfikowani według liczby ukończonych
+        okrążeń. Zawodnicy, którzy ukończyli taką samą liczbę okrążeń zostają
+        sklasyfikowani według kolejności przekraczania linii mety.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§11. Skargi.</strong></p>
+
+      <p style="text-align: center">
+        Administracja po ukończonym wyścigu ma prawo przejrzeć powtórkę w
+        poszukiwaniu nieprawidłowej jazdy (opuszczanie toru, wypadki) i ukarać
+        takie zachowanie bez wnoszenia skarg przez innych.
+      </p>
+
+      <p style="text-align: center">
+        Kierowca ukarany ma prawo odwołać się od decyzji Administracji w ciągu
+        48 godzin. W takim przypadku odwołanie zostanie ponownie rozpatrzone
+        przez Komisję.
+      </p>
+
+      <p style="text-align: center">
+        Każdy poszkodowany w wyścigu ma prawo do złożenia skargi na innego
+        kierowcę.
+      </p>
+
+      <p style="text-align: center">
+        Skarga będzie przyjęta do rozpatrzenia, gdy zostanie napisana zgodnie ze
+        wzorem podanym na Forum w dziale skarg.
+      </p>
+
+      <p style="text-align: center">
+        Wzór skarg obejmuje: nr wyścigu (dotyczy rund Super Sprint), kierowców
+        biorących udział w incydencie, numer okrążenia oraz czas na oficjalnej
+        powtórce z wyścigu (udostępnianej bezpośrednio po rundzie przez
+        Administrację).&nbsp;
+      </p>
+
+      <p style="text-align: center">
+        Skargi złożone niepoprawnie nie będą rozpatrywane.
+      </p>
+
+      <p style="text-align: center">
+        Skargę składamy do 48 godzin po rozegranej rundzie (do czwartku po
+        rozegranej rundzie, do godz. 23.59).
+      </p>
+
+      <p style="text-align: center">
+        Skargi będą rozpatrzone przez Komisję. Werdykt ukaże się na forum oraz
+        Discordzie.
+      </p>
+
+      <p style="text-align: center">
+        Po rozpatrzeniu skarg i uznaniu kogoś winnym wyniki w Systemie Ligowym
+        ulegną aktualizacji.
+      </p>
+
+      <p style="text-align: center">
+        Kary będą udzielane według werdyktu Komisji złożonej z co najmniej 3
+        członków.
+      </p>
+
+      <p style="text-align: center">
+        W przypadku kiedy incydent dotyczy któregoś z członków Komisji, osoba ta
+        nie będzie brała udziału w rozpatrywaniu danego incydentu.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§12. Kary.</strong></p>
+
+      <p style="text-align: center">
+        Kary nakładane są na zawodnika podczas gry i po zakończonej rozgrywce.
+      </p>
+
+      <p style="text-align: center">
+        Kary podczas gry nakładane są automatycznie przez Assetto Corsa
+        Competizione i dotyczą głównie „STOP and GO” lub przejazd przez aleję
+        serwisową (DT). W najgorszym wypadku może to być dyskwalifikacja.
+      </p>
+
+      <p style="text-align: center">
+        Po zakończeniu wyścigu sędziowie mogą nałożyć następujące kary wg
+        taryfikatora:
+      </p>
+
+      <p style="text-align: center">
+        a) Racing incident (brak ewidentnej winy jednego zawodnika): 0 punktów
+      </p>
+
+      <p style="text-align: center">b) Reprymenda: 1 punkt</p>
+
+      <p style="text-align: center">
+        c) Niebezpieczna/niesportowa jazda: 3 punkty
+      </p>
+
+      <p style="text-align: center">
+        d) Spowodowanie niewielkiej, możliwej do uniknięcia kolizji: 5 punktów
+      </p>
+
+      <ul>
+        <li style="text-align: center; list-style-position: inside">
+          niewielka kolizja = poszkodowany zawodnik doznał niewielkich uszkodzeń
+          auta i/lub kolizja powoduje spadek poszkodowanego o max 2 pozycje (lub
+          stratę max 5 sekund)
+        </li>
+      </ul>
+
+      <p style="text-align: center">
+        e) Spowodowanie średniej, możliwej do uniknięcia kolizji: 10 punktów
+      </p>
+
+      <ul>
+        <li style="text-align: center; list-style-position: inside">
+          średnia kolizja = poszkodowany zawodnik doznał uszkodzeń auta i/lub
+          kolizja powoduje spadek poszkodowanego i więcej niż 2 pozycje (lub
+          stratę co najmniej 5 sekund)
+        </li>
+      </ul>
+
+      <p style="text-align: center">
+        f) Spowodowanie dużej, możliwej do uniknięcia kolizji: 15 punktów
+      </p>
+
+      <ul>
+        <li style="text-align: center; list-style-position: inside">
+          duża kolizja = poszkodowany zawodnik doznał dużych uszkodzeń auta
+          i/lub kolizja powoduje konieczność zakończenia wyścigu przez
+          poszkodowanego; LUB w kolizji poszkodowanych jest wielu zawodników
+        </li>
+      </ul>
+
+      <p style="text-align: center">
+        g) Dodatkowe punkty karne za spowodowanie kolizji na pierwszym
+        okrążeniu: 5 punktów
+      </p>
+
+      <p style="text-align: center">
+        h) Niebezpieczny powrót na tor: 5 punktów
+      </p>
+
+      <p style="text-align: center">
+        i) Blokowanie zawodników będących na okrążeniu pomiarowym w
+        kwalifikacjach: 5 punktów
+      </p>
+
+      <p style="text-align: center">
+        j) Przekroczenie linii wyjazdowej z alei serwisowej: 2 punkty
+      </p>
+
+      <p style="text-align: center">
+        k) Wyprzedzanie przy żółtych flagach: 10 punktów
+      </p>
+
+      <p style="text-align: center">
+        l) Użycie opcji “Return to garage” w wyścigu i powrót na tor:
+        dyskwalifikacja z wyścigu
+      </p>
+
+      <p style="text-align: center">
+        m) Umyślne spowodowanie kolizji z innymi zawodnikami: dyskwalifikacja z
+        wyścigu i/lub ligi
+      </p>
+
+      <p style="text-align: center">
+        n) Nieobecność na wyścigu mimo potwierdzenia obecności w systemie
+        RaceApp (DNS): 10 punktów
+      </p>
+
+      <p style="text-align: center">
+        o) Niezgłoszenie obecności/nieobecności (status Unconfirmed) w wyścigu w
+        systemie RaceApp w wymaganym oknie czasowym (DNS): 5 punktów
+      </p>
+
+      <p style="text-align: center">
+        p) Nietrzymanie wciśniętego hamulca w przypadku utraty kontroli nad
+        autem (spin) aż do całkowitego zatrzymania pojazdu: 10 punktów
+      </p>
+
+      <p style="text-align: center">
+        Suma punktów karnych według powyższego taryfikatora zostanie odjęta od
+        zdobyczy punktowych zawodnika do klasyfikacji generalnej, po zakończeniu
+        każdej rundy, w stosunku 1:1 (dopuszczalne są punkty ujemne w
+        klasyfikacji generalnej).
+      </p>
+
+      <p style="text-align: center">
+        W przypadku sytuacji wyjątkowych, nieujętych w powyższym taryfikatorze,
+        Komisja może nałożyć na zawodnika dodatkowe punkty karne w zakresie 0-20
+        punktów, lub podjąć decyzję o innym rodzaju kary.
+      </p>
+
+      <p style="text-align: center">
+        <strong
+          >W przypadku zebrania przez zawodnika określonej poniżej ilości
+          punktów karnych, w kolejnej rundzie zawodnik dodatkowo zostaje
+          ukarany:</strong
+        >
+      </p>
+
+      <p style="text-align: center">
+        a) Suma 20 punktów karnych (i wielokrotność, liczona w całym sezonie):
+        zakaz startu w kwalifikacjach do kolejnej rundy; zakaz startu w Q
+        oznacza całkowity zakaz wyjazdu na tor podczas kwalifikacji;
+      </p>
+
+      <p style="text-align: center">
+        b) Suma 30 punktów karnych (uzyskana w jednej rundzie): zakaz startu w
+        kwalifikacjach plus obowiązek startu z alei serwisowej do wyścigu
+        (należy użyć opcji BTP podczas odliczania do wyścigu);
+      </p>
+
+      <p style="text-align: center">
+        c) Suma 40 punktów karnych (uzyskana w jednej rundzie): dyskwalifikacja
+        z kolejnej rundy;
+      </p>
+
+      <p style="text-align: center">
+        d) Suma 60 punktów karnych (w całym sezonie): dalszy udział zawodnika w
+        lidze zostaje poddany ocenie Komisji, z możliwą karą całkowitego
+        wykluczenia zawodnika z sezonu;
+      </p>
+
+      <p style="text-align: center">
+        e) Suma 80 punktów karnych: automatyczna dyskwalifikacja z sezonu;
+        możliwość całkowitego usunięcia zawodnika z ligi po ocenie przez
+        Komisję;
+      </p>
+
+      <p style="text-align: center">
+        Po zakończeniu sezonu wszystkie punkty karne zostają anulowane.
+      </p>
+
+      <p style="text-align: center">
+        Do punktacji w klasyfikacji generalnej punkty karne liczone są zawsze,
+        bez względu na to, która runda zostaje odrzucona do całkowitego wyniku
+        zawodnika (patrz pkt 13.)
+      </p>
+
+      <p style="text-align: center">
+        Zawodników biorących udział w rozgrywkach ligowych oraz pozostałych
+        użytkowników obowiązuje odpowiednie zachowanie i kultura na portalu,
+        Discordzie, jak i na serwerze ligowym. Nieodpowiednie zachowanie,
+        obrażanie innych graczy i podobne wybryki będą karne przez Administrację
+        z całą stanowczością, z pełnymi możliwościami karania takiej osoby, aż
+        do dożywotniego bana na portalu i wykluczenia z ligi włącznie.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§13. System punktacji</strong></p>
+
+      <p style="text-align: center">
+        Szczegóły punktacji za poszczególne rundy znajdują się pod tym linkiem:
+      </p>
+
+      <p style="text-align: center">
+        <a
+          href="https://raceapp.eu/dix/Series/2644?tab=settings&amp;settingsTab=settingsScoring"
+          target="_blank"
+          >https://raceapp.eu/dix/Series/2644?tab=settings&amp;settingsTab=settingsScoring</a
+        >
+      </p>
+
+      <p style="text-align: center">
+        Za każdą rundę sezonu można uzyskać maksymalnie 250 punktów.
+      </p>
+
+      <p style="text-align: center">
+        Tytuł Mistrza Ligi na dany sezon przypada temu kierowcy, który w danym
+        sezonie zdobędzie najwięcej punktów. W przypadku równej liczby punktów o
+        pierwszeństwie decyduje ilość zwycięstw, następnie ilość miejsc 2,
+        następnie miejsc 3. itd.
+      </p>
+
+      <p style="text-align: center">
+        <strong
+          >Do klasyfikacji generalnej liczone będzie 7 z 8 najlepszych rund
+          danego zawodnika (odrzucany jest wynik najgorszej rundy, liczony przed
+          uwzględnieniem punktów karnych).</strong
+        >
+      </p>
+
+      <p style="text-align: center">
+        <strong
+          >Przy podliczaniu klasyfikacji generalnej, punkty karne zdobyte przez
+          danego zawodnika w ciągu wszystkich 8 rund zostają odjęte od sumy
+          punktów zebranych w liczonych 7 najlepszych rundach.</strong
+        >
+      </p>
+
+      <p style="text-align: center">
+        Jeśli wyścig zostanie przerwany i nie może zostać wznowiony:
+      </p>
+
+      <p style="text-align: center">
+        a. Nie zostają przyznane punkty, gdy lider nie ukończył dwóch okrążeń.
+      </p>
+
+      <p style="text-align: center">
+        b. Zostaje przyznana połowa punktów, gdy lider ukończył mniej niż 75%
+        zaplanowanego dystansu.
+      </p>
+
+      <p style="text-align: center">
+        c. Zostają przyznane pełne punkty, jeśli lider ukończył ponad 75%
+        dystansu.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center">
+        <strong>§14. Zasady bezpieczeństwa i Fair Play.</strong>
+      </p>
+
+      <p style="text-align: center">
+        Nie można doprowadzać do celowych kontaktów samochodów ze sobą.
+      </p>
+
+      <p style="text-align: center">
+        Nie można pozostawiać bolidu w niebezpiecznych miejscach.
+      </p>
+
+      <p style="text-align: center">
+        Zawodnik, który uszkodził pojazd ale może nim nadal jechać ma obowiązek
+        jak najszybciej zjechać do swoich mechaników nie stwarzając przy tym
+        zagrożenia dla innych kierowców. W tym czasie wyświetlana jest dla niego
+        flaga czarna z pomarańczową kropką. Jeżeli dalsza jazda jest niemożliwa
+        powinien nacisnąć ESC – wycofać się z wyścigu. Zabronione jest ponowne
+        ruszanie do wyścigu po wciśnięciu ESC w czasie trwania wyścigu.
+      </p>
+
+      <p style="text-align: center">
+        W przypadku wypadnięcia pojazdu poza tor, kierowca może powrócić na tor
+        mając 100% pewność, iż nie spowoduje kolizji/wypadku/zagrożenia. Jeżeli
+        kierowca złamie ten punkt regulaminu, powinien spodziewać się kary.
+      </p>
+
+      <p style="text-align: center">
+        Niedopuszczalne jest ciągłe zmienianie linii jazdy. Broniący się
+        zawodnik ma prawo raz zmienić swoją linię jazdy, pod warunkiem, że
+        uczyni to na tyle wcześnie, by nie wywołać zagrożenia lub wypadku. Jazda
+        zgodnie z linią wyścigową (bestline) nie jest uważana za zmianę toru
+        jazdy.
+      </p>
+
+      <p style="text-align: center">
+        W czasie kwalifikacji osoba na okrążeniu wyjazdowym musi ustąpić
+        pierwszeństwa kierowcy będącemu na okrążeniu pomiarowym (niebieska
+        flaga). W przypadku błędu gry Komisja będzie skrupulatnie sprawdzać jak
+        kierowca się zachowuje przy sytuacji gdzie zaistnieje blokowanie i gdy
+        gra nie pokaże niebieskiej flagi, błąd gry nie będzie wymówką.
+      </p>
+
+      <p style="text-align: center">
+        Niedozwolone jest w czasie kwalifikacji przeszkadzanie lub atakowanie
+        innego kierowcy będącego na okrążeniu pomiarowym. Każdy kierowca
+        zobowiązany jest do zachowania odpowiedniego odstępu do poprzedzającego
+        zawodnika przed rozpoczęciem swojego okrążenia pomiarowego
+        (uwzględniając także różnice w tempie).
+      </p>
+
+      <p style="text-align: center">
+        Kontrolę nad limitami toru sprawuje system gry. Administracja nie ma
+        możliwości podczas wyścigu kontrolowania zachowania systemu nadawania
+        kar przez system gry. W każdym wyścigu dopuszczalne są trzy wyjazdy poza
+        tor. Ilość wyjazdów i limit są na bieżąco raportowane w HUD gry. Za
+        przekraczanie limitów toru gra automatycznie nadaje kary.
+      </p>
+
+      <p style="text-align: center">
+        Aby nie dostać kary za ścinanie lub poszerzanie toru jazdy, zalecane
+        jest podczas takiego manewru odpuszczenie gazu.
+      </p>
+
+      <p style="text-align: center">
+        Jeśli w wyniku ścięcia została zyskana pozycja należy ją natychmiast
+        oddać poprzez przepuszczenie, przy kolejnej nadarzającej się na torze
+        okazji, zawodnika wyprzedzonego w ten sposób. Przepis ten nie obowiązuje
+        w przypadku, gdy wszyscy walczący kierowcy ścięli zakręt. Kierowca,
+        który oddał pozycje, nie można przeprowadzić ataku do najbliższego
+        szczytu zakrętu włącznie (nie obowiązuje, jeśli przeciwnik sam wypadnie
+        poza tor do tego czasu).
+      </p>
+
+      <p style="text-align: center"><strong>Żółte flagi:</strong></p>
+
+      <p style="text-align: center">
+        a). Gdy wywieszona jest żółta flaga w sektorze należy zachować
+        szczególną ostrożność i zmniejszyć swoje tempo jazdy tak, aby być
+        gotowym do uniknięcia zagrożenia. Nie można wyprzedzać w sektorze w
+        którym wywieszona jest żółta flaga.
+      </p>
+
+      <p style="text-align: center">
+        b). Bezpieczny sektor zaczyna się od miejsca tablicy świetlnej
+        wyświetlającej zieloną flagę. Pod zieloną flaga można już wyprzedzać.
+        (dotyczy torów wyposażonych w tablice świetlne)
+      </p>
+
+      <p style="text-align: center">
+        <strong>Niebieska flaga: </strong>oznacza, że kierowca znajdujący się za
+        nami będzie nas dublował. W serii GT flaga ta pełni rolę informacyjną.
+        Kierowca dublowany może, ale nie ma obowiązku zjeżdżania z linii
+        wyścigowej w celu przepuszczenia kierowcy dublującego. Kierowca
+        dublowany nie może jednak celowo blokować ani bronić pozycji na torze.
+        Kierowca dublowany powinien zachować się w jak najbardziej przewidywalny
+        sposób i nie dokonywać żadnych nagłych manewrów zmiany toru jazdy.
+      </p>
+
+      <p style="text-align: center">
+        Kierowca zdublowany ma prawo się oddublować pod warunkiem, że jest
+        szybszy od kierowcy jadącego przed nim, a po manewrze oddublowania jest
+        w stanie odjechać od kierowcy mającego okrążenie przewagi.
+      </p>
+
+      <p style="text-align: center">
+        <strong>Flaga czarna z pomarańczową kropką</strong> może zostać pokazana
+        kierowcy, który posiada nadmierne uszkodzenia pojazdu. Ignorowanie tej
+        flagi i pozostawanie na torze bez dokonania napraw może skutkować
+        nadaniem kary dyskwalifikacji z wyścigu.
+      </p>
+
+      <p style="text-align: center">
+        Odpowiedzialność za bezpieczne przeprowadzenie manewru wyprzedzania i w
+        bezpiecznym czasie spoczywa w głównej mierze na kierowcy atakującym.
+        Jednakże obaj kierowcy powinni zadbać by manewr ten odbył się z
+        uniknięciem wszelkich kolizji.
+      </p>
+
+      <p style="text-align: center">
+        Atak powinien być przeprowadzony w przewidywalny sposób. Nadmierna
+        agresja może podlegać karze.
+      </p>
+
+      <p style="text-align: center">
+        Kierowca będący z przodu ma prawo do obrania dowolnej linii jazdy w
+        zakręcie (na torze). Kierowca z przodu traci to prawo w momencie kiedy
+        dochodzi do sytuacji 2-Wide (patrz dalsze punkty) lub jeśli popełni
+        wyraźny błąd (np. utrata kontroli nad pojazdem, “przestrzelenie” zakrętu
+        itp.).
+      </p>
+
+      <p style="text-align: center">
+        W przypadku sytuacji 2-Wide (jazda obok siebie) obaj kierowcy muszą
+        pozostawić sobie wystarczającą ilość miejsca – przynajmniej na szerokość
+        jednego samochodu – w zakręcie (na torze).
+      </p>
+
+      <p style="text-align: center">
+        Aby zaistniała sytuacja 2-Wide pojazd atakujący musi zrównać się z
+        pojazdem broniącym. Poprzez zrównanie rozumie się spełnienie
+        następujących warunków:
+      </p>
+
+      <ul>
+        <li style="text-align: center; list-style-position: inside">
+          przednie koła pojazdu atakującego muszą znaleźć się na wysokości głowy
+          kierowcy pojazdu broniącego,
+        </li>
+        <li style="text-align: center; list-style-position: inside">
+          sytuacja ta musi nastąpić przed momentem złożenia się w zakręt
+          kierowcy broniącego (ang. turn-in point).
+        </li>
+      </ul>
+
+      <figure class="wp-block-image">
+        <img
+          src="https://lh4.googleusercontent.com/2YZnEpvDvgrar76QC-PExii8AeMMBIYv8JnnUCmWfkFu_qfwws66psIHdBaNSN8Sq7-QQxVdUdgcz_qO2Ws9t7C3YQM7Wl8dfVJ3EekcEllUpu6d3IZNS-f7xgXNHwURjScHwc4X=s0"
+          style="display: block; margin-left: auto; margin-right: auto"
+        />
+      </figure>
+
+      <p style="text-align: center">
+        Jeśli do zrównania nie doszło, to sytuacja 2-Wide nie obowiązuje.
+      </p>
+
+      <p style="text-align: center">
+        <strong>Czarna flaga:</strong> oznacza dyskwalifikację zawodnika z
+        danego wyścigu.
+      </p>
+
+      <p style="text-align: center">
+        Wszystkie manewry powodujące niebezpieczeństwo na torze i / lub wypadki
+        (w tym również np. niepotrzebne hamowanie, zbyt wczesne hamowanie,
+        niepotrzebnie wolna jazda w zakręcie, uderzanie w zderzak), są
+        zabronione i będą karane wedle regulaminu lub ustaleń Administracji.
+      </p>
+
+      <hr class="wp-block-separator" />
+
+      <p style="text-align: center"><strong>§15. Aleja serwisowa.</strong></p>
+
+      <p style="text-align: center">
+        Każdy z zawodników ma obowiązek poruszania się po alei serwisowej z
+        włączonym ogranicznikiem prędkości. W przypadku przekroczenia prędkości
+        obowiązują kary nakładane przez grę.
+      </p>
+
+      <p style="text-align: center">
+        Przy wyjeździe z boksów przed zapaleniem się zielonych świateł należy
+        ustawić się za rywalami, którzy dojechali do linii wcześniej (a nie
+        jeden obok drugiego). Nie stosowanie się do tego przepisu spowoduje karę
+        dla kierowcy. W przypadku najechania obu pojazdów w tym samym momencie
+        (efet ducha) pierwszeństwo wyjazdu ma pojazd będący bardziej wysunięty
+        do przodu.
+      </p>
+
+      <p style="text-align: center">
+        Początek i koniec alei serwisowych ustalone są przez twórców gry. Każdy
+        zawodnik musi sam znaleźć te punkty. Nie zawsze są one tuż za
+        sygnalizacjami świetlnymi.
+      </p>
+
+      <p style="text-align: center">
+        Zakaz przekraczania linii obowiązuje przy wyjeździe z alei serwisowej.
+        Wyjazd na tor musi odbywać się po specjalnie do tego wytyczonej ścieżce
+        wyjazdu z boksu (nie dotyczy gdy na torze nie ma namalowanej linii).
+      </p>
+
+      <p style="text-align: center">
+        W kwalifikacjach kierowca wyjeżdżający z boksów ma obowiązek ustąpienia
+        pierwszeństwa wszystkim kierowcom jadącym okrążenie pomiarowe.
+      </p>
+
+      <p style="text-align: center">
+        Podczas wyścigu przy wyjeździe z boksów na wyznaczonym pasie wyjazdowym
+        pierwszeństwo ma kierowca wyjeżdżający z boksów. Kierowca znajdujący się
+        na torze jest informowany o autach wyjeżdżających z boksów i ma
+        obowiązek umożliwić im wjazd na tor. Kierowca wyjeżdżający z boksów ma
+        obowiązek utrzymywania pojazdu do końca linii wyjazdu z alei serwisowej.
+        Przekraczanie tych linii skutkuje nałożeniem kary.
+      </p>
+
+      <p style="text-align: center">
+        Sygnalizator znajdujący się na wjeździe i wyjeździe w alei serwisowej
+        reguluje ruch po niej. Światło zielone oznacza zezwolenie na
+        wyjazd/wjazd. Światło czerwone wyjazdu/wjazdu zakazuję, a migające
+        światło niebieskie ostrzega przed zbliżającym się bolidem nadjeżdżającym
+        w naszym kierunku.
+      </p>
+    </div>
+  </div>
+</div>

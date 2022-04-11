@@ -7,7 +7,15 @@
   top: 75%;
   border: 2px solid black;
   background: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 2px;
 }
-.card-body{
-  background: white;
+.card-body {
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  color: white;
+  font-size: 16px;
+}
+.card {
+  background-color: transparent;
 }
