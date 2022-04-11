@@ -10,11 +10,5 @@
     </div>
   </div>
 </div>
-<button
-  pButton
-  class="bottom-right"
-  label="Dodaj event"
-  icon="pi pi-plus"
-  (click)="onAddEventClick()"
-></button>
+<p-button class="bottom-right" label="Dodaj Event" icon="pi pi-plus" iconPos="left"  (click)="onAddEventClick()"></p-button>
 <app-event-form [displayModal]="displayEventCreator"></app-event-form>

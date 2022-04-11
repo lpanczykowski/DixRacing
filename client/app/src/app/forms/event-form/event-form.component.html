@@ -1,7 +1,7 @@
 <p-dialog header="Kreator eventu" [visible]="displayModal" [modal]="true" [style]="{width: '50vw'}"
     [draggable]="false" [resizable]="false">
-        <p>Event creator to implement</p>
+        <app-event-creator></app-event-creator>
         <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="displayModal=!displayModal" label="Ok" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
         </ng-template>
 </p-dialog>

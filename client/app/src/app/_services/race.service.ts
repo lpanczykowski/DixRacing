@@ -39,7 +39,7 @@ baseUrl=environment.apiUrl;
      params = params.append('raceId',userStatusDto.raceId.toString());
      params = params.append('userId',userStatusDto.userId.toString());
 
-    return this.http.get<PreqStatus>(this.baseUrl+'race/racestatus',{params:params});
+    return this.http.get<PreqStatus>(this.baseUrl+'race/confirmation',{params:params});
   }
 
   reportIncident(raceIncidentDto:RaceIncidentDto)

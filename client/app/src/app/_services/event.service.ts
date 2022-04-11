@@ -6,6 +6,7 @@ import { EventResult } from "../_models/eventResult";
 import { environment } from "environments/environment";
 import { Events } from "../_models/eventWithActiveRound";
 import { Team } from "../_models/team";
+import { EventCreateDto } from "app/_models/eventCreateDto";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json-patch+json'})
@@ -42,9 +43,16 @@ export class EventService {
   }
 
   eventSignup(eventId:number,eventRegisterDriverDto:any){
-    return this.http.post(this.baseUrl+'event/'+eventId+'/register',JSON.stringify({eventRegisterDriverDto}),httpOptions);
+    return this.http.post(this.baseUrl+'event/sign',JSON.stringify({eventRegisterDriverDto}),httpOptions);
   }
 
+  addNewTeam(eventId:number, newTeamName:string){
+    return this.http.post(this.baseUrl+'addNewTeam/'+eventId, JSON.stringify(newTeamName),httpOptions);
+  }
+
+  createEvent(eventCreateDto:EventCreateDto){
+    return this.http.post(this.baseUrl+'/event',JSON.stringify(eventCreateDto),httpOptions);
+  }
 }
 
 

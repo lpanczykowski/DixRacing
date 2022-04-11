@@ -1,10 +1,10 @@
 export class eventRegisterDriverDto {
-  driverName:string;
-  driverSurname:string;
-  driverNumber: number;
-  carNumber:number;
-  teamName?: string;
-  newTeamName?:string;
-  livery?: any;
+  eventId:number;
+  userId:number;
+  car:number;
+  livery?:string;
+  number:number;
+  team?: string;
+  newTeam?:string;
   constructor(){}
 }

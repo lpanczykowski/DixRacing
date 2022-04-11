@@ -4,6 +4,7 @@ import { ReplaySubject } from 'rxjs';
 import { map, take } from 'rxjs/operators'
 import { environment } from 'environments/environment';
 import { User } from '../_models/user';
+import { RegisterUserDto } from 'app/_models/registerUserDto';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json-patch+json'})
@@ -48,7 +49,7 @@ export class AccountService {
     this.currentUserSource.next(null);
   }
 
-  register(registerUserDto: any)
+  register(registerUserDto: RegisterUserDto)
   {
     return this.http.post(this.baseUrl+'account/register',JSON.stringify({registerUserDto}),httpOptions).pipe(
       map((user: User) =>{

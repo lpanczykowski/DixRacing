@@ -1,37 +1,40 @@
 <div class="bg-light text-black mx-auto mb-2">
   <br>
-  <form #incidentReportForm="ngForm" (ngSubmit)="eventSignup()" autocomplete="off" class="form-group ">
+  <form #eventSignupForm="ngForm" (ngSubmit)="eventSignup()" autocomplete="off" class="form-group ">
     <h4 class="text-center text-primary text-black mb-4"> Formularz zgłoszeniowy </h4>
 
     <!--TODO:dodać do modelu driverName i driverSurname-->
     <div class="form-group col-6 mx-auto mb-2">
       <label for="numberInput">Numer</label>
-      <input type="text" class="form-control" id="carNumber" name="number" [(ngModel)]="model.driverNumber">
+      <input type="text" class="form-control" id="carNumber" name="number" [(ngModel)]="model.number">
     </div>
+
+
     <div class="form-group col-6 mx-auto mb-2">
       <label for="carInput">Auto</label>
-      <input class="form-control" list="carDatalist" id="carList" name="car" [(ngModel)]="model.carNumber">
+      <input class="form-control" list="carDatalist" id="carList" name="car" [(ngModel)]="model.car">
       <datalist id="carDatalist">
         <option *ngFor="let eventCar of eventCars" value="{{eventCar.car}}">
       </datalist>
+
     </div>
     <div class="form-group col-6 mx-auto mb-2">
       <label for="teamInput">Team</label>
-      <input class="form-control" list="teamDatalist" id="teamList" name="team" [(ngModel)]="model.teamName">
+      <input class="form-control" list="teamDatalist" id="teamList" name="team" [(ngModel)]="model.team">
       <datalist id="teamDatalist">
         <option *ngFor="let eventTeam of eventTeams" value="{{eventTeam.teamName}}">
       </datalist>
     </div>
     <div class="form-group col-6 mx-auto mb-2">
       <label for="newTeamInput">Stwórz nowy team</label>
-      <input type="text" class="form-control" id="newTeamName" name="newTeam" [(ngModel)]="model.newTeamName">
+      <input type="text" class="form-control" id="newTeamName" name="newTeam" [(ngModel)]="model.newTeam">
     </div>
     <div class="form-group col-6 mx-auto mb-2">
       <label for="numberInput">Malowanie</label>
-      <input class="form-control" type="file" id="liveryFile" [(ngModel)]="model.livery">
+      <input class="form-control" type="file" id="liveryFile" [(ngModel)]="model.livery" name="livery">
     </div>
 
-          <br>
+    <br>
     <div class="form-group text-center mx-auto">
       <button class="btn btn-success mx-1" type="submit">Dołącz</button>
     </div>
