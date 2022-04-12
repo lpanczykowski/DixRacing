@@ -1,0 +1,55 @@
+<form #raceCreatorForm="ngForm" (ngSubmit)="createRace()" autocomplete="off" class="form-group">
+
+  <span class="p-float-label">
+
+    <p-calendar inputId="practiceDate" [(ngModel)]="model.practiceDate" [showTime]="true" [showSeconds]="true" 
+      inputId="practiceDate" name="practiceDate" >
+    </p-calendar>
+    <label for="practiceDate">Practice Date</label>
+  </span>
+  <span class="p-float-label">
+
+    <p-inputNumber inputId="practiceLength" [(ngModel)]="model.practiceLength" name="practiceLength">
+    </p-inputNumber>
+    <label for="practiceLength">Practice length</label>
+  </span>
+
+  <span class="p-float-label">
+    <p-calendar inputId="qualiDate" [(ngModel)]="model.qualiDate" [showTime]="true" [showSeconds]="true"
+      inputId="qualiDate" name="qualiDate">
+    </p-calendar>
+    <label for="qualiDate">Quali Date</label>
+  </span>
+
+  <span class="p-float-label">
+
+    <p-inputNumber inputId="qualiLength" [(ngModel)]="model.qualiLength" name="qualiLength">
+    </p-inputNumber>
+    <label for="qualiLength">Quali Length</label>
+  </span>
+
+  <span class="p-float-label">
+
+    <p-calendar inputId="raceDate" [(ngModel)]="model.raceDate" [showTime]="true" [showSeconds]="true"
+      inputId="raceDate" name="raceDate">
+    </p-calendar>
+    <label for="raceDate">Race Date</label>
+  </span>
+
+  <span class="p-float-label">
+
+    <p-inputNumber inputId="raceLength" [(ngModel)]="model.raceLength" name="raceLength">
+    </p-inputNumber>
+    <label for="raceLength">Race Length</label>
+  </span>
+
+  <span class="p-float-label">
+
+    <p-calendar inputId="signingTime" [(ngModel)]="model.signingTime" [showTime]="true" [showSeconds]="true"
+      inputId="signingTime" name="signingTime">
+    </p-calendar>
+    <label for="signingTime">Time to sign</label>
+    <!-- TODO:time left to sign -->
+  </span>
+
+</form>

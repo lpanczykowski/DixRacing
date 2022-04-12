@@ -31,6 +31,7 @@ export class EventDetailsComponent implements OnInit {
   seconds;
   minutes;
   hours: number;
+  displayModal:boolean;
   constructor(
     private route: ActivatedRoute,
     private roundService: RoundService,
@@ -78,5 +79,9 @@ export class EventDetailsComponent implements OnInit {
   timeToSign() {
     var duration = +new Date(this.activeRound.roundDay) - +this.now;
     return duration;
+  }
+
+  showRoundCreator(){
+    this.displayModal=true;
   }
 }
