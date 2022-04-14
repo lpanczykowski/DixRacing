@@ -31,7 +31,7 @@ export class EventDetailsComponent implements OnInit {
   seconds;
   minutes;
   hours: number;
-  displayModal:boolean;
+  displayBasic:boolean;
   constructor(
     private route: ActivatedRoute,
     private roundService: RoundService,
@@ -82,6 +82,6 @@ export class EventDetailsComponent implements OnInit {
   }
 
   showRoundCreator(){
-    this.displayModal=true;
+    this.displayBasic=true;
   }
 }

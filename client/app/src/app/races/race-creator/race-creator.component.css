@@ -1,7 +1,11 @@
 .p-float-label{
   margin-top: 20px;
   margin-bottom: 20px;
- }
+  }
  ::ng-deep .p-datepicker table td {
   padding: 0.06rem;
 }
+.p-fluid{
+  margin-top: 20px;
+}
+
