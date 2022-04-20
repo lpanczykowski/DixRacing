@@ -19,6 +19,8 @@ import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
+import { FileUploadModule } from 'primeng/fileupload'
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -38,6 +40,9 @@ import { TabViewModule } from 'primeng/tabview';
     TieredMenuModule,
     TabMenuModule,
     TabViewModule,
+    FileUploadModule,
+    ToastModule,
+
   ],
   exports: [
     CommonModule,
@@ -59,6 +64,9 @@ import { TabViewModule } from 'primeng/tabview';
     PasswordModule,
     TabMenuModule,
     TabViewModule,
+    FileUploadModule,
+    ToastModule,
+
   ],
 })
 export class SharedModule {}

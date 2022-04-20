@@ -14,7 +14,9 @@ import { PreqStatus } from 'app/_models/preqStatus';
 export class RaceDetailsComponent implements OnInit {
   numberOfParticipantsForEvent: number;
   userStatusInfo: PreqStatusDto = new PreqStatusDto();
-  raceId: number;
+  raceId: string;
+  eventId: string;
+  roundId: string;
   userId: number;
   view: string;
   preqStatus: PreqStatus;
@@ -23,7 +25,9 @@ export class RaceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.view = this.route.snapshot.paramMap.get('view');
-    this.view = this.route.snapshot.paramMap.get('raceId');
+    this.eventId = this.route.snapshot.paramMap.get('eventId');
+    this.roundId = this.route.snapshot.paramMap.get('roundId');
+    this.raceId = this.route.snapshot.paramMap.get('raceId');
     //this.checkPreqStatus(this.raceId,this.userId);
     //this.userStatusInfo = { raceId: this.raceId, userId: this.userId }
     //this.checkPreqStatus();

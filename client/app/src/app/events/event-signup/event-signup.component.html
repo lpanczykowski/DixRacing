@@ -1,36 +1,39 @@
 <div class="bg-light text-black mx-auto mb-2">
   <br>
   <form #eventSignupForm="ngForm" (ngSubmit)="eventSignup()" autocomplete="off" class="form-group ">
-    <h4 class="text-center text-primary text-black mb-4"> Formularz zgłoszeniowy </h4>
+    <h4 class="text-center text-primary text-black mb-4"> Formularz zgłoszeniowy</h4>
 
     <!--TODO:dodać do modelu driverName i driverSurname-->
-    <div class="form-group col-6 mx-auto mb-2">
+    <span class="p-float-label form-group col-6 mx-auto mb-2">
+      <input type="text" pInputText class="form-control" id="numberInput" name="number" [(ngModel)]="model.number">
       <label for="numberInput">Numer</label>
-      <input type="text" class="form-control" id="carNumber" name="number" [(ngModel)]="model.number">
+    </span>
+
+    <div class="p-float-label form-group col-6 mx-auto mb-2">
+      <span class="p-float-label form-group col-6 mx-auto mb-2">
+        <p-dropdown inputId="carInput" [autoDisplayFirst]="false" [options]="eventCars" [(ngModel)]="model.car"
+          optionLabel="car" name="car" style="width:100%"></p-dropdown>
+        <label for="carInput">Auto</label>
+      </span>
     </div>
 
-
-    <div class="form-group col-6 mx-auto mb-2">
-      <label for="carInput">Auto</label>
-      <input class="form-control" list="carDatalist" id="carList" name="car" [(ngModel)]="model.car">
-      <datalist id="carDatalist">
-        <option *ngFor="let eventCar of eventCars" value="{{eventCar.car}}">
-      </datalist>
-
+    <div class="p-float-label form-group col-6 mx-auto mb-2">
+      <span class="p-float-label form-group col-6 mx-auto mb-2">
+        <p-dropdown inputId="teamInput" [autoDisplayFirst]="false" [options]="eventTeams" [(ngModel)]="model.team"
+          optionLabel="teamName" name="team"></p-dropdown>
+        <label for="teamInput">Team</label>
+      </span>
     </div>
-    <div class="form-group col-6 mx-auto mb-2">
-      <label for="teamInput">Team</label>
-      <input class="form-control" list="teamDatalist" id="teamList" name="team" [(ngModel)]="model.team">
-      <datalist id="teamDatalist">
-        <option *ngFor="let eventTeam of eventTeams" value="{{eventTeam.teamName}}">
-      </datalist>
-    </div>
-    <div class="form-group col-6 mx-auto mb-2">
+
+    <div class="p-float-label form-group col-6 mx-auto mb-2">
+      <input type="text" pInputText class="form-control" id="newTeamInput" name="number" [(ngModel)]="model.newTeam"
+        name="newTeam">
       <label for="newTeamInput">Stwórz nowy team</label>
-      <input type="text" class="form-control" id="newTeamName" name="newTeam" [(ngModel)]="model.newTeam">
     </div>
-    <div class="form-group col-6 mx-auto mb-2">
-      <label for="numberInput">Malowanie</label>
+
+
+    <div class="p-float-label form-group col-6 mx-auto mb-2">
+      <h3>Malowanie</h3>
       <input class="form-control" type="file" id="liveryFile" [(ngModel)]="model.livery" name="livery">
     </div>
 
