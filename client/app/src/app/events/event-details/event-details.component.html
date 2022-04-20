@@ -3,11 +3,20 @@
     <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px">
       <br />
       <div class="d-flex flex-row justify-content-between">
-        <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(0)">
+        <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px;">
           {{ event?.event.name }}
-        </h2>
+        </h1>
 
-        <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(5)">Dołącz</h2>
+        <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(5)" style="vertical-align:middle;" display="flex;"><p-button (click)="showSignupForm()" icon="pi pi-angle-double-right" iconPos="right" label="Dołącz"></p-button>
+          <p-dialog header="Header" [(visible)]="displaySignupForm" [style]="{width: '30vw'}">
+            <app-event-signup>
+
+            </app-event-signup>
+              <ng-template pTemplate="footer">
+                  <p-button icon="pi pi-check" (click)="displaySignupForm=false" label="Ok" styleClass="p-button-text"></p-button>
+              </ng-template>
+          </p-dialog></h2>
+
       </div>
     </div>
     <br />

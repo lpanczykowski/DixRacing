@@ -32,6 +32,7 @@ export class EventDetailsComponent implements OnInit {
   minutes;
   hours: number;
   displayBasic:boolean;
+  displaySignupForm:boolean;
   constructor(
     private route: ActivatedRoute,
     private roundService: RoundService,
@@ -83,5 +84,9 @@ export class EventDetailsComponent implements OnInit {
 
   showRoundCreator(){
     this.displayBasic=true;
+  }
+
+  showSignupForm(){
+    this.displaySignupForm=true;
   }
 }
