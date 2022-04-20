@@ -1,4 +1,4 @@
-<div
+<div class="bg-white"><div
   id="rulesTab"
   class="k-content k-state-active mb-2"
   role="tabpanel"
@@ -16,6 +16,7 @@
   <div
     id="infoTabView"
     ng-show="!$ctrl.editMode &amp;&amp; ($ctrl.canEdit || $ctrl.text.length)"
+    class ="m-4"
   >
     <div ng-bind-html="$ctrl.safeText" class="ng-binding">
       <p style="text-align: center">
@@ -1009,4 +1010,5 @@
       </p>
     </div>
   </div>
+</div>
 </div>

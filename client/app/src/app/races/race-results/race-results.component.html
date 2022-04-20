@@ -1,38 +1,50 @@
 <div class="bg-light text-black">
-   <p-table [value]="raceResults">
+  <p-table [value]="raceResults" styleClass="p-datatable-sm">
     <ng-template pTemplate="header">
       <tr>
-        <th >Poz.</th>
-        <th >#</th>
-        <th >Kierowca</th>
-        <th >Zespół</th>
-        <th >Auto</th>
-        <th *ngIf="resultsSelector!=='race'">S1</th>
-        <th *ngIf="resultsSelector!=='race'">S2</th>
-        <th *ngIf="resultsSelector!=='race'">S3</th>
-        <th >Czas</th>
-        <th >Gap</th>
-        <th *ngIf="resultsSelector!=='quali'">Okrążenia</th>
-        <th *ngIf="resultsSelector!=='preq'">Punkty</th>
+        <th>Poz.</th>
+        <th>#</th>
+        <th>Kierowca</th>
+        <th>Zespół</th>
+        <th>Auto</th>
+        <th *ngIf="resultsSelector !== 'race'">S1</th>
+        <th *ngIf="resultsSelector !== 'race'">S2</th>
+        <th *ngIf="resultsSelector !== 'race'">S3</th>
+        <th>Czas</th>
+        <th>Gap</th>
+        <th *ngIf="resultsSelector !== 'quali'">Okrążenia</th>
+        <th *ngIf="resultsSelector !== 'preq'">Punkty</th>
       </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-raceResult>
       <tr>
-        <td>{{raceResult.position.position}}</td>
-        <td>{{raceResult.car}}</td>
-        <td>{{raceResult.name}} "{{raceResult.nick}}" {{raceResult.surname}}</td>
-        <td>{{raceResult.teamName}}</td>
-        <td>{{raceResult.car}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.bestLap.split1}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.bestLap.split2}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.bestLap.split3}}</td>
-        <td>{{raceResult.time | time}}</td>
-        <td>+{{raceResult.gap | time}}</td>
-        <td *ngIf="resultsSelector!=='quali'">{{raceResult.laps.length}}</td>
-        <td *ngIf="resultsSelector!=='preq'">{{raceResult.position.points}}</td>
+        <td>{{ raceResult.position.position }}</td>
+        <td>{{ raceResult.car }}</td>
+        <td>
+          {{ raceResult.name }} "{{ raceResult.nick }}" {{ raceResult.surname }}
+        </td>
+        <td>{{ raceResult.teamName }}</td>
+        <td>{{ raceResult.car }}</td>
+        <td *ngIf="resultsSelector !== 'race'">
+          {{ raceResult.bestLap.split1 | time:'SS' }}
+        </td>
+        <td *ngIf="resultsSelector !== 'race'">
+          {{ raceResult.bestLap.split2 | time:'SS' }}
+        </td>
+        <td *ngIf="resultsSelector !== 'race'">
+          {{ raceResult.bestLap.split3 | time:'SS'}}
+        </td>
+        <td>{{ raceResult.time | time }}</td>
+        <td>{{ raceResult.gap | gap }}</td>
+        <td *ngIf="resultsSelector !== 'quali'">
+          {{ raceResult.laps.length }}
+        </td>
+        <td *ngIf="resultsSelector !== 'preq'">
+          {{ raceResult.position.points }}
+        </td>
       </tr>
     </ng-template>
   </p-table>
-  <hr>
+  <hr />
 </div>

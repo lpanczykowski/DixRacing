@@ -1,3 +1,4 @@
+import { GapPipe } from './pipes/gap.pipe';
 import { EventFormComponent } from './forms/event-form/event-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './_modules/shared/shared.module';
@@ -76,7 +77,8 @@ import { TimePipe } from './pipes/time.pipe';
     EventCreatorComponent,
     EventRoundCreatorComponent,
     RaceCreatorComponent,
-    TimePipe
+    TimePipe,
+    GapPipe
   ],
   imports: [
     FormsModule,
