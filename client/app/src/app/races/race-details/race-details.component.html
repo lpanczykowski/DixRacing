@@ -1,11 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px;">
-      <br>
-      <h2 class="ms-5 me-5">
-        <!--{{event?.event.name}}-->ROUND 1
-      </h2>
-      <br>
+
+    <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px">
+      <br />
+      <div class="d-flex flex-row justify-content-between">
+        <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px;" >
+          Runda {{roundId}}
+        </h1>
+
+        <h2 class="ms-5 me-5 mb-4" ><p-button label="Strona eventu" icon="pi pi-arrow-left" style="vertical-align:middle;" display="flex;" routerLink="/event/{{eventId}}"></p-button></h2>
+
+      </div>
     </div>
   </div>
 </div>
@@ -66,7 +71,8 @@
             <p class="card-text text-end">{{currentDriverResult.carNumber}}</p>
             <p class="card-text text-end">{{currentDriverResult.position}}/{{numberOfParticipantsForEvent}}</p>
             <p class="card-text text-end">{{currentDriverResult.points}}</p>
-            <p-toggleButton  (click)="changeRaceStatus()" onLabel="Obecny" offLabel="Potwierdź" onIcon="pi pi-times" offIcon="pi pi-check" [style]="{'width': '10em'}">Obecność</p-toggleButton>
+            <p-toggleButton (click)="changeRaceStatus()" onLabel="Obecny" offLabel="Potwierdź" onIcon="pi pi-times"
+              offIcon="pi pi-check" [style]="{'width': '10em'}">Obecność</p-toggleButton>
           </app-card>
         </div>
       </div>
