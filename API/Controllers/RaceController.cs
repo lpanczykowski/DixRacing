@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -42,7 +43,7 @@ namespace API.Controllers
 
         }
         [HttpGet("{raceId}/results/{sessionType}")]
-        public async Task<ActionResult<GetRaceResultsResponse>> RaceResults(int raceId, string sessionType)
+        public async Task<ActionResult<IEnumerable<GetRaceResultsResponse>>> RaceResults(int raceId, string sessionType)
          => await SendAsync(new GetRaceResultsRequest(raceId, sessionType));
         [HttpPost("confirmation")]
         public async Task<ActionResult<bool>> RaceConfirmation([FromQuery] int raceId, int userId)

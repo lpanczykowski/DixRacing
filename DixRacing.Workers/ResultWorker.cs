@@ -46,7 +46,6 @@ namespace DixRacing.Workers
                     var directoryPath = _config.GetSection("RaceResultPath");
                     System.IO.Directory.CreateDirectory(directoryPath.Value + @"\cpy");
                     DirectoryInfo d = new DirectoryInfo(directoryPath.Value);
-
                     while (!stoppingToken.IsCancellationRequested)
                     {
                         foreach (var file in d.GetFiles("*.json"))
@@ -65,15 +64,10 @@ namespace DixRacing.Workers
                                 }
                             }
                             catch (ArgumentException e)
-
                             {
                                 _logger.LogInformation("Error: {e}", e.Message);
                             }
-
-
-
                         }
-
                         await Task.Delay(10000, stoppingToken);
                     }
 

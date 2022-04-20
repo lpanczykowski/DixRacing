@@ -13,7 +13,7 @@ namespace DixRacing.DataAccess.Queries.Races
         private readonly DapperContext _dapperContext;
         const string Sql = @"
                             select 
-                                u.*,rl.*,rrr.*,rp.*
+      							u.*,rl.*,rrr.*,rp.*
                             from EventParticipants ep 
                             join Users u on ep.UserId = u.Id 
                             join Rounds r on ep.EventId = r.EventId  
@@ -22,6 +22,7 @@ namespace DixRacing.DataAccess.Queries.Races
                             left join RaceResults rrr on rrr.RaceId  == rr.Id and u.Id  == rrr.UserId 
                             left join RacePoints rp on rp.RaceId = rr.Id and rrr.Position == rp.Position
                             where rr.SessionType = @p_sessionType and rl.RaceId = @p_raceId";
+
 
         public GetRaceResultsQuery(DapperContext dapperContext)
         {
@@ -32,7 +33,7 @@ namespace DixRacing.DataAccess.Queries.Races
         {
             using var connection = _dapperContext.GetOpenConnection();
             var userRaceResultDict = new Dictionary<int, UserRaceResultReadModel>();
-            var result = await connection.QueryAsync<UserReadModel, RaceLapReadModel, RaceResultReadModel, RacePointReadModel, UserRaceResultReadModel>(Sql,
+            var result = await connection.QueryAsync<UserReadModel, RaceLapReadModel, RaceResultReadModel, RacePointsReadModel, UserRaceResultReadModel>(Sql,
             (user, raceLap, raceResult, racePoint) =>
             {
                 if (!userRaceResultDict.TryGetValue(user.Id, out var userRaceResultReadModel))
@@ -41,8 +42,11 @@ namespace DixRacing.DataAccess.Queries.Races
                                                                           user.Name,
                                                                           user.Surname,
                                                                           user.Nick,
-                                                                          new RacePointReadModel(raceResult.Position, racePoint.Points),
-                                                                          new List<RaceLapReadModel>()); ;
+                                                                          new RacePointsReadModel(raceResult.Position, racePoint.Points),
+                                                                          new List<RaceLapReadModel>(),
+                                                                          raceResult.TotalTime, 0
+
+                                                                        );
                     userRaceResultDict.Add(user.Id, userRaceResultReadModel);
                 }
                 if (raceResult is not null)
@@ -55,7 +59,13 @@ namespace DixRacing.DataAccess.Queries.Races
                 }
                 return userRaceResultReadModel;
             }, new { p_sessionType = sessionType, p_raceId = raceId });
-            return userRaceResultDict.Values.ToList();
+            var raceResults = userRaceResultDict.Values.ToList();
+            var bestResult = raceResults.Min(s => s.Time);
+            foreach (var raceResult in raceResults)
+            {
+                raceResult.Gap = raceResult.Time - bestResult;
+            }
+            return raceResults;
         }
     }
 }

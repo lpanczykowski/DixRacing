@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Features.Races.Queries.GetRaceResults
 {
-    public record GetRaceResultsRequest(int RaceId,string SessionType) :  IRequest<GetRaceResultsResponse>
+    public record GetRaceResultsRequest(int RaceId,string SessionType) :  IRequest<IEnumerable<GetRaceResultsResponse>>
     {
         
     }

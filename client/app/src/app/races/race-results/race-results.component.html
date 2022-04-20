@@ -19,18 +19,18 @@
 
     <ng-template pTemplate="body" let-raceResult>
       <tr>
-        <td>{{raceResult.position}}</td>
-        <td>{{raceResult.driverNumber}}</td>
-        <td>{{raceResult.driverName}} {{raceResult.driverSurname}}</td>
+        <td>{{raceResult.position.position}}</td>
+        <td>{{raceResult.car}}</td>
+        <td>{{raceResult.name}} "{{raceResult.nick}}" {{raceResult.surname}}</td>
         <td>{{raceResult.teamName}}</td>
         <td>{{raceResult.car}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.sector1Time}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.sector2Time}}</td>
-        <td *ngIf="resultsSelector!=='race'">{{raceResult.sector3Time}}</td>
-        <td>{{raceResult.time}}</td>
-        <td>{{raceResult.gap}}</td>
-        <td *ngIf="resultsSelector!=='quali'">{{raceResult.laps}}</td>
-        <td *ngIf="resultsSelector!=='preq'">{{raceResult.points}}</td>
+        <td *ngIf="resultsSelector!=='race'">{{raceResult.bestLap.split1}}</td>
+        <td *ngIf="resultsSelector!=='race'">{{raceResult.bestLap.split2}}</td>
+        <td *ngIf="resultsSelector!=='race'">{{raceResult.bestLap.split3}}</td>
+        <td>{{raceResult.time | time}}</td>
+        <td>+{{raceResult.gap | time}}</td>
+        <td *ngIf="resultsSelector!=='quali'">{{raceResult.laps.length}}</td>
+        <td *ngIf="resultsSelector!=='preq'">{{raceResult.position.points}}</td>
       </tr>
     </ng-template>
   </p-table>

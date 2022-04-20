@@ -20,24 +20,6 @@ export class RaceDetailsComponent implements OnInit {
   preqStatus: PreqStatus;
 
   constructor(private route: ActivatedRoute, private raceService: RaceService) { }
-  currentDriverResult: RaceResult = {
-    driverNumber: 930,
-    driverName: 'Marcin',
-    driverSurname: 'Lewandowski',
-    teamName: 'SMR Racing',
-    car: 1,
-    carNumber: 830,
-    sector1Time: 31,
-    sector2Time: 61,
-    sector3Time: 28,
-    laps: 50,
-    penaltyPoints: 5,
-    points: 80,
-    position: 1,
-    raceId: 1,
-    time: 1980,
-    gap: 15
-  }
 
   ngOnInit(): void {
     this.view = this.route.snapshot.paramMap.get('view');

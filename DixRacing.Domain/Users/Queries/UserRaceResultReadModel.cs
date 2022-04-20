@@ -13,23 +13,29 @@ namespace DixRacing.Domain.Users.Queries
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Nick { get; set; }
-        public RacePointReadModel Position { get; set; }
-        public RaceLapReadModel BestLap { get;set; }
+        public RacePointsReadModel Position { get; set; }
+        public RaceLapReadModel BestLap { get; set; }
         public List<RaceLapReadModel> Laps { get; set; }
+        public int Time { get; set; }
+        public int Gap { get; set; }
         public UserRaceResultReadModel(int UserId,
                                        string Name,
                                        string Surname,
                                        string Nick,
-                                       RacePointReadModel Position,
-                                       List<RaceLapReadModel> Laps)
+                                       RacePointsReadModel Position,
+                                       List<RaceLapReadModel> Laps,
+                                       int Time,
+                                       int Gap)
         {
-            this.BestLap = Laps.Where(x =>x.IsValid == 1).OrderBy(x => x.Lap).FirstOrDefault();;
+            this.BestLap = Laps.Where(x => x.IsValid == 1).OrderBy(x => x.Lap).FirstOrDefault(); ;
             this.UserId = UserId;
             this.Name = Name;
             this.Surname = Surname;
             this.Nick = Nick;
             this.Position = Position;
             this.Laps = Laps;
+            this.Time = Time;
+            this.Gap = Gap;
         }
     }
 }

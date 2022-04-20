@@ -7,7 +7,7 @@ namespace DixRacing.Domain.Races.Services
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-    public class Driver
+    public class    Driver
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -43,7 +43,7 @@ namespace DixRacing.Domain.Races.Services
         public List<int> LastSplits { get; set; }
         public object BestLap { get; set; }
         public List<object> BestSplits { get; set; }
-        public object TotalTime { get; set; }
+        public int TotalTime { get; set; }
         public int LapCount { get; set; }
         public object LastSplitId { get; set; }
     }

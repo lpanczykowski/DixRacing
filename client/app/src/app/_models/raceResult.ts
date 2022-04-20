@@ -1,18 +1,18 @@
+import { Lap } from './Lap';
+import { Position } from './position';
+
 export interface RaceResult {
-  driverNumber: number;
-  driverName: string;
-  driverSurname: string;
+  name: string;
+  surname: string;
+  nick: string;
+  userId: number;
   teamName: string;
-  car: number;
   carNumber: number;
+  car : string;
   raceId: number;
-  position: number;
-  sector1Time:number;
-  sector2Time:number;
-  sector3Time:number;
+  position: Position;
+  bestLap: Lap;
   time: number;
   gap: number;
-  laps: number;
-  points: number;
-  penaltyPoints: number;
+  laps: Lap[];
 }

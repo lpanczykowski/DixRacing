@@ -48,9 +48,10 @@ namespace DixRacing.Domain.Races.Services
             {
                 raceLaps.AddRange(AddRaceLaps(race, driver, laps));
                 var user = await _userRepository.GetUniqueByPropertyAsync(x => x.SteamId == driver.PlayerId.Substring(1));
+                var timing = accResult.SessionResult.LeaderBoardLines.Where(x => x.Car.Drivers.Any(x => x == driver)).Select(s => s.Timing).FirstOrDefault();
                 if (user is not null)
                 {
-                    await UpdateRaceResult(race, position, user);
+                    await UpdateRaceResult(race, position, user, timing);
                 }
                 ++position;
             }
@@ -79,11 +80,14 @@ namespace DixRacing.Domain.Races.Services
             return raceLaps;
         }
 
-        private async Task UpdateRaceResult(Race race, int position, User user)
+        private async Task UpdateRaceResult(Race race, int position, User user, Timing timing)
         {
             var raceResult = await _raceResultRepository.GetUniqueByPropertyAsync(x => x.UserId == user.Id && x.RaceId == race.Id);
             if (raceResult is not null)
+            {
                 raceResult.Position = position;
+                raceResult.TotalTime = timing.TotalTime;
+            }
             _raceResultRepository.Update(raceResult);
         }
 

@@ -13,10 +13,10 @@ namespace DixRacing.Domain.Events.Queries
                                      string DriverSurname,
                                      string? TeamName,
                                      int Car,
-                                     ICollection<RacePointReadModel> RacePoints,
+                                     ICollection<RacePointsReadModel> RacePoints,
                                      double Points)
     {
-        public EventClassificationReadModel() : this(default, default, default, default, default, default, default, new List<RacePointReadModel>(), default)
+        public EventClassificationReadModel() : this(default, default, default, default, default, default, default, new List<RacePointsReadModel>(), default)
         {
 
         }

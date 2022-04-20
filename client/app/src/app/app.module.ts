@@ -43,6 +43,7 @@ import { MonthPipe } from './pipes/month.pipe';
 import { EventCreatorComponent } from './events/event-creator/event-creator.component';
 import { EventRoundCreatorComponent } from './events/event-round-creator/event-round-creator.component';
 import { RaceCreatorComponent } from './races/race-creator/race-creator.component';
+import { TimePipe } from './pipes/time.pipe';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { RaceCreatorComponent } from './races/race-creator/race-creator.componen
     EventFormComponent,
     EventCreatorComponent,
     EventRoundCreatorComponent,
-    RaceCreatorComponent
+    RaceCreatorComponent,
+    TimePipe
   ],
   imports: [
     FormsModule,

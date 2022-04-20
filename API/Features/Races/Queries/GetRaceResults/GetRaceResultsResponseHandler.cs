@@ -1,4 +1,6 @@
+using AutoMapper;
 using DixRacing.Domain.Races.Queries;
+using DixRacing.Domain.Users.Queries;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,18 +10,21 @@ using System.Threading.Tasks;
 
 namespace API.Features.Races.Queries.GetRaceResults
 {
-    public class GetRaceResultsResponseHandler : IRequestHandler<GetRaceResultsRequest, GetRaceResultsResponse>
+    public class GetRaceResultsResponseHandler : IRequestHandler<GetRaceResultsRequest, IEnumerable<GetRaceResultsResponse>>
     {
         private readonly IGetRaceResultsQuery _query;
+        private readonly IMapper _mapper;
 
-        public GetRaceResultsResponseHandler(IGetRaceResultsQuery query)
+        public GetRaceResultsResponseHandler(IGetRaceResultsQuery query, IMapper mapper)
         {
             _query = query;
+            _mapper = mapper;
         }
-        public async Task<GetRaceResultsResponse> Handle(GetRaceResultsRequest request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<GetRaceResultsResponse>> Handle(GetRaceResultsRequest request, CancellationToken cancellationToken)
         {
-            var result = await _query.ExecuteAsync(request.RaceId,request.SessionType);
-            return new GetRaceResultsResponse(result);
+            var result = await _query.ExecuteAsync(request.RaceId, request.SessionType);
+            return _mapper.Map<IEnumerable<UserRaceResultReadModel>, IEnumerable<GetRaceResultsResponse>>(result);
+            
         }
     }
 }

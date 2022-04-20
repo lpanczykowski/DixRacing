@@ -8,10 +8,11 @@ namespace DixRacing.Domain.Races.Queries
     public record RaceResultReadModel(
         int RaceId,
         int UserId,
-        int Position
+        int Position,
+        int TotalTime
     )
     {
-        public RaceResultReadModel() : this(default, default, default)
+        public RaceResultReadModel() : this(default, default, default, default)
         {
 
         }

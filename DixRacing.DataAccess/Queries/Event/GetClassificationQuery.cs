@@ -39,7 +39,7 @@ namespace DixRacing.DataAccess.Queries.Event
         {
             using var connection = _dapper.GetOpenConnection();
             var eventClassificationDict = new Dictionary<int, EventClassificationReadModel>();
-            var result = await connection.QueryAsync<EventParticipantReadModel, UserReadModel, TeamReadModel, RoundReadModel, RaceReadModel, RaceResultReadModel,RacePointReadModel, EventClassificationReadModel>
+            var result = await connection.QueryAsync<EventParticipantReadModel, UserReadModel, TeamReadModel, RoundReadModel, RaceReadModel, RaceResultReadModel,RacePointsReadModel, EventClassificationReadModel>
             (SqlString,
                 (eventParticipant, user, team, round, race, raceResult,racePoint) =>
                 {
@@ -53,12 +53,12 @@ namespace DixRacing.DataAccess.Queries.Event
                         user.Surname,
                         team.Name,
                         eventParticipant.Car,
-                        new List<RacePointReadModel>(), 0);//TODO: RacePoints
+                        new List<RacePointsReadModel>(), 0);//TODO: RacePoints
                         eventClassificationDict.Add(eventParticipant.Number,eventClassificationReadModel);
                     }
                     if (raceResult is not null)
                     {
-                        eventClassificationReadModel.RacePoints.Add(new RacePointReadModel(raceResult.Position,racePoint.Points)); //TODO:RacePoints
+                        eventClassificationReadModel.RacePoints.Add(new RacePointsReadModel(raceResult.Position,racePoint.Points)); //TODO:RacePoints
                     }
 
                     return eventClassificationReadModel;
