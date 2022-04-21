@@ -24,7 +24,7 @@ export class RaceDetailsComponent implements OnInit {
     name: 'Marcin',
     surname: 'Lewandowski',
     teamName: 'SMR Racing',
-    car: 1,
+    car: 'Porsche',
     carNumber: 830,
     raceId: 1,
     time: 1980,

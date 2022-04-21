@@ -1,6 +1,7 @@
 ::ng-deep body {
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: url("https://steamrip.com/wp-content/uploads/2021/06/assetto-corsa-competizione-free-download-torrent-steamrip.jpg.webp");
+  background-image: url("../assets/images/background.jpg");
   background-color: black;
+  background-size: cover;
 }

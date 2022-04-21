@@ -12,6 +12,7 @@
   right: 40px;
   bottom: 40px;
 }
+
 ::ng-deep .p-tabview .p-tabview-nav {
   background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
 }
