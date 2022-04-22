@@ -38,7 +38,7 @@ export class EventSignupComponent implements OnInit {
   }
 
   eventSignup() {
-    if (this.model.newTeam !== undefined) {
+    if (this.model.newTeam !== undefined && this.model.newTeam !== '') {
       this.model.team = this.model.newTeam;
       this.addNewTeam(this.eventId, this.model.newTeam);
     };
@@ -61,4 +61,7 @@ export class EventSignupComponent implements OnInit {
     this.eventService.addNewTeam(eventId, newTeamName);
   }
 
+  liveryUpload(event){
+    this.model.livery = event.target.files[0];
+  }
 }

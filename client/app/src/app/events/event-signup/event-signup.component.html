@@ -1,45 +1,54 @@
 <div class="bg-light text-black mx-auto mb-2">
   <br>
   <form #eventSignupForm="ngForm" (ngSubmit)="eventSignup()" autocomplete="off" class="form-group ">
-    <h4 class="text-center text-primary text-black mb-4"> Formularz zgłoszeniowy</h4>
-
     <!--TODO:dodać do modelu driverName i driverSurname-->
-    <span class="p-float-label form-group col-6 mx-auto mb-2">
-      <input type="text" pInputText class="form-control" id="numberInput" name="number" [(ngModel)]="model.number">
-      <label for="numberInput">Numer</label>
-    </span>
+    <div class="form-group col-12 mx-auto mb-2">
+      <span class="p-float-label ">
+        <input type="text" pInputText class="form-control" id="numberInput" name="number" [(ngModel)]="model.number"
+          required #number="ngModel"
+          [ngClass]="{'ng-invalid ng-dirty': number.invalid && (number.dirty || number.touched)}">
+        <label for="numberInput">Numer</label>
+      </span>
+    </div>
 
-    <div class="p-float-label form-group col-6 mx-auto mb-2">
-      <span class="p-float-label form-group col-6 mx-auto mb-2">
-        <p-dropdown inputId="carInput" [autoDisplayFirst]="false" [options]="eventCars" [(ngModel)]="model.car"
-          optionLabel="car" name="car" style="width:100%"></p-dropdown>
+    <div class="form-group col-12 mx-auto mb-2">
+      <span class="p-float-label">
+        <p-dropdown inputId="carInput" [autoDisplayFirst]="false" [options]="eventCars" [(ngModel)]="model.car" required
+          optionLabel="car" name="car" #car="ngModel"
+          [ngClass]="{'ng-invalid ng-dirty': car.invalid && (car.dirty || car.touched)}"></p-dropdown>
         <label for="carInput">Auto</label>
       </span>
     </div>
 
-    <div class="p-float-label form-group col-6 mx-auto mb-2">
-      <span class="p-float-label form-group col-6 mx-auto mb-2">
+    <div class="form-group col-12 mx-auto mb-2">
+      <span class="p-float-label">
         <p-dropdown inputId="teamInput" [autoDisplayFirst]="false" [options]="eventTeams" [(ngModel)]="model.team"
           optionLabel="teamName" name="team"></p-dropdown>
         <label for="teamInput">Team</label>
       </span>
     </div>
 
-    <div class="p-float-label form-group col-6 mx-auto mb-2">
-      <input type="text" pInputText class="form-control" id="newTeamInput" name="number" [(ngModel)]="model.newTeam"
-        name="newTeam">
-      <label for="newTeamInput">Stwórz nowy team</label>
+    <div class="form-group col-12 mx-auto mb-2">
+      <span class="p-float-label">
+        <input type="text" pInputText class="form-control" id="newTeamInput" name="number" [(ngModel)]="model.newTeam"
+          name="newTeam">
+        <label for="newTeamInput">Stwórz nowy team</label>
+      </span>
     </div>
 
-
-    <div class="p-float-label form-group col-6 mx-auto mb-2">
-      <h3>Malowanie</h3>
-      <input class="form-control" type="file" id="liveryFile" [(ngModel)]="model.livery" name="livery">
+    <div class="row form-group col-12 mx-auto mb-2">
+      <span class="col-3" id="header.livery" style="display: flex;justify-content: flex-start;align-items: center;">
+        <h3>Malowanie</h3>
+      </span>
+      <span class="col-9">
+        <input class="form-control" type="file" id="liveryFile" accept="image/*" (change)="liveryUpload($event)">
+        <!-- TODO:walidacja typu plików po stronie serwera -->
+      </span>
     </div>
 
     <br>
     <div class="form-group text-center mx-auto">
-      <button class="btn btn-success mx-1" type="submit">Dołącz</button>
+      <button class="btn btn-success mx-1 col-12 md:col-6 lg:col-6" type="submit" [disabled]="!eventSignupForm.valid">Dołącz</button>
     </div>
     <br>
   </form>
