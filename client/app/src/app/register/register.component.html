@@ -2,36 +2,42 @@
   <div class="row my-auto">
     <div class="col-4 pe-0 bg-dark text-white" style="margin-top: 150px;">
       <br>
-      <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" class="form-group ">
+      <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" class="form-group">
         <h2 class="text-center text-primary mb-4"> Dołącz do DixRacing </h2>
 
         <div class="form-group col-6 mx-auto">
           <span class="p-float-label">
-            <input id="nickInput" type="text" pInputText [(ngModel)]="model.nick" name="nick">
+            <input id="nickInput" type="text" pInputText [(ngModel)]="model.nick" name="nick" required
+            #nick="ngModel" [ngClass]="{'ng-invalid ng-dirty': nick.invalid && (nick.dirty || nick.touched)}">
             <label for="nickInput">Nick</label>
         </span>
         </div>
         <div class="form-group col-6 mx-auto">
           <span class="p-float-label">
-            <input id="nameInput" type="text" pInputText [(ngModel)]="model.name" name="name">
+            <input id="nameInput" type="text" pInputText [(ngModel)]="model.name" name="name" required
+            #name="ngModel" [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
             <label for="nameInput">Imię</label>
         </span>
         </div>
         <div class="form-group col-6 mx-auto">
           <span class="p-float-label">
-            <input id="surnameInput" type="text" pInputText [(ngModel)]="model.surname" name="surname">
+            <input id="surnameInput" type="text" pInputText [(ngModel)]="model.surname" name="surname" required
+            #surname="ngModel" [ngClass]="{'ng-invalid ng-dirty': surname.invalid && (surname.dirty || surname.touched)}">
             <label for="surnameInput">Nazwisko</label>
         </span>
         </div>
         <div class="form-group col-6 mx-auto">
           <span class="p-float-label">
-            <input id="emailInput" type="text" pInputText [(ngModel)]="model.email" name="email">
+            <input id="emailInput" type="text" pInputText [(ngModel)]="model.email" name="email" required
+            #email="ngModel" [ngClass]="{'ng-invalid ng-dirty': email.invalid && (email.dirty || email.touched)}">
             <label for="emailInput">E-mail</label>
         </span>
         </div>
         <div class="form-group col-6 mx-auto">
           <span class="p-float-label">
-            <input id="passwordInput" type="password" pPassword [(ngModel)]="model.password" name="password">
+            <input id="passwordInput" type="password" pPassword [(ngModel)]="model.password" name="password" required
+            #password="ngModel" [ngClass]="{'ng-invalid ng-dirty': password.invalid && (password.dirty || password.touched)}">
+
             <label for="passwordInput">Hasło</label>
         </span>
         </div>
@@ -39,7 +45,7 @@
         <br>
 
         <div class="form-group text-center mx-auto">
-          <button pButton pRipple type="button" label="Zarejestruj" class="p-button-success mx-1" type="submit"></button>
+          <button pButton pRipple type="button" label="Zarejestruj" class="p-button-success mx-1" type="submit" [disabled]="!registerForm.valid"></button>
           <button pButton pRipple type="button" label="Anuluj" class="p-button-warning mx-1" routerLink='/home'></button>
         </div>
         <br>
