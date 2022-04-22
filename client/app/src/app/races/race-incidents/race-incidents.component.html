@@ -1,25 +1,40 @@
 <div class="bg-light text-black">
-<hr>
-  <p-table [value]="raceIncidents">
+  <hr>
+  <p-table [value]="raceIncidents" dataKey="incidentId">
     <ng-template pTemplate="header">
       <tr>
-      <th>Lp.</th>
-      <th>Zgłaszający</th>
-      <th>Zgłoszony</th>
-      <th>Okrążenie</th>
-      <th>Decyzja</th>
+        <th>Lp.</th>
+        <th>Zgłaszający</th>
+        <th>Zgłoszony</th>
+        <th>Okrążenie</th>
+        <th>Decyzja</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-raceIncident>
+    <ng-template pTemplate="body" let-raceIncident let-expanded="expanded">
       <tr>
         <td>{{raceIncident.incidentId}}</td>
         <td>{{raceIncident.reportingDriver}}</td>
         <td>{{raceIncident.reportedDriver}}</td>
         <td>{{raceIncident.incidentLap}}</td>
         <td>{{raceIncident.result}}</td>
+        <td>
+          <a href="#" [pRowToggler]="raceIncident">
+            <i [ngClass]="expanded? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+          </a>
+        </td>
       </tr>
     </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-raceIncident>
+      <tr>
+        <td colspan="7">
+            <div class="p-3" dataKey="id">
+              {{raceIncident.incidentDescription}}
+            </div>
+        </td>
+    </tr>
+  </ng-template>
+
   </p-table>
 
 </div>
-
