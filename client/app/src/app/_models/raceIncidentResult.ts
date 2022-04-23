@@ -5,4 +5,5 @@ export interface RaceIncidentResult {
   incidentLap: number;
   incidentDescription:string;
   result: string;
+  solved:boolean;
 }

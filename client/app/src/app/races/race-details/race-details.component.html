@@ -8,13 +8,8 @@
         </h1>
 
         <h2 class="ms-5 me-5 mb-4">
-          <p-button
-            label="Strona eventu"
-            icon="pi pi-arrow-left"
-            style="vertical-align: middle"
-            display="flex;"
-            routerLink="/event/{{ eventId }}"
-          ></p-button>
+          <p-button label="Strona eventu" icon="pi pi-arrow-left" display="flex;" routerLink="/event/{{ eventId }}">
+          </p-button>
         </h2>
       </div>
     </div>
@@ -31,30 +26,24 @@
             <ng-template pTemplate="header">
               <i class="fa-solid fa-stopwatch p-2"></i> Prekwalifikacje
             </ng-template>
-            <app-race-results
-              [resultsSelector]="'preq'"
-              (numberOfParticipantsEmitter)="getNumberOfParticipants($event)"
-            >
+            <app-race-results [resultsSelector]="'preq'"
+              (numberOfParticipantsEmitter)="getNumberOfParticipants($event)">
             </app-race-results>
           </p-tabPanel>
           <p-tabPanel>
             <ng-template pTemplate="header">
               <i class="fa-solid fa-grip-vertical p-2"></i> Kwalifikacje
             </ng-template>
-            <app-race-results
-              [resultsSelector]="'kwali'"
-              (numberOfParticipantsEmitter)="getNumberOfParticipants($event)"
-            >
+            <app-race-results [resultsSelector]="'kwali'"
+              (numberOfParticipantsEmitter)="getNumberOfParticipants($event)">
             </app-race-results>
           </p-tabPanel>
           <p-tabPanel>
             <ng-template pTemplate="header">
               <i class="fa-solid fa-flag-checkered p-2"></i> Wyścig
             </ng-template>
-            <app-race-results
-              [resultsSelector]="'race'"
-              (numberOfParticipantsEmitter)="getNumberOfParticipants($event)"
-            >
+            <app-race-results [resultsSelector]="'race'"
+              (numberOfParticipantsEmitter)="getNumberOfParticipants($event)">
             </app-race-results>
           </p-tabPanel>
           <p-tabPanel>
@@ -68,6 +57,12 @@
               <i class="fa-solid fa-car-burst p-2"></i> Zgłoś incydent
             </ng-template>
             <app-race-incidents-report></app-race-incidents-report>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <i class="fa-solid fa-question-circle p-2"></i> Open tickets
+            </ng-template>
+            <app-race-incidents-open></app-race-incidents-open>
           </p-tabPanel>
         </p-tabView>
       </div>
@@ -85,21 +80,14 @@
             </p>
             <p class="card-text text-end">
               {{ currentDriverResult.position.position }}/{{
-                numberOfParticipantsForEvent
+              numberOfParticipantsForEvent
               }}
             </p>
             <p class="card-text text-end">
               {{ currentDriverResult.position.points }}
             </p>
-            <p-toggleButton
-              (click)="changeRaceStatus()"
-              onLabel="Obecny"
-              offLabel="Potwierdź"
-              onIcon="pi pi-times"
-              offIcon="pi pi-check"
-              [style]="{ width: '10em' }"
-              >Obecność</p-toggleButton
-            >
+            <p-toggleButton (click)="changeRaceStatus()" onLabel="Obecny" offLabel="Potwierdź" onIcon="pi pi-times"
+              offIcon="pi pi-check" [style]="{ width: '10em' }">Obecność</p-toggleButton>
           </app-card>
         </div>
       </div>

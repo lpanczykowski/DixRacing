@@ -18,6 +18,7 @@ export class RaceIncidentsReportComponent implements OnInit {
 
   reportIncident(model:RaceIncidentDto)
   {
-        this.raceService.reportIncident(model);
+    this.model.solved=false;
+    this.raceService.reportIncident(model);
   }
 }

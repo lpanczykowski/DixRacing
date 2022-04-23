@@ -6,6 +6,7 @@
 }
 ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+  height: 3rem;
 }
 ::ng-deep .p-tabview .p-tabview-panels {
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity));
@@ -24,4 +25,7 @@
   font-weight: 600;
   border-radius: 3px;
   transition: box-shadow 0.2s;
+}
+::ng-deep .p-tabview-nav{
+  justify-content: center;
 }

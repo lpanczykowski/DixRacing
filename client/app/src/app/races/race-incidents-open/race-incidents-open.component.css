@@ -1,0 +1,8 @@
+::ng-deep .p-tabview .p-tabview-panels{
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+::ng-deep .p-tabview-nav{
+  justify-content: center;
+}

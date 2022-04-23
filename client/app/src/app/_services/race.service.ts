@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { PreqStatus } from 'app/_models/preqStatus';
 import { PreqStatusDto } from 'app/_models/preqStatusDto';
 import { RaceIncidentDto } from 'app/_models/raceIncidentDto';
+import { RaceIncidentSolveDto } from 'app/_models/raceIncidentSolveDto';
 import { environment } from 'environments/environment';
 import { Race } from '../_models/race';
 import { RaceResult } from '../_models/raceResult';
@@ -16,7 +17,7 @@ const httpOptions = {
 })
 export class RaceService {
   baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getRaces(roundId: number) {
     return this.http.get<Race[]>(this.baseUrl + 'round/' + roundId + '/races');
@@ -52,5 +53,13 @@ export class RaceService {
       JSON.stringify({ raceIncidentDto }),
       httpOptions
     );
+  }
+
+  closeTicket(raceIncidentSolveDto: RaceIncidentSolveDto) {
+    return this.http.post(this.baseUrl + 'solveIncident/' + raceIncidentSolveDto.ticketId, JSON.stringify({ raceIncidentSolveDto }), httpOptions);
+  }
+
+  openTicket(raceIncidentSolveDto: RaceIncidentSolveDto) {
+    return this.http.post(this.baseUrl + 'openIncident/' + raceIncidentSolveDto.ticketId, JSON.stringify({ raceIncidentSolveDto }), httpOptions);
   }
 }

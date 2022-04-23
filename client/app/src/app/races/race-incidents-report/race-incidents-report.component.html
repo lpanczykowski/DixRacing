@@ -1,7 +1,7 @@
 <div class="bg-light text-black mx-auto mb-2" >
 
   <form #incidentReportForm="ngForm" (ngSubmit)="reportIncident(incidentReportForm)">
-    <h4 class="text-center text-primary text-black mb-4"> Zgłoszenie incydentu </h4>
+    <h4 class="text-center text-primary text-black">Zgłoszenie incydentu</h4>
     <div class="form-group col-6 mx-auto">
       <span class="p-float-label" style="font-size:0.7em;">
         <p-inputNumber id="float-input"  [(ngModel)]="model.reportedDriver" name="reportedNumber" required
@@ -16,6 +16,14 @@
         #reportedLap="ngModel"
         [ngClass]="{'ng-invalid ng-dirty': reportedLap.invalid && (reportedLap.dirty || reportedLap.touched)}"></p-inputNumber>
         <label for="float-input">Okrążenie</label>
+      </span>
+    </div>
+    <div class="form-group col-6 mx-auto">
+      <span class="p-float-label" style="font-size:0.7em;">
+        <input type="text" pInputText  id="float-input" [(ngModel)]="model.incidentTime" name="reportedLapTime" required
+        #reportedLapTime="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': reportedLapTime.invalid && (reportedLapTime.dirty || reportedLapTime.touched)}">
+        <label for="float-input">Czas na powtórce</label>
       </span>
     </div>
     <div class="form-group col-6 mx-auto">
