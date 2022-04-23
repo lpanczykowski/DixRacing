@@ -62,4 +62,12 @@ export class RaceService {
   openTicket(raceIncidentSolveDto: RaceIncidentSolveDto) {
     return this.http.post(this.baseUrl + 'openIncident/' + raceIncidentSolveDto.ticketId, JSON.stringify({ raceIncidentSolveDto }), httpOptions);
   }
+
+  raiseAppeal(raceIncidentDto: RaceIncidentDto){
+    return this.http.post(
+      this.baseUrl + 'reportIncident',
+      JSON.stringify({ raceIncidentDto }),
+      httpOptions
+    );
+  }
 }

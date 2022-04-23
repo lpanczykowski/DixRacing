@@ -7,6 +7,7 @@
         <th>Zgłaszający</th>
         <th>Zgłoszony</th>
         <th>Okrążenie</th>
+        <th>Czas na powtórce</th>
         <th>Decyzja</th>
       </tr>
     </ng-template>
@@ -16,7 +17,31 @@
         <td>{{raceIncident.reportingDriver}}</td>
         <td>{{raceIncident.reportedDriver}}</td>
         <td>{{raceIncident.incidentLap}}</td>
+        <td>{{raceIncident.incidentTime}}</td>
         <td>{{raceIncident.result}}</td>
+        <td *ngIf="raceIncident.reportingDriver==currentDriverNumber || raceIncident.reportingDriver==currentDriverNumber">
+            <span class="appealButton"><i class="fa fa-fw fa-reply" (click)="showDisplayAppeal()"></i></span>
+            <p-dialog header="Odwołanie od decyzji" [(visible)]="displayAppeal" [breakpoints]="{'960px': '75vw'}"
+              [style]="{width: '50vw',height:'auto'}" [draggable]="false" [resizable]="false">
+
+              <form #incidentAppealForm="ngForm" (ngSubmit)="raiseAppeal(raceIncident)">
+
+                <div class="form-group col-12 mt-3 mx-auto">
+                  <span class="p-float-label" >
+                  <textarea id="incidentDescriptiontexterea" class="col-12" rows="10" pInputTextarea
+                      [(ngModel)]="model.incidentDescription" name="incidentDescription" required
+                      #incidentDescription="ngModel"
+                      [ngClass]="{'ng-invalid ng-dirty': incidentDescription.invalid && (incidentDescription.dirty || incidentDescription.touched)}"></textarea>
+                  <label for="incidentDescriptiontexterea">Uzasadnienie odwołania</label>
+                </span>
+                </div>
+
+
+                <p-button label="Potwierdź" styleClass="p-button-text" type="submit" style="float: right;"></p-button>
+                <p-button (click)="displayAppeal=false" label="Anuluj" styleClass="p-button-text" style="float: right;"></p-button>
+              </form>
+            </p-dialog>
+        </td>
         <td>
           <a href="#" [pRowToggler]="raceIncident">
             <i [ngClass]="expanded? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
@@ -28,12 +53,12 @@
     <ng-template pTemplate="rowexpansion" let-raceIncident>
       <tr>
         <td colspan="7">
-            <div class="p-3" dataKey="id">
-              {{raceIncident.incidentDescription}}
-            </div>
+          <div class="p-3" dataKey="id">
+            {{raceIncident.incidentDescription}}
+          </div>
         </td>
-    </tr>
-  </ng-template>
+      </tr>
+    </ng-template>
 
   </p-table>
 

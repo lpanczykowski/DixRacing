@@ -13,7 +13,6 @@ export class RaceResultsComponent implements OnInit {
   @Input() resultsSelector: string;
   @Output() numberOfParticipantsEmitter = new EventEmitter<number>();
 
-  body = document.getElementById('raceResultsTable');
   currentResults: string;
   raceId: number;
   raceResults: RaceResult[];
@@ -34,7 +33,7 @@ export class RaceResultsComponent implements OnInit {
       .subscribe((resp) => {
         this.raceResults = resp;
         console.log(this.raceResults);
-        let participantCount = this.body.childNodes.length;
+        let participantCount = this.raceResults.length;
         this.numberOfRaceParticipants(participantCount);
       });
   }

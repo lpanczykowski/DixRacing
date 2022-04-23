@@ -14,6 +14,7 @@ export class RaceIncidentsOpenComponent implements OnInit {
     reportingDriver: 830,
     reportedDriver: 831,
     incidentLap: 60,
+    incidentTime: '123',
     incidentDescription:'damn1',
     result: 'RI',
     solved: false},
@@ -21,6 +22,7 @@ export class RaceIncidentsOpenComponent implements OnInit {
      reportingDriver: 80,
      reportedDriver: 131,
      incidentLap: 1,
+     incidentTime: '123',
      incidentDescription:'damn2',
      result: '-15 Points',
      solved: false},
@@ -28,6 +30,7 @@ export class RaceIncidentsOpenComponent implements OnInit {
     reportingDriver: 130,
     reportedDriver: 811,
     incidentLap: 2,
+    incidentTime: '123',
     incidentDescription:'damn3',
     result: '+48 sec',
     solved: true,}];

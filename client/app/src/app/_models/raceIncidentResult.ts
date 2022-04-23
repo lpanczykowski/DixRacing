@@ -3,6 +3,7 @@ export interface RaceIncidentResult {
   reportingDriver: number;
   reportedDriver: number;
   incidentLap: number;
+  incidentTime: string;
   incidentDescription:string;
   result: string;
   solved:boolean;
