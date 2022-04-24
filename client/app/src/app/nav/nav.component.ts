@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api/menuitem';
 import { Observable } from 'rxjs';
 import { LoginUserDto } from '../_models/login';
-
+import { Router } from '@angular/router';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
 
@@ -17,6 +17,9 @@ export class NavComponent implements OnInit {
     {
       label: 'Profil',
       icon: 'pi pi-user',
+      command:()=>{
+        this.driverProfile();
+      },
     },
     {
       label: 'Wyloguj',
@@ -27,7 +30,7 @@ export class NavComponent implements OnInit {
     },
   ];
 
-  constructor(public accountService: AccountService) {}
+  constructor(public accountService: AccountService, private router:Router) {}
 
   ngOnInit(): void {
     this.model = new LoginUserDto();
@@ -49,5 +52,9 @@ export class NavComponent implements OnInit {
   }
   connectSteam(userId: number) {
     this.accountService.steam(userId);
+  }
+
+  driverProfile(){
+    this.router.navigate(['/profile']);
   }
 }

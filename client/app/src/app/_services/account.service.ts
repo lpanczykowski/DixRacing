@@ -5,6 +5,7 @@ import { map, take } from 'rxjs/operators'
 import { environment } from 'environments/environment';
 import { User } from '../_models/user';
 import { RegisterUserDto } from 'app/_models/registerUserDto';
+import { UserDto } from 'app/_models/userDto';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json-patch+json'})
@@ -64,5 +65,13 @@ export class AccountService {
   steam(userId : number)
   {
     window.location.href  = this.baseUrl+"steam/login/"+userId  ;
+  }
+
+  getUserInfo(){
+
+  }
+
+  changeUserInfo(userDto:UserDto){
+
   }
 }

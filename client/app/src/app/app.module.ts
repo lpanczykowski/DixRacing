@@ -46,6 +46,7 @@ import { EventRoundCreatorComponent } from './events/event-round-creator/event-r
 import { RaceCreatorComponent } from './races/race-creator/race-creator.component';
 import { TimePipe } from './pipes/time.pipe';
 import { RaceIncidentsOpenComponent } from './races/race-incidents-open/race-incidents-open.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { RaceIncidentsOpenComponent } from './races/race-incidents-open/race-inc
     RaceCreatorComponent,
     TimePipe,
     GapPipe,
-    RaceIncidentsOpenComponent
+    RaceIncidentsOpenComponent,
+    UserProfileComponent
   ],
   imports: [
     FormsModule,
