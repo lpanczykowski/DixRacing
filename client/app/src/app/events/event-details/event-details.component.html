@@ -13,7 +13,7 @@
 
             </app-event-signup>
               <ng-template pTemplate="footer">
-                  <p-button icon="pi pi-check" (click)="displaySignupForm=false" label="Ok" styleClass="p-button-text"></p-button>
+                  <p-button  (click)="displaySignupForm=false" label="Zamknij" styleClass="p-button-text"></p-button>
               </ng-template>
           </p-dialog></h2>
 
@@ -25,7 +25,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8 bg-secondary text-white">
+    <div class="col-8 bg-secondary text-white" style="margin-bottom: 150px;">
       <br />
       <div class="row text-center ml-4">
         <p-tabView>
@@ -69,7 +69,7 @@
         </p-tabView>
       </div>
     </div>
-    <div class="col-4 bg-secondary text-black">
+    <div class="col-4 bg-secondary text-black" style="margin-bottom: 150px;">
       <div class="container mt-4">
         <p-card header="Runda {{ activeRound.roundNumber }}" subheader="Tor">
           <ng-template pTemplate="header">
