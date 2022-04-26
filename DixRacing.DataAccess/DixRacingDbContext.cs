@@ -34,6 +34,7 @@ namespace DixRacing.DataAccess
         public DbSet<RaceResult> RaceResults { get; set; }
         public DbSet<RaceLap> RaceLaps { get; set; }
         public DbSet<RacePoint> RacePoints { get; set; }
+        public DbSet<RaceIncident> RaceIncidents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -22,6 +22,7 @@ namespace DixRacing.Domain.Races
         public ICollection<RaceResult> RaceResults { get; set; }
         public ICollection<RaceLap> RaceLaps { get; set; }
         public ICollection<RacePoint> RacePoints { get; set; }
+        public ICollection<RaceIncident> RaceIncidents { get; set; }
         public string SessionType { get; set; }
 
     }
