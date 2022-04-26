@@ -5,20 +5,17 @@ import { RaceService } from 'app/_services/race.service';
 @Component({
   selector: 'app-race-incidents-report',
   templateUrl: './race-incidents-report.component.html',
-  styleUrls: ['./race-incidents-report.component.css']
+  styleUrls: ['./race-incidents-report.component.css'],
 })
 export class RaceIncidentsReportComponent implements OnInit {
+  model: RaceIncidentDto = new RaceIncidentDto();
 
-  model:RaceIncidentDto=new RaceIncidentDto();
+  constructor(private raceService: RaceService) {}
 
-  constructor(private raceService:RaceService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  reportIncident(model:RaceIncidentDto)
-  {
-    this.model.solved=false;
+  reportIncident(model: RaceIncidentDto) {
+    this.model.isSolved = false;
     this.raceService.reportIncident(model);
   }
 }

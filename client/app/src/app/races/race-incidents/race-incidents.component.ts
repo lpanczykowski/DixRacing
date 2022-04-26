@@ -49,11 +49,11 @@ export class RaceIncidentsComponent implements OnInit {
 
   raiseAppeal(raceIncident:RaceIncidentResult){
     this.displayAppeal=false;
-    this.model.incidentLap=raceIncident.incidentLap;
-    this.model.incidentTime=raceIncident.incidentTime;
-    this.model.reportedDriver=raceIncident.reportedDriver;
-    this.model.reportingDriver=raceIncident.reportingDriver;
-    this.model.solved=false;
+    this.model.lap=raceIncident.incidentLap;
+    this.model.time=raceIncident.incidentTime;
+    this.model.reportedUserId=raceIncident.reportedDriver;
+    this.model.userId=raceIncident.reportingDriver;
+    this.model.isSolved=false;
     this.raceService.raiseAppeal(this.model);
   }
 
