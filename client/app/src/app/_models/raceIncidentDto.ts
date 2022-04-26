@@ -6,5 +6,6 @@ export class RaceIncidentDto {
   description: string;
   isSolved: boolean;
   raceId: number;
+  id:number;
   constructor() {}
 }
