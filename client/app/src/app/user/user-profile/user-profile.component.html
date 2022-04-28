@@ -14,91 +14,20 @@
 </div>
 
 <div class="container">
-  <div class="row">
+  <div class="row" >
 
-    <div class="col-6 bg-secondary text-white">
-
-      <form #userDataForm="ngForm" (ngSubmit)="saveEditedData()">
-        <div class="grid p-fluid mx-4 mt-4">
-          <div class="field col-12">
-            <span class="mx-2" style="float:left; align-items:center">
-              <p-avatar
-                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8dpjb_w87qvWgXzTAtHPhkNIeso_JfBib-A&usqp=CAU"
-                styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-            </span>
-
-
-            <span class="ml-2" display="flex" style="float:left; align-items:center">
-              <p>Nick: {{user.nick}}</p>
-              <p>Steam ID: {{user.steamId}}</p>
-            </span>
-          </div>
-
-          <div class="field col-12 md:col-6">
-            <label for="nameInput">Imię</label>
-            <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.name}}"
-              [(ngModel)]="model.name" name="nameInput" required
-              #name="ngModel" [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
-          </div>
-          <div class="field col-12 md:col-6">
-            <label for="surnameInput">Nazwisko</label>
-            <input id="surnameInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.surname}}"
-              [(ngModel)]="model.surname" name="surnameInput" required
-              #surname="ngModel" [ngClass]="{'ng-invalid ng-dirty': surname.invalid && (surname.dirty || surname.touched)}"/>
-          </div>
-          <div class="field col-12 md:col-6">
-            <label for="nickInput">Nick</label>
-            <input id="nickInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.nick}}"
-              [(ngModel)]="model.nick" name="nickInput" required
-              #nick="ngModel" [ngClass]="{'ng-invalid ng-dirty': nick.invalid && (nick.dirty || nick.touched)}"/>
-          </div>
-          <div class="field col-12 md:col-6">
-            <label for="shotcutInput">Skrót (ACC)</label>
-            <input id="shotcutInput" type="text" pInputText [disabled]="disabled" placeholder="Dodać shortcut do usera"
-              [(ngModel)]="model.shortcut" name="shotcutInput" required
-              #shortcut="ngModel" [ngClass]="{'ng-invalid ng-dirty': shortcut.invalid && (shortcut.dirty || shortcut.touched)}"/>
-          </div>
-          <div class="field col-12 md:col-6">
-            <label for="discordInput">Discord</label>
-            <input id="discordInput" type="text" pInputText [disabled]="disabled" placeholder="Dodać discord do usera"
-              [(ngModel)]="model.discord" name="discordInput" required
-              #discord="ngModel" [ngClass]="{'ng-invalid ng-dirty': discord.invalid && (discord.dirty || discord.touched)}"/>
-          </div>
-
-          <div class="field col-12 md:col-6">
-          </div>
-
-          <div class="field col-12 md:col-6">
-            <label for="emailInput">E-mail</label>
-            <input id="emailInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.email}}"
-              [(ngModel)]="model.email" name="emailInput" required
-              #email="ngModel" [ngClass]="{'ng-invalid ng-dirty': email.invalid && (email.dirty || email.touched)}"/>
-          </div>
-
-          <div class="field col-12 md:col-6">
-
-            <button *ngIf="disabled==true" pButton pRipple type="button" label="Edytuj"
-              class="editData p-button-warning" (click)="showEditableDisplay()"></button>
-            <button *ngIf="disabled==false" pButton pRipple type="button" label="Anuluj"
-              class="editData2 p-button-warning" (click)="hideEditableDisplay()"></button>
-            <button *ngIf="disabled==false" pButton pRipple type="submit" label="Zapisz"
-              class="editData p-button-success" [disabled]="!userDataForm.valid"></button>
-
-          </div>
-        </div>
-      </form>
+    <div id="userInfoBox" class="col-4 bg-secondary text-white"  style="margin-bottom: 150px">
+      <app-user-info></app-user-info>
     </div>
 
-    <div class="col-6 bg-secondary text-black">
+    <div class="col-8 bg-secondary text-black"  style="margin-bottom: 150px; height: 100%;">
 
-      <div class="col 12 text-white" style="height: 50%;">
-        <h2 class="mt-2 ms-2">Statystyki</h2>
-        
+      <div id="userStatsBox" class="col 12 text-white" style="height: 40%;" >
+        <app-user-stats></app-user-stats>
       </div>
 
-      <div class="col 12 text-white" style="height: 50%;">
-        <h2 class="mt-2 ms-2">Ligi</h2>
-
+      <div id="userLeaguesBox" class="col 12 text-white" style="height: 60%;">
+        <app-user-leagues></app-user-leagues>
       </div>
 
     </div>

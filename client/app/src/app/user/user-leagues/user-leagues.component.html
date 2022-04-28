@@ -1,0 +1,5 @@
+<h2 class="mt-2 ms-2">Ligi</h2>
+
+<div class="col-12" *ngFor="let event of events.events" style="border-style: solid; border-color: red;">
+  <app-event-card [raceEvent] = "event" ></app-event-card>
+</div>
