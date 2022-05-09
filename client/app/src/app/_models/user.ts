@@ -6,4 +6,6 @@ export interface User {
   token: string;
   userId: number;
   steamId : string;
+  shortcut: string;
+  discord: string;
 }

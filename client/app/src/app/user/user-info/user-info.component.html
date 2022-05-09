@@ -17,48 +17,50 @@
     <div class="field col-12">
       <label for="nameInput">Imię</label>
       <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.name}}"
-        [(ngModel)]="model.name" name="nameInput" required
-        #name="ngModel" [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
+        [(ngModel)]="model.name" name="nameInput" required #name="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
     </div>
     <div class="field col-12">
       <label for="surnameInput">Nazwisko</label>
       <input id="surnameInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.surname}}"
-        [(ngModel)]="model.surname" name="surnameInput" required
-        #surname="ngModel" [ngClass]="{'ng-invalid ng-dirty': surname.invalid && (surname.dirty || surname.touched)}"/>
+        [(ngModel)]="model.surname" name="surnameInput" required #surname="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': surname.invalid && (surname.dirty || surname.touched)}" />
     </div>
     <div class="field col-12">
       <label for="nickInput">Nick</label>
       <input id="nickInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.nick}}"
-        [(ngModel)]="model.nick" name="nickInput" required
-        #nick="ngModel" [ngClass]="{'ng-invalid ng-dirty': nick.invalid && (nick.dirty || nick.touched)}"/>
+        [(ngModel)]="model.nick" name="nickInput" required #nick="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': nick.invalid && (nick.dirty || nick.touched)}" />
     </div>
+
     <div class="field col-12">
       <label for="shotcutInput">Skrót (ACC)</label>
       <input id="shotcutInput" type="text" pInputText [disabled]="disabled" placeholder="Dodać shortcut do usera"
-        [(ngModel)]="model.shortcut" name="shotcutInput" required
-        #shortcut="ngModel" [ngClass]="{'ng-invalid ng-dirty': shortcut.invalid && (shortcut.dirty || shortcut.touched)}"/>
+        [(ngModel)]="model.shortcut" name="shotcutInput" required #shortcut="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': shortcut.invalid && (shortcut.dirty || shortcut.touched)}" />
     </div>
     <div class="field col-12">
       <label for="discordInput">Discord</label>
       <input id="discordInput" type="text" pInputText [disabled]="disabled" placeholder="Dodać discord do usera"
-        [(ngModel)]="model.discord" name="discordInput" required
-        #discord="ngModel" [ngClass]="{'ng-invalid ng-dirty': discord.invalid && (discord.dirty || discord.touched)}"/>
+        [(ngModel)]="model.discord" name="discordInput" required #discord="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': discord.invalid && (discord.dirty || discord.touched)}" />
     </div>
+
     <div class="field col-12">
       <label for="emailInput">E-mail</label>
       <input id="emailInput" type="text" pInputText [disabled]="disabled" placeholder="{{user.email}}"
-        [(ngModel)]="model.email" name="emailInput" required
-        #email="ngModel" [ngClass]="{'ng-invalid ng-dirty': email.invalid && (email.dirty || email.touched)}"/>
+        [(ngModel)]="model.email" name="emailInput" required #email="ngModel"
+        [ngClass]="{'ng-invalid ng-dirty': email.invalid && (email.dirty || email.touched)}" />
     </div>
 
     <div class="field col-12 mt-4">
 
-      <button *ngIf="disabled==true" pButton pRipple type="button" label="Edytuj"
-        class="editData p-button-warning" (click)="showEditableDisplay()"></button>
-      <button *ngIf="disabled==false" pButton pRipple type="button" label="Anuluj"
-        class="editData2 p-button-warning" (click)="hideEditableDisplay()"></button>
-      <button *ngIf="disabled==false" pButton pRipple type="submit" label="Zapisz"
-        class="editData p-button-success" [disabled]="!userDataForm.valid"></button>
+      <button *ngIf="disabled==true" pButton pRipple type="button" label="Edytuj" class="editData p-button-warning"
+        (click)="showEditableDisplay()"></button>
+      <button *ngIf="disabled==false" pButton pRipple type="button" label="Anuluj" class="editData2 p-button-warning"
+        (click)="hideEditableDisplay()"></button>
+      <button *ngIf="disabled==false" pButton pRipple type="submit" label="Zapisz" class="editData p-button-success"
+        [disabled]="!userDataForm.valid"></button>
 
     </div>
   </div>
