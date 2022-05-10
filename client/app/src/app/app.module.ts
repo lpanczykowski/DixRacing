@@ -88,8 +88,7 @@ import { EventCardComponent } from './events/event-card/event-card.component';
     GapPipe,
     RaceIncidentsOpenComponent,
     UserProfileComponent,
-      RoundCardComponent
-   ],
+    RoundCardComponent,
     UserInfoComponent,
     UserStatsComponent,
     UserLeaguesComponent,
