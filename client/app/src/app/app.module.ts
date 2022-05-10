@@ -48,9 +48,13 @@ import { TimePipe } from './pipes/time.pipe';
 import { RaceIncidentsOpenComponent } from './races/race-incidents-open/race-incidents-open.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { RoundCardComponent } from './round-card/round-card.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
+import { UserStatsComponent } from './user/user-stats/user-stats.component';
+import { UserLeaguesComponent } from './user/user-leagues/user-leagues.component';
+import { EventCardComponent } from './events/event-card/event-card.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
@@ -86,6 +90,11 @@ import { RoundCardComponent } from './round-card/round-card.component';
     UserProfileComponent,
       RoundCardComponent
    ],
+    UserInfoComponent,
+    UserStatsComponent,
+    UserLeaguesComponent,
+    EventCardComponent
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,

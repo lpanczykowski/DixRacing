@@ -1,0 +1,43 @@
+<h2 class="mt-2 ms-2">Statystyki</h2>
+
+<div class="row justify-content-around" >
+
+
+  <div id="stats1" class="col-10">
+
+
+    <div class="p-fluid grid formgrid">
+      <div class="field col-3">
+        <p>Starty</p>
+        <p>{{userStats.starts}}</p>
+      </div>
+      <div class="field col-3">
+        <p>Wygrane</p>
+        {{userStats.wins}}
+      </div>
+      <div class="field col-3">
+        <p>Podium</p>
+        {{userStats.podiums}}
+      </div>
+      <div class="field col-3">
+        <p>Top 10</p>
+        {{userStats.topTen}}
+      </div>
+    </div>
+    <div class="p-fluid grid formgrid">
+      <div class="field col-4">
+        <p>Pole Position</p>
+        {{userStats.polePositions}}
+      </div>
+      <div class="field col-4">
+        <p>Fastest Lap</p>
+        {{userStats.fastestLaps}}
+      </div>
+      <div class="field col-4">
+        <p>Kary na wyścig</p>
+        {{userStats.penaltiesPerRace}}
+      </div>
+    </div>
+
+  </div>
+</div>

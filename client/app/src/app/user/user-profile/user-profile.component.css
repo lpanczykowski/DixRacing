@@ -1,16 +1,6 @@
-.field{
-  position:relative;
-}
-.editData{
-  position:absolute;
-  bottom:8px;
-  right:8px;
-  width: 100px;
+.row {
+  display: flex;
+  align-items: stretch;
+  
 }
 
-.editData2{
-  position:absolute;
-  bottom:8px;
-  right:128px;
-  width: 100px;
-}

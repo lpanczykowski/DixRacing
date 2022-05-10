@@ -2,7 +2,7 @@ export class UserDto {
   name: string;
   surname: string;
   nick: string;
-  shortcut: number;
+  shortcut: string;
   discord: string;
   email: string;
   constructor(){}
