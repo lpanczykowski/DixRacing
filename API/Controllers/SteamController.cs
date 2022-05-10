@@ -14,15 +14,15 @@ namespace API.Controllers
         {
         }
 
-        [HttpGet("login/{userId}")]
-        public async Task<ActionResult<bool>> AttachSteamId(int userId)
+        [HttpGet("login")]
+        public async Task<ActionResult<bool>> AttachSteamId()
         {
             if (!await HttpContext.IsProviderSupportedAsync("Steam"))
             {
                 return BadRequest();
             }
 
-            return Challenge(new AuthenticationProperties { RedirectUri = $"https://localhost:5001/api/account/attachSteamToUser/{userId}" }, "Steam");
+            return Challenge(new AuthenticationProperties { RedirectUri = $"https://localhost:5001/api/account/attachSteamToUser" }, "Steam");
         }
     }
 }

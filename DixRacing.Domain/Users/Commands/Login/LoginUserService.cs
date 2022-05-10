@@ -17,23 +17,23 @@ namespace DixRacing.Domain.Users.Commands.Login
         private readonly IRepository<User> _userRepository;
         private readonly ITokenService _tokenService;
 
-        public LoginUserService(IRepository<User> userRepository,ITokenService tokenService)
+        public LoginUserService(IRepository<User> userRepository, ITokenService tokenService)
         {
             _userRepository = userRepository;
             _tokenService = tokenService;
         }
         public async Task<LoginUserResponse> ExecuteAsync(LoginUserDto loginUserDto)
         {
-            var user = await _userRepository.GetUniqueByPropertyAsync(x=>x.Email == loginUserDto.Email);
-            if (user == null) throw new InvalidOperationException("Invalid username");
-            using var hmac = new HMACSHA512(user.PasswordSalt);
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginUserDto.Password));
-
-            for (int i = 0; i < computedHash.Length; i++)
+            var user = await _userRepository.GetUniqueByPropertyAsync(x => x.SteamId == loginUserDto.steamId);
+            if (user is null)
             {
-                if (computedHash[i] != user.PasswordHash[i]) throw new InvalidOperationException("Invalid password");
+                new User()
+                {
+                    SteamId = loginUserDto.steamId
+                };
+                await _userRepository.CreateAsync(user);
             }
-            var response = new LoginUserResponse(user.Email, _tokenService.CreateToken(user.Id.ToString(), user.Email),user.Id);            
+            var response = new LoginUserResponse(user.SteamId, _tokenService.CreateToken(user.Id.ToString(), user.SteamId), user.Id);
             return response;
         }
 

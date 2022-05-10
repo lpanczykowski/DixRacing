@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" routerLink="/"><img src="http://www.dix-racing.pl/WP/wp-content/uploads/2018/07/DIX_LHK_2_100.png" height="50px;"></a>
+    <a class="navbar-brand" routerLink="/"
+      ><img
+        src="http://www.dix-racing.pl/WP/wp-content/uploads/2018/07/DIX_LHK_2_100.png"
+        height="50px;"
+    /></a>
 
     <button
       class="navbar-toggler"
@@ -37,15 +41,39 @@
             >Forum</a
           >
         </li>
+        <li class="nav-item">
+          <button
+            pButton
+            pRipple
+            type="submit"
+            class="p-button-success mx-1"
+            style="width: 90px"
+            (click) = "login()"
+            *ngIf="(accountService.currentUser$ | async) === null"
+
+          >
+            Zaloguj
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            pButton
+            pRipple
+            type="button"
+            class="p-button-danger mx-1"
+            routerLink="/register"
+            style="width: 90px"
+            *ngIf="(accountService.currentUser$ | async) === null"
+          >
+            Dołącz
+          </button>
+        </li>
       </ul>
 
       <ul
         class="navbar-nav"
         *ngIf="accountService.currentUser$ | async as user"
       >
-        <li class="nav-item">
-          <a class="nav-link" (click)="connectSteam(user.userId)"><i class="fa-brands fa-steam fa-lg"></i> Steam</a>
-        </li>
         <li class="nav-item">
           <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
           <p-button
@@ -59,40 +87,5 @@
         </li>
       </ul>
     </div>
-
-    <ul
-      class="navbar-nav"
-      *ngIf="(accountService.currentUser$ | async) === null"
-    >
-      <form
-        #loginForm="ngForm"
-        class="d-flex"
-        (ngSubmit)="login()"
-        autocomplete="off"
-      >
-        <input
-          name="email"
-          class="form-control mx-1"
-          type="text"
-          pInputText
-          [(ngModel)]="model.email"
-          placeholder="E-mail"
-        />
-
-        <input
-          name="password"
-          class="form-control mx-1"
-          pPassword
-          [(ngModel)]="model.password"
-          type="password"
-          placeholder="Password"
-          [feedback]="false"
-        />
-
-          <button pButton pRipple type="submit"  class="p-button-success mx-1" style="width:12rem">Zaloguj</button>
-          <button pButton pRipple type="button"  class="p-button-danger mx-1" routerLink="/register" style="width:12rem">Dołącz</button>
-
-      </form>
-    </ul>
   </div>
 </nav>

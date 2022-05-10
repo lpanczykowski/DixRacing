@@ -47,9 +47,10 @@ import { RaceCreatorComponent } from './races/race-creator/race-creator.componen
 import { TimePipe } from './pipes/time.pipe';
 import { RaceIncidentsOpenComponent } from './races/race-incidents-open/race-incidents-open.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { RoundCardComponent } from './round-card/round-card.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     NavComponent,
     HomeComponent,
@@ -82,8 +83,9 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     TimePipe,
     GapPipe,
     RaceIncidentsOpenComponent,
-    UserProfileComponent
-  ],
+    UserProfileComponent,
+      RoundCardComponent
+   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
