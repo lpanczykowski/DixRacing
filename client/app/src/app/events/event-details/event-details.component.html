@@ -84,7 +84,9 @@
             <ng-template pTemplate="header">
               <i class="fa-solid fa-chalkboard-user p-2"></i> Rundy
             </ng-template>
-            <app-event-results></app-event-results>
+            <app-event-rounds *ngIf="rounds"
+              [rounds]=" rounds"
+            ></app-event-rounds>
           </p-tabPanel>
           <p-tabPanel>
             <ng-template pTemplate="header">

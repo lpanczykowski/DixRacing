@@ -1,3 +1,4 @@
+import { EventRoundsComponent } from './events/event-rounds/event-rounds.component';
 import { GapPipe } from './pipes/gap.pipe';
 import { EventFormComponent } from './forms/event-form/event-form.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -92,7 +93,8 @@ import { EventCardComponent } from './events/event-card/event-card.component';
     UserInfoComponent,
     UserStatsComponent,
     UserLeaguesComponent,
-    EventCardComponent
+    EventCardComponent,
+    EventRoundsComponent
   ],
   imports: [
     FormsModule,
