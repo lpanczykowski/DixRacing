@@ -53,6 +53,10 @@ export class EventService {
   createEvent(eventCreateDto:EventCreateDto){
     return this.http.post(this.baseUrl+'/event',JSON.stringify(eventCreateDto),httpOptions);
   }
+
+  getPastEvents(){
+    return this.http.get<Events>(this.baseUrl+'event'); //TODO ustalić jak ma wyglądać interface dla past events
+  }
 }
 
 

@@ -38,7 +38,7 @@ export class EventResultsComponent implements OnInit {
   }
 
   getEventResults(eventId:number) {
-      this.eventService.getEventResults(eventId);
+    this.eventService.getEventResults(eventId);
   }
 
   getRacesForEvent(eventId:number) {
