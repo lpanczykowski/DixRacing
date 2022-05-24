@@ -14,3 +14,33 @@
   right:128px;
   width: 100px;
 }
+
+.edit-button{
+  background-color: var(--buttonBlue);
+  border: none;
+}
+.edit-button:hover{
+  color: var(--buttonNavyBlue);
+  background-color: var(--light);
+  transition: 0.1s;
+}
+
+.cancel-button{
+  background-color: var(--buttonBlue);
+  border: none;
+}
+.cancel-button:hover{
+  color: var(--buttonNavyBlue);
+  background-color: var(--light);
+  transition: 0.1s;
+}
+
+.submit-button{
+  background-color: var(--buttonNavyBlue);
+  border: none;
+}
+.submit-button:hover{
+  color: var(--buttonNavyBlue);
+  background-color: var(--light);
+  transition: 0.1s;
+}

@@ -12,10 +12,68 @@
   padding: 2px;
 }
 .card-body {
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
-  color: white;
+  display: grid;
+  grid-template-areas:
+  'discord name name name name number'
+  'discord team team team team number';
+  background-color: var(--light) !important;
+  color: var(--buttonNavyBlue);
   font-size: 16px;
+  justify-items: center;
 }
+
 .card {
   background-color: transparent;
+}
+
+.name{
+  grid-area:name;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.discord{
+  grid-area:discord;
+  display: flex;
+  align-items: center;
+}
+
+.number{
+  grid-area:number;
+  border: solid 1px var(--dark);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.team{
+  grid-area:team;
+  display: flex;
+  align-items: center;
+}
+
+.discord-icon{
+  font-size: 3em;
+}
+
+.discord-icon .content{
+  font-size: small;
+  position: absolute;
+  bottom: 70px;
+  color: var(--light);
+  background-color: var(--buttonNavyBlue);
+  border: solid 1px var(--light);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.discord-icon:hover .content
+{
+  visibility: visible;
+  opacity: 1;
 }

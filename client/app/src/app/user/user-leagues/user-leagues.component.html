@@ -1,5 +1,24 @@
 <h2 class="mt-2 ms-2">Ligi</h2>
 
-<div class="col-12" *ngFor="let event of events.events" style="border-style: solid; border-color: red; overflow:auto;">
-  <app-event-card [raceEvent] = "event" ></app-event-card>
+<div class="col-12 event-card" *ngFor="let event of events.events">
+  <div class="col-12">
+    <div class="p-fluid grid formgrid">
+      <div class="field col-4">
+        <p>Zespół</p>
+        <p>123</p>
+      </div>
+      <div class="field col-4">
+        <p>Samochód</p>
+        <p>123</p>
+      </div>
+      <div class="field col-2 numbersBox">
+        <p>Punkty</p>
+        <p>123</p>
+      </div>
+      <div class="field col-2 numbersBox">
+        <p>Pozycja</p>
+        <p>123</p>
+      </div>
+    </div>
+  </div>
 </div>

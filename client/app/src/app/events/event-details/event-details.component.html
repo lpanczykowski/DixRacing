@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px">
+    <div class="col-12 event-details-header">
       <br />
       <div class="d-flex flex-row justify-content-between">
         <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px;">
@@ -25,7 +25,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8 bg-secondary text-white" style="margin-bottom: 150px;">
+    <div class="col-12 event-details-box" style="margin-bottom: 150px;">
       <br />
       <div class="row text-center ml-4">
         <p-tabView>
@@ -69,6 +69,7 @@
         </p-tabView>
       </div>
     </div>
+<!--
     <div class="col-4 bg-secondary text-black" style="margin-bottom: 150px;">
       <div class="container mt-4">
         <p-card header="Runda {{ activeRound.roundNumber }}" subheader="Tor">
@@ -114,10 +115,12 @@
         </p-accordion>
       </div>
     </div>
+    -->
+
   </div>
 </div>
 
-<p-button class="bottom-right" (click)="showRoundCreator()" icon="pi pi-plus" label="Dodaj rundę"></p-button>
+<p-button class="bottom-right add-button" (click)="showRoundCreator()" icon="pi pi-plus" label="Dodaj rundę"></p-button>
 <p-dialog header="Dodaj kolejną rundę" [(visible)]="displayBasic" [style]="{width: '50vw', height:'30vh'}" [contentStyle]="{'overflow':'visible'}"
     [draggable]="false" [resizable]="false">
     <app-event-round-creator></app-event-round-creator>

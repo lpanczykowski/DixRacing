@@ -55,11 +55,11 @@
 
     <div class="field col-12 mt-4">
 
-      <button *ngIf="disabled==true" pButton pRipple type="button" label="Edytuj" class="editData p-button-warning"
+      <button *ngIf="disabled==true" pButton pRipple type="button" label="Edytuj" class="editData edit-button"
         (click)="showEditableDisplay()"></button>
-      <button *ngIf="disabled==false" pButton pRipple type="button" label="Anuluj" class="editData2 p-button-warning"
+      <button *ngIf="disabled==false" pButton pRipple type="button" label="Anuluj" class="editData2 cancel-button"
         (click)="hideEditableDisplay()"></button>
-      <button *ngIf="disabled==false" pButton pRipple type="submit" label="Zapisz" class="editData p-button-success"
+      <button *ngIf="disabled==false" pButton pRipple type="submit" label="Zapisz" class="editData submit-button"
         [disabled]="!userDataForm.valid"></button>
 
     </div>

@@ -1,24 +1,11 @@
-<div class="eventBox col-10 bg-dark text-white me-auto" style="margin-bottom: 70px; background-image: url({{raceEvent.photo}});">
-  <br />
-  <div class="container">
+<a style="text-decoration: none;" href="/event/{{raceEvent.eventId}}" class="col-12">
+<div class="col-12  event-box " style="background-image: url({{raceEvent.photo}});">
+  <div class="container event-box-info">
     <h2>{{ raceEvent.eventName }}</h2>
     <h4>Runda {{ raceEvent.roundId }}/{{ raceEvent.amountOfRounds }}</h4>
     <h4>Preq aktywne</h4>
     <h4>Preq zakończone</h4>
-    <hr />
     <!-- <h6>Następna runda: {{raceEvent.activeRound?.roundDay | date:'short':'UTC'}}</h6> -->
   </div>
-  <br />
-  <div class="container">
-    <div class="row justify-content-around">
-      <button
-        type="button"
-        pButton
-        label="Strona wydarzenia"
-        routerLink="/event/{{ raceEvent.eventId }}"
-        class="p-button-secondary"
-      ></button>
-    </div>
-    <br />
-  </div>
 </div>
+</a>

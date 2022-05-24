@@ -1,0 +1,9 @@
+.event-card {
+  position: relative;
+  border: solid 1px var(--light);
+  border-radius: 5px;
+  padding: 30px;
+  margin: 0 0 20px 0;
+  color: var(--buttonNavyBlue);
+  background-color: var(--light);
+}

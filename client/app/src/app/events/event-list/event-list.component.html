@@ -3,8 +3,8 @@
   <h3>No events</h3>
 </div>
 <div class="row" *ngIf="events?.events.length > 0">
-  <div *ngFor="let event of events.events">
-    <app-event-box [raceEvent] = "event" ></app-event-box>
+  <div *ngFor="let event of events.events" class="event-list">
+    <app-event-box [raceEvent] = "event" class="app-event-box"></app-event-box>
   </div>
 </div>
 

@@ -7,3 +7,18 @@
   height: 10%;
   background: rgb(255, 255, 255);/*TODO:Global NavbarColor*/
 }
+.navbar{
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.nav-link{
+  color: var(--light);
+}
+
+::ng-deep .p-button{
+  color: var(--light);
+  background-color: var(--buttonBlue);
+  border: none;
+  border-radius: 3px;
+}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand" routerLink="/"><img src="http://www.dix-racing.pl/WP/wp-content/uploads/2018/07/DIX_LHK_2_100.png" height="50px;"></a>
 
@@ -49,13 +49,16 @@
         <li class="nav-item">
           <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
           <p-button
+            type="button"
+            class="user-profile-button"
             label="Nick"
             icon="fa-solid fa-id-card fa-xl"
-            styleClass="p-button-warning"
-            badge="8"
-            badgeClass="p-badge-danger"
+
             (click)="menu.toggle($event)"
           ></p-button>
+          <!--     TODO: Notification system will be done by LP        badge="8"
+            badgeClass="p-badge-danger"
+          -->
         </li>
       </ul>
     </div>

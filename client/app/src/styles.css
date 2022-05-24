@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --accent: rgb(8, 20, 53);
+  --dark: black;
+  --light: white;
+  --overlayBlue: rgba(8, 29, 53, 0.6);
+  --overlayGray: rgba(70, 70, 70, 0.6);
+  --overlayRed: rgba(200, 100, 100, 0.6);
+  --ease: all 0.3s ease 0s;
+  --buttonBlue: rgb(42, 63, 120);
+  --buttonNavyBlue: rgb(11,22,55);
+  --backgroundBlue: rgb(22, 36, 97);
+  --dixRed:red;
+}
 
 html,
 body {
   height: 100%;
+  font-family: 'Roboto',sans-serif;
 }
 
 .table td {
@@ -11,3 +25,83 @@ body {
 .table th {
   text-align: center;
 }
+
+h1 {
+  color:var(--light);
+}
+
+h2{
+  color:var(--light);
+}
+
+h3{
+  color:var(--light);
+}
+
+h4{
+  color:var(--light);
+}
+
+.event-list{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.event-box {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 70px;
+}
+
+.app-event-box {
+  display: flex;
+  justify-content: center;
+}
+
+.event-box-info h4{
+  color:var(--light);
+}
+
+.add-button  .p-button
+{
+  color:var(--light);
+  background-color: green;
+  border-color: greenyellow;
+}
+
+.event-details-box{
+  margin: 50px 0 0 0;
+  background-color: var(--buttonNavyBlue);
+  border: 1px solid var(--light);
+  border-radius: 5px;
+}
+
+.event-details-box .p-tabview-nav .ng-star-inserted .p-tabview-nav-link{
+  color: var(--light);
+}
+
+.event-details-box .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+  color:var(--buttonNavyBlue);
+  border-color: var(--light);
+  background-color: var(--light);
+}
+
+.event-details-header{
+  margin: 150px 0 0 0 ;
+  background-color: var(--buttonBlue);
+  color:var(--light);
+}
+
+.event-details-header .p-button{
+  color: var(--buttonNavyBlue);
+  font-weight: bold;
+  background-color: var(--light);
+  border-color: var(--buttonNavyBlue);
+}
+
+.driver-list{
+  background-color: var(--accent);
+}
+

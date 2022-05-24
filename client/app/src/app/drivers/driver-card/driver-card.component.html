@@ -1,21 +1,27 @@
-<div class="card mb-4">
+<div class="card driver-card">
   <div class="card-img-wrapper">
-      <div class="carImageHolder">
-        <img src="https://i0.wp.com/felixdicit.com/wp-content/uploads/2019/11/20191102105017_1.jpg?fit=1280%2C720&ssl=1" alt="" class="card-img-top">
-        <span>{{driver.number}}</span>
-      </div>
-      <!-- <ul class="list-inline member-icons animate text-center"> -->
-          <!-- <li class="list-inline-item"><button routerLink="/members/{{member.username}}"class="btn btn-primary"><i class="fa fa-user"></i></button></li> -->
-          <!-- <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-envelope"></i></button></li> -->
-      <!-- </ul> -->
+    <div class="carImageHolder">
+      <img src="https://i0.wp.com/felixdicit.com/wp-content/uploads/2019/11/20191102105017_1.jpg?fit=1280%2C720&ssl=1"
+        alt="" class="card-img-top">
+    </div>
+    <!-- <ul class="list-inline member-icons animate text-center"> -->
+    <!-- <li class="list-inline-item"><button routerLink="/members/{{member.username}}"class="btn btn-primary"><i class="fa fa-user"></i></button></li> -->
+    <!-- <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-envelope"></i></button></li> -->
+    <!-- </ul> -->
   </div>
-  <div class="card-body p-1">
-      <h5 class="card-title text-center mb-1"><i class="fa fa-user mr-2"></i>
-        {{driver.name}} "{{driver.nick}}" {{driver.surname}}
-      </h5>
-      <h6 class="card-title text-center mb-1"><i class="fa fa-users mr-2"></i>
-        {{driver.teamName}}
-      </h6>
-      <p class="card-text text-muted text-center"></p>
+  <div class="card-body">
+    <div class="discord">
+      <i class="pi pi-discord  discord-icon">
+        <div class="content">#discordId</div>
+      </i>
+    </div>
+    <h5 class="card-title text-center name m-0"><i class="fa fa-user mr-2"></i>
+      {{driver.name}} "{{driver.nick}}" {{driver.surname}}
+    </h5>
+    <h6 class="card-title text-center team m-0"><i class="fa fa-users mr-2"></i>
+      {{driver.teamName}}
+    </h6>
+    <span class="number p-2">{{driver.number}}</span>
+    <p class="card-text text-muted text-center"></p>
   </div>
 </div>
