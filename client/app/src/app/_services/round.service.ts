@@ -15,9 +15,6 @@ const httpOptions = {
 
     constructor(private http: HttpClient) { }
     //TODO: Wywalić do event service
-    getRounds() {
-      return this.http.get(this.baseUrl + 'event/1/rounds');
-    }
 
     createRace(eventId:number,raceCreateDto:RaceCreateDto){
       return this.http.post(this.baseUrl+'/'+eventId,JSON.stringify(raceCreateDto),httpOptions);

@@ -1,3 +1,4 @@
+import { EventRoundsComponent } from './events/event-rounds/event-rounds.component';
 import { GapPipe } from './pipes/gap.pipe';
 import { EventFormComponent } from './forms/event-form/event-form.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -47,6 +48,7 @@ import { RaceCreatorComponent } from './races/race-creator/race-creator.componen
 import { TimePipe } from './pipes/time.pipe';
 import { RaceIncidentsOpenComponent } from './races/race-incidents-open/race-incidents-open.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { RoundCardComponent } from './round-card/round-card.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserStatsComponent } from './user/user-stats/user-stats.component';
 import { UserLeaguesComponent } from './user/user-leagues/user-leagues.component';
@@ -87,10 +89,12 @@ import { EventCardComponent } from './events/event-card/event-card.component';
     GapPipe,
     RaceIncidentsOpenComponent,
     UserProfileComponent,
+    RoundCardComponent,
     UserInfoComponent,
     UserStatsComponent,
     UserLeaguesComponent,
-    EventCardComponent
+    EventCardComponent,
+    EventRoundsComponent
   ],
   imports: [
     FormsModule,

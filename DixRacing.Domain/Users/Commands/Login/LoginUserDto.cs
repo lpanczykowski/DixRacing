@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Domain.Users.Commands.Login
 {
-    public record LoginUserDto(string Email,string Password);
+    public record LoginUserDto(string steamId);
     
 }

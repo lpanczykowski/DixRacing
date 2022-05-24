@@ -3,20 +3,37 @@
     <div class="col-12 event-details-header">
       <br />
       <div class="d-flex flex-row justify-content-between">
-        <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px;">
+        <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px">
           {{ event?.event.name }}
         </h1>
 
-        <h2 class="ms-5 me-5 mb-4" (click)="setCurrentView(5)" style="vertical-align:middle;" display="flex;"><p-button (click)="showSignupForm()" icon="pi pi-angle-double-right" iconPos="right" label="Dołącz"></p-button>
-          <p-dialog header="Formularz zgłoszeniowy" [(visible)]="displaySignupForm" [style]="{width: '30vw'}">
-            <app-event-signup>
-
-            </app-event-signup>
-              <ng-template pTemplate="footer">
-                  <p-button  (click)="displaySignupForm=false" label="Zamknij" styleClass="p-button-text"></p-button>
-              </ng-template>
-          </p-dialog></h2>
-
+        <h2
+          class="ms-5 me-5 mb-4"
+          (click)="setCurrentView(5)"
+          style="vertical-align: middle"
+          display="flex;"
+        >
+          <p-button
+            (click)="showSignupForm()"
+            icon="pi pi-angle-double-right"
+            iconPos="right"
+            label="Dołącz"
+          ></p-button>
+          <p-dialog
+            header="Formularz zgłoszeniowy"
+            [(visible)]="displaySignupForm"
+            [style]="{ width: '30vw' }"
+          >
+            <app-event-signup> </app-event-signup>
+            <ng-template pTemplate="footer">
+              <p-button
+                (click)="displaySignupForm = false"
+                label="Zamknij"
+                styleClass="p-button-text"
+              ></p-button>
+            </ng-template>
+          </p-dialog>
+        </h2>
       </div>
     </div>
     <br />
@@ -25,9 +42,30 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12 event-details-box" style="margin-bottom: 150px;">
+    <div class="col-12 event-details-box">
+      <div class="m-1" style="display: flex">
+        <app-round-card></app-round-card>
+        <div class="container">
+          <div class="row">
+            Serwer:
+            {{ activeRound.serverName }}
+          </div>
+          <div class="row">
+            Password:
+            {{ activeRound.serverPassword }}
+          </div>
+        </div>
+      </div>
+
+      <p-button label="Potwierdź" icon="pi pi-check" *ngIf="timeToSign() > 0"
+        >Potwierdź {{ timeToSignAsString() }}</p-button
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 bg-secondary text-white">
       <br />
-      <div class="row text-center ml-4">
+      <div class="row text-center">
         <p-tabView>
           <p-tabPanel>
             <ng-template pTemplate="header">
@@ -44,6 +82,14 @@
           </p-tabPanel>
           <p-tabPanel>
             <ng-template pTemplate="header">
+              <i class="fa-solid fa-chalkboard-user p-2"></i> Rundy
+            </ng-template>
+            <app-event-rounds *ngIf="rounds"
+              [rounds]=" rounds"
+            ></app-event-rounds>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
               <i class="fa-solid fa-user p-2"></i> Kierowcy
             </ng-template>
             <app-driver-list></app-driver-list>
@@ -54,6 +100,7 @@
             </ng-template>
             <app-event-results></app-event-results>
           </p-tabPanel>
+
           <p-tabPanel>
             <ng-template pTemplate="header">
               <i class="fa-solid fa-users p-2"></i> Zespoły
@@ -69,62 +116,29 @@
         </p-tabView>
       </div>
     </div>
-<!--
-    <div class="col-4 bg-secondary text-black" style="margin-bottom: 150px;">
-      <div class="container mt-4">
-        <p-card header="Runda {{ activeRound.roundNumber }}" subheader="Tor">
-          <ng-template pTemplate="header">
-            <img
-              alt="Card"
-              src="https://d3npyywa6qnolf.cloudfront.net/prod/user/540311/eyJ1cmwiOiJodHRwczpcL1wvcGF0cm9uaXRlLnBsXC91cGxvYWRcL3VzZXJcLzU0MDMxMVwvYXZhdGFyX29yaWcuanBnPzE2MjI1ODgwNjYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MCwib3B0aW9ucyI6eyJxdWFsaXR5Ijo5NX19LCJ0b0Zvcm1hdCI6ImpwZWcifX0%3D/OL4pCaXUUXl9BnHQ3HmYZovLVzWMv9Bx%2FMZz%2FPTTulg%3D"
-            />
-          </ng-template>
-
-          <p>Serwer:</p>
-          <p>{{ activeRound.serverName }}</p>
-          <p>Password:</p>
-          <p>{{ activeRound.serverPassword }}</p>
-          <ng-template pTemplate="footer">
-            <p-button
-              label="Potwierdź"
-              icon="pi pi-check"
-              *ngIf="timeToSign() > 0"
-              >Potwierdź {{ timeToSignAsString() }}</p-button
-            >
-          </ng-template>
-        </p-card>
-      </div>
-
-      <div class="container mt-4">
-        <p-accordion>
-          <p-accordionTab
-            *ngFor="let round of event?.event.rounds"
-            (click)="loadRaces(round.id)"
-          >
-            <ng-template pTemplate="header"> Round {{ round.id }} </ng-template>
-            <ng-template pTemplate="content">
-              <div class="col-12" *ngFor="let race of races">
-                <app-race-box
-                  *ngIf="race.roundId === round.id"
-                  [round]="round"
-                  [race]="race"
-                ></app-race-box>
-              </div>
-            </ng-template>
-          </p-accordionTab>
-        </p-accordion>
-      </div>
-    </div>
-    -->
-
   </div>
 </div>
-
-<p-button class="bottom-right add-button" (click)="showRoundCreator()" icon="pi pi-plus" label="Dodaj rundę"></p-button>
-<p-dialog header="Dodaj kolejną rundę" [(visible)]="displayBasic" [style]="{width: '50vw', height:'30vh'}" [contentStyle]="{'overflow':'visible'}"
-    [draggable]="false" [resizable]="false">
-    <app-event-round-creator></app-event-round-creator>
-        <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>
-        </ng-template>
+<p-button
+  class="bottom-right add-button"
+  (click)="showRoundCreator()"
+  icon="pi pi-plus"
+  label="Dodaj rundę"
+></p-button>
+<p-dialog
+  header="Dodaj kolejną rundę"
+  [(visible)]="displayBasic"
+  [style]="{ width: '50vw', height: '30vh' }"
+  [contentStyle]="{ overflow: 'visible' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <app-event-round-creator></app-event-round-creator>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="displayBasic = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
 </p-dialog>

@@ -17,7 +17,7 @@ export class NavComponent implements OnInit {
     {
       label: 'Profil',
       icon: 'pi pi-user',
-      command:()=>{
+      command: () => {
         this.driverProfile();
       },
     },
@@ -30,31 +30,24 @@ export class NavComponent implements OnInit {
     },
   ];
 
-  constructor(public accountService: AccountService, private router:Router) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
     this.model = new LoginUserDto();
   }
 
   login() {
-    this.accountService.login(this.model).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.accountService.steam();
   }
 
   logout() {
     this.accountService.logout();
   }
   connectSteam(userId: number) {
-    this.accountService.steam(userId);
+    this.accountService.steam();
   }
 
-  driverProfile(){
+  driverProfile() {
     this.router.navigate(['/profile']);
   }
 }

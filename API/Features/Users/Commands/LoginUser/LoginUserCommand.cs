@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace API.Features.Users.Commands.LoginUser
 {
-    public record LoginUserCommand(string Email,string Password) : IRequest<LoginUserResponse>;
+    public record LoginUserCommand(string SteamId) : IRequest<LoginUserResponse>;
 }
