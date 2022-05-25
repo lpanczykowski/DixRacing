@@ -71,37 +71,4 @@ h4{
   border-color: greenyellow;
 }
 
-.event-details-box{
-  margin: 50px 0 0 0;
-  background-color: var(--buttonNavyBlue);
-  border: 1px solid var(--light);
-  border-radius: 5px;
-}
-
-.event-details-box .p-tabview-nav .ng-star-inserted .p-tabview-nav-link{
-  color: var(--light);
-}
-
-.event-details-box .p-tabview-nav li.p-highlight .p-tabview-nav-link{
-  color:var(--buttonNavyBlue);
-  border-color: var(--light);
-  background-color: var(--light);
-}
-
-.event-details-header{
-  margin: 150px 0 0 0 ;
-  background-color: var(--buttonBlue);
-  color:var(--light);
-}
-
-.event-details-header .p-button{
-  color: var(--buttonNavyBlue);
-  font-weight: bold;
-  background-color: var(--light);
-  border-color: var(--buttonNavyBlue);
-}
-
-.driver-list{
-  background-color: var(--accent);
-}
 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 pb-0 bg-dark text-white" style="margin-top: 150px">
+    <div class="col-12 pb-0 race-details-header">
       <br />
       <div class="d-flex flex-row justify-content-between">
         <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px">
@@ -18,7 +18,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8 bg-secondary text-white">
+    <div class="col-12 race-details-box">
       <br />
       <div class="row text-center">
         <p-tabView>
@@ -68,29 +68,12 @@
       </div>
     </div>
 
-    <div class="col-4 bg-secondary text-black">
-      <div class="container mt-5 mb-5">
-        <div *ngIf="view === 'preq' || 'race' || 'quali'">
-          <app-card>
-            <h5 class="card-title">
-              {{ currentDriverResult.name }} {{ currentDriverResult.surname }}
-            </h5>
-            <p class="card-text text-end">
-              {{ currentDriverResult.carNumber }}
-            </p>
-            <p class="card-text text-end">
-              {{ currentDriverResult.position.position }}/{{
-              numberOfParticipantsForEvent
-              }}
-            </p>
-            <p class="card-text text-end">
-              {{ currentDriverResult.position.points }}
-            </p>
-            <p-toggleButton (click)="changeRaceStatus()" onLabel="Obecny" offLabel="Potwierdź" onIcon="pi pi-times"
-              offIcon="pi pi-check" [style]="{ width: '10em' }">Obecność</p-toggleButton>
-          </app-card>
-        </div>
-      </div>
-    </div>
+
+    <!-- <p-toggleButton (click)="changeRaceStatus()" onLabel="Obecny" offLabel="Potwierdź" onIcon="pi pi-times"
+              offIcon="pi pi-check" [style]="{ width: '10em' }">Obecność</p-toggleButton> -->
+
+
+
+
   </div>
 </div>
