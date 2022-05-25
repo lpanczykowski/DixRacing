@@ -10,7 +10,7 @@ namespace DixRacing.Domain.Users.Commands.Login
 {
     public interface ILoginUserService
     {
-        Task<LoginUserResponse> ExecuteAsync(LoginUserDto loginUserDto);
+        Task<LoginUserResponse>  ExecuteAsync(LoginUserDto loginUserDto);
     }
     public class LoginUserService : ILoginUserService
     {

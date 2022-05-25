@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   { path: 'event/signup/:eventId', component: EventSignupComponent },
   { path: '1/drivers', component: DriversComponent },
-  { path: 'profile', component: UserProfileComponent},
+  { path: 'profile/:steamId', component: UserProfileComponent},
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];
 

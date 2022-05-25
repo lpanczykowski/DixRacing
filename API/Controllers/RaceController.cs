@@ -17,17 +17,23 @@ namespace API.Controllers
         {
         }
 
-        [HttpPut("add")]
+        [HttpPut]
         public async Task<IActionResult> AddRace()
         {
             throw new NotImplementedException();
 
         }
-        [HttpDelete("delete/{raceId}")]
+        [HttpDelete("{raceId}")]
         public async Task<ActionResult<bool>> DeleteRace(int raceId)
         {
             throw new NotImplementedException();
 
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<bool>> UpdateRace()
+        {
+            throw new NotImplementedException();
         }
         [HttpGet("{raceId}")]
         public async Task<IActionResult> FindRaceById(int raceId)
@@ -35,14 +41,14 @@ namespace API.Controllers
             throw new NotImplementedException();
 
         }
-
+        
         [HttpPost("raceStatus")]
         public async Task<IActionResult> RaceStatus()
         {
             throw new NotImplementedException();
 
         }
-        [HttpGet("{raceId}/results/{sessionType}")]
+        [HttpGet("{raceId:int}/results/{sessionType}")]
         public async Task<ActionResult<IEnumerable<GetRaceResultsResponse>>> RaceResults(int raceId, string sessionType)
          => await SendAsync(new GetRaceResultsRequest(raceId, sessionType));
         [HttpPost("confirmation")]

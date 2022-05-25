@@ -1,3 +1,4 @@
+using API.Extensions;
 using API.Features.Users.Commands.GetUserBySteamId;
 using API.Features.Users.Commands.LoginUser;
 using API.Features.Users.Commands.Steam;
@@ -7,18 +8,25 @@ using DixRacing.Domain.Users.Commands.Register;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    
     public class AccountController : BaseApiController
     {
-        public AccountController(IMediator mediator) : base(mediator)
+        private readonly ILoginUserService _loginUserService;
+
+        public AccountController(IMediator mediator,ILoginUserService loginUserService) : base(mediator)
         {
+            _loginUserService = loginUserService;
         }
 
 
@@ -37,23 +45,32 @@ namespace API.Controllers
             throw new NotImplementedException();
 
         }
-        [HttpGet("attachSteamToUser")]
-        public async Task<ActionResult> GetClaims()
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet("credentials")]
+        public async Task<IActionResult> GetCredentials()
         {
-            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+            return Ok(User.GetUserId());
+
+        }
+        [HttpGet("attachSteamToUser")]
+        public async Task<IActionResult> GetClaims()
+        {
+            AuthenticateResult result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var claim = result.Principal?.Identities.FirstOrDefault()?.Claims.Select(claim => new
             {
                 claim.Issuer,
                 claim.OriginalIssuer,
                 claim.Type,
                 claim.Value
             });
-            var steamId = claims.Select(s => s.Value).FirstOrDefault().Split('/').Last();
-            var user = await SendAsync(new GetUserBySteamIdCommand(steamId));
-            await SendAsync(new LoginUserCommand(steamId));
-            if (user is not null)
+            if (claim == null)
+            {
                 return Redirect("http://localhost:4200");
-            return Redirect("http://localhost:4200/profile");
+            }
+            string steamId = claim.Select(s => s.Value).FirstOrDefault()?.Split('/').Last();
+            await SendAsync(new GetUserBySteamIdCommand(steamId));
+            var token = await _loginUserService.ExecuteAsync(new LoginUserDto(steamId));
+            return Redirect($"http://localhost:4200/profile/{steamId}?token={token.Token}");
         }
     }
 }
