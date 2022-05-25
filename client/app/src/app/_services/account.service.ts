@@ -19,22 +19,21 @@ export class AccountService {
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  login(model: any) {
-    return this.http.post(this.baseUrl + 'account/login', model).pipe(
-      map((response: User) => {
-        const user = response;
-        if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
-          this.currentUserSource.next(user);
-        }
-      })
-    );
+  login(user: User) {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.currentUserSource.next(user);
+    }
   }
 
   setCurrentUser(user: User) {
     this.currentUserSource.next(user);
+  }
+
+  getCredentials() {
+    return this.http.get(this.baseUrl + 'account/credentials')
   }
 
   logout() {
@@ -62,7 +61,7 @@ export class AccountService {
     window.location.href = 'https://localhost:5001/api/steam/login';
   }
 
-  getUserInfo() {}
+  getUserInfo() { }
 
-  changeUserInfo(userDto: UserDto) {}
+  changeUserInfo(userDto: UserDto) { }
 }
