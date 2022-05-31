@@ -48,7 +48,7 @@ export class EventService {
   eventSignup(eventId: number, eventRegisterDriverDto: any) {
     return this.http.post(
       this.baseUrl + 'event/sign',
-      JSON.stringify({ eventRegisterDriverDto }),
+      JSON.stringify(eventRegisterDriverDto),
       httpOptions
     );
   }
@@ -63,7 +63,7 @@ export class EventService {
 
   createEvent(eventCreateDto: EventCreateDto) {
     return this.http.post(
-      this.baseUrl + '/event',
+      this.baseUrl + 'event',
       JSON.stringify(eventCreateDto),
       httpOptions
     );

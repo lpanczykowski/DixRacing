@@ -1,6 +1,6 @@
 export class EventCreateDto{
   name: string;
   gameId:number;
-  photo:string;
+  photo:Blob;
   constructor(){}
 }

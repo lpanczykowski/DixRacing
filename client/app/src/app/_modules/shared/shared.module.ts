@@ -19,9 +19,10 @@ import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
-import { FileUploadModule } from 'primeng/fileupload'
+import { FileUploadModule } from 'primeng/fileupload';
 import {ToastModule} from 'primeng/toast';
 import {AvatarModule} from 'primeng/avatar';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import {AvatarModule} from 'primeng/avatar';
     FileUploadModule,
     ToastModule,
     AvatarModule,
+    DropdownModule,
 
   ],
   exports: [
@@ -69,6 +71,7 @@ import {AvatarModule} from 'primeng/avatar';
     FileUploadModule,
     ToastModule,
     AvatarModule,
+    DropdownModule,
 
   ],
 })

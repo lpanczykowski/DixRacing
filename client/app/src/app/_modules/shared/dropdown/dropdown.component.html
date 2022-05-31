@@ -1,1 +1,1 @@
-<p-dropdown [options]="values" [(ngModel)]="selectedCity" optionLabel="name" optionDisabled="inactive"></p-dropdown>
+<p-dropdown [options]="values"  optionLabel="name" optionDisabled="inactive" (onChange)="onChangeEmitter()"></p-dropdown>

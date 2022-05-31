@@ -7,7 +7,8 @@
 
 <span class="p-float-label">
   <input id="eventGame" type="text" pInputText [(ngModel)]="model.gameId" name="eventGame">
-  <label for="eventGame">Platforma</label>
+  <label for="eventGame">Gra</label>
+  <app-dropdown [endpoint]="'game'"></app-dropdown>
 </span>
 
 <span class="p-float-label mb-2">
