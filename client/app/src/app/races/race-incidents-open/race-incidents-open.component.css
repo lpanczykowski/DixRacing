@@ -1,8 +1,14 @@
-::ng-deep .p-tabview .p-tabview-panels{
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-
 ::ng-deep .p-tabview-nav{
   justify-content: center;
+}
+
+.race-details-box .p-tabview-nav .ng-star-inserted .p-tabview-nav-link{
+  color: var(--light);
+  height: 3rem;
+}
+
+.race-details-box .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+  color:var(--buttonNavyBlue);
+  border-color: var(--light);
+  background-color: var(--light);
 }
