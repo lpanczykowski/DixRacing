@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventDto } from 'app/_models/event';
 import { Race } from 'app/_models/race';
 import { Round } from 'app/_models/round';
+import { AccountService } from 'app/_services/account.service';
 import { EventService } from 'app/_services/event.service';
 import { RaceService } from 'app/_services/race.service';
 import { RoundService } from 'app/_services/round.service';
@@ -39,7 +40,8 @@ export class EventDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private roundService: RoundService,
     private raceService: RaceService,
-    private eventService: EventService
+    private eventService: EventService,
+    public accountService: AccountService
   ) {
     this.viewId = 0;
     setInterval(() => {

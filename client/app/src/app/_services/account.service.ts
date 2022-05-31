@@ -17,8 +17,9 @@ const httpOptions = {
 export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<User>(1);
+  private admin = new ReplaySubject<Boolean>(1);
   currentUser$ = this.currentUserSource.asObservable();
-
+  admin$ = this.admin.asObservable();
   constructor(private http: HttpClient) { }
 
   login(user: User) {
@@ -33,12 +34,17 @@ export class AccountService {
   }
 
   getCredentials() {
-    return this.http.get(this.baseUrl + 'account/credentials')
+    return this.http.get(this.baseUrl + 'account/credentials').pipe(
+      map((x: boolean) => {
+        this.admin.next(x);
+      })
+    )
   }
 
   logout() {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
+    this.admin.next(null);
   }
 
   register(registerUserDto: RegisterUserDto) {

@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<p-button class="bottom-right add-button" label="Dodaj Event" icon="pi pi-plus" iconPos="left"  (click)="onAddEventClick()"></p-button>
+<p-button *ngIf="accountService.admin$ | async" class="bottom-right add-button" label="Dodaj Event" icon="pi pi-plus" iconPos="left"  (click)="onAddEventClick()"></p-button>
 <p-dialog header="Kreator eventu" [(visible)]="displayEventCreator" [modal]="true" [style]="{width: '50vw'}"
     [draggable]="false" [resizable]="false">
         <app-event-creator></app-event-creator>
@@ -18,3 +18,5 @@
         <p-button icon="pi pi-check" (click)="displayEventCreator=false" label="Anuluj" styleClass="p-button-text"></p-button>
         </ng-template>
 </p-dialog>
+
+

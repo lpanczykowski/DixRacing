@@ -16,8 +16,6 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    //[Authorize(AuthenticationSchemes =
-    //JwtBearerDefaults.AuthenticationScheme)]
     public class EventController : BaseApiController
     {
         public EventController(IMediator mediator) : base(mediator)

@@ -10,7 +10,7 @@ namespace DixRacing.Domain.SharedKernel
 {
     public interface ITokenService
     {
-        string CreateToken(string nameId, string uniqueName);
+        string CreateToken(string nameId, string uniqueName,int isAdmin);
     }
     public class TokenService : ITokenService
     {
@@ -22,17 +22,16 @@ namespace DixRacing.Domain.SharedKernel
 
         }
 
-        public string CreateToken(string nameId, string uniqueName)
+        public string CreateToken(string nameId, string uniqueName, int isAdmin)
         {
 
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.NameId, nameId),
                 new Claim(JwtRegisteredClaimNames.UniqueName, uniqueName),
+                new Claim(ClaimTypes.Role , isAdmin > 0 ? "Admin" : "")
             };
-
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
-
             var tokenDesc = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
@@ -41,7 +40,6 @@ namespace DixRacing.Domain.SharedKernel
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDesc);
-
             return tokenHandler.WriteToken(token);
         }
     }

@@ -49,7 +49,7 @@ namespace API.Controllers
         [HttpGet("credentials")]
         public async Task<IActionResult> GetCredentials()
         {
-            return Ok(User.GetUserId());
+            return Ok(User.IsAdmin());
 
         }
         [HttpGet("attachSteamToUser")]

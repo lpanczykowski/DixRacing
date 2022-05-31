@@ -12,5 +12,10 @@ namespace API.Extensions
         {
             return int.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
         }
+
+        public static bool IsAdmin(this ClaimsPrincipal user)
+        {
+            return user.FindFirst(ClaimTypes.Role)?.Value == "Admin";
+        }
     }
 }

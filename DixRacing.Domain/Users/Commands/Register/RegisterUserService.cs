@@ -35,8 +35,9 @@ namespace DixRacing.Domain.Users.Commands
             user.PasswordSalt = hmac.Key;
             user.Email = registerUserDto.Email;
             user.SteamId = registerUserDto.SteamId;
+            user.IsAdmin = 0;
             await _userRepository.CreateAsync(user);
-            return new RegisterUserResponse(user.Email, _tokenService.CreateToken(user.Id.ToString(), user.Email));
+            return new RegisterUserResponse(user.Email, _tokenService.CreateToken(user.Id.ToString(), user.Email,user.IsAdmin));
         }
     }
 }

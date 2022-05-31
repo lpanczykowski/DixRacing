@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { AccountService } from 'app/_services/account.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { CalendarOptions } from '@fullcalendar/angular';
 })
 export class HomeComponent implements OnInit {
   displayEventCreator: boolean = false;
-  constructor() {}
+  constructor(public accountService: AccountService) { }
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -24,5 +25,5 @@ export class HomeComponent implements OnInit {
     this.displayEventCreator = true;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

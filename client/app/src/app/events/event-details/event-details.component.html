@@ -63,7 +63,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 bg-secondary text-white">
+    <div class="col-12 event-details-box">
       <br />
       <div class="row text-center">
         <p-tabView>
@@ -118,7 +118,7 @@
     </div>
   </div>
 </div>
-<p-button
+<p-button *ngIf="accountService.admin$ | async"
   class="bottom-right add-button"
   (click)="showRoundCreator()"
   icon="pi pi-plus"

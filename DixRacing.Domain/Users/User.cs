@@ -15,6 +15,7 @@ namespace DixRacing.Domain.Users
         public string Surname { get; set; }
         public string SteamId { get; set; }
         public string DiscordId { get; set; }
+        public int IsAdmin { get; set; }
 
     }
 }

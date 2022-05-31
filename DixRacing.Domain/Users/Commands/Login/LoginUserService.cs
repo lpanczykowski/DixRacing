@@ -33,7 +33,7 @@ namespace DixRacing.Domain.Users.Commands.Login
                 };
                 await _userRepository.CreateAsync(user);
             }
-            var response = new LoginUserResponse(user.SteamId, _tokenService.CreateToken(user.Id.ToString(), user.SteamId), user.Id);
+            var response = new LoginUserResponse(user.SteamId, _tokenService.CreateToken(user.Id.ToString(), user.SteamId,user.IsAdmin), user.Id);
             return response;
         }
 
