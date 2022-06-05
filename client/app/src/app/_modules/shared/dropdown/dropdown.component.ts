@@ -12,16 +12,21 @@ import { map } from 'rxjs/operators';
 })
 export class DropdownComponent implements OnInit {
   @Input() endpoint: string;
+  @Input() labelId: string;
+  @Input() labelValue: string;
   @Output() selectedValueEmitter = new EventEmitter<Number>();
 
   values: SelectItem[];
   selectedValue: DropdownValue;
 
   constructor(private dropdownService: DropdownService) {
-    this.values = [];
-    for (let i = 0; i < 10; i++) {
-        this.values.push({label: 'Item ' + i, value: 'Item ' + i});
-    }
+    this.values = [
+      {label: 'New York', value: 'NY'},
+      {label: 'Rome', value: 'RM'},
+      {label: 'London', value: 'LDN'},
+      {label: 'Istanbul', value: 'IST'},
+      {label: 'Paris', value: 'PRS'}
+  ];
    }
 
   ngOnInit() {

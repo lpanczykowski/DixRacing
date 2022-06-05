@@ -16,4 +16,8 @@ export class EventCreatorComponent implements OnInit {
   createEvent() {
     this.eventService.createEvent(this.model);
   }
+
+  selectGame(selectedGame:number){
+    this.model.gameId=selectedGame;
+  }
 }

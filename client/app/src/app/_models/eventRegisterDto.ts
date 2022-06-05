@@ -4,7 +4,7 @@ export class eventRegisterDriverDto {
   car:number;
   livery?:any;
   number:number;
-  team?: string;
-  newTeam?:string;
+  team?: number;
+  newTeam?:number;
   constructor(){}
 }

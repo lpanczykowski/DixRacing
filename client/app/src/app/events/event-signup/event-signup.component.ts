@@ -38,10 +38,11 @@ export class EventSignupComponent implements OnInit {
   }
 
   eventSignup() {
-    if (this.model.newTeam !== undefined && this.model.newTeam !== '') {
-      this.model.team = this.model.newTeam;
-      this.addNewTeam(this.eventId, this.model.newTeam);
-    };
+    // TODO: Sprawdzenie czy nazwa teamu jest zajęta i dodanie team Id przy tworzeniu nowego
+    // if (this.model.newTeam !== undefined) {
+    //   this.model.team = this.model.newTeam;
+    //   this.addNewTeam(this.eventId, this.model.newTeam);
+    // };
     this.model.eventId = this.eventId;
     this.model.userId = this.userId;
     this.eventService.eventSignup(this.eventId, this.model);
@@ -57,11 +58,20 @@ export class EventSignupComponent implements OnInit {
     this.eventService.getTeamsForEvent(eventId);
   }
 
-  addNewTeam(eventId: number, newTeamName: string) {
-    this.eventService.addNewTeam(eventId, newTeamName);
-  }
+  // TODO: Sprawdzenie czy nazwa teamu jest zajęta i dodanie team Id przy tworzeniu nowego
+  // addNewTeam(eventId: number, newTeamName: string) {
+  //   this.eventService.addNewTeam(eventId, newTeamName);
+  // }
 
   liveryUpload(event){
     this.model.livery = event.target.files[0];
+  }
+
+  selectCar(selectedCar:number){
+    this.model.car=selectedCar;
+  }
+
+  selectTeam(selectedTeam:number){
+    this.model.team=selectedTeam;
   }
 }

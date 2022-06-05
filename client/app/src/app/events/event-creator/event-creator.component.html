@@ -6,9 +6,7 @@
 </span>
 
 <span class="p-float-label">
-  <input id="eventGame" type="text" pInputText [(ngModel)]="model.gameId" name="eventGame">
-  <label for="eventGame">Gra</label>
-  <app-dropdown [endpoint]="'game'"></app-dropdown>
+  <app-dropdown [endpoint]="'game'" (selectedValueEmitter)="selectGame($event)"></app-dropdown>
 </span>
 
 <span class="p-float-label mb-2">
