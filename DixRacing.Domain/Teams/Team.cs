@@ -6,6 +6,7 @@ namespace DixRacing.Domain.Teams
 {
     public class Team : BaseEntity
     {
+        public int EventId { get; set; }
         public string Name { get; set; }
         public IEnumerable<EventParticipant> Participants { get; set; }
     }
