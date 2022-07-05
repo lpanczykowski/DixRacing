@@ -29,7 +29,7 @@ namespace API.Infrastructure.DependencyInjection
 
         private static IServiceCollection AddApiDependencies(this IServiceCollection services)
         {
-            services.AddMediatR(Assembly.Load("API"));
+            services.AddMediatR(Assembly.Load("DixRacing.API"));
             services.Decorate(typeof(IRequestHandler<,>), typeof(TransactionalRequestHandlerDecorator<,>));
 
             return services;

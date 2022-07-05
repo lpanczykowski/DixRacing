@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{0FB86595-22BB-499E-8076-B84396B5FE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.API", "DixRacing.API\DixRacing.API.csproj", "{0FB86595-22BB-499E-8076-B84396B5FE7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.Workers", "DixRacing.Workers\DixRacing.Workers.csproj", "{7250AB1A-55DB-4718-AC42-1FCCCDCCB8FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.Domain", "DixRacing.Domain\DixRacing.Domain.csproj", "{0B24449F-BDCF-42BD-ADB7-6A53D56461E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DixRacing.DataAccess", "DixRacing.DataAccess\DixRacing.DataAccess.csproj", "{8ED662B7-927D-4F50-A499-A35D9FC7014D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DixRacing.Application", "DixRacing.Application\DixRacing.Application.csproj", "{A115C806-C0AF-43AD-B1E4-D6F55580BD82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{8ED662B7-927D-4F50-A499-A35D9FC7014D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED662B7-927D-4F50-A499-A35D9FC7014D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED662B7-927D-4F50-A499-A35D9FC7014D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A115C806-C0AF-43AD-B1E4-D6F55580BD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A115C806-C0AF-43AD-B1E4-D6F55580BD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A115C806-C0AF-43AD-B1E4-D6F55580BD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A115C806-C0AF-43AD-B1E4-D6F55580BD82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
