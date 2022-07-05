@@ -30,13 +30,12 @@ export class DropdownComponent implements OnInit {
    }
 
   ngOnInit() {
-// this.loadData();
+
   }
 
   loadData() {
     this.dropdownService.get(this.endpoint).pipe(map((items:DropdownValue[])=>{
-      return items.forEach((item)=>{
-        this.values.push({value : item.value, label })
+      return items.map((item)=>({
         label:item.value,
         value:item.id,
       }))
