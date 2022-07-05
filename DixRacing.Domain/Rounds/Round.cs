@@ -18,7 +18,6 @@ namespace DixRacing.Domain.Rounds
         public string ServerName { get; set; }
         public string ServerPassword { get; set; }
         public int TrackId { get; set; }
-        [ForeignKey("TrackId")]
         public Track Track { get; set; }
         public DateTime RoundDay { get; set; }
         public bool IsActive { get; set; }
