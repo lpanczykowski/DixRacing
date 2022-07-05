@@ -1,6 +1,6 @@
 //using Microsoft.AspNetCore.Authorization;
 
-//namespace API.Controllers
+//namespace DixRacing.API.Controllers
 //{
 //    [Authorize]
 //    public class UserController : BaseApiController

@@ -41,7 +41,7 @@ namespace API
            {
                c.SwaggerDoc("v1", new OpenApiInfo
                {
-                   Title = "My API",
+                   Title = "My DixRacing.API",
                    Version = "v1"
                });
                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -80,7 +80,7 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DixRacing.API v1"));
 
             }
             app.UseHttpsRedirection();
