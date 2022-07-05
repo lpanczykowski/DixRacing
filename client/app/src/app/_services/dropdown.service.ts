@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DropdownValue } from 'app/_models/dropdown';
 import { environment } from 'environments/environment';
@@ -12,8 +12,11 @@ export class DropdownService {
   baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
-  get(endpoint: string) {
-    return this.http.get<DropdownValue[]>(this.baseUrl + 'dropdown' + endpoint);
+  get(endpoint: string, params?:HttpParams) {
+
+    return this.http.get<DropdownValue[]>(this.baseUrl + 'dropdown/' + endpoint, {
+      params: params,
+    });
   }
 
 }

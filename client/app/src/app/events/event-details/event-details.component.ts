@@ -66,6 +66,7 @@ export class EventDetailsComponent implements OnInit {
         this.rounds = e.event.rounds;
         this.activeRound = e.event.rounds.find((x) => x.isActive);
         console.log(e);
+        this.loadRaces(this.activeRound.id);
       },
       (error: any) => console.log(error)
     );
@@ -74,6 +75,7 @@ export class EventDetailsComponent implements OnInit {
   loadRaces(roundId: number) {
     this.raceService.getRaces(roundId).subscribe((races) => {
       this.races = races;
+      console.log(this.races);
     });
     return this.races;
   }

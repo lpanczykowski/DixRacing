@@ -5,6 +5,7 @@ import { Team } from 'app/_models/Team';
 import { EventService } from 'app/_services/event.service';
 import { EventCar } from 'app/_models/eventCar';
 import { MessageService } from 'primeng/api';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-event-signup',
@@ -14,7 +15,7 @@ import { MessageService } from 'primeng/api';
 })
 export class EventSignupComponent implements OnInit {
 
-
+  params: HttpParams=new HttpParams();
   model: eventRegisterDriverDto = new eventRegisterDriverDto();
   eventId: number;
   userId: number;
@@ -30,6 +31,7 @@ export class EventSignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
+    this.params.append('eventId', this.eventId.toString());
     const user = JSON.parse(localStorage.getItem('user'));
     this.userId = user.userId;
 

@@ -3,7 +3,7 @@
   <div class="card-img-wrapper">
     <div class="carImageHolder">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Circuit_N%C3%BCrburgring-1927-Nordschleife.svg/1107px-Circuit_N%C3%BCrburgring-1927-Nordschleife.svg.png"
+        src="{{round.track.photo}}"
         alt=""
         class="card-img-top"
         style="max-width: 250px"
@@ -17,11 +17,11 @@
   <div class="card-body p-1 bg-primary m-1">
     <h5 class="card-title text-center mb-1">
       <i class="pi pi-map-marker mr-2"></i>
-      Tutej track
+      {{round.track.name}}
     </h5>
     <h6 class="card-title text-center mb-1">
       <i class="pi pi-calendar mr-2"></i>
-      FP: 120min Q: 20min R: 10min
+      FP:{{races.practiceLength}} Q: {{races.qualiLength}} R: {{races.raceLength}}
     </h6>
     <p class="card-text text-muted text-center"></p>
   </div>

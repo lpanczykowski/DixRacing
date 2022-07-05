@@ -4,6 +4,7 @@ import { DropdownService } from 'app/_services/dropdown.service';
 import { EventEmitter } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { map } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-dropdown',
@@ -12,6 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class DropdownComponent implements OnInit {
   @Input() endpoint: string;
+  @Input() queryParams: HttpParams;
   @Input() labelId: string;
   @Input() labelValue: string;
   @Output() selectedValueEmitter = new EventEmitter<Number>();
@@ -19,27 +21,19 @@ export class DropdownComponent implements OnInit {
   values: SelectItem[];
   selectedValue: DropdownValue;
 
-  constructor(private dropdownService: DropdownService) {
-    this.values = [
-      {label: 'New York', value: 'NY'},
-      {label: 'Rome', value: 'RM'},
-      {label: 'London', value: 'LDN'},
-      {label: 'Istanbul', value: 'IST'},
-      {label: 'Paris', value: 'PRS'}
-  ];
-   }
+  constructor(private dropdownService: DropdownService) {}
 
   ngOnInit() {
-// this.loadData();
+    this.loadData();
   }
 
   loadData() {
-    this.dropdownService.get(this.endpoint).pipe(map((items:DropdownValue[])=>{
-      return items.map((item)=>({
-        label:item.value,
-        value:item.id,
-      }))
-    })).subscribe(x=>this.values=x);
+    console.log("i don't know")
+    this.dropdownService.get(this.endpoint,this.queryParams).pipe(map((items:DropdownValue[])=>{
+      items.map((item)=>
+        console.log(item)
+      )
+    })).subscribe(x=>console.log(x));
   }
 
   onChangeEmitter(){

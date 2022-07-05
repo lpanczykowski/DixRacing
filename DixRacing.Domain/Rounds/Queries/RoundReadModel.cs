@@ -4,6 +4,7 @@ namespace DixRacing.Domain.Rounds.Queries
 {
     public record RoundReadModel(
         int Id,
+        int TrackId,
         string ServerName,
         string ServerPassword,
         int RoundNumber,
@@ -12,7 +13,7 @@ namespace DixRacing.Domain.Rounds.Queries
         )
     {
         [Obsolete("For dapper support only")]
-        public RoundReadModel() : this(default, string.Empty, string.Empty, default, default,default)
+        public RoundReadModel() : this(default,default, string.Empty, string.Empty, default, default,default)
         {
         }
     }

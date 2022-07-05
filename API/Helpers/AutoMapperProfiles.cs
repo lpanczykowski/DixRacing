@@ -22,8 +22,8 @@ namespace API.Helpers
             CreateMap<RaceLapReadModel,LapDto>();
             CreateMap<RacePointsReadModel,RacePointsDto>();
             CreateMap<Team,DropdownDto>()
-              .ForMember(destinationMember => destinationMember.Value,
-                memberOptions=>memberOptions.MapFrom(src => src.Name));
+                .ForMember(destinationMember => destinationMember.Value,
+                    memberOptions=>memberOptions.MapFrom(src => src.Name));
         }
 
     }

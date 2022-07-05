@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Race } from 'app/_models/race';
 import { Round } from 'app/_models/round';
 
 @Component({
@@ -8,6 +9,7 @@ import { Round } from 'app/_models/round';
 })
 export class RoundCardComponent implements OnInit {
   @Input() round: Round;
+  @Input() races: Race;
 
   constructor() {}
 

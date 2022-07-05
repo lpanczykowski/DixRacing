@@ -10,8 +10,9 @@ namespace API.Features.Dropdowns.Queries
         
     }
 
-    public record DropdownDto(int Id, string Value)
+    public class DropdownDto
     {
-
+        public int Id { get; set; }
+        public string Value { get; set; }
     }
 }
