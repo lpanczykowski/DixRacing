@@ -1,10 +1,8 @@
+using DixRacing.Domain.Events;
 using DixRacing.Domain.SharedKernel;
 using DixRacing.Domain.Teams;
-using DixRacing.Domain.Users;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DixRacing.Domain.Events
+namespace DixRacing.Domain.EventParticipant
 {
     public class EventParticipant : BaseEntity
     {

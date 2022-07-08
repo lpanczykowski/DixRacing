@@ -41,13 +41,11 @@ namespace DixRacing.DataAccess.Queries.Event
                     eventReadModel = e;
                     eventDictionary.Add(e.Id, e);
                 }
-
                 if (r is not null)
                 {
                     eventReadModel.Rounds.Add(new RoundReadModel(r.Id, r.ServerName, r.ServerPassword, r.RoundNumber,
                         r.isActive, r.RoundDay, t));
                 }
-
                 return e;
             }, new {p_EventId = eventId}
             );

@@ -65,12 +65,12 @@ namespace API.Controllers
             });
             if (claim == null)
             {
-                return Redirect("http://localhost:4200");
+                return Redirect("/home");
             }
             string steamId = claim.Select(s => s.Value).FirstOrDefault()?.Split('/').Last();
             await SendAsync(new GetUserBySteamIdCommand(steamId));
             var token = await _loginUserService.ExecuteAsync(new LoginUserDto(steamId));
-            return Redirect($"http://localhost:4200/profile/{steamId}?token={token.Token}");
+            return Redirect($"/profile/{steamId}?token={token.Token}");
         }
     }
 }

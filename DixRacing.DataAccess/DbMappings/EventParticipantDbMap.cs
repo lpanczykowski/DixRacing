@@ -1,3 +1,4 @@
+using DixRacing.Domain.EventParticipant;
 using DixRacing.Domain.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
