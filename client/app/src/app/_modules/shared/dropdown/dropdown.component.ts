@@ -31,7 +31,6 @@ export class DropdownComponent implements OnInit {
   loadData() {
     this.dropdownService.get(this.endpoint,this.queryParams).subscribe(data=>{ console.log(data)
       this.values = data.dropdownValues.map(res=> {return {value:res.id,label:res.value}})});
-
   }
 
   onChangeEmitter() {

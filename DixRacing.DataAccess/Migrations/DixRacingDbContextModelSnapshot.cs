@@ -16,27 +16,7 @@ namespace DixRacing.DataAccess.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.14");
 
-            modelBuilder.Entity("DixRacing.Domain.Events.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("GameId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("BLOB");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("DixRacing.Domain.Events.EventParticipant", b =>
+            modelBuilder.Entity("DixRacing.Domain.EventParticipants.EventParticipant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,6 +47,26 @@ namespace DixRacing.DataAccess.Migrations
                     b.HasIndex("TeamId");
 
                     b.ToTable("EventParticipants");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Events.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("BLOB");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("DixRacing.Domain.Races.Race", b =>
@@ -330,6 +330,29 @@ namespace DixRacing.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("DixRacing.Domain.Utility.Car", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CarName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cars");
+                });
+
             modelBuilder.Entity("DixRacing.Domain.Utility.Game", b =>
                 {
                     b.Property<int>("Id")
@@ -344,7 +367,7 @@ namespace DixRacing.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Game");
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("DixRacing.Domain.Utility.Track", b =>
@@ -364,7 +387,7 @@ namespace DixRacing.DataAccess.Migrations
                     b.ToTable("Tracks");
                 });
 
-            modelBuilder.Entity("DixRacing.Domain.Events.EventParticipant", b =>
+            modelBuilder.Entity("DixRacing.Domain.EventParticipants.EventParticipant", b =>
                 {
                     b.HasOne("DixRacing.Domain.Events.Event", "Event")
                         .WithMany("EventParticipants")

@@ -21,9 +21,7 @@ export class EventSignupComponent implements OnInit {
   userId: number;
   eventCars: EventCar[];
   uploadedFiles:any[]=[];
-  eventTeams: Team[] = [{ teamId: 1, teamName: 'teasm1', teamMate: ['LEWIS', 'GEORGE'], teamCar: 7, teamPoints: 50 },
-  { teamId: 2, teamName: 'team2', teamMate: ['MAX', 'CHECO'], teamCar: 2, teamPoints: 50 },
-  { teamId: 2, teamName: 'team3', teamMate: ['CHARLES', 'CARLOS'], teamCar: 3, teamPoints: 50 }];
+  eventTeams: Team[];
 
   constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router,private messageService: MessageService) {
     this.eventCars = [{ car: 111111111 }, { car: 222222222 }, { car: 333333333 }]
@@ -31,7 +29,7 @@ export class EventSignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    this.params = new HttpParams().set('eventId', this.eventId.toString());
+    this.params = new HttpParams().set('eventId', this.eventId);
     const user = JSON.parse(localStorage.getItem('user'));
     this.userId = user.userId;
 
