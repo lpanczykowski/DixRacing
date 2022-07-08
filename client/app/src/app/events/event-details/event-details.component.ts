@@ -51,8 +51,8 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    this.loadRounds();
     this.activeItem = this.items[0];
+    this.loadRounds();
   }
 
   setCurrentView(viewId: number) {
@@ -66,6 +66,7 @@ export class EventDetailsComponent implements OnInit {
         this.rounds = e.event.rounds;
         this.activeRound = e.event.rounds.find((x) => x.isActive);
         console.log(e);
+        console.log(this.activeRound);
         this.loadRaces(this.activeRound.id);
       },
       (error: any) => console.log(error)

@@ -1,9 +1,9 @@
 <a style="text-decoration:none" href="event/1/round/1/race/1/preq">
-<div class="card mb-4">
+<div class="card mb-4" *ngIf="round">
   <div class="card-img-wrapper">
     <div class="carImageHolder">
       <img
-        src="{{round.track.photo}}"
+        src={{round.track.photo}}
         alt=""
         class="card-img-top"
         style="max-width: 250px"
@@ -19,7 +19,11 @@
       <i class="pi pi-map-marker mr-2"></i>
       {{round.track.name}}
     </h5>
-    <h6 class="card-title text-center mb-1">
+    <h6 class="card-title text-center mb-1" *ngIf="round"> <!-- TODO: dodać sprawdzanie race-->
+      <i class="pi pi-calendar mr-2"></i>
+      {{round.roundDay}}
+    </h6>
+    <h6 class="card-title text-center mb-1" *ngIf="races &&round.isActive">
       <i class="pi pi-calendar mr-2"></i>
       FP:{{races.practiceLength}} Q: {{races.qualiLength}} R: {{races.raceLength}}
     </h6>
