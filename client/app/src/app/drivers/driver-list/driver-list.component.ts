@@ -21,7 +21,7 @@ export class DriverListComponent implements OnInit {
   }
 
   loadDrivers() {
-    this.driverService.getDrivers(this.driverParams).subscribe((response) => {
+    this.driverService.getPaginatedDrivers(this.driverParams).subscribe((response) => {
       this.drivers = response.rows;
       this.pagination = new Pagination(
         response.totalRowCount,
