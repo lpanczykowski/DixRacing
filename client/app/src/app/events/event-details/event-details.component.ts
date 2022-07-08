@@ -5,7 +5,6 @@ import { Race } from 'app/_models/race';
 import { Round } from 'app/_models/round';
 import { AccountService } from 'app/_services/account.service';
 import { EventService } from 'app/_services/event.service';
-import { EventParticipantService } from 'app/_services/eventParticipant.service';
 import { RaceService } from 'app/_services/race.service';
 import { RoundService } from 'app/_services/round.service';
 import { MenuItem } from 'primeng/api';
@@ -42,21 +41,18 @@ export class EventDetailsComponent implements OnInit {
     private roundService: RoundService,
     private raceService: RaceService,
     private eventService: EventService,
-    public accountService: AccountService,
-    private eventParticipantService: EventParticipantService
+    public accountService: AccountService
   ) {
     this.viewId = 0;
     setInterval(() => {
       this.now = Date.now();
     }, 1000);
   }
-  isParticipant: boolean = true;
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    this.loadRounds();
     this.activeItem = this.items[0];
-    this.eventParticipantService.getIsEventParticipant(this.eventId).subscribe(x => this.isParticipant = x);
+    this.loadRounds();
   }
 
   setCurrentView(viewId: number) {
@@ -70,6 +66,8 @@ export class EventDetailsComponent implements OnInit {
         this.rounds = e.event.rounds;
         this.activeRound = e.event.rounds.find((x) => x.isActive);
         console.log(e);
+        console.log(this.activeRound);
+        this.loadRaces(this.activeRound.id);
       },
       (error: any) => console.log(error)
     );
@@ -78,6 +76,7 @@ export class EventDetailsComponent implements OnInit {
   loadRaces(roundId: number) {
     this.raceService.getRaces(roundId).subscribe((races) => {
       this.races = races;
+      console.log(this.races);
     });
     return this.races;
   }

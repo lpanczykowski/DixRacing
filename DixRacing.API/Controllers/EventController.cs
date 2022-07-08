@@ -1,4 +1,5 @@
 using API.Features.EventParticipants.Queries;
+using API.Features.EventParticipants.Queries.Participants;
 using API.Features.Events.Commands.CreateEvent;
 using API.Features.Events.Commands.ResignFromEvent;
 using API.Features.Events.Commands.SignForEvent;
@@ -40,12 +41,13 @@ namespace API.Controllers
         public Task<ActionResult<bool>> ResignFromEvent([FromBody] ResignFromEventCommand command)
             => SendAsync(command);
         [HttpGet("{eventId}/participants")]
-        public async Task<ActionResult<PaginatedResult<EventParticipantReadModel>>> GetParticipants(int eventId, [FromQuery] PaginationRequest request) 
+        public async Task<ActionResult<PaginatedResult<EventParticipantReadModel>>> GetPaginatedParticipants(int eventId, [FromQuery] PaginationRequest request) 
             => await SendAsync(new GetParticipantsByEventIdRequest(new EventParticipantPaginatedRequest(){
                                                                    PageSize = request.PageSize,
                                                                    PageNumber = request.PageNumber,
                                                                    EventId = eventId
                                                                    }));
+
         [HttpGet("{eventId}/classification")]
         public async Task<ActionResult<GetEventClassificationResponse>> GetClassification(int eventId)
              => await SendAsync(new GetEventClassificationRequest(eventId));

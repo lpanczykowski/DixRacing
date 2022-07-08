@@ -15,9 +15,16 @@ export class DriverService {
 
   constructor(private http: HttpClient) { }
 
-  getDrivers(driverParams : DriverParams) {
+  getPaginatedDrivers(driverParams : DriverParams) {
     let params = getPaginationHeaders(driverParams.pageNumber,driverParams.pageSize);
-    return this.http.get<PaginatedResult<Driver>>(this.baseUrl + 'event/1/participants', {params :params}); //TODO
+    return this.http.get<PaginatedResult<Driver>>(this.baseUrl + 'event/1/participants', {params :params});
   }
 
+  getDrivers(eventId:number) {
+    return this.http.get<Driver[]>(this.baseUrl + 'event/' + eventId + '/participants');
+  }
+
+  //getDriver(userId:number){
+  //  return this.http.get<Driver>(this.baseUrl+'event/1/participants/'+ userId, httpOptions);
+  //}
 }

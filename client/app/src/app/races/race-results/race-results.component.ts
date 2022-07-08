@@ -32,7 +32,6 @@ export class RaceResultsComponent implements OnInit {
       .getRaceResults(this.raceId, 'R')
       .subscribe((resp) => {
         this.raceResults = resp;
-        console.log(this.raceResults);
         let participantCount = this.raceResults.length;
         this.numberOfRaceParticipants(participantCount);
       });

@@ -6,19 +6,14 @@
     <h4 class="text-center text-primary text-black">Zgłoszenie incydentu</h4>
     <div class="form-group col-6 mx-auto">
       <span class="p-float-label" style="font-size: 0.7em">
-        <p-inputNumber
-          id="float-input"
-          [(ngModel)]="model.userId"
-          name="reportedNumber"
-          required
-          #reportedNumber="ngModel"
-          [ngClass]="{
-            'ng-invalid ng-dirty':
-              reportedNumber.invalid &&
-              (reportedNumber.dirty || reportedNumber.touched)
-          }"
-        ></p-inputNumber>
-        <label for="float-input">Numer zgłaszanego kierowcy</label>
+       <app-dropdown *ngIf="params"
+        [labelId]="'reportedDriver'"
+        [labelValue]="'Numer zgłaszanego kierowcy'"
+        [endpoint]="'participants'"
+        [queryParams]="params"
+        (selectedValueEmitter)="selectReportedDriver($event)"
+        required
+        ></app-dropdown>
       </span>
     </div>
     <div class="form-group col-6 mx-auto">
