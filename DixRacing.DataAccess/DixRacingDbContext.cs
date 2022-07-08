@@ -1,4 +1,4 @@
-using DixRacing.Domain.EventParticipant;
+using DixRacing.Domain.EventParticipants;
 using DixRacing.Domain.Events;
 using DixRacing.Domain.Races;
 using DixRacing.Domain.Rounds;
@@ -37,6 +37,7 @@ namespace DixRacing.DataAccess
         public DbSet<RacePoint> RacePoints { get; set; }
         public DbSet<RaceIncident> RaceIncidents { get; set; }
         public DbSet<Game> Games {get; set;}
+        public DbSet<Car> Cars {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
