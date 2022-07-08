@@ -9,6 +9,7 @@ using DixRacing.Domain.Races;
 using DixRacing.Domain.Races.Queries;
 using DixRacing.Domain.Teams;
 using DixRacing.Domain.Users.Queries;
+using DixRacing.Domain.Utility;
 
 namespace API.Helpers
 {
@@ -24,6 +25,12 @@ namespace API.Helpers
             CreateMap<Team,DropdownDto>()
                 .ForMember(destinationMember => destinationMember.Value,
                     memberOptions=>memberOptions.MapFrom(src => src.Name));
+            CreateMap<Game,DropdownDto>()
+                .ForMember(destinationMember => destinationMember.Value,
+                    memberOptions=>memberOptions.MapFrom(src => src.Name));
+            CreateMap<EventParticipantReadModel,DropdownDto>()
+                .ForMember(destinationMember => destinationMember.Value,
+                    memberOptions=>memberOptions.MapFrom(src => '#' + src.Number.ToString() + ' ' + src.Name + ' ' + src.Surname));
         }
 
     }

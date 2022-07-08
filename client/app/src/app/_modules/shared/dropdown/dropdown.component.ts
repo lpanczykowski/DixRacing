@@ -21,22 +21,20 @@ export class DropdownComponent implements OnInit {
   values: SelectItem[];
   selectedValue: DropdownValue;
 
-  constructor(private dropdownService: DropdownService) {}
+
+  constructor(private dropdownService: DropdownService) { }
 
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    console.log("i don't know")
-    this.dropdownService.get(this.endpoint,this.queryParams).pipe(map((items:DropdownValue[])=>{
-      items.map((item)=>
-        console.log(item)
-      )
-    })).subscribe(x=>console.log(x));
+    this.dropdownService.get(this.endpoint,this.queryParams).subscribe(data=>{ console.log(data.DropdownValues)
+      this.values= data.DropdownValues.map(res=> {return {value:res.id,label:res.value}})});
+
   }
 
-  onChangeEmitter(){
+  onChangeEmitter() {
     this.selectedValueEmitter.emit(this.selectedValue.id);
   }
 
