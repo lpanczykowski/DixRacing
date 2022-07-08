@@ -15,7 +15,7 @@ import { HttpParams } from '@angular/common/http';
 })
 export class EventSignupComponent implements OnInit {
 
-  params: HttpParams=new HttpParams();
+  params: HttpParams;
   model: eventRegisterDriverDto = new eventRegisterDriverDto();
   eventId: number;
   userId: number;
@@ -31,7 +31,7 @@ export class EventSignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    this.params.append('eventId', this.eventId.toString());
+    this.params = new HttpParams().set('eventId', this.eventId.toString());
     const user = JSON.parse(localStorage.getItem('user'));
     this.userId = user.userId;
 
