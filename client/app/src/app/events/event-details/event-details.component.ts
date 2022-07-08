@@ -36,6 +36,7 @@ export class EventDetailsComponent implements OnInit {
   hours: number;
   displayBasic: boolean;
   displaySignupForm: boolean;
+  isParticipant: boolean;
   constructor(
     private route: ActivatedRoute,
     private roundService: RoundService,
@@ -65,8 +66,6 @@ export class EventDetailsComponent implements OnInit {
         this.event = e;
         this.rounds = e.event.rounds;
         this.activeRound = e.event.rounds.find((x) => x.isActive);
-        console.log(e);
-        console.log(this.activeRound);
         this.loadRaces(this.activeRound.id);
       },
       (error: any) => console.log(error)

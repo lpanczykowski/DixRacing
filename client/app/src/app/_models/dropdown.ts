@@ -4,6 +4,6 @@ export interface DropdownValue {
 }
 
 export interface DropdownValues {
-  DropdownValues: DropdownValue[];
+  dropdownValues: DropdownValue[];
 }
 
