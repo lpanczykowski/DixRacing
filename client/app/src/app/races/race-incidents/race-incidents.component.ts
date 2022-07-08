@@ -1,4 +1,6 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RaceIncidentDto } from 'app/_models/raceIncidentDto';
 import { RaceIncidentResult } from 'app/_models/RaceIncidentResult';
 import { RaceService } from 'app/_services/race.service';
@@ -34,13 +36,17 @@ export class RaceIncidentsComponent implements OnInit {
                                     solved:true}];
 
 
+  params:HttpParams ;
+  eventId :number;
   displayAppeal:boolean;
   currentDriverNumber:number;
   model:RaceIncidentDto=new RaceIncidentDto();
-  constructor(private raceService:RaceService) { }
+  constructor(private raceService:RaceService,private route :ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.currentDriverNumber=830;
+    this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
+    this.params = new HttpParams().set('eventId',this.eventId.toString())
+    console.log(this.params);
   }
 
   showDisplayAppeal(){

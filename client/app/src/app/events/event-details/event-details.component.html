@@ -13,7 +13,7 @@
           style="vertical-align: middle"
           display="flex;"
         >
-          <p-button
+          <p-button *ngIf="!isParticipant"
             (click)="showSignupForm()"
             icon="pi pi-angle-double-right"
             iconPos="right"

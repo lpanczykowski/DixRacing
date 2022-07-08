@@ -17,10 +17,7 @@ export class DriverService {
 
   getDrivers(driverParams : DriverParams) {
     let params = getPaginationHeaders(driverParams.pageNumber,driverParams.pageSize);
-    return this.http.get<PaginatedResult<Driver>>(this.baseUrl + 'event/1/participants', {params :params});
+    return this.http.get<PaginatedResult<Driver>>(this.baseUrl + 'event/1/participants', {params :params}); //TODO
   }
 
-  //getDriver(userId:number){
-  //  return this.http.get<Driver>(this.baseUrl+'event/1/participants/'+ userId, httpOptions);
-  //}
 }

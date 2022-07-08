@@ -34,12 +34,11 @@ export class DropdownComponent implements OnInit {
   }
 
   loadData() {
-    this.dropdownService.get(this.endpoint).pipe(map((items:DropdownValue[])=>{
-      return items.map((item)=>({
-        label:item.value,
-        value:item.id,
-      }))
-    })).subscribe(x=>this.values=x);
+    this.dropdownService.get(this.endpoint)
+    .pipe(
+        map(res => res.map(item => ({id: item.id, label: item.value})))
+    ).subscribe(res => console.info(res));
+
   }
 
   onChangeEmitter(){
