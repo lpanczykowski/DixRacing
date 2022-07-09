@@ -2,7 +2,7 @@ using DixRacing.Domain.Events;
 using DixRacing.Domain.SharedKernel;
 using DixRacing.Domain.Teams;
 
-namespace DixRacing.Domain.EventParticipant
+namespace DixRacing.Domain.EventParticipants
 {
     public class EventParticipant : BaseEntity
     {
