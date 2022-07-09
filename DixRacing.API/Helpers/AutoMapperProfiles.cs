@@ -31,6 +31,9 @@ namespace API.Helpers
             CreateMap<EventParticipantReadModel,DropdownDto>()
                 .ForMember(destinationMember => destinationMember.Value,
                     memberOptions=>memberOptions.MapFrom(src => '#' + src.Number.ToString() + ' ' + src.Name + ' ' + src.Surname));
+            CreateMap<EventCarReadModel,DropdownDto>()
+                .ForMember(destinationMember => destinationMember.Value,
+                    memberOptions=>memberOptions.MapFrom(src=>src.CarName));
         }
 
     }

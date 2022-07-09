@@ -1,20 +1,18 @@
-﻿using DixRacing.Domain.Events;
+using DixRacing.Domain.Utility;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DixRacing.DataAccess.DbMappings
 {
-    public class EventDbMap : IEntityTypeConfiguration<Event>
-
+    public class CarDbMap : IEntityTypeConfiguration<Car>
     {
-        public void Configure(EntityTypeBuilder<Event> builder)
+        public void Configure(EntityTypeBuilder<Car> builder)
         {
-            builder.HasKey(x => x.Id);         
+            builder.HasKey(x => x.Id);
         }
     }
 }
