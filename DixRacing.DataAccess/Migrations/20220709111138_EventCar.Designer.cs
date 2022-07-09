@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DixRacing.DataAccess.Migrations
 {
     [DbContext(typeof(DixRacingDbContext))]
-    [Migration("20220708190134_CarEntity")]
-    partial class CarEntity
+    [Migration("20220709111138_EventCar")]
+    partial class EventCar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,7 @@ namespace DixRacing.DataAccess.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.14");
 
-            modelBuilder.Entity("DixRacing.Domain.EventParticipant.EventParticipant", b =>
+            modelBuilder.Entity("DixRacing.Domain.EventParticipants.EventParticipant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,6 +69,27 @@ namespace DixRacing.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Events.EventCar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventCars");
                 });
 
             modelBuilder.Entity("DixRacing.Domain.Races.Race", b =>
@@ -338,14 +359,8 @@ namespace DixRacing.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CarId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("CarName")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("EventId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("GameId")
                         .HasColumnType("INTEGER");
@@ -389,7 +404,7 @@ namespace DixRacing.DataAccess.Migrations
                     b.ToTable("Tracks");
                 });
 
-            modelBuilder.Entity("DixRacing.Domain.EventParticipant.EventParticipant", b =>
+            modelBuilder.Entity("DixRacing.Domain.EventParticipants.EventParticipant", b =>
                 {
                     b.HasOne("DixRacing.Domain.Events.Event", "Event")
                         .WithMany("EventParticipants")
@@ -406,6 +421,25 @@ namespace DixRacing.DataAccess.Migrations
                     b.Navigation("Event");
 
                     b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Events.EventCar", b =>
+                {
+                    b.HasOne("DixRacing.Domain.Events.Event", "Event")
+                        .WithMany("EventCars")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DixRacing.Domain.Utility.Car", "Car")
+                        .WithMany("EventCars")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("DixRacing.Domain.Races.Race", b =>
@@ -484,6 +518,8 @@ namespace DixRacing.DataAccess.Migrations
 
             modelBuilder.Entity("DixRacing.Domain.Events.Event", b =>
                 {
+                    b.Navigation("EventCars");
+
                     b.Navigation("EventParticipants");
 
                     b.Navigation("Rounds");
@@ -508,6 +544,11 @@ namespace DixRacing.DataAccess.Migrations
             modelBuilder.Entity("DixRacing.Domain.Teams.Team", b =>
                 {
                     b.Navigation("Participants");
+                });
+
+            modelBuilder.Entity("DixRacing.Domain.Utility.Car", b =>
+                {
+                    b.Navigation("EventCars");
                 });
 #pragma warning restore 612, 618
         }

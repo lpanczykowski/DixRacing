@@ -1,5 +1,6 @@
 using AutoMapper;
 using DixRacing.Domain.Events;
+using DixRacing.Domain.Events.Queries;
 using DixRacing.Domain.SharedKernel;
 using DixRacing.Domain.Utility;
 using MediatR;
@@ -13,22 +14,18 @@ namespace API.Features.Dropdowns.Queries.Cars
 {
     public class GetDropdownCarsHandler : IRequestHandler<GetDropdownCarsRequest, GetDropdownResponse>
     {
-        private readonly IRepository<Car> _carRepository;
+        private readonly IGetEventCarsByEventIdQuery _query;
         private readonly IMapper _mapper;
-    private readonly IRepository<Event> _eventRepository;
-        public GetDropdownCarsHandler(IRepository<Car> carRepository,IRepository<Event> eventRepository, IMapper mapper)
+        public GetDropdownCarsHandler(IGetEventCarsByEventIdQuery query, IMapper mapper)
         {
-      _eventRepository = eventRepository;
+            _query = query;
             _mapper = mapper;
-            _carRepository = carRepository;
         }
 
         public async Task<GetDropdownResponse> Handle(GetDropdownCarsRequest request, CancellationToken cancellationToken)
         {
-            var events = await _eventRepository.GetByIdAsync(request.eventId);
-            var gameId = events.GameId;
-            var cars= await _carRepository.GetByPropertyAsync(x=>x.EventId==request.eventId && x.GameId==gameId);
-            var result =  _mapper.Map<IEnumerable<Car>,IEnumerable<DropdownDto>>(cars);
+            var cars = await _query.ExecuteAsync(request.eventId);
+            var result =  _mapper.Map<IEnumerable<EventCarReadModel>,IEnumerable<DropdownDto>>(cars);
             return new GetDropdownResponse(result);
         }
     }
