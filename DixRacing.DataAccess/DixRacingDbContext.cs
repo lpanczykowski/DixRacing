@@ -1,4 +1,4 @@
-using DixRacing.Domain.EventParticipant;
+using DixRacing.Domain.EventParticipants;
 using DixRacing.Domain.Events;
 using DixRacing.Domain.Races;
 using DixRacing.Domain.Rounds;
@@ -22,14 +22,9 @@ namespace DixRacing.DataAccess
             => options.UseSqlite("DataSource=../DixRacing.DataAccess/dixracing.db");
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
-        // public DbSet<Game> Games { get; set; }
-        //  public DbSet<HotLap> RaceHotLaps { get; set; }
-        //        public DbSet<RaceLap> RaceLaps { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<EventParticipant> EventParticipants { get; set; }
-        //        public DbSet<RaceResult> RaceResults { get; set; }
         public DbSet<Race> Races { get; set; }
-        //        public DbSet<RaceConfirmation> RaceConfirmations { get; set; }
         public DbSet<Round> Rounds { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<RaceResult> RaceResults { get; set; }
@@ -38,6 +33,7 @@ namespace DixRacing.DataAccess
         public DbSet<RaceIncident> RaceIncidents { get; set; }
         public DbSet<Game> Games {get; set;}
         public DbSet<Car> Cars {get; set;}
+        public DbSet<EventCar> EventCars { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

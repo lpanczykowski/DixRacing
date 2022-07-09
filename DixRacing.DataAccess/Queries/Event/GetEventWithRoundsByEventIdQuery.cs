@@ -21,7 +21,6 @@ namespace DixRacing.DataAccess.Queries.Event
         join Tracks t on r.TrackId = t.Id 
         where e.Id = @p_EventId";
         private readonly DapperContext _dapperContext;
-        private readonly DixRacingDbContext _dixRacingDbContext;
 
         public GetEventWithRoundsByEventIdQuery(DapperContext dapperContext)
         {

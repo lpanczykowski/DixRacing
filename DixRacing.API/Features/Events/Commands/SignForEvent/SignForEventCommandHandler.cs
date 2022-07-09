@@ -1,4 +1,4 @@
-using DixRacing.Domain.EventParticipant;
+using DixRacing.Domain.EventParticipants;
 using DixRacing.Domain.Events;
 using DixRacing.Domain.SharedKernel;
 using MediatR;
