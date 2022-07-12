@@ -6,6 +6,7 @@ using API.Features.Events.Commands.SignForEvent;
 using API.Features.Events.Commands.UpdateEvent;
 using API.Features.Events.Queries.GetAllEvents;
 using API.Features.Events.Queries.GetEventClassification;
+using API.Features.Events.Queries.GetEventTeamsWithDrivers;
 using API.Features.Events.Queries.GetEventWithRounds;
 using API.Infrastructure.Headers;
 using DixRacing.Domain.Events.Queries;
@@ -51,6 +52,9 @@ namespace API.Controllers
         [HttpGet("{eventId}/classification")]
         public async Task<ActionResult<GetEventClassificationResponse>> GetClassification(int eventId)
              => await SendAsync(new GetEventClassificationRequest(eventId));
+        [HttpGet("{eventId}/teams/detailed")]
+        public async Task<ActionResult<GetEventTeamsWithDriversResponse>> GetEventTeamsWithDrivers(int eventId)
+        =>await SendAsync(new GetEventTeamsWithDriversRequest(eventId));
 
     }
 

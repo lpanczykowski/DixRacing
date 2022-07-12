@@ -51,7 +51,7 @@ namespace DixRacing.DataAccess.Queries.Event
                         eventParticipant.Number,
                         user.Name,
                         user.Surname,
-                        team.Name,
+                        team.TeamName,
                         eventParticipant.Car,
                         new List<RacePointsReadModel>(), 0);//TODO: RacePoints
                         eventClassificationDict.Add(eventParticipant.Number,eventClassificationReadModel);
