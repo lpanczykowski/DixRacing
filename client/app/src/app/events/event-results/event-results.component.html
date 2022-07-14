@@ -1,5 +1,5 @@
 <div class="bg-light text-black">
-  <p-table [value]="eventResults">
+  <p-table [value]="eventResults" *ngIf="eventResults">
     <ng-template pTemplate="header">
       <tr>
         <th>Poz.</th>
@@ -7,21 +7,19 @@
         <th>Kierowca</th>
         <th>Zespół</th>
         <th>Auto</th>
-        <!--<th>*ngFor="let eventRace of eventRaces">{{eventRace.raceId}}</th> TODO: z jakiegos powodu to nie dziala, sprawdzić później dlaczego-->
         <th>Punkty</th>
         <th>Punkty Karne</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-eventResult>
       <tr>
-        <td>{{eventResult.position}}</td>
-        <td>{{eventResult.driverNumber}}</td>
-        <td>{{eventResult.driverName}} {{eventResult.driverSurname}}</td>
+        <td></td>
+        <td>{{eventResult.number}}</td>
+        <td>{{eventResult.name}} {{eventResult.surname}}</td>
         <td>{{eventResult.teamName}}</td>
         <td>{{eventResult.car}}</td>
-        <!--<td *ngFor="let points of eventResult.racePoints">{{points}}</td>-->
-        <td>{{eventResult.penaltyPoints}}</td>
-        <td>{{eventResult.points}}</td>
+        <td>{{eventResult.summedPoints}}</td>
+        <td>{{eventResult.pointPenalty}}</td>
       </tr>
     </ng-template>
   </p-table>

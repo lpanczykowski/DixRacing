@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventResult } from 'app/_models/eventResult';
 import { RaceResult } from 'app/_models/raceResult';
 import { PreqStatusDto } from 'app/_models/preqStatusDto';
 import { RaceService } from 'app/_services/race.service';

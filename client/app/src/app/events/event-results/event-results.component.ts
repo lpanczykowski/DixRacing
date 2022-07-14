@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'app/_services/event.service';
 import { EventRace } from 'app/_models/eventRace';
-import { EventResult } from 'app/_models/eventResult';
+import {EventParticipantClassification} from 'app/_models/eventClassifications';
 import { RaceService } from 'app/_services/race.service';
 
 
@@ -16,28 +16,26 @@ export class EventResultsComponent implements OnInit {
 
   eventId:number;
   raceId:number;
-  eventRaces: EventRace[]=[{raceId:1},{raceId:2},{raceId:3},{raceId:4},{raceId:5},{raceId:6}];
-  eventResults: EventResult[] = [
-    { position: 1,
-      driverName: 'Dario',
-      driverSurname: 'Solaris',
-      driverNumber: 71,
-      car: 1,
-      carNumber: 23,
-      penaltyPoints: 15,
-      teamName: 'floryda',
-      points: 150,
-      racePoints: [1, 2, 3, 4, 5, 6] }];
+  eventResults: EventParticipantClassification[];
 
   constructor(private route: ActivatedRoute, private eventService: EventService) { }
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    //this.getEventResults(this.eventId);
+    this.getEventResults(this.eventId);
   }
 
   getEventResults(eventId:number) {
-    this.eventService.getRacesForEvent(eventId);
-    this.eventService.getEventResults(eventId);
+    this.eventService.getEventResults(eventId).subscribe(data=>{ console.log(data)
+      this.eventResults=data.eventClassifications.map(res=>{return{eventId:res.eventId,
+                                                                  number:res.number,
+                                                                  name:res.name,
+                                                                  surname:res.surname,
+                                                                  teamName:res.teamName,
+                                                                  car:res.car,
+                                                                  roundsPoints:res.roundsPoints,
+                                                                  summedPoints:res.summedPoints,
+                                                                  pointPenalty:res.pointPenalty}});
+    });
   }
 }
