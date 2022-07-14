@@ -34,14 +34,10 @@ export class EventResultsComponent implements OnInit {
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
     //this.getEventResults(this.eventId);
-    //this.getRacesForEvent(this.eventId);
   }
 
   getEventResults(eventId:number) {
-    this.eventService.getEventResults(eventId);
-  }
-
-  getRacesForEvent(eventId:number) {
     this.eventService.getRacesForEvent(eventId);
+    this.eventService.getEventResults(eventId);
   }
 }
