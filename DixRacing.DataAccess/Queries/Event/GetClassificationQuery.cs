@@ -1,15 +1,9 @@
 using Dapper;
-using DixRacing.Domain.Events;
 using DixRacing.Domain.Events.Queries;
-using DixRacing.Domain.Races;
 using DixRacing.Domain.Races.Queries;
-using DixRacing.Domain.Rounds;
 using DixRacing.Domain.Rounds.Queries;
-using DixRacing.Domain.Teams;
 using DixRacing.Domain.Teams.Queries;
-using DixRacing.Domain.Users;
 using DixRacing.Domain.Users.Queries;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,14 +14,15 @@ namespace DixRacing.DataAccess.Queries.Event
     {
         private const string SqlString = @"
             select
-	            ep.*,u.*,t.*,r.*,r2.*,rr.*,rp.*
+	            ep.*,u.*,t.*,r.*,r2.*,rr.*,rp.*,ri.PointsPenalty
             from EventParticipants ep 
             join Users u on ep.UserId  = u.Id 
             left join Teams t on ep.TeamId  = t.Name 
             left join Rounds r on ep.EventId  = r.EventId
             left join Races r2  on r.Id  = r2.RoundId
-            left join RaceResults rr on r2.Id  = rr.RaceId and rr.UserId = u.id
+            left join RaceResults rr on rr.UserId = u.id
             left join RacePoints rp on rr.RaceId = rp.RaceId and rp.Position = rr.Position
+            left join RaceIncidents ri on rr.RaceId =ri.RaceId and rr.UserId =ri.ReportedUserId
             where ep.eventId  == @p_eventId";
         private readonly DapperContext _dapper;
 
@@ -39,27 +34,27 @@ namespace DixRacing.DataAccess.Queries.Event
         {
             using var connection = _dapper.GetOpenConnection();
             var eventClassificationDict = new Dictionary<int, EventClassificationReadModel>();
-            var result = await connection.QueryAsync<EventParticipantReadModel, UserReadModel, TeamReadModel, RoundReadModel, RaceReadModel, RaceResultReadModel,RacePointsReadModel, EventClassificationReadModel>
+            var result = await connection.QueryAsync<EventClassificationReadModel,RoundClassificationReadModel,EventClassificationReadModel>
             (SqlString,
-                (eventParticipant, user, team, round, race, raceResult,racePoint) =>
+                (ec,rc) =>
                 {
-                    if (!eventClassificationDict.TryGetValue(eventParticipant.Number, out var eventClassificationReadModel))
+                    if (!eventClassificationDict.TryGetValue(ec.Number, out var eventClassificationReadModel))
                     {
                         eventClassificationReadModel = new EventClassificationReadModel(
                         eventId,
-                        0,// TODO:RacePosition
-                        eventParticipant.Number,
-                        user.Name,
-                        user.Surname,
-                        team.TeamName,
-                        eventParticipant.Car,
-                        new List<RacePointsReadModel>(), 0);//TODO: RacePoints
-                        eventClassificationDict.Add(eventParticipant.Number,eventClassificationReadModel);
+                        ec.Number,
+                        ec.Name,
+                        ec.Surname,
+                        ec.TeamName,
+                        ec.Car,
+                        new List<RoundClassificationReadModel>(),
+                        new RacePointsReadModel(),
+                        ec.PointPenalty
+                        );//TODO: RacePoints
+                        eventClassificationDict.Add(ec.Number,eventClassificationReadModel);
                     }
-                    if (raceResult is not null)
-                    {
-                        eventClassificationReadModel.RacePoints.Add(new RacePointsReadModel(raceResult.Position,racePoint.Points)); //TODO:RacePoints
-                    }
+                         //TODO:RacePoints RacePointsClassificationRM
+                     
 
                     return eventClassificationReadModel;
 
