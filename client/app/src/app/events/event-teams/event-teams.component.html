@@ -1,6 +1,6 @@
 <div class="bg-light text-black">
 
-  <p-table [value]="teams">
+  <p-table *ngIf="teams" [value]="teams">
     <ng-template pTemplate="header">
       <tr>
         <th scope="col">Lp.</th>
@@ -13,15 +13,15 @@
 
     <ng-template pTemplate="body" let-team>
       <tr>
-        <td scope="row">{{team.teamId}}</td>
+        <td let i = dataIndex>{{i+1}} </td>
         <td>{{team.teamName}}</td>
         <td>
           <ul class="list-group">
-            <li class="list-group-item" *ngFor="let teamMate of team.teamMate">{{teamMate}}</li>
+            <li class="list-group-item" *ngFor="let teamMember of team.teamMembers">{{teamMember.userName}} {{teamMember.userSurname}}</li>
           </ul>
         </td>
         <td>{{team.teamCar}}</td>
-        <td>{{team.teamPoints}}</td>
+        <td>{{summedPoints(team)}}</td>
       </tr>
     </ng-template>
   </p-table>

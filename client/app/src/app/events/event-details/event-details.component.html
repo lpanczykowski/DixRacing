@@ -44,21 +44,24 @@
   <div class="row">
     <div class="col-12 event-details-box" *ngIf="activeRound">
       <div class="m-1 text-white" style="display: flex;">
+        <div class="container col-2">
         <app-round-card [races]="races" [round]="activeRound"></app-round-card>
-        <div class="container">
-          <div class="row">
+        </div>
+        <div class="container col-10" >
+          <div class="m-2 row" >
             Serwer:
             {{ activeRound.serverName }}
           </div>
-          <div class="row">
+          <div class="m-2 row">
             Password:
             {{ activeRound.serverPassword }}
           </div>
         </div>
-      </div>
+
       <p-button label="Potwierdź" icon="pi pi-check" *ngIf="timeToSign() > 0"
         >Potwierdź {{ timeToSignAsString() }}</p-button
       >
+    </div>
     </div>
   </div>
   <div class="row">

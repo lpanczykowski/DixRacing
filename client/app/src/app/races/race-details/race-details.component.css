@@ -4,6 +4,9 @@
 ::ng-deep .p-tabview .p-tabview-nav {
   background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
 }
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+}
 ::ng-deep .p-tabview .p-tabview-panels {
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity));
 }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace DixRacing.Domain.Teams.Queries
 {
-    public record TeamReadModel(string Name)
+    public record TeamReadModel(int TeamId, string TeamName)
     {
-        public TeamReadModel() : this(String.Empty)
+        public TeamReadModel() : this(default,String.Empty)
         {
               
         }
