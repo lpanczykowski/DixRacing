@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventResult } from 'app/_models/eventResult';
+import { EventClassifications} from 'app/_models/eventClassifications';
 import { Events, EventWithActiveRound } from 'app/_models/eventWithActiveRound';
 import { EventService } from 'app/_services/event.service';
 
@@ -12,18 +12,7 @@ export class EventCardComponent implements OnInit {
   @Input() raceEvent: EventWithActiveRound;
 
   events: Events;
-  eventResults: EventResult[];
-  eventId:1;
-  eventResult={ position: 1,
-    driverName: 'Dario',
-    driverSurname: 'Solaris',
-    driverNumber: 71,
-    car: 1,
-    carNumber: 23,
-    penaltyPoints: 15,
-    teamName: 'floryda',
-    points: 150,
-    racePoints: [1, 2, 3, 4, 5, 6] };
+  eventResults: EventClassifications[];
 
   constructor(private eventService: EventService) { }
 
@@ -38,6 +27,6 @@ export class EventCardComponent implements OnInit {
    });
   }
   loadEventResults(){
-  this.eventService.getEventResults(this.eventId);
+  //this.eventService.getEventResults(this.eventId);
   }
 }

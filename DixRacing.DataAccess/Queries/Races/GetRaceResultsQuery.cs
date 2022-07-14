@@ -42,7 +42,7 @@ namespace DixRacing.DataAccess.Queries.Races
                                                                           user.Name,
                                                                           user.Surname,
                                                                           user.Nick,
-                                                                          new RacePointsReadModel(raceResult.Position, racePoint.Points),
+                                                                          new RacePointsReadModel(raceResult.RaceId,raceResult.Position, racePoint.Points),
                                                                           new List<RaceLapReadModel>(),
                                                                           raceResult.TotalTime, 0
 

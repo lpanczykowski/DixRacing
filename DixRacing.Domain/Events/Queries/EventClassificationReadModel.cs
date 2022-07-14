@@ -13,8 +13,8 @@ namespace DixRacing.Domain.Events.Queries
                                      string Surname,
                                      string? TeamName,
                                      int Car,
-                                     ICollection<RoundClassificationReadModel> RacePoints,
-                                     RacePointsReadModel SummedPoints,
+                                     ICollection<RoundClassificationReadModel> RoundsPoints,
+                                     int SummedPoints,
                                      double PointPenalty)
     {
         public EventClassificationReadModel() : this(default, default, default, default, default, default, new List<RoundClassificationReadModel>(), default, default)
