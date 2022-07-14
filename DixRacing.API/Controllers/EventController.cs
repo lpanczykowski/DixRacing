@@ -1,5 +1,4 @@
 using API.Features.EventParticipants.Queries;
-using API.Features.EventParticipants.Queries.Participants;
 using API.Features.Events.Commands.CreateEvent;
 using API.Features.Events.Commands.ResignFromEvent;
 using API.Features.Events.Commands.SignForEvent;
@@ -7,12 +6,10 @@ using API.Features.Events.Commands.UpdateEvent;
 using API.Features.Events.Queries.GetAllEvents;
 using API.Features.Events.Queries.GetEventClassification;
 using API.Features.Events.Queries.GetEventWithRounds;
-using API.Infrastructure.Headers;
 using DixRacing.Domain.Events.Queries;
 using DixRacing.Domain.SharedKernel;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -23,8 +20,8 @@ namespace API.Controllers
         {
         }
         [HttpGet]
-        public Task<ActionResult<GetAllEventsResponse>> GetAll()
-            => SendAsync(new GetAllEventsRequest());
+        public Task<ActionResult<GetAllEventsResponse>> GetAll([FromQuery] bool onlyActiveEvents)
+            => SendAsync(new GetAllEventsRequest(onlyActiveEvents));
         [HttpGet("{eventId}/rounds")]
         public Task<ActionResult<GetEventWithRoundsByEventIdResponse>>  GetRounds(int eventId) 
             => SendAsync(new GetEventWithRoundsByEventIdRequest(eventId)); 
@@ -32,7 +29,7 @@ namespace API.Controllers
         public Task<ActionResult<int>> Create([FromBody] CreateEventCommand command) 
             => SendAsync(command);
         [HttpPut]
-        public Task<ActionResult<int>> Update([FromBody] UpdateEventCommand command)
+        public Task<ActionResult<Unit>> Update([FromBody] UpdateEventCommand command)
             => SendAsync(command);
         [HttpPut("sign")]
         public Task<ActionResult<int>> SignForEvent([FromBody] SignForEventCommand command)

@@ -1,26 +1,25 @@
-  <div class="col-12">
-   <h2>Runda {{ raceEvent.roundId }}/{{ raceEvent.amountOfRounds }}</h2>  <!-- TODO:tu będzie potem nazwa eventu -->
-
-  </div>
-  <br />
-  <div class="col-12" >
+  <div class="col-12" *ngIf="raceEvent" >
     <div class="p-fluid grid formgrid">
       <div class="field col-4">
-        <p>Zespół</p>
-        <p>{{eventResult.teamName}}</p>
+        <label for="nameInput">Nazwa eventu</label>
+        <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{raceEvent.eventName}}"
+          [(ngModel)]="raceEvent.eventName" name="nameInput" required #name="ngModel"
+          [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
       </div>
       <div class="field col-4">
-        <p>Samochód</p>
-        <p>event.eventCar ???</p>
-      </div>
-      <div class="field col-2 numbersBox">
-        <p>Punkty</p>
-        <p>{{eventResult.points}}</p>
-      </div>
-      <div class="field col-2 numbersBox">
-        <p>Pozycja</p>
-        <p>{{eventResult.position}}</p>
+        <label for="nameInput">Grafika</label>
+        <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{raceEvent.photo}}"
+          [(ngModel)]="raceEvent.photo" name="nameInput" required #name="ngModel"
+          [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
       </div>
     </div>
     <br />
-  </div>
+
+    <div class="flex align-content-start flex-wrap card-container blue-container" style="min-height: 200px">
+        <div class="flex align-items-center justify-content-center" style="min-width: 200px; min-height: 50px"><p-button
+          type="button"
+          class="user-profile-button"
+          label="edytuj"
+          icon="pi pi-pencil"
+        ></p-button></div>
+</div>

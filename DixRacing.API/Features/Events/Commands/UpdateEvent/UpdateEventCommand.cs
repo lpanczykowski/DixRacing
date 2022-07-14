@@ -7,6 +7,5 @@ using System.Threading.Tasks;
 
 namespace API.Features.Events.Commands.UpdateEvent
 {
-    public record UpdateEventCommand(UpdateEventDto updateEventDto) : IRequest<int>;
-    public record UpdateEventDto(int Id,string Name, int GameId, byte[] Photo);
+    public record UpdateEventCommand(int Id,string? Name, string? Rules, byte[]? Photo) : IRequest<Unit>;
 }

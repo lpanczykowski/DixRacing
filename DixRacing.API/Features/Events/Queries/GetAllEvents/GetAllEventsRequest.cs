@@ -2,5 +2,5 @@
 
 namespace API.Features.Events.Queries.GetAllEvents
 {
-    public record GetAllEventsRequest : IRequest<GetAllEventsResponse>;
+    public record GetAllEventsRequest(bool OnlyActiveEvents) : IRequest<GetAllEventsResponse>;
 }

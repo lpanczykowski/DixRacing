@@ -1,4 +1,5 @@
 ﻿using DixRacing.Domain.Events;
+using DixRacing.Domain.Events.Commands;
 using DixRacing.Domain.SharedKernel;
 using MediatR;
 using System;
@@ -10,23 +11,22 @@ using System.Threading.Tasks;
 
 namespace API.Features.Events.Commands.UpdateEvent
 {
-    public class UpdateEventCommandHandler : IRequestHandler<UpdateEventCommand, int>
+    public class UpdateEventCommandHandler : IRequestHandler<UpdateEventCommand, Unit>
     {
-        private readonly IRepository<Event> _eventRepository;
+        private readonly IUpdateEventService _service;
 
-        public UpdateEventCommandHandler(IRepository<Event> eventRepository)
+        public UpdateEventCommandHandler(IUpdateEventService service)
         {
-            _eventRepository = eventRepository;
+            _service = service;
         }
        
-        public async Task<int> Handle(UpdateEventCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateEventCommand request, CancellationToken cancellationToken)
         {
-            var _event = await _eventRepository.GetByIdAsync(request.updateEventDto.Id);
-            if (_event == null) throw new InvalidOperationException("Entity not found");
-            _event.Photo = request.updateEventDto.Photo;
-            _event.Name = request.updateEventDto.Name;
-            _event.GameId = request.updateEventDto.GameId;
-            return _event.Id; //TODO
+            await _service.UpdateEventAsync(new EventDto(request.Id,
+                request.Name,
+                request.Rules,
+                request.Photo));
+            return new Unit();
         }
     }
 }

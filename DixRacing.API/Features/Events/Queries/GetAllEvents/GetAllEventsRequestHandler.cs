@@ -20,8 +20,8 @@ namespace API.Features.Events.Queries.GetAllEvents
 
         public async Task<GetAllEventsResponse> Handle(GetAllEventsRequest request, CancellationToken cancellationToken)
         {
-            var response = _mapper.Map<IEnumerable<EventCaptionReadModel>, IEnumerable<EventDto>>(await _query.ExecuteAsync());
-
+            var result = await _query.ExecuteAsync(request.OnlyActiveEvents);
+            var response = _mapper.Map<IEnumerable<EventCaptionReadModel>, IEnumerable<EventDto>>(result);
             return new GetAllEventsResponse(response);
         }
     }

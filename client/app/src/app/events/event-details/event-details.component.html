@@ -77,7 +77,7 @@
             <ng-template pTemplate="header">
               <i class="fa-solid fa-sheet-plastic p-2"></i> Regulamin
             </ng-template>
-            <app-event-rules></app-event-rules>
+            <app-event-rules [htmlContent]="event.event.rules"></app-event-rules>
           </p-tabPanel>
           <p-tabPanel>
             <ng-template pTemplate="header">
@@ -117,7 +117,7 @@
     </div>
   </div>
 </div>
-<p-button *ngIf="accountService.admin$ | async"
+<p-button *ngIf="accountService.currentUser$ | async"
   class="bottom-right add-button"
   (click)="showRoundCreator()"
   icon="pi pi-plus"

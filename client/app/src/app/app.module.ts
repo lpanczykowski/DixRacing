@@ -54,6 +54,10 @@ import { UserStatsComponent } from './user/user-stats/user-stats.component';
 import { UserLeaguesComponent } from './user/user-leagues/user-leagues.component';
 import { EventCardComponent } from './events/event-card/event-card.component';
 import { DropdownComponent } from './_modules/shared/dropdown/dropdown.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { AdminEventDetailsComponent } from './admin/events/admin-event-list/admin-event-details/admin-event-details.component';
+import { AdminEventListComponent } from './admin/events/admin-event-list/admin-event-list/admin-event-list.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +101,9 @@ import { DropdownComponent } from './_modules/shared/dropdown/dropdown.component
     EventCardComponent,
     EventRoundsComponent,
     DropdownComponent,
+    AdminPanelComponent,
+    AdminEventDetailsComponent,
+    AdminEventListComponent
   ],
   imports: [
     FormsModule,
@@ -113,6 +120,7 @@ import { DropdownComponent } from './_modules/shared/dropdown/dropdown.component
     InputNumberModule,
     PasswordModule,
     ToggleButtonModule,
+    AngularEditorModule
   ],
 
   providers: [

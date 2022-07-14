@@ -75,7 +75,7 @@
         *ngIf="accountService.currentUser$ | async as user"
       >
         <li class="nav-item">
-          <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
+          <p-tieredMenu  #menu [model]="menuItems" [popup]="true" appendTo="body"></p-tieredMenu>
           <p-button
             type="button"
             class="user-profile-button"

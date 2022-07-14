@@ -9,7 +9,7 @@ namespace DixRacing.Domain.Events.Queries
 {
     public record EventCaptionReadModel
     (int EventId,
-     string EventName,
+     string Name,
      int  AmountOfRounds,
      DateTime RoundDay,
      int RoundId,

@@ -13,26 +13,12 @@ import { AccountService } from '../_services/account.service';
 })
 export class NavComponent implements OnInit {
   model: LoginUserDto;
-  items: MenuItem[] = [
-    {
-      label: 'Profil',
-      icon: 'pi pi-user',
-      command: () => {
-        this.driverProfile();
-      },
-    },
-    {
-      label: 'Wyloguj',
-      icon: 'pi pi-fw pi-power-off',
-      command: () => {
-        this.logout();
-      },
-    },
-  ];
-
+  menuItems: MenuItem[];
   constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
+    if (!this.menuItems)
+      this.createMenu();
     this.model = new LoginUserDto();
   }
 
@@ -46,8 +32,40 @@ export class NavComponent implements OnInit {
   connectSteam(userId: number) {
     this.accountService.steam();
   }
-
+  openAdminPanel()
+  {
+    this.router.navigate(['/admin/panel']);
+  }
   driverProfile() {
-    this.router.navigate(['/profile']);
+    this.accountService.currentUser$.subscribe(x=>
+      this.router.navigate(['/profile/' + this.accountService.getDecodedToken(x.token).unique_name ])
+      )
+  }
+  createMenu()
+  {
+    this.menuItems = [];
+    this.menuItems.push( {
+      label: 'Profil',
+      icon: 'pi pi-user',
+      command: () => {
+        this.driverProfile();
+      },
+    });
+    this.menuItems.push({
+      label: 'Wyloguj',
+      icon: 'pi pi-fw pi-power-off',
+      command: () => {
+        this.logout();
+      },
+    });
+
+    this.menuItems.push( {
+      label: 'Panel admina',
+      icon: 'pi pi-fw pi-flag',
+      command: () => {
+        this.openAdminPanel();
+      },
+      visible : true
+    });
   }
 }

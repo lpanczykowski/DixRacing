@@ -64,6 +64,9 @@ namespace DixRacing.DataAccess.Migrations
                     b.Property<byte[]>("Photo")
                         .HasColumnType("BLOB");
 
+                    b.Property<string>("Rules")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Events");
@@ -88,26 +91,6 @@ namespace DixRacing.DataAccess.Migrations
                     b.HasIndex("EventId");
 
                     b.ToTable("EventCars");
-                });
-
-            modelBuilder.Entity("DixRacing.Domain.Events.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("GameId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("BLOB");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("DixRacing.Domain.Races.Race", b =>

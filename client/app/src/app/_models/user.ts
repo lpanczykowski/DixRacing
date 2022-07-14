@@ -8,4 +8,5 @@ export interface User {
   steamId : string;
   shortcut: string;
   discord: string;
+  roles :string[];
 }

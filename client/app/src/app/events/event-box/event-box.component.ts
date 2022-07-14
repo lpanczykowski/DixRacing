@@ -15,7 +15,6 @@ export class EventBoxComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.raceEvent.photo="https://www.racedepartment.com/attachments/timthumb-png.312357/";
   }
 
   calculateDiff(){

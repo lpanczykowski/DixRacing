@@ -7,10 +7,11 @@ namespace DixRacing.Domain.Events.Queries
     public record EventReadModel(
         int Id,
         string Name,
+        string Rules,
         ICollection<RoundReadModel> Rounds)
     {
         [Obsolete("For dapper support only")]
-        public EventReadModel() : this(default, string.Empty, new List<RoundReadModel>())
+        public EventReadModel() : this(default, default,string.Empty, new List<RoundReadModel>())
         {
         }
     }

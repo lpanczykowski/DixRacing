@@ -10,7 +10,7 @@ namespace DixRacing.DataAccess.Queries.Event
 {
     public class GetAllEventsQuery : IGetAllEventsQuery
     {
-        private const string SqlString = @"
+        private string SqlString = @"
         select e.Id as EventId,
 	           e.Name,
                e.Photo,  
@@ -18,16 +18,16 @@ namespace DixRacing.DataAccess.Queries.Event
                r.RoundDay,
                (select count(*) from Rounds r2 where r2.EventId = e.Id) as AmountOfRounds      
         from Events e
-        left join Rounds r on e.Id = r.EventId 
-        where r.isActive = true";
+        left join Rounds r on e.Id = r.EventId";
         private readonly DapperContext _dapperContext;
 
         public GetAllEventsQuery(DapperContext dapperContext)
         {
             _dapperContext = dapperContext;
         }
-        public async Task<IEnumerable<EventCaptionReadModel>> ExecuteAsync()
+        public async Task<IEnumerable<EventCaptionReadModel>> ExecuteAsync(bool onlyActiveEvents = false)
         {
+            if (onlyActiveEvents) SqlString = SqlString + " where r.isActive = true";
             using var connection = _dapperContext.GetOpenConnection();
             return await connection.QueryAsync<EventCaptionReadModel>(SqlString);
 

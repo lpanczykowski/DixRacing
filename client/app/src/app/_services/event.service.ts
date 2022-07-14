@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EventCar } from '../_models/eventCar';
 import { EventRace } from '../_models/eventRace';
@@ -8,6 +8,7 @@ import { Events } from '../_models/eventWithActiveRound';
 import { Team } from '../_models/team';
 import { EventCreateDto } from 'app/_models/eventCreateDto';
 import { Round } from 'app/_models/round';
+import { UpdateEventDto } from 'app/_models/raceEvent/updateEventDto';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json-patch+json' }),
@@ -22,7 +23,11 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   getActiveEvents() {
-    return this.http.get<Events>(this.baseUrl + 'event');
+    let params = new HttpParams().set('onlyActiveEvents', true);
+    return this.http.get<Events>(this.baseUrl + 'event',{params: params});
+  }
+  getAllEvents(){
+    return this.http.get<Events>(this.baseUrl +'event')
   }
 
   getEventResults(eventId: number) {
@@ -77,5 +82,9 @@ export class EventService {
 
   getPastEvents(){
     return this.http.get<Events>(this.baseUrl+'event'); //TODO ustalić jak ma wyglądać interface dla past events
+  }
+  updateEvent(updateEventDto : UpdateEventDto)
+  {
+    return this.http.put(this.baseUrl+'event',JSON.stringify(updateEventDto));
   }
 }

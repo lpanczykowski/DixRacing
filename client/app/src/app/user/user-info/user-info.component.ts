@@ -10,7 +10,7 @@ import { AccountService } from 'app/_services/account.service';
 })
 export class UserInfoComponent implements OnInit {
 
-  user:User={name:'Marcin',surname:'Lewandowski',nick:'fevio',email:'fevio@fevio.pl',steamId:'7986541651684',token:'tokenNormlanie',userId:123,discord:'#1234',shortcut:'LEM'};
+  user:User={name:'Marcin',surname:'Lewandowski',nick:'fevio',email:'fevio@fevio.pl',steamId:'7986541651684',token:'tokenNormlanie',userId:123,discord:'#1234',shortcut:'LEM',roles:['']};
   model:UserDto=new UserDto();
   disabled: boolean = true;
 

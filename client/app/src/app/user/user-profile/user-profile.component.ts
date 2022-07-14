@@ -17,12 +17,11 @@ export class UserProfileComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       let token = params["token"]
       if (token) {
-        this.accountService.login({ discord: '', email: '', name: '', nick: '', shortcut: '', steamId: this.steamId, surname: '', token: token, userId: 1 })
+        this.accountService.login({ discord: '', email: '', name: '', nick: '', shortcut: '', steamId: this.steamId, surname: '', token: token, userId: 1 ,roles: Array()})
         this.router.navigate([], { queryParams: {} });
       }
       console.log(token);
     })
-    this.accountService.getCredentials().subscribe(x => { console.log(x) });
   }
 
 }

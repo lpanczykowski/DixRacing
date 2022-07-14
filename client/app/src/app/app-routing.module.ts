@@ -10,6 +10,9 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
 import { EventSignupComponent } from './events/event-signup/event-signup.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,8 +25,9 @@ const routes: Routes = [
     component: RaceDetailsComponent,
   },
   { path: 'event/signup/:eventId', component: EventSignupComponent },
-  { path: '1/drivers', component: DriversComponent },
+  { path: '1/drivers', component: DriversComponent }, //TODO:
   { path: 'profile/:steamId', component: UserProfileComponent},
+  { path: 'admin/panel', component: AdminPanelComponent , canActivate:[AdminGuard]},
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];
 

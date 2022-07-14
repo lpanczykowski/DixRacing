@@ -15,5 +15,6 @@ namespace DixRacing.Domain.Events
         public byte[] Photo { get; set; }
         public ICollection<EventParticipant> EventParticipants { get; set; }
         public ICollection<EventCar> EventCars { get; set; }
+        public string Rules { get; set; }
     }
 }

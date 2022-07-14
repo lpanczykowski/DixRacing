@@ -87,8 +87,21 @@ namespace DixRacing.Domain.Races.Services
             {
                 raceResult.Position = position;
                 raceResult.TotalTime = timing.TotalTime;
+                _raceResultRepository.Update(raceResult);
             }
-            _raceResultRepository.Update(raceResult);
+            else
+            {
+                var newRaceResult = new RaceResult()
+                {
+                    Position = position,
+                    RaceId = race.Id,
+                    UserId = user.Id,
+                    TotalTime = timing.TotalTime,
+                    IsUserConfirmed = 0
+                };
+                await _raceResultRepository.CreateAsync(newRaceResult);
+            }
+            
         }
 
         private Driver GetDriverForLap(Lap lap, List<LeaderBoardLine> leaderBoardLines)

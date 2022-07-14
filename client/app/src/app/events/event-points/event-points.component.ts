@@ -10,7 +10,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class EventPointsComponent implements OnInit {
   ngOnInit(): void {}
-
+  isAdmin: boolean
   editField: string;
   points: Array<PositionPoints> = [
     { id: 1, points: 100, position: 1, raceId: 1 },

@@ -8,6 +8,6 @@ namespace DixRacing.Domain.Events.Queries
 {
     public interface IGetAllEventsQuery
     {
-        Task<IEnumerable<EventCaptionReadModel>> ExecuteAsync();
+        Task<IEnumerable<EventCaptionReadModel>> ExecuteAsync(bool onlyActiveEvents = false);
     }
 }

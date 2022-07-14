@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventDto } from 'app/_models/event';
+import { EventDto } from 'app/_models/raceEvent/event';
 import { Race } from 'app/_models/race';
 import { Round } from 'app/_models/round';
 import { AccountService } from 'app/_services/account.service';

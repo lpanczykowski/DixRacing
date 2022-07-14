@@ -1,6 +1,6 @@
  export interface EventWithActiveRound {
       eventId: number;
-      eventName: string;
+      name: string;
       amountOfRounds: number;
       roundDay: Date;
       roundId: number;
