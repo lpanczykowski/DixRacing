@@ -11,6 +11,7 @@ export interface EventParticipantClassification {
   roundsPoints: RoundsPoints[];
   summedPoints: number;
   pointPenalty: number;
+  points:number;
 }
 
 export interface RoundsPoints{

@@ -3,7 +3,7 @@
   <p-table *ngIf="teams" [value]="teams">
     <ng-template pTemplate="header">
       <tr>
-        <th scope="col">Lp.</th>
+        <th scope="col">Poz.</th>
         <th scope="col">Nazwa zespołu</th>
         <th scope="col">Kierowcy</th>
         <th scope="col">Auto</th>
@@ -11,9 +11,9 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-team>
+    <ng-template pTemplate="body" let-team let-rowIndex="rowIndex">
       <tr>
-        <td></td>
+        <td>{{rowIndex+1}}</td>
         <td>{{team.teamName}}</td>
         <td>
           <ul class="list-group">

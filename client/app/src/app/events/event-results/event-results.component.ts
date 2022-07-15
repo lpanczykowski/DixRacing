@@ -35,7 +35,8 @@ export class EventResultsComponent implements OnInit {
                                                                   car:res.car,
                                                                   roundsPoints:res.roundsPoints,
                                                                   summedPoints:res.summedPoints,
-                                                                  pointPenalty:res.pointPenalty}});
+                                                                  pointPenalty:res.pointPenalty,
+                                                                  points:res.summedPoints+res.pointPenalty}});
     });
   }
 }

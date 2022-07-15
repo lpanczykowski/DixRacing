@@ -1,5 +1,5 @@
 <div class="bg-light text-black">
-  <p-table [value]="eventResults" *ngIf="eventResults">
+  <p-table [value]="eventResults"  *ngIf="eventResults">
     <ng-template pTemplate="header">
       <tr>
         <th>Poz.</th>
@@ -9,17 +9,19 @@
         <th>Auto</th>
         <th>Punkty</th>
         <th>Punkty Karne</th>
+        <th>Wynik</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-eventResult>
+    <ng-template pTemplate="body" let-eventResult let-rowIndex="rowIndex">
       <tr>
-        <td></td>
+        <td>{{rowIndex+1}}</td>
         <td>{{eventResult.number}}</td>
         <td>{{eventResult.name}} {{eventResult.surname}}</td>
         <td>{{eventResult.teamName}}</td>
         <td>{{eventResult.car}}</td>
         <td>{{eventResult.summedPoints}}</td>
         <td>{{eventResult.pointPenalty}}</td>
+        <td>{{eventResult.points}}</td>
       </tr>
     </ng-template>
   </p-table>

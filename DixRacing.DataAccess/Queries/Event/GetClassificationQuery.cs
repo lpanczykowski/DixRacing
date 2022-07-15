@@ -76,7 +76,7 @@ namespace DixRacing.DataAccess.Queries.Event
 
                 }, new { p_eventId = eventId },splitOn:"RoundId,RaceId"
             );
-            return eventClassificationDict.Values.ToList();
+            return eventClassificationDict.Values.OrderBy(x=>x.SummedPoints+x.PointPenalty).Reverse().ToList();
         }
     }
 }
