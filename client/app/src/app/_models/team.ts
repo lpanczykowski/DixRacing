@@ -2,12 +2,12 @@ export interface Team {
   teamId :number,
   teamName:string,
   teamMembers:TeamMember[],
-  teamCar: number;
-  teamPoints:number;
+  teamCar: number,
+  teamPoints:number
 }
 
 export interface EventTeamsWithDrivers{
-  eventTeamsWithDrivers: Team[];
+  eventTeamsWithDrivers: Team[],
 }
 
 export interface TeamMember{
