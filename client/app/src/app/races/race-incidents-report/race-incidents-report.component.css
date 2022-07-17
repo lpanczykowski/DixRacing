@@ -1,9 +1,16 @@
-.form-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
+::ng-deep .p-dropdown {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  min-width: 100%;
 }
-.incidentReportForm{
-  justify-content: center;
+  p-inputnumber, .p-inputnumber {
+  display: inline-flex;
+  min-width: 100%;
+}
+::ng-deep .p-inputnumber {
+  display: inline-flex;
+  min-width: 100%;
 }

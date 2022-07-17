@@ -5,7 +5,7 @@
         <i class="pi pi-unlock"></i>
         <span>Otwarte</span>
       </ng-template>
-      <p-table [value]="raceIncidents" dataKey="incidentId">
+      <p-table [value]="raceIncidents" dataKey="id">
         <ng-template pTemplate="header">
           <tr>
             <th>Id</th>
@@ -17,14 +17,14 @@
             <th></th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-raceIncident let-expanded="expanded">
-          <tr *ngIf="raceIncident.solved==false">
-            <td>{{raceIncident.incidentId}}</td>
-            <td>{{raceIncident.reportingDriver}}</td>
-            <td>{{raceIncident.reportedDriver}}</td>
-            <td>{{raceIncident.incidentLap}}</td>
-            <td>{{raceIncident.incidentTime}}</td>
-            <td>{{raceIncident.result}}</td>
+        <ng-template pTemplate="body" let-raceIncident let-expanded="expanded" let-i="rowIndex">
+          <tr *ngIf="raceIncident.isSolved==0">
+            <td>{{i+1}}</td>
+            <td>{{raceIncident.userId}}</td>
+            <td>{{raceIncident.reportedUserId}}</td>
+            <td>{{raceIncident.lap}}</td>
+            <td>{{raceIncident.time}}</td>
+            <td>{{raceIncident.penalty}}</td>
             <td>
               <a href="#" [pRowToggler]="raceIncident">
                 <i [ngClass]="expanded? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
@@ -34,28 +34,10 @@
         </ng-template>
 
         <ng-template pTemplate="rowexpansion" let-raceIncident>
-          <tr>
-            <td id="incidentRow{{raceIncident.incidentId}}" colspan="7">
+          <tr *ngIf="raceIncident.isSolved==0">
+            <td colspan="7">
               <div class="p-3" dataKey="id">
-
-
-                <form #incidentSolveForm="ngForm" (ngSubmit)="closeTicket(raceIncident)">
-                  <h3>Dezycja</h3>
-                  <div class="form-group col-12 mx-auto">
-                    <input id="ticketResult" type="text" class="col-12" pInputText
-                      [(ngModel)]="raceIncident.ticketResult" name="ticketResult" required #ticketResult="ngModel"
-                      [ngClass]="{'ng-invalid ng-dirty': ticketResult.invalid && (ticketResult.dirty || ticketResult.touched)}">
-                  </div>
-                  <h5>Uzasadnienie</h5>
-                  <div class="form-group col-12 mx-auto">
-                    <textarea id="ticketDescription" class="col-12" pInputTextarea autoResize="autoResize"
-                      [(ngModel)]="raceIncident.ticketDescription" name="ticketDescription" required
-                      #ticketDescriptionInput="ngModel"
-                      [ngClass]="{'ng-invalid ng-dirty': ticketDescriptionInput.invalid && (ticketDescriptionInput.dirty || ticketDescriptionInput.touched)}"></textarea>
-                  </div>
-                  <p-button class="col-3" label="Zamknij zgłoszenie" type="submit" (click)="hideRow(raceIncident.incidentId)"></p-button>
-                </form>
-
+                <app-penalty-solve-form [raceIncident]="raceIncident" (raceIncidentsEmitter)="updateRaceIncidents($event)" ></app-penalty-solve-form>
               </div>
             </td>
           </tr>
@@ -68,7 +50,7 @@
         <i class="pi pi-lock"></i>
         <span>Zamknięte</span>
       </ng-template>
-      <p-table [value]="raceIncidents" dataKey="incidentId">
+      <p-table [value]="raceIncidents" dataKey="id">
         <ng-template pTemplate="header">
           <tr>
             <th>Id</th>
@@ -81,13 +63,13 @@
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-raceIncident>
-          <tr *ngIf="raceIncident.solved==true">
-            <td>{{raceIncident.incidentId}}</td>
-            <td>{{raceIncident.reportingDriver}}</td>
-            <td>{{raceIncident.reportedDriver}}</td>
-            <td>{{raceIncident.incidentLap}}</td>
-            <td>{{raceIncident.incidentTime}}</td>
-            <td>{{raceIncident.result}}</td>
+          <tr *ngIf="raceIncident.isSolved==1">
+            <td>{{raceIncident.id}}</td>
+            <td>{{raceIncident.userId}}</td>
+            <td>{{raceIncident.reportedUserId}}</td>
+            <td>{{raceIncident.lap}}</td>
+            <td>{{raceIncident.time}}</td>
+            <td>{{raceIncident.penalty}}</td>
             <td>
               <p-button icon="fa fa-fw fa-unlock" (click)="openTicket(raceIncident)"></p-button>
             </td>

@@ -1,11 +1,9 @@
 export class RaceIncidentDto {
-  userId: number;
-  reportedUserId: number;
-  lap: number;
-  time: string;
-  description: string;
-  isSolved: boolean;
   raceId: number;
-  id:number;
+  reportedUserId: number;
+  userId: number;
+  description: string;
+  time: number;
+  lap: number;
   constructor() {}
 }

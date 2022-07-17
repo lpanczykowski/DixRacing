@@ -54,6 +54,7 @@ import { UserStatsComponent } from './user/user-stats/user-stats.component';
 import { UserLeaguesComponent } from './user/user-leagues/user-leagues.component';
 import { EventCardComponent } from './events/event-card/event-card.component';
 import { DropdownComponent } from './_modules/shared/dropdown/dropdown.component';
+import { PenaltySolveFormComponent } from './forms/penalty-solve-form/penalty-solve-form.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { DropdownComponent } from './_modules/shared/dropdown/dropdown.component
     EventCardComponent,
     EventRoundsComponent,
     DropdownComponent,
+    PenaltySolveFormComponent,
   ],
   imports: [
     FormsModule,

@@ -20,11 +20,11 @@ namespace API.Features.RaceIncidents.Commands.UpdateRaceIncident
 
         public async Task<int> Handle(UpdateRaceIncidentCommand request, CancellationToken cancellationToken)
         {
-            var raceIncident= await _repository.GetByIdAsync(request.updateRaceIncidentDto.Id);
+            var raceIncident= await _repository.GetByIdAsync(request.raceIncidentSolveDto.Id);
             if (raceIncident == null) throw new InvalidOperationException("Entity not found");
-            raceIncident.IsSolved=request.updateRaceIncidentDto.IsSolved;
-            raceIncident.PointPenalty=request.updateRaceIncidentDto.PointPenalty;
-            raceIncident.Penalty=request.updateRaceIncidentDto.Penalty;
+            raceIncident.IsSolved=request.raceIncidentSolveDto.IsSolved;
+            raceIncident.PointPenalty=request.raceIncidentSolveDto.PointPenalty;
+            raceIncident.Penalty=request.raceIncidentSolveDto.Penalty;
             return raceIncident.Id;
         }
     }
