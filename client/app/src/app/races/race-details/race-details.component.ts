@@ -4,6 +4,7 @@ import { RaceResult } from 'app/_models/raceResult';
 import { PreqStatusDto } from 'app/_models/preqStatusDto';
 import { RaceService } from 'app/_services/race.service';
 import { PreqStatus } from 'app/_models/preqStatus';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-race-details',
@@ -20,10 +21,11 @@ export class RaceDetailsComponent implements OnInit {
   userId: number;
   view: string;
   preqStatus: PreqStatus;
+  crumbs:MenuItem[];
 
   constructor(
     private route: ActivatedRoute,
-    private raceService: RaceService
+    private raceService: RaceService,
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +33,11 @@ export class RaceDetailsComponent implements OnInit {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
     this.roundId = Number(this.route.snapshot.paramMap.get('roundId'));
     this.raceId = Number(this.route.snapshot.paramMap.get('raceId'));
+    this.crumbs=[
+      {label:'Strona główna',routerLink: ['/home']},
+      {label:'Event ' + this.eventId,routerLink: ['/event/'+this.eventId]},
+      {label:'Runda '+this.roundId},
+    ]
     //this.checkPreqStatus(this.raceId,this.userId);
     //this.userStatusInfo = { raceId: this.raceId, userId: this.userId }
     //this.checkPreqStatus();

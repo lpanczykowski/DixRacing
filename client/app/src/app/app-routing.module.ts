@@ -21,8 +21,6 @@ const routes: Routes = [
     path: 'event/:eventId/round/:roundId/race/:raceId/:view',
     component: RaceDetailsComponent,
   },
-  { path: 'event/signup/:eventId', component: EventSignupComponent },
-  { path: '1/drivers', component: DriversComponent },
   { path: 'profile/:steamId', component: UserProfileComponent},
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];

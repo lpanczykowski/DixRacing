@@ -55,6 +55,7 @@ import { UserLeaguesComponent } from './user/user-leagues/user-leagues.component
 import { EventCardComponent } from './events/event-card/event-card.component';
 import { DropdownComponent } from './_modules/shared/dropdown/dropdown.component';
 import { PenaltySolveFormComponent } from './forms/penalty-solve-form/penalty-solve-form.component';
+import { BreadcrumbModule} from 'primeng/breadcrumb';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { PenaltySolveFormComponent } from './forms/penalty-solve-form/penalty-so
     InputNumberModule,
     PasswordModule,
     ToggleButtonModule,
+    BreadcrumbModule
   ],
 
   providers: [

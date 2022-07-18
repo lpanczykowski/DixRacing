@@ -3,7 +3,7 @@
   <p-table [value]="raceIncidents" dataKey="id">
     <ng-template pTemplate="header">
       <tr>
-        <th>Lp.</th>
+        <th>Id</th>
         <th>Zgłaszający</th>
         <th>Zgłoszony</th>
         <th>Okrążenie</th>
@@ -11,9 +11,9 @@
         <th>Decyzja</th>
       </tr>
     </ng-template>
-    <ng-template let-raceIncident pTemplate="body" let-expanded="expanded" let-i="rowIndex">
+    <ng-template let-raceIncident pTemplate="body" let-expanded="expanded">
       <tr *ngIf="raceIncident.isSolved==true">
-        <td>{{i+1}}</td>
+        <td>{{raceIncident.id}}</td>
         <td>{{raceIncident.userId}}</td>
         <td>{{raceIncident.reportedUserId}}</td>
         <td>{{raceIncident.lap}}</td>

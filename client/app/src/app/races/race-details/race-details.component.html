@@ -1,17 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-12 pb-0 race-details-header">
-      <br />
-      <div class="d-flex flex-row justify-content-between">
-        <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px">
-          Runda {{ roundId }}
-        </h1>
 
-        <h2 class="ms-5 me-5 mb-4">
-          <p-button label="Strona eventu" icon="pi pi-arrow-left" display="flex;" routerLink="/event/{{ eventId }}">
-          </p-button>
-        </h2>
+      <div class="race-header justify-content-between">
+        <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px">
+          <p-breadcrumb *ngIf="crumbs" [model]="crumbs"></p-breadcrumb>
+        </h1>
       </div>
+      
     </div>
   </div>
 </div>
