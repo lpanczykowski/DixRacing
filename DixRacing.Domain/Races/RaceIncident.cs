@@ -13,6 +13,7 @@ namespace DixRacing.Domain.Races
         public int ReportedUserId { get; set; }
         public int UserId { get; set; }
         public string Description { get; set; }
+        public string AppealDescription { get; set; }
         public int? IsSolved { get; set; }
         public int Time { get; set; }
         public int Lap { get; set; }

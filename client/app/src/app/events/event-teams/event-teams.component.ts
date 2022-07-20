@@ -15,29 +15,28 @@ export class EventTeamsComponent implements OnInit {
   ) {}
 
   eventId: number;
-  teams: Team[] = [
-    {
-      teamId: 1,
-      teamName: 'team1',
-      teamMate: ['LU KAS', 'MA TI'],
-      teamCar: 2,
-      teamPoints: 50,
-    },
-    {
-      teamId: 2,
-      teamName: 'team2',
-      teamMate: ['RO BOT', 'BUL BAN', 'Robert Maklowicz'],
-      teamCar: 8,
-      teamPoints: 40,
-    },
-  ];
+  teams: Team[];
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    //getTeamsForEvent(this.eventId);
+    this.getTeamsWithDriversForEvent(this.eventId);
   }
 
-  getTeamsForEvent(eventId) {
-    this.eventService.getTeamsForEvent(eventId);
+  getTeamsWithDriversForEvent(eventId:number) {
+    this.eventService.getTeamsWithDriversForEvent(eventId).subscribe(data=>{
+      this.teams=data.eventTeamsWithDrivers.map(res=>{ return {teamId:res.teamId,
+                                                              teamName:res.teamName,
+                                                              teamMembers:res.teamMembers,
+                                                              teamCar:res.teamCar,
+                                                              teamPoints:res.teamPoints}});
+    });
+  }
+
+  summedPoints(team:Team){
+    var totalPoints=0;
+    team.teamMembers.forEach(element => {
+      totalPoints+=element.summedPoints;
+    });
+    return totalPoints;
   }
 }

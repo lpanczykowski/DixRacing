@@ -5,7 +5,7 @@ import { EventRace } from '../_models/eventRace';
 import { EventResult } from '../_models/eventResult';
 import { environment } from 'environments/environment';
 import { Events } from '../_models/eventWithActiveRound';
-import { Team } from '../_models/team';
+import { EventTeamsWithDrivers, Team } from '../_models/team';
 import { EventCreateDto } from 'app/_models/eventCreateDto';
 import { Round } from 'app/_models/round';
 import { UpdateEventDto } from 'app/_models/raceEvent/updateEventDto';
@@ -43,11 +43,15 @@ export class EventService {
   }
 
   getCarsForEvent(eventId: number) {
-    return this.http.get<EventCar>(this.baseUrl + 'event/' + eventId + 'cars');
+    return this.http.get<EventCar>(this.baseUrl + 'event/' + eventId + '/cars');
   }
 
   getTeamsForEvent(eventId: number) {
-    return this.http.get<Team>(this.baseUrl + 'event/' + eventId + 'teams');
+    return this.http.get<Team>(this.baseUrl + 'event/' + eventId + '/teams');
+  }
+
+  getTeamsWithDriversForEvent(eventId: number) {
+    return this.http.get<EventTeamsWithDrivers>(this.baseUrl + 'event/' + eventId + '/teams/detailed');
   }
 
   eventSignup(eventId: number, eventRegisterDriverDto: any) {
