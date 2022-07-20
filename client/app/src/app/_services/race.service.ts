@@ -46,28 +46,4 @@ export class RaceService {
       params: params,
     });
   }
-
-  reportIncident(raceIncidentDto: RaceIncidentDto) {
-    return this.http.post(
-      this.baseUrl + 'reportIncident',
-      JSON.stringify({ raceIncidentDto }),
-      httpOptions
-    );
-  }
-
-  closeTicket(raceIncidentSolveDto: RaceIncidentSolveDto) {
-    return this.http.post(this.baseUrl + 'solveIncident/' + raceIncidentSolveDto.ticketId, JSON.stringify({ raceIncidentSolveDto }), httpOptions);
-  }
-
-  openTicket(raceIncidentSolveDto: RaceIncidentSolveDto) {
-    return this.http.post(this.baseUrl + 'openIncident/' + raceIncidentSolveDto.ticketId, JSON.stringify({ raceIncidentSolveDto }), httpOptions);
-  }
-
-  raiseAppeal(raceIncidentDto: RaceIncidentDto){
-    return this.http.post(
-      this.baseUrl + 'reportIncident',
-      JSON.stringify({ raceIncidentDto }),
-      httpOptions
-    );
-  }
 }

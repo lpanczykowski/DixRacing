@@ -1,0 +1,16 @@
+<form #incidentSolveForm="ngForm"  (ngSubmit)="closeTicket(raceIncident)">
+  <h5>Kara</h5>
+  <div class="form-group col-12 mx-auto">
+    <input id="ticketResult" type="text" class="col-12" pInputText
+      [(ngModel)]="model.pointPenalty" name="ticketResult" required #pointPenalty="ngModel"
+      [ngClass]="{'ng-invalid ng-dirty': pointPenalty.invalid && (pointPenalty.dirty || pointPenalty.touched)}">
+  </div>
+  <h5>Uzasadnienie</h5>
+  <div class="form-group col-12 mx-auto">
+    <textarea id="ticketDescription" class="col-12" pInputTextarea autoResize="autoResize"
+      [(ngModel)]="model.penalty" name="ticketDescription" required
+      #penaltyInput="ngModel"
+      [ngClass]="{'ng-invalid ng-dirty': penaltyInput.invalid && (penaltyInput.dirty || penaltyInput.touched)}"></textarea>
+  </div>
+  <p-button class="col-3" label="Zamknij zgłoszenie" type="submit"></p-button>
+</form>

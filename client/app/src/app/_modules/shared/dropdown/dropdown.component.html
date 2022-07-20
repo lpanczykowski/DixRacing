@@ -1,4 +1,4 @@
 <span class="p-float-label">
-  <p-dropdown [inputId]="labelId" [autoDisplayFirst]="false" [options]="values" optionLabel="label" (onChange)="onChangeEmitter()"></p-dropdown>
+  <p-dropdown [inputId]="labelId" [autoDisplayFirst]="false" [options]="values" optionLabel="label" [(ngModel)]="selectedValue" (onChange)="onChangeEmitter()"></p-dropdown>
   <label *ngIf="labelValue" [for]="labelId">{{labelValue}}</label>
 </span>

@@ -58,6 +58,9 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AdminEventDetailsComponent } from './admin/events/admin-event-list/admin-event-details/admin-event-details.component';
 import { AdminEventListComponent } from './admin/events/admin-event-list/admin-event-list/admin-event-list.component';
+import { PenaltySolveFormComponent } from './forms/penalty-solve-form/penalty-solve-form.component';
+import { BreadcrumbModule} from 'primeng/breadcrumb';
+
 
 @NgModule({
   declarations: [
@@ -103,7 +106,8 @@ import { AdminEventListComponent } from './admin/events/admin-event-list/admin-e
     DropdownComponent,
     AdminPanelComponent,
     AdminEventDetailsComponent,
-    AdminEventListComponent
+    AdminEventListComponent,
+    PenaltySolveFormComponent,
   ],
   imports: [
     FormsModule,
@@ -120,7 +124,8 @@ import { AdminEventListComponent } from './admin/events/admin-event-list/admin-e
     InputNumberModule,
     PasswordModule,
     ToggleButtonModule,
-    AngularEditorModule
+    AngularEditorModule,
+    BreadcrumbModule,
   ],
 
   providers: [

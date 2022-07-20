@@ -36,7 +36,7 @@
 }
 
 .event-details-header{
-  margin: 150px 0 0 0 ;
+  margin: 136px 0 0 0 ;
   background-color: var(--buttonBlue);
   color:var(--light);
 }
@@ -52,3 +52,13 @@
   background-color: var(--accent);
 }
 
+.event-header {
+  display: flex;
+  align-items:flex-end;
+  justify-content: space-between;
+}
+
+.h1{
+  display: flex;
+  align-items: center;
+}

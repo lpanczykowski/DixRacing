@@ -71,4 +71,16 @@ h4{
   border-color: greenyellow;
 }
 
+.p-breadcrumb{
+  background: none;
+  border: none;
+}
 
+.p-breadcrumb ul li .p-menuitem-link .p-menuitem-text{
+  color: var(--light);
+}
+
+.p-breadcrumb ul li.p-breadcrumb-chevron {
+  margin: 0 0.5rem 0 0.5rem;
+  color: var(--light);
+}

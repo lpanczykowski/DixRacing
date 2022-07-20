@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-12 event-details-header">
-      <br />
-      <div class="d-flex flex-row justify-content-between">
+      <div class="event-header">
         <h1 class="ms-5 me-5 mb-4" style="margin-top: 10px">
-          {{ event?.event.name }}
+          <p-breadcrumb [model]="crumbs"></p-breadcrumb>
         </h1>
 
         <h2

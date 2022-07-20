@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace API.Features.RaceIncidents.Commands.UpdateRaceIncident
 {
 
-    public record UpdateRaceIncidentCommand(UpdateRaceIncidentDto updateRaceIncidentDto) : IRequest<int> { };
+    public record UpdateRaceIncidentCommand(RaceIncidentSolveDto raceIncidentSolveDto) : IRequest<int> { };
 
-    public record UpdateRaceIncidentDto(
+    public record RaceIncidentSolveDto(
                                         int IsSolved,
                                         int PointPenalty,
                                         string Penalty,

@@ -1,11 +1,15 @@
 <div class="bg-light text-black mx-auto mb-2">
+
   <form
     #incidentReportForm="ngForm"
-    (ngSubmit)="reportIncident(incidentReportForm)"
+    (ngSubmit)="reportIncident()"
+    autocomplete="off"
+    class="form-group"
   >
-    <h4 class="text-center text-primary text-black">Zgłoszenie incydentu</h4>
-    <div class="form-group col-6 mx-auto">
-      <span class="p-float-label" style="font-size: 0.7em">
+  <br>
+    <h3 class="text-center text-black">Zgłoszenie incydentu</h3>
+
+    <div class="form-group col-6 mx-auto mb-2" style="font-size: 0.7em">
        <app-dropdown *ngIf="params"
         [labelId]="'reportedDriver'"
         [labelValue]="'Numer zgłaszanego kierowcy'"
@@ -14,9 +18,9 @@
         (selectedValueEmitter)="selectReportedDriver($event)"
         required
         ></app-dropdown>
-      </span>
     </div>
-    <div class="form-group col-6 mx-auto">
+
+    <div class="form-group col-6 mx-auto  mb-2">
       <span class="p-float-label" style="font-size: 0.7em">
         <p-inputNumber
           id="float-input"
@@ -32,9 +36,11 @@
         <label for="float-input">Okrążenie</label>
       </span>
     </div>
-    <div class="form-group col-6 mx-auto">
+
+    <div class="form-group col-6 mx-auto  mb-2">
       <span class="p-float-label" style="font-size: 0.7em">
         <input
+          class="form-control"
           type="text"
           pInputText
           id="float-input"
@@ -51,9 +57,11 @@
         <label for="float-input">Czas na powtórce</label>
       </span>
     </div>
-    <div class="form-group col-6 mx-auto">
+
+    <div class="form-group col-6 mx-auto  mb-2">
       <span class="p-float-label" style="font-size: 0.7em">
         <textarea
+        class="form-control"
           id="float-input"
           rows="5"
           cols="22"
@@ -75,11 +83,12 @@
     <div class="form-group col-6 mx-auto">
       <button
         pButton
-        type="button"
+        type="submit"
         label="Zgłoś"
         [disabled]="!incidentReportForm.valid"
       ></button>
     </div>
+
   </form>
 </div>
 

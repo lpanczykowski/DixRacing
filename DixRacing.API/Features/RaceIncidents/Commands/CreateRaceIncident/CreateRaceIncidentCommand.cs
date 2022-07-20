@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Features.RaceIncidents.Commands.CreateRaceIncident
 {
-    public record CreateRaceIncidentCommand(CreateRaceIncidentDto createRaceIncidentDto) : IRequest<int> { };
-    public record CreateRaceIncidentDto(int raceId,
+    public record CreateRaceIncidentCommand(RaceIncidentDto raceIncidentDto) : IRequest<int> { };
+    public record RaceIncidentDto(int raceId,
                                         int reportedUserId,
                                         int userId,
+                                        int isSolved,
                                         string description,
                                         int time,
                                         int lap)

@@ -22,12 +22,13 @@ namespace API.Features.RaceIncidents.Commands.CreateRaceIncident
         {
             var raceIncident = new RaceIncident
             {
-                Description = request.createRaceIncidentDto.description,
-                RaceId = request.createRaceIncidentDto.raceId,
-                Lap = request.createRaceIncidentDto.lap,
-                Time = request.createRaceIncidentDto.time,
-                UserId = request.createRaceIncidentDto.userId,
-                ReportedUserId = request.createRaceIncidentDto.reportedUserId
+                Description = request.raceIncidentDto.description,
+                RaceId = request.raceIncidentDto.raceId,
+                IsSolved=0,
+                Lap = request.raceIncidentDto.lap,
+                Time = request.raceIncidentDto.time,
+                UserId = request.raceIncidentDto.userId,
+                ReportedUserId = request.raceIncidentDto.reportedUserId
             };
             return await _repository.CreateAsync(raceIncident);
         }

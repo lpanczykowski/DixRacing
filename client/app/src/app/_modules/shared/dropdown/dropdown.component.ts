@@ -19,8 +19,7 @@ export class DropdownComponent implements OnInit {
   @Output() selectedValueEmitter = new EventEmitter<Number>();
 
   values: SelectItem[];
-  selectedValue: DropdownValue;
-
+  selectedValue:SelectItem;
 
   constructor(private dropdownService: DropdownService) { }
 
@@ -34,7 +33,7 @@ export class DropdownComponent implements OnInit {
   }
 
   onChangeEmitter() {
-    this.selectedValueEmitter.emit(this.selectedValue.id);
+    this.selectedValueEmitter.emit(this.selectedValue.value);
   }
 
 }

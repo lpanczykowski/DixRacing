@@ -1,9 +1,9 @@
 <div class="bg-light text-black">
   <hr>
-  <p-table [value]="raceIncidents" dataKey="incidentId">
+  <p-table [value]="raceIncidents" dataKey="id">
     <ng-template pTemplate="header">
       <tr>
-        <th>Lp.</th>
+        <th>Id</th>
         <th>Zgłaszający</th>
         <th>Zgłoszony</th>
         <th>Okrążenie</th>
@@ -11,28 +11,27 @@
         <th>Decyzja</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-raceIncident let-expanded="expanded">
-      <tr>
-        <td>{{raceIncident.incidentId}}</td>
-        <td>{{raceIncident.reportingDriver}}</td>
-        <td>{{raceIncident.reportedDriver}}</td>
-        <td>{{raceIncident.incidentLap}}</td>
-        <td>{{raceIncident.incidentTime}}</td>
-        <td>{{raceIncident.result}}</td>
-        <td *ngIf="raceIncident.reportingDriver==currentDriverNumber || raceIncident.reportingDriver==currentDriverNumber">
+    <ng-template let-raceIncident pTemplate="body" let-expanded="expanded">
+      <tr *ngIf="raceIncident.isSolved==true">
+        <td>{{raceIncident.id}}</td>
+        <td>{{raceIncident.userId}}</td>
+        <td>{{raceIncident.reportedUserId}}</td>
+        <td>{{raceIncident.lap}}</td>
+        <td>{{raceIncident.time}}</td>
+        <td *ngIf="raceIncident.userId==currentDriverNumber || raceIncident.reportedUserId==currentDriverNumber">
             <span class="appealButton"><i class="fa fa-fw fa-reply" (click)="showDisplayAppeal()"></i></span>
             <p-dialog header="Odwołanie od decyzji" [(visible)]="displayAppeal" [breakpoints]="{'960px': '75vw'}"
               [style]="{width: '50vw',height:'auto'}" [draggable]="false" [resizable]="false">
 
-              <form #incidentAppealForm="ngForm" (ngSubmit)="raiseAppeal(raceIncident)">
+              <form #incidentAppealForm="ngForm" (ngSubmit)="raiseAppeal(raceIncident.id)">
 
                 <div class="form-group col-12 mt-3 mx-auto">
                   <span class="p-float-label" >
-                  <textarea id="incidentDescriptiontexterea" class="col-12" rows="10" pInputTextarea
-                      [(ngModel)]="model.incidentDescription" name="incidentDescription" required
-                      #incidentDescription="ngModel"
-                      [ngClass]="{'ng-invalid ng-dirty': incidentDescription.invalid && (incidentDescription.dirty || incidentDescription.touched)}"></textarea>
-                  <label for="incidentDescriptiontexterea">Uzasadnienie odwołania</label>
+                  <textarea id="appealDescriptiontexterea" class="col-12" rows="10" pInputTextarea
+                      [(ngModel)]="model.appealDescription" name="appealDescription" required
+                      #appealDescription="ngModel"
+                      [ngClass]="{'ng-invalid ng-dirty': appealDescription.invalid && (appealDescription.dirty || appealDescription.touched)}"></textarea>
+                  <label for="appealDescriptiontexterea">Uzasadnienie odwołania</label>
                 </span>
                 </div>
 
@@ -54,7 +53,7 @@
       <tr>
         <td colspan="7">
           <div class="p-3" dataKey="id">
-            {{raceIncident.incidentDescription}}
+            {{raceIncident.description}}
           </div>
         </td>
       </tr>

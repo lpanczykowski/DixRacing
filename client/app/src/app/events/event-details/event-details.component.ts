@@ -22,14 +22,6 @@ export class EventDetailsComponent implements OnInit {
   eventId: number;
   races: Race[];
   now: any;
-  items: MenuItem[] = [
-    { label: 'Info', icon: 'pi pi-fw pi-home' },
-    { label: 'Regulamin', icon: 'fa-solid fa-sheet-plastic' },
-    { label: 'Kierowcy', icon: 'fa-solid fa-steering-wheel' },
-    { label: 'Zespoły', icon: 'pi pi-fw pi-file' },
-    { label: 'Klasyfikacja', icon: 'pi pi-fw pi-cog' },
-    { label: 'Punktacja', icon: 'pi pi-fw pi-cog' },
-  ];
   activeItem: MenuItem;
   seconds;
   minutes;
@@ -37,12 +29,12 @@ export class EventDetailsComponent implements OnInit {
   displayBasic: boolean;
   displaySignupForm: boolean;
   isParticipant: boolean;
+  crumbs:MenuItem[];
   constructor(
     private route: ActivatedRoute,
-    private roundService: RoundService,
     private raceService: RaceService,
     private eventService: EventService,
-    public accountService: AccountService
+    public accountService: AccountService,
   ) {
     this.viewId = 0;
     setInterval(() => {
@@ -52,8 +44,11 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    this.activeItem = this.items[0];
     this.loadRounds();
+    this.crumbs=[
+      {label:'Strona główna',routerLink: ['/home']},
+      {label:'Event ' + this.eventId,},
+  ]
   }
 
   setCurrentView(viewId: number) {

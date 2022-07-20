@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EventCar } from '../_models/eventCar';
 import { EventRace } from '../_models/eventRace';
-import { EventResult } from '../_models/eventResult';
+import { EventClassifications} from '../_models/eventClassifications';
 import { environment } from 'environments/environment';
 import { Events } from '../_models/eventWithActiveRound';
 import { EventTeamsWithDrivers, Team } from '../_models/team';
@@ -31,7 +31,7 @@ export class EventService {
   }
 
   getEventResults(eventId: number) {
-    return this.http.get<EventResult>(
+    return this.http.get<EventClassifications>(
       this.baseUrl + 'event/' + eventId + '/classification'
     );
   }
