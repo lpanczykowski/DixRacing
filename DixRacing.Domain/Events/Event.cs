@@ -11,7 +11,7 @@ namespace DixRacing.Domain.Events
     {
         public string Name { get; set; }
         public int GameId { get; set; }
-        public IEnumerable<Round> Rounds { get; set; }
+        public ICollection<Round> Rounds { get; set; }
         public byte[] Photo { get; set; }
         public ICollection<EventParticipant> EventParticipants { get; set; }
         public ICollection<EventCar> EventCars { get; set; }

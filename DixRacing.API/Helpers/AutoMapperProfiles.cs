@@ -8,6 +8,7 @@ using DixRacing.Domain.Events.Queries;
 using DixRacing.Domain.Races;
 using DixRacing.Domain.Races.Queries;
 using DixRacing.Domain.Teams;
+using DixRacing.Domain.Tracks.Queries;
 using DixRacing.Domain.Users.Queries;
 using DixRacing.Domain.Utility;
 
@@ -17,7 +18,7 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<EventCaptionReadModel, EventDto>();
+            CreateMap<EventReadModel, EventDto>();
             CreateMap<Race,GetRacesByRoundIdResponse>();
             CreateMap<UserRaceResultReadModel,GetRaceResultsResponse>();
             CreateMap<RaceLapReadModel,LapDto>();
@@ -34,6 +35,9 @@ namespace API.Helpers
             CreateMap<EventCarReadModel,DropdownDto>()
                 .ForMember(destinationMember => destinationMember.Value,
                     memberOptions=>memberOptions.MapFrom(src=>src.CarName));
+            CreateMap<TrackReadModel, DropdownDto>()
+                .ForMember(destinationMember => destinationMember.Value,
+                    memberOptions => memberOptions.MapFrom(src => src.Name));
         }
 
     }

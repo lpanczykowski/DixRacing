@@ -2,11 +2,15 @@
   {
     "Id": 1,
     "Photo": "",
-    "Name": "monza_2020"
+    "GameName": "monza_2020",
+    "Name" : "Monza",
+    "GameId" : 1
   },
   {
+    "GameId" : 1,
     "Id": 2,
     "Photo": "",
-    "Name": "Silverstone"
+    "Name": "Silverstone",
+    "GameName" : "silverstone_2020"
   }
 ]

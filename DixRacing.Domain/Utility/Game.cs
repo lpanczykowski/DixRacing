@@ -1,4 +1,6 @@
 using DixRacing.Domain.SharedKernel;
+using DixRacing.Domain.Tracks;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DixRacing.Domain.Utility
@@ -7,5 +9,6 @@ namespace DixRacing.Domain.Utility
     {
         public string Name { get; set; }
         public byte[] Photo { get; set; }
+        public ICollection<Track> Tracks { get; set; } 
     }
 }

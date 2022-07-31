@@ -1,6 +1,7 @@
 using DixRacing.Domain.Events;
 using DixRacing.Domain.Races;
 using DixRacing.Domain.SharedKernel;
+using DixRacing.Domain.Tracks;
 using DixRacing.Domain.Utility;
 using System;
 using System.Collections.Generic;

@@ -3,12 +3,9 @@ using API.Features.Dropdowns.Queries.Cars;
 using API.Features.Dropdowns.Queries.Games;
 using API.Features.Dropdowns.Queries.Participants;
 using API.Features.Dropdowns.Queries.Teams;
-using API.Features.EventParticipants.Queries.Participants;
+using API.Features.Dropdowns.Queries.Tracks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -34,5 +31,9 @@ namespace API.Controllers
          [HttpGet("cars")]
          public Task<ActionResult<GetDropdownResponse>> GetDropdownCars([FromQuery] int eventId)
             => SendAsync(new GetDropdownCarsRequest(eventId));
+
+         [HttpGet("tracks")]
+         public Task<ActionResult<GetDropdownResponse>> GetDropdownTracks([FromQuery] int gameId)
+             => SendAsync(new GetDropdownTracksRequest(gameId));
     }
 }
