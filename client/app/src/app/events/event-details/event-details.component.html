@@ -119,27 +119,3 @@
     </div>
   </div>
 </div>
-<p-button *ngIf="accountService.currentUser$ | async"
-  class="bottom-right add-button"
-  (click)="showRoundCreator()"
-  icon="pi pi-plus"
-  label="Dodaj rundę"
-></p-button>
-<p-dialog
-  header="Dodaj kolejną rundę"
-  [(visible)]="displayBasic"
-  [style]="{ width: '50vw', height: '30vh' }"
-  [contentStyle]="{ overflow: 'visible' }"
-  [draggable]="false"
-  [resizable]="false"
->
-  <app-event-round-creator></app-event-round-creator>
-  <ng-template pTemplate="footer">
-    <p-button
-      icon="pi pi-check"
-      (click)="displayBasic = false"
-      label="Ok"
-      styleClass="p-button-text"
-    ></p-button>
-  </ng-template>
-</p-dialog>

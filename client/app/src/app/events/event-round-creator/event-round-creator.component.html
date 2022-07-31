@@ -1,2 +1,35 @@
-<app-race-creator></app-race-creator>
+<div class="formgroup-inline">
+  <div class="field">
+      <label for="servername" class="p-sr-only">Nazwa serwera</label>
+      <input id="servername" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary" placeholder="Nazwa serwera">
+  </div>
+  <div class="field">
+      <label for="serverpassword" class="p-sr-only">Hasło do serwera</label>
+      <input id="serverpassword" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary" placeholder="Hasło do serwera">
+  </div>
+  <div class="field">
+    <label for="raceDate" class="p-sr-only">Data rundy</label>
+    <p-calendar  [showTime]="false" [showSeconds]="false"
+      inputId="raceDate" name="raceDate" placeholder="Data rundy">
+    </p-calendar>
+</div>
+<div class="field">
+  <app-dropdown id="platforma" [endpoint]="'tracks'" (selectedValueEmitter)="selectTrack($event)" [queryParams]="queryParams"></app-dropdown>
+</div>
+</div>
+<button pButton icon="pi pi-plus" class="m-2" (click)="addRace()"></button>
+<p-accordion id="racesAccordion" [multiple]="true" style="width:100%">
+<div *ngFor="let race of round.races" class="border-white">
+  <div class="flex flex-wrap md:justify-content-between justify-content-center card-container">
+    <div class="border-500 border-3 border-round font-bold m-2 flex align-items-center justify-content-center p-2">
+      <p-accordionTab header="Wyścig {{round.races.indexOf(race) + 1}}">
+      <ng-template pTemplate="header">
+        <button pButton icon="pi pi-trash" class="p-button-danger m-2" (click)="deleteRace(race)"></button>
+      </ng-template>
+        <app-race-creator [race] = "race"></app-race-creator>
+      </p-accordionTab>
+    </div>
+</div>
+</div>
+</p-accordion>
 

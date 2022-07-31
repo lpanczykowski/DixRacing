@@ -1,20 +1,38 @@
 <form #eventCreatorForm="ngForm" (ngSubmit)="createEvent()" autocomplete="off" class="form-group">
 
-<span class="p-float-label">
-    <input id="eventName" type="text" pInputText [(ngModel)]="model.name" name="eventName">
+  <h5>Event</h5>
+  <div class="field">
     <label for="eventName">Nazwa eventu</label>
-</span>
+    <input id="eventName" pInputText [(ngModel)]="model.name" class="text-base text-color p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"  [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="field">
+      <label for="platforma">Platforma</label>
+      <app-dropdown id="platforma" [endpoint]="'games'" (selectedValueEmitter)="selectGame($event)" ></app-dropdown>
+  </div>
+  <div class="field">
+    <label for="eventPhoto">Grafika eventu</label>
+    <app-img-upload  id="eventPhoto" class="text-base text-color p-2 surface-border border-round appearance-none outline-none focus:border-primary w-full" (imageUploadEmitter)="uploadImage($event)"> </app-img-upload>
+</div>
+<label class ="m-2">Rundy ({{model.rounds.length}})</label>
+<p-accordion id="roundAccordion" [multiple]="true" st>
+  <button pButton icon="pi pi-plus" class="m-2" (click)="addRound()" *ngIf="model.gameId"></button>
+  <div *ngFor="let round of model.rounds" class="border-white">
+    <div class="flex flex-wrap md:justify-content-between justify-content-center card-container">
+      <div class="border-500 border-3 border-round font-bold m-2 flex align-items-center justify-content-center p-2">
+        <p-accordionTab header="Runda {{model.rounds.indexOf(round) + 1}}">
+        <ng-template pTemplate="header">
+          <button pButton icon="pi pi-trash" class="p-button-danger m-2" (click)="deleteRound(round)"></button>
+
+        </ng-template>
+         <app-event-round-creator [gameEvent]="model" [round]="round"></app-event-round-creator>
+        </p-accordionTab>
+      </div>
+  </div>
+  </div>
+</p-accordion>
 
 <span class="p-float-label">
-  <app-dropdown [endpoint]="'games'" (selectedValueEmitter)="selectGame($event)"></app-dropdown>
+<p-button label="Utwórz" type="submit" (click)="save()"></p-button>
 </span>
-
-<span class="p-float-label mb-2">
-  <input id="eventPhoto" type="text" pInputText [(ngModel)]="model.photo" name="eventPhoto">
-  <label for="eventPhoto">Link do grafiki eventu</label>
-  <!-- TODO: plik z grafiką zamiast linku -->
-</span>
-
-<p-button label="Dodaj" type="submit"></p-button>
-
 </form>
+<p-confirmDialog header="Usuń" icon="pi pi-exclamation-triangle"></p-confirmDialog>

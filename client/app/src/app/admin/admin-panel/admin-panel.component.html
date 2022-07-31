@@ -2,21 +2,20 @@
   <div class="row">
     <div class="col-12 event-details-box">
       <br />
-      <div class="row text-center">
         <p-tabView>
           <p-tabPanel>
             <ng-template pTemplate="header">
               <i class="fa-solid fa-info p-2"></i> Kreator eventu
             </ng-template>
+            <app-admin-event-creator></app-admin-event-creator>
           </p-tabPanel>
           <p-tabPanel>
             <ng-template pTemplate="header">
               <i class="fa-solid fa-sheet-plastic p-2"></i>Eventy
             </ng-template>
-            <app-admin-event-list></app-admin-event-list>
+              <app-event-list></app-event-list>
           </p-tabPanel>
         </p-tabView>
       </div>
     </div>
   </div>
-</div>

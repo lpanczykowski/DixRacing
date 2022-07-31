@@ -62,15 +62,6 @@ export class EventService {
     );
   }
 
-  // TODO: zmienić team na id i nazwę
-  // addNewTeam(eventId: number, newTeamName: string) {
-  //   return this.http.post(
-  //     this.baseUrl + 'addNewTeam/' + eventId,
-  //     JSON.stringify(newTeamName),
-  //     httpOptions
-  //   );
-  // }
-
   createEvent(eventCreateDto: EventCreateDto) {
     return this.http.post(
       this.baseUrl + 'event',

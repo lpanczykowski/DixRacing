@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventWithActiveRound } from 'app/_models/eventWithActiveRound';
+import { EventWithActiveRounds } from 'app/_models/eventWithActiveRound';
+import { Round } from 'app/_models/round';
 
 @Component({
   selector: 'app-event-box',
@@ -7,14 +8,18 @@ import { EventWithActiveRound } from 'app/_models/eventWithActiveRound';
   styleUrls: ['./event-box.component.css']
 })
 export class EventBoxComponent implements OnInit {
-  @Input() raceEvent: EventWithActiveRound;
+  @Input() raceEvent: EventWithActiveRounds;
+  activeRound : Round;
   today: number = Date.now();
+  indexOfActiveRound : number;
 
   constructor() {
     setInterval(() => {this.today = Date.now()}, 1);
 }
 
   ngOnInit(): void {
+    this.activeRound = this.raceEvent.rounds.filter(x=>x.isActive)[0];
+    this.indexOfActiveRound = this.raceEvent.rounds.indexOf(this.activeRound) +1;
   }
 
   calculateDiff(){

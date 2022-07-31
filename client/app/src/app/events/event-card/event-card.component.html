@@ -2,15 +2,13 @@
     <div class="p-fluid grid formgrid">
       <div class="field col-4">
         <label for="nameInput">Nazwa eventu</label>
-        <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{raceEvent.eventName}}"
-          [(ngModel)]="raceEvent.eventName" name="nameInput" required #name="ngModel"
+        <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{raceEvent.name}}"
+          [(ngModel)]="raceEvent.name" name="nameInput" required #name="ngModel"
           [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
       </div>
       <div class="field col-4">
-        <label for="nameInput">Grafika</label>
-        <input id="nameInput" type="text" pInputText [disabled]="disabled" placeholder="{{raceEvent.photo}}"
-          [(ngModel)]="raceEvent.photo" name="nameInput" required #name="ngModel"
-          [ngClass]="{'ng-invalid ng-dirty': name.invalid && (name.dirty || name.touched)}">
+        <label for="imgInput">Grafika</label>
+        <img  id="imgInput" src="data:image/jpg;base64,{{raceEvent.photo}}" width="300" height="150" alt ="" >
       </div>
     </div>
     <br />

@@ -23,6 +23,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 import {ToastModule} from 'primeng/toast';
 import {AvatarModule} from 'primeng/avatar';
 import { DropdownModule } from 'primeng/dropdown';
+import {FieldsetModule} from 'primeng/fieldset';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 @NgModule({
   imports: [
@@ -46,6 +48,8 @@ import { DropdownModule } from 'primeng/dropdown';
     ToastModule,
     AvatarModule,
     DropdownModule,
+    FileUploadModule,
+    FieldsetModule
 
   ],
   exports: [
@@ -72,6 +76,8 @@ import { DropdownModule } from 'primeng/dropdown';
     ToastModule,
     AvatarModule,
     DropdownModule,
+    FieldsetModule
+
 
   ],
 })

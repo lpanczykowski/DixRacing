@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventResult } from 'app/_models/eventResult';
-import { Events, EventWithActiveRound } from 'app/_models/eventWithActiveRound';
+import { Events, EventWithActiveRounds } from 'app/_models/eventWithActiveRound';
 import { EventService } from 'app/_services/event.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { EventService } from 'app/_services/event.service';
   styleUrls: ['./event-card.component.css']
 })
 export class EventCardComponent implements OnInit {
-  @Input() raceEvent: EventWithActiveRound;
+  @Input() raceEvent: EventWithActiveRounds;
   disabled : boolean = false;
 
 

@@ -1,11 +1,9 @@
-<a style="text-decoration: none;" href="/event/{{raceEvent.eventId}}" class="col-12">
+<a style="text-decoration: none;" href="/event/{{raceEvent.id}}" class="col-12">
 <div class="col-12  event-box " style="background-image: url(data:image/jpg;base64,{{raceEvent.photo}}); background-size: cover;">
   <div class="container event-box-info">
     <h2>{{ raceEvent.name }}</h2>
-    <h4>Runda {{ raceEvent.roundId }}/{{ raceEvent.amountOfRounds }}</h4>
-    <h4>Preq aktywne</h4>
-    <h4>Preq zakończone</h4>
-    <!-- <h6>Następna runda: {{raceEvent.activeRound?.roundDay | date:'short':'UTC'}}</h6> -->
+    <h4>Runda {{ indexOfActiveRound }}/{{ raceEvent.rounds.length }}</h4>
+    <h4>Następna runda: {{activeRound.roundDay | date:'medium':'UTC'}}</h4>
   </div>
 </div>
 </a>

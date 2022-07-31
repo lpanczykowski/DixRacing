@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RaceCreateDto } from 'app/_models/raceCreateDto';
+import { Round } from 'app/_models/round';
 import { RoundService } from 'app/_services/round.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RoundService } from 'app/_services/round.service';
   styleUrls: ['./race-creator.component.css']
 })
 export class RaceCreatorComponent implements OnInit {
-  model:RaceCreateDto=new RaceCreateDto;
+  @Input() race : RaceCreateDto;
   eventId:number;
   constructor(private route:ActivatedRoute, private roundService:RoundService) { }
 
@@ -18,6 +19,6 @@ export class RaceCreatorComponent implements OnInit {
   }
 
   createRace(){
-    this.roundService.createRace(this.eventId,this.model);
+    this.roundService.createRace(this.eventId,this.race);
   }
 }

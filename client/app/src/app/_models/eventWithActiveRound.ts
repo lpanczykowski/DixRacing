@@ -1,13 +1,14 @@
- export interface EventWithActiveRound {
-      eventId: number;
+import { Round } from "./round";
+
+ export interface EventWithActiveRounds {
+      id: number;
       name: string;
-      amountOfRounds: number;
-      roundDay: Date;
-      roundId: number;
       photo: string;
+      rounds : Round[]
+
   }
 
   export interface Events {
-      events: EventWithActiveRound[];
+      events: EventWithActiveRounds[];
   }
 

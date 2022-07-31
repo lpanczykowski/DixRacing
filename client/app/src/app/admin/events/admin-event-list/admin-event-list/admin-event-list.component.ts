@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Events, EventWithActiveRound } from 'app/_models/eventWithActiveRound';
+import { Events, EventWithActiveRounds } from 'app/_models/eventWithActiveRound';
 import { EventService } from 'app/_services/event.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { EventService } from 'app/_services/event.service';
 })
 export class AdminEventListComponent implements OnInit {
 
-  events: EventWithActiveRound[];
+  events: EventWithActiveRounds[];
 
   constructor(private eventService: EventService) { }
 

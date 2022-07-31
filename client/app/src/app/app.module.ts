@@ -60,6 +60,10 @@ import { AdminEventDetailsComponent } from './admin/events/admin-event-list/admi
 import { AdminEventListComponent } from './admin/events/admin-event-list/admin-event-list/admin-event-list.component';
 import { PenaltySolveFormComponent } from './forms/penalty-solve-form/penalty-solve-form.component';
 import { BreadcrumbModule} from 'primeng/breadcrumb';
+import { AdminEventCreatorComponent } from './admin/events/admin-event-creator/admin-event-creator.component';
+import { ImageUploadComponent } from './_modules/shared/img-upload/img-upload.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 
 @NgModule({
@@ -108,6 +112,8 @@ import { BreadcrumbModule} from 'primeng/breadcrumb';
     AdminEventDetailsComponent,
     AdminEventListComponent,
     PenaltySolveFormComponent,
+    AdminEventCreatorComponent,
+    ImageUploadComponent
   ],
   imports: [
     FormsModule,
@@ -125,11 +131,13 @@ import { BreadcrumbModule} from 'primeng/breadcrumb';
     PasswordModule,
     ToggleButtonModule,
     AngularEditorModule,
+    ConfirmDialogModule,
     BreadcrumbModule,
   ],
 
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    [ConfirmationService]
   ],
   bootstrap: [AppComponent],
 })

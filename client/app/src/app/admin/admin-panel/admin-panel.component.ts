@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Events } from 'app/_models/eventWithActiveRound';
+import { EventService } from 'app/_services/event.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+  events: Events
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
+
   }
 
 }

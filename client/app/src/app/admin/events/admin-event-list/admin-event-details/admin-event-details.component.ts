@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventWithActiveRound } from 'app/_models/eventWithActiveRound';
+import { EventWithActiveRounds } from 'app/_models/eventWithActiveRound';
 
 @Component({
   selector: 'app-admin-event-details',
@@ -7,7 +7,7 @@ import { EventWithActiveRound } from 'app/_models/eventWithActiveRound';
   styleUrls: ['./admin-event-details.component.css']
 })
 export class AdminEventDetailsComponent implements OnInit {
-  @Input() event : EventWithActiveRound
+  @Input() event : EventWithActiveRounds
   constructor() { }
 
   ngOnInit(): void {
