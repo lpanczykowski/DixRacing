@@ -1,0 +1,17 @@
+<form>
+  <div class="form-group">
+      <fieldset class="form-group">
+          <div class="custom-file fileInputProfileWrap">
+              <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+              <div class="img-space">
+                  <ng-container *ngIf="isImageSaved; else elseTemplate">
+                      <img [src]="cardImageBase64" width="600" height="200" />
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                  </ng-template>
+              </div>
+          </div>
+      </fieldset>
+  </div>
+  <button pButton icon="pi pi-trash" class="p-button-danger m-2"  (click)="removeImage()" *ngIf="isImageSaved"></button>
+</form>
